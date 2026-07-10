@@ -1,0 +1,204 @@
+/* =========================================================
+   ART Mechatronics — Live System "control room" scene
+   A dark, cinematic stage card sitting on the light page.
+   ========================================================= */
+
+:root {
+  --stage-0:   #0A0F1A;   /* deepest bg */
+  --stage-1:   #131A28;   /* mid bg */
+  --stage-2:   #1B2434;   /* raised surfaces */
+  --edge:      #3A4455;
+  --edge-hi:   #8FA0B5;
+  --stage-ink: #D7E2F0;
+  --stage-dim: #8494AA;
+
+  --flow-powder: #2FBF71;
+  --flow-air:    #38A3F1;
+  --flow-dust:   #A06CE4;
+  --flow-signal: #F5A524;
+  --art-blue:    #2E86E6;
+}
+
+/* ---------- the stage ---------- */
+.scene-stage {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  padding: 0;
+  background:
+    radial-gradient(120% 90% at 22% 8%, #1E2A3D 0%, transparent 58%),
+    radial-gradient(90% 80% at 88% 92%, #16202F 0%, transparent 60%),
+    linear-gradient(168deg, var(--stage-1) 0%, var(--stage-0) 100%);
+  border: 1px solid #232D3E;
+  box-shadow:
+    0 30px 70px -24px rgba(5, 10, 20, .75),
+    inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+/* faint engineering grid + vignette */
+.scene-stage::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(143,160,181,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143,160,181,.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(85% 75% at 50% 45%, #000 40%, transparent 100%);
+}
+.scene-stage::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
+  background: radial-gradient(135% 115% at 50% 45%, transparent 70%, rgba(4,8,16,.34) 100%);
+}
+
+.scene-stage svg.scene { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
+
+/* ---------- pipes & flow ---------- */
+.pipe {
+  fill: none;
+  stroke: #5B6A82;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pipe-core {           /* inner bore, sells the tube */
+  fill: none;
+  stroke: #2B364A;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* the flowing material: a soft glow layer + a bright core, both dashed & marching */
+.flow, .flow-glow {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 16 30;
+  animation: march 1.15s linear infinite;
+}
+.flow      { stroke-width: 3.2; opacity: .95; }
+.flow-glow { stroke-width: 9;   opacity: .30; filter: blur(4px); }
+
+.flow.powder, .flow-glow.powder { stroke: var(--flow-powder); }
+.flow.air,    .flow-glow.air    { stroke: var(--flow-air);   animation-duration: .85s; }
+.flow.dust,   .flow-glow.dust   { stroke: var(--flow-dust);  animation-duration: 1.7s; stroke-dasharray: 8 34; }
+
+@keyframes march { to { stroke-dashoffset: -46; } }
+
+/* control signal: dashed amber, slower, no glow */
+.signal {
+  fill: none; stroke: var(--flow-signal); stroke-width: 1.6;
+  stroke-dasharray: 5 7; opacity: .55;
+  animation: march 2.6s linear infinite;
+}
+
+/* everything freezes when the line is paused */
+.scene-stage:not(.running) .flow,
+.scene-stage:not(.running) .flow-glow,
+.scene-stage:not(.running) .signal,
+.scene-stage:not(.running) .rotor,
+.scene-stage:not(.running) .screw,
+.scene-stage:not(.running) .shaker,
+.scene-stage:not(.running) .pulse,
+.scene-stage:not(.running) .led { animation-play-state: paused; }
+
+/* ---------- machine behaviours ---------- */
+.rotor  { animation: spin 1.6s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* a side-on helix reads as rotating when it travels exactly one pitch (48u) */
+.screw  { animation: screw 1.05s linear infinite; }
+@keyframes screw { to { transform: translateX(48px); } }
+
+.shaker { animation: shake .09s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes shake {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(.7px, -.6px); }
+  50%  { transform: translate(0, .7px); }
+  75%  { transform: translate(-.7px, -.4px); }
+  100% { transform: translate(0, 0); }
+}
+
+.pulse  { animation: jet 2.4s ease-in-out infinite; }
+@keyframes jet { 0%, 82%, 100% { opacity: .55; } 88% { opacity: 1; } }
+
+.led    { animation: blink 2.6s ease-in-out infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 55% { opacity: .35; } }
+
+/* powder level inside vessels — the rect spans the full inner vessel and is
+   clipped to its shape; JS scales it from the bottom (0 = empty, 1 = full) */
+.fill-level {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transform: scaleY(0);
+  transition: transform .55s var(--ease);
+  will-change: transform;
+}
+
+/* ---------- machine nodes & labels ---------- */
+.mnode { cursor: default; }
+.mnode.clickable { cursor: pointer; }
+/* a soft spotlight behind the active machine — never a hard selection box */
+.mnode .halo {
+  fill: var(--art-blue); stroke: none;
+  opacity: 0; transition: opacity .4s var(--ease);
+  filter: blur(18px);
+}
+.mnode.active .halo { opacity: .30; }
+.mnode.clickable:hover .halo { opacity: .17; }
+.mnode.clickable:focus-visible .halo { opacity: .24; }
+.mnode.clickable:focus-visible { outline: none; }
+
+/* dim the machines that aren't the active stage (gently — they must stay legible) */
+.mnode .art { transition: opacity .4s var(--ease); }
+.scene-stage.focusing .mnode .art { opacity: .80; }
+.scene-stage.focusing .mnode.active .art { opacity: 1; }
+
+/* sized in viewBox units: the scene scales to ~0.58×, so 18u ≈ 10.5px on screen */
+.mlabel {
+  font: 700 18px/1 var(--font, system-ui, sans-serif);
+  fill: var(--stage-ink);
+  letter-spacing: .02em;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(6,11,20,.9);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.msub {
+  font: 500 12.5px/1 var(--font, system-ui, sans-serif);
+  fill: var(--stage-dim); text-anchor: middle;
+  paint-order: stroke; stroke: rgba(6,11,20,.9); stroke-width: 3px; stroke-linejoin: round;
+}
+.mnode.active .mlabel { fill: #fff; }
+
+/* ---------- glass HMI readout overlaid on the panel ---------- */
+.hmi-live { font: 700 10.5px/1 var(--font, system-ui, sans-serif); fill: #7FE3AC; letter-spacing: .02em; }
+.hmi-dim  { font: 600 7.2px/1 var(--font, system-ui, sans-serif);  fill: #6B819A; letter-spacing: .08em; }
+
+/* ---------- legend / controls on the dark stage ---------- */
+.scene-legend {
+  position: absolute; z-index: 4; right: 1rem; bottom: 1rem;
+  display: flex; flex-wrap: wrap; gap: .35rem .9rem; max-width: 44%;
+  padding: .6rem .85rem;
+  background: rgba(12, 18, 30, .72);
+  border: 1px solid rgba(143,160,181,.16);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+.scene-legend span { display: inline-flex; align-items: center; gap: .4rem; font-size: .68rem; font-weight: 600; color: var(--stage-dim); letter-spacing: .03em; }
+.scene-legend i { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 8px currentColor; background: currentColor; }
+
+/* subtitle bar sits above the legend on the dark stage */
+.scene-stage .narr-caption { bottom: 4.6rem; }
+
+@media (max-width: 700px) {
+  .scene-legend { position: static; margin: .75rem; backdrop-filter: none; }
+  .scene-stage .narr-caption { bottom: 1rem; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .flow, .flow-glow, .signal, .rotor, .screw, .shaker, .pulse, .led { animation: none; }
+  .flow, .flow-glow { stroke-dasharray: none; opacity: .55; }
+  .fill-level { transition: none; }
+  .scene-stage.focusing .mnode .art { opacity: 1; }
+}

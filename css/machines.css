@@ -1,0 +1,23 @@
+/* ===== Machines index ===== */
+.mi-hero { background: linear-gradient(160deg,var(--navy),var(--navy-2)); color:#dbe7f7; padding: var(--s-8) 0 var(--s-6); }
+.mi-hero h1 { color:#fff; max-width: 18ch; }
+.mi-hero .lead { color:#c2d3ea; }
+.mi-hero .btn { margin-top: 1.2rem; }
+
+.mi-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:1.4rem; }
+.mcard { display:flex; flex-direction:column; }
+.mcard__img { position:relative; aspect-ratio: 4 / 3; background:var(--mist); overflow:hidden; }
+.mcard__img img { width:100%; height:100%; object-fit:cover; transition: transform .5s var(--ease); }
+.mcard:hover .mcard__img img { transform: scale(1.05); }
+.mcard__no {
+  position:absolute; top:.7rem; left:.7rem; z-index:2; background:rgba(11,44,94,.85); color:#fff;
+  font-weight:800; font-size:.8rem; letter-spacing:.05em; padding:.3rem .6rem; border-radius:8px; backdrop-filter: blur(4px);
+}
+.mcard__body { padding:1.2rem 1.2rem 1.3rem; display:flex; flex-direction:column; flex:1; }
+.mcard__body h3 { margin:0 0 .25rem; font-size:1.18rem; }
+.mcard__tag { color:var(--blue); font-size:.82rem; font-weight:700; margin-bottom:.7rem; }
+.mcard__specs { list-style:none; margin:0 0 1.1rem; padding:0; display:grid; gap:.35rem; }
+.mcard__specs li { display:flex; justify-content:space-between; gap:1rem; font-size:.85rem; border-bottom:1px dashed var(--line); padding-bottom:.35rem; }
+.mcard__specs .k { color:var(--steel); } .mcard__specs .v { color:var(--ink); font-weight:700; text-align:right; }
+.mcard__actions { margin-top:auto; display:flex; gap:.5rem; flex-wrap:wrap; }
+.mcard__actions .btn { padding:.6rem 1rem; font-size:.88rem; }

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 78" role="img" aria-label="ART Mechatronics">
+  <defs>
+    <linearGradient id="artBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E86E6"/>
+      <stop offset="0.5" stop-color="#1657B0"/>
+      <stop offset="1" stop-color="#0B2C5E"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="50" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="56" letter-spacing="-1" fill="url(#artBlue)">ÄRT</text>
+  <rect x="2" y="58" width="150" height="3" rx="1.5" fill="url(#artBlue)"/>
+  <text x="3" y="74" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="600" font-size="15.5" letter-spacing="5.5" fill="#1657B0">mechatronics</text>
+</svg>
