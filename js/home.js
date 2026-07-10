@@ -41,6 +41,21 @@
   const cta = document.getElementById("ctaWa");
   if (cta) cta.href = ART.helper.wa("Automatic Powder Processing Line");
 
+  // hero video: poster + click-to-play (muted loop once started)
+  const hv = document.getElementById("heroVideo");
+  const hp = document.getElementById("heroPlay");
+  if (hv && hp) {
+    const shell = hv.closest(".hero-visual--video");
+    const toggle = () => {
+      if (hv.paused) { hv.play().catch(() => {}); shell.classList.add("playing"); }
+      else { hv.pause(); shell.classList.remove("playing"); }
+    };
+    hp.addEventListener("click", toggle);
+    hv.addEventListener("click", toggle);
+    hv.addEventListener("pause", () => shell.classList.remove("playing"));
+    hv.addEventListener("play",  () => shell.classList.add("playing"));
+  }
+
   // reveal for injected cards
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.1 });

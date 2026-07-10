@@ -6,9 +6,9 @@
   <title>ART Mechatronics — Industrial Process &amp; Packaging Automation</title>
   <meta name="description" content="ART Mechatronics designs, manufactures and integrates turnkey automatic powder processing & packaging lines — batching, weighing, mixing, sieving and dust-free collection under one PLC. India · UAE · Thailand.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/tokens.css?v=20260710a">
-  <link rel="stylesheet" href="css/base.css?v=20260710a">
-  <link rel="stylesheet" href="css/home.css?v=20260710a">
+  <link rel="stylesheet" href="css/tokens.css?v=20260710b">
+  <link rel="stylesheet" href="css/base.css?v=20260710b">
+  <link rel="stylesheet" href="css/home.css?v=20260710b">
 </head>
 <body data-page="home">
   <div data-header></div>
@@ -29,10 +29,16 @@
           <div class="home-hero__presence">Global presence — <b id="heroPresence"></b></div>
         </div>
         <div>
-          <a class="hero-visual" href="system.html" aria-label="Watch the live system demo">
-            <img src="assets/machines/system.jpg" alt="ART automatic powder batching, mixing and sieving line">
-            <span class="hero-visual__tag"><span class="live"></span> Live interactive demo</span>
-          </a>
+          <div class="hero-visual hero-visual--video">
+            <video id="heroVideo" poster="assets/video/hero-poster.jpg" muted loop playsinline preload="none"
+                   aria-label="The ART automatic powder line running — silos, buffer tank, ribbon mixer, sifter and dust collector">
+              <source src="assets/video/hero.mp4" type="video/mp4">
+            </video>
+            <button class="hero-play" id="heroPlay" aria-label="Play the line running">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+            </button>
+            <a class="hero-visual__tag" href="system.html"><span class="live"></span> Open the live interactive demo →</a>
+          </div>
         </div>
       </div>
 
@@ -157,8 +163,8 @@
 
   <div data-footer></div>
 
-  <script src="js/data.js?v=20260710a"></script>
-  <script src="js/layout.js?v=20260710a"></script>
-  <script src="js/home.js?v=20260710a"></script>
+  <script src="js/data.js?v=20260710b"></script>
+  <script src="js/layout.js?v=20260710b"></script>
+  <script src="js/home.js?v=20260710b"></script>
 </body>
 </html>
