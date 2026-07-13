@@ -3,31 +3,35 @@
    Include AFTER data.js on every page:
      <div data-header></div> ... <div data-footer></div>
    Set <body data-page="home"> to mark the active nav item.
+   Set <body data-base="../"> on pages in a subfolder (industries/, products/)
+   so all header/footer links & assets resolve correctly.
    ============================================================ */
 (function () {
   const B = ART.brand;
   const page = document.body.dataset.page || "";
+  const BASE = document.body.dataset.base || "";        // "" at root, "../" in subfolders
   const wa = ART.helper.wa();
 
   const NAV = [
-    ["home",    "Home",          "index.html"],
-    ["system",  "Live System",   "system.html"],
-    ["panel",   "Control Panel", "control-panel.html"],
-    ["machines","Machines",      "machines.html"],
-    ["about",   "About",         "about.html"],
-    ["contact", "Contact",       "contact.html"],
+    ["home",      "Home",          "index.html"],
+    ["industries","Industries",    "industries.html"],
+    ["catalog",   "Catalogue",     "catalog.html"],
+    ["machines",  "Flagship Line", "machines.html"],
+    ["system",    "Live System",   "system.html"],
+    ["about",     "About",         "about.html"],
+    ["contact",   "Contact",       "contact.html"],
   ];
 
   const navLinks = NAV.map(([id, label, href]) =>
-    `<a href="${href}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`
+    `<a href="${BASE}${href}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`
   ).join("");
 
   /* ---------- HEADER ---------- */
   const headerHTML = `
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="index.html" aria-label="${B.name} home">
-        <img src="assets/logo.svg" alt="${B.name}" width="150" height="51">
+      <a class="brand" href="${BASE}index.html" aria-label="${B.name} home">
+        <img src="${BASE}assets/logo.svg" alt="${B.name}" width="150" height="51">
       </a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
@@ -36,21 +40,21 @@
       </button>
       <nav class="nav" id="primary-nav">
         ${navLinks}
-        <a class="btn btn--primary" href="contact.html">Get a Quote</a>
+        <a class="btn btn--primary" href="${BASE}contact.html">Get a Quote</a>
       </nav>
     </div>
   </header>`;
 
   /* ---------- FOOTER ---------- */
   const machineLinks = ART.machines
-    .map(m => `<li><a href="machine.html?id=${m.id}">${m.name}</a></li>`).join("");
+    .map(m => `<li><a href="${BASE}machine.html?id=${m.id}">${m.name}</a></li>`).join("");
 
   const footerHTML = `
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-col">
-          <img src="assets/logo-white.svg" alt="${B.name}">
+          <img src="${BASE}assets/logo-white.svg" alt="${B.name}">
           <p style="color:#9fb4d4;max-width:34ch">${B.tagline}. Turnkey industrial process &amp; packaging automation — designed, manufactured and integrated in-house.</p>
           <div class="footer-flags">${B.presence.map(c => `<span>${c}</span>`).join('<span aria-hidden="true">·</span>')}</div>
         </div>
@@ -61,11 +65,12 @@
         <div class="footer-col">
           <h2>Explore</h2>
           <ul>
-            <li><a href="system.html">Live System Demo</a></li>
-            <li><a href="control-panel.html">Virtual Control Panel</a></li>
-            <li><a href="machines.html">All Machines</a></li>
-            <li><a href="about.html">About ART</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="${BASE}industries.html">Industries we serve</a></li>
+            <li><a href="${BASE}catalog.html">Machine catalogue</a></li>
+            <li><a href="${BASE}system.html">Live System Demo</a></li>
+            <li><a href="${BASE}control-panel.html">Virtual Control Panel</a></li>
+            <li><a href="${BASE}about.html">About ART</a></li>
+            <li><a href="${BASE}contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -111,6 +116,23 @@
       }
     });
   }
+
+  /* ---------- quote form → WhatsApp composer (backend-free) ---------- */
+  document.querySelectorAll("form[data-quote]").forEach(f => {
+    f.addEventListener("submit", e => {
+      e.preventDefault();
+      const machine = f.dataset.machine || "your requirement";
+      const fd = new FormData(f);
+      const nm = (fd.get("name") || "").toString().trim();
+      const co = (fd.get("company") || "").toString().trim();
+      const rq = (fd.get("req") || "").toString().trim();
+      let msg = `Hi ART Mechatronics, I'd like a quote for the ${machine}.`;
+      if (nm) msg += `\nName: ${nm}`;
+      if (co) msg += `\nCompany: ${co}`;
+      if (rq) msg += `\nRequirement: ${rq}`;
+      window.open("https://wa.me/" + B.phoneDial + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+    });
+  });
 
   /* ---------- reveal on scroll ---------- */
   const reveals = document.querySelectorAll(".reveal");

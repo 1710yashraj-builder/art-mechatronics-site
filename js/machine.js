@@ -15,6 +15,19 @@
   const meta = document.getElementById("metaDesc");
   if (meta) meta.setAttribute("content", m.summary);
 
+  // 3 flagship machines also have a static catalogue page — declare it canonical
+  // so Google consolidates ranking signal onto one URL (no duplicate content).
+  const CATALOG_CANON = {
+    "ribbon-mixer": "products/ribbon-mixer.html",
+    "vibro-sifter": "products/vibro.html",
+    "dust-collector": "products/dust-collector-machine.html",
+  };
+  if (CATALOG_CANON[m.id]) {
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement("link"); link.rel = "canonical"; document.head.appendChild(link); }
+    link.href = "https://1710yashraj-builder.github.io/art-mechatronics-site/" + CATALOG_CANON[m.id];
+  }
+
   const gallery = (m.gallery && m.gallery.length ? m.gallery : [m.image]);
   const thumbs = gallery.length > 1
     ? `<div class="md-thumbs">${gallery.map((g, i) =>
