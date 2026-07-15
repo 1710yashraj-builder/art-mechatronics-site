@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Powder Processing System Demo | ART Mechatronics</title>
+  <meta name="description" content="Watch the ART Mechatronics automatic powder batching, weighing, mixing, sieving and collection line run stage by stage in your browser.">
+  <link rel="canonical" href="https://1710yashraj-builder.github.io/art-mechatronics-site/system.html">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tokens.css?v=20260714">
+  <link rel="stylesheet" href="css/base.css?v=20260714">
+  <link rel="stylesheet" href="css/system.css?v=20260713">
+  <link rel="stylesheet" href="css/scene.css?v=20260713">
+</head>
+<body data-page="system">
+  <div data-header></div>
+
+  <main id="main">
+
+  <section class="sys-hero">
+    <div class="wrap">
+      <span class="eyebrow">Live system demo</span>
+      <h1 id="sysTitle">The complete automatic powder line, running live</h1>
+      <p class="lead">Press <strong>Play walkthrough</strong> for a narrated tour, or <strong>Start line</strong> to watch raw powder travel through pneumatic suction, silo filling, precision weighing, buffering, mixing, sieving and dust-contained collection under one PLC.</p>
+      <div class="sys-badges" id="sysBadges"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sys-stage">
+        <!-- Diagram -->
+        <div>
+          <div class="scene-stage running focusing" id="diagramCard">
+            <svg class="scene" id="flow" viewBox="0 0 1180 862" role="img" aria-labelledby="flowTitle flowDesc">
+              <title id="flowTitle">ART automatic powder processing line</title>
+              <desc id="flowDesc">A control-room view of the running line: pneumatic suction feeds three storage silos, which dose into a load-cell buffer tank, then a ribbon mixer, a vibro sifter and a dust-free collection trolley, with a centralised dust collector and a PLC/HMI panel.</desc>
+            <defs>
+              <!-- ===== METAL & MATERIAL LIBRARY (key light: top-left) ===== -->
+            
+              <!-- vertical brushed steel: main vessel bodies -->
+              <linearGradient id="gSteel" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#F9FBFE"/>
+                <stop offset="14%"  stop-color="#DCE5F0"/>
+                <stop offset="38%"  stop-color="#B7C4D5"/>
+                <stop offset="66%"  stop-color="#8F9CB0"/>
+                <stop offset="88%"  stop-color="#717E92"/>
+                <stop offset="100%" stop-color="#626F83"/>
+              </linearGradient>
+            
+              <!-- horizontal steel, lit from the left: cylinders seen side-on -->
+              <linearGradient id="gSteelH" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#EEF4FB"/>
+                <stop offset="20%"  stop-color="#CBD6E3"/>
+                <stop offset="45%"  stop-color="#A7B4C6"/>
+                <stop offset="72%"  stop-color="#8492A5"/>
+                <stop offset="100%" stop-color="#687587"/>
+              </linearGradient>
+            
+              <!-- darker steel: undersides, recesses, shadowed faces -->
+              <linearGradient id="gSteelDark" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#8B99AB"/>
+                <stop offset="55%"  stop-color="#677386"/>
+                <stop offset="100%" stop-color="#505A6B"/>
+              </linearGradient>
+            
+              <!-- angled steel for conical hoppers -->
+              <linearGradient id="gHopper" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%"   stop-color="#E9F0F7"/>
+                <stop offset="30%"  stop-color="#C0CBDA"/>
+                <stop offset="65%"  stop-color="#8E9BAE"/>
+                <stop offset="100%" stop-color="#687587"/>
+              </linearGradient>
+            
+              <!-- ART-blue painted machinery: motors, gearboxes, drives -->
+              <linearGradient id="gMotor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#84BCF0"/>
+                <stop offset="22%"  stop-color="#559ADC"/>
+                <stop offset="58%"  stop-color="#3B79C0"/>
+                <stop offset="100%" stop-color="#2A5C97"/>
+              </linearGradient>
+            
+              <!-- dark glass: HMI screens, sight glasses -->
+              <linearGradient id="gGlass" x1="0" y1="0" x2="0.35" y2="1">
+                <stop offset="0%"   stop-color="#1E2A3E"/>
+                <stop offset="45%"  stop-color="#0F1725"/>
+                <stop offset="100%" stop-color="#0A0F1A"/>
+              </linearGradient>
+            
+              <!-- bright rim-light stroke for top/left lit edges -->
+              <linearGradient id="gRim" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%"   stop-color="#E6EEF8" stop-opacity=".95"/>
+                <stop offset="40%"  stop-color="#9FB0C4" stop-opacity=".50"/>
+                <stop offset="100%" stop-color="#4A5568" stop-opacity=".15"/>
+              </linearGradient>
+            
+              <!-- powder sitting inside vessels -->
+              <linearGradient id="gPowder" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#E8D9A0"/>
+                <stop offset="35%"  stop-color="#D3B95F"/>
+                <stop offset="100%" stop-color="#A8862A"/>
+              </linearGradient>
+            
+              <!-- soft contact shadow under machines -->
+              <radialGradient id="gFloorShadow" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0%"   stop-color="#000509" stop-opacity=".62"/>
+                <stop offset="100%" stop-color="#000509" stop-opacity="0"/>
+              </radialGradient>
+            
+              <!-- ===== FILTERS ===== -->
+              <filter id="fSoftShadow" x="-30%" y="-30%" width="170%" height="170%">
+                <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#050A12" flood-opacity=".55"/>
+              </filter>
+            
+              <filter id="fGlow" x="-160%" y="-160%" width="420%" height="420%">
+                <feGaussianBlur stdDeviation="2.2" result="b"/>
+                <feMerge>
+                  <feMergeNode in="b"/>
+                  <feMergeNode in="b"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            
+              <filter id="fInnerShade" x="-20%" y="-20%" width="140%" height="140%">
+                <feComponentTransfer in="SourceAlpha"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+                <feGaussianBlur stdDeviation="2.5"/>
+                <feOffset dx="0" dy="2" result="offsetblur"/>
+                <feFlood flood-color="#0A0F1A" flood-opacity="0.7"/>
+                <feComposite in2="offsetblur" operator="in"/>
+                <feComposite in2="SourceAlpha" operator="in"/>
+                <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode/></feMerge>
+              </filter>
+            </defs>
+              <g class="pipework">
+                <path class="pipe" d="M293 660 H330 Q346 660 346 644 V52 Q346 36 362 36 H760"/>
+                <path class="pipe" d="M511.2 36 V62"/>
+                <path class="pipe" d="M619.2 36 V62"/>
+                <path class="pipe" d="M727.2 36 V62"/>
+                <path class="pipe" d="M528 178.5 V214 H636 V253.4"/>
+                <path class="pipe" d="M636 178.5 V253.4"/>
+                <path class="pipe" d="M744 178.5 V214 H636 V253.4"/>
+                <path class="pipe" d="M636 353.2 V400 H580.8 V440.4"/>
+                <path class="pipe" d="M615.2 512 V536 H628 V559.2"/>
+                <path class="pipe" d="M628 662 V690 H636 V716.4"/>
+                <path class="pipe" d="M187 322 V286"/>
+                <path class="pipe" d="M240 700 H293"/>
+                <path class="pipe-core" d="M293 660 H330 Q346 660 346 644 V52 Q346 36 362 36 H760"/>
+                <path class="pipe-core" d="M511.2 36 V62"/>
+                <path class="pipe-core" d="M619.2 36 V62"/>
+                <path class="pipe-core" d="M727.2 36 V62"/>
+                <path class="pipe-core" d="M528 178.5 V214 H636 V253.4"/>
+                <path class="pipe-core" d="M636 178.5 V253.4"/>
+                <path class="pipe-core" d="M744 178.5 V214 H636 V253.4"/>
+                <path class="pipe-core" d="M636 353.2 V400 H580.8 V440.4"/>
+                <path class="pipe-core" d="M615.2 512 V536 H628 V559.2"/>
+                <path class="pipe-core" d="M628 662 V690 H636 V716.4"/>
+                <path class="pipe-core" d="M187 322 V286"/>
+                <path class="pipe-core" d="M240 700 H293"/>
+                <path class="pipe" style="stroke:#3B3350;stroke-width:5" d="M400 60 V560"/>
+                <path class="pipe" style="stroke:#3B3350;stroke-width:5" d="M400 396.5 H301"/>
+                <path class="pipe" style="stroke:#3B3350;stroke-width:5" d="M481.2 90 H400"/>
+                <path class="pipe" style="stroke:#3B3350;stroke-width:5" d="M558 268 H400"/>
+                <path class="pipe" style="stroke:#3B3350;stroke-width:5" d="M528 452 H400"/>
+                <path class="pipe" style="stroke:#3B3350;stroke-width:5" d="M564 580 H400"/>
+              </g>
+              <g class="flows">
+                <path class="flow-glow powder" d="M293 660 H330 Q346 660 346 644 V52 Q346 36 362 36 H760"/>
+                <path class="flow powder" d="M293 660 H330 Q346 660 346 644 V52 Q346 36 362 36 H760"/>
+                <path class="flow-glow powder" d="M511.2 36 V62"/>
+                <path class="flow powder" d="M511.2 36 V62"/>
+                <path class="flow-glow powder" d="M619.2 36 V62"/>
+                <path class="flow powder" d="M619.2 36 V62"/>
+                <path class="flow-glow powder" d="M727.2 36 V62"/>
+                <path class="flow powder" d="M727.2 36 V62"/>
+                <path class="flow-glow powder" d="M528 178.5 V214 H636 V253.4"/>
+                <path class="flow powder" d="M528 178.5 V214 H636 V253.4"/>
+                <path class="flow-glow powder" d="M636 178.5 V253.4"/>
+                <path class="flow powder" d="M636 178.5 V253.4"/>
+                <path class="flow-glow powder" d="M744 178.5 V214 H636 V253.4"/>
+                <path class="flow powder" d="M744 178.5 V214 H636 V253.4"/>
+                <path class="flow-glow powder" d="M636 353.2 V400 H580.8 V440.4"/>
+                <path class="flow powder" d="M636 353.2 V400 H580.8 V440.4"/>
+                <path class="flow-glow powder" d="M615.2 512 V536 H628 V559.2"/>
+                <path class="flow powder" d="M615.2 512 V536 H628 V559.2"/>
+                <path class="flow-glow powder" d="M628 662 V690 H636 V716.4"/>
+                <path class="flow powder" d="M628 662 V690 H636 V716.4"/>
+                <path class="flow-glow air" d="M187 322 V286"/>
+                <path class="flow air" d="M187 322 V286"/>
+                <path class="flow-glow air" d="M240 700 H293"/>
+                <path class="flow air" d="M240 700 H293"/>
+                <path class="flow-glow dust" d="M400 60 V560"/>
+                <path class="flow dust" d="M400 60 V560"/>
+                <path class="flow-glow dust" d="M400 396.5 H301"/>
+                <path class="flow dust" d="M400 396.5 H301"/>
+                <path class="flow-glow dust" d="M481.2 90 H400"/>
+                <path class="flow dust" d="M481.2 90 H400"/>
+                <path class="flow-glow dust" d="M558 268 H400"/>
+                <path class="flow dust" d="M558 268 H400"/>
+                <path class="flow-glow dust" d="M528 452 H400"/>
+                <path class="flow dust" d="M528 452 H400"/>
+                <path class="flow-glow dust" d="M564 580 H400"/>
+                <path class="flow dust" d="M564 580 H400"/>
+                <path class="signal" d="M930 382 H900 V80 H791"/>
+                <path class="signal" d="M930 402 H872 V300 H714"/>
+                <path class="signal" d="M930 422 H886 V470 H744"/>
+                <path class="signal" d="M930 442 H846 V600 H708"/>
+              </g>
+              <g class="platform">
+                <rect x="455" y="192" width="360" height="8" rx="2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="466" y="200" width="6" height="26" fill="url(#gSteelDark)"/>
+                <rect x="798" y="200" width="6" height="26" fill="url(#gSteelDark)"/>
+              </g>
+              <g class="mnode clickable" id="node-silos" data-machine="storage-silos" role="link" tabindex="0" aria-label="Storage silos">
+                <g transform="translate(481.2,56) scale(0.78)">
+                  <rect class="halo" x="-8" y="-8" width="136" height="191" rx="12"/>
+                  <g class="art"><clipPath id="clip-silo-1">
+                <path d="M29 45 H91 V96 L66 139 H54 L29 96 Z"/>
+              </clipPath>
+            
+              <!-- ground shadow -->
+              <ellipse cx="60" cy="169" rx="46" ry="4.5" fill="#0C1017" opacity=".5"/>
+            
+              <!-- ===== SUPPORT / SKID FRAME (behind cone) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- back legs -->
+                <rect x="34" y="92" width="4.4" height="70" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="82" y="92" width="4.4" height="70" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- top rail under cylinder -->
+                <rect x="24" y="90" width="72" height="6.5" rx="1.4" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- front legs -->
+                <rect x="27" y="94" width="5" height="70" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="88" y="94" width="5" height="70" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- lower cross rail -->
+                <rect x="27" y="150" width="66" height="5" rx="1.3" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- diagonal braces -->
+                <path d="M32 96 L58 150" stroke="#3A4455" stroke-width="2.2" fill="none" opacity=".8"/>
+                <path d="M88 96 L62 150" stroke="#3A4455" stroke-width="2.2" fill="none" opacity=".8"/>
+                <!-- feet -->
+                <rect x="24.5" y="162" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="85.5" y="162" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="55" y="153" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <line x1="27" y1="126" x2="32" y2="126" stroke="#8FA0B5" stroke-width="1" opacity=".5"/>
+              </g>
+            
+              <!-- ===== TOP PIPEWORK ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- vertical riser -->
+                <rect x="35" y="10" width="7" height="20" rx="2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- elbow curve to the right -->
+                <path d="M38.5 12 Q38.5 6 46 6 H70" fill="none" stroke="url(#gSteelH)" stroke-width="7" stroke-linecap="round"/>
+                <path d="M38.5 12 Q38.5 6 46 6 H70" fill="none" stroke="#3A4455" stroke-width="1" opacity=".6"/>
+                <!-- elbow flange -->
+                <rect x="34" y="28" width="9" height="3" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- level-sensor stub head (top-right) -->
+                <rect x="66" y="24" width="12" height="10" rx="1.6" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1"/>
+                <rect x="69.5" y="18" width="5" height="7" rx="1.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="72" cy="29" r="1.2" fill="#2E86E6"/>
+                <circle class="led" cx="76" cy="20" r="2.2" fill="#2FBF71" filter="url(#fGlow)"/>
+              </g>
+            
+              <!-- ===== DOMED TOP ===== -->
+              <path d="M29 45 Q30 31 60 30 Q90 31 91 45 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <path d="M29 45 Q30 31 60 30 Q90 31 91 45" fill="none" stroke="url(#gRim)" stroke-width="1.3"/>
+              <ellipse cx="29" cy="45" rx="0" ry="0"/>
+              <!-- top rim collar -->
+              <rect x="27" y="43" width="66" height="4.5" rx="2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+              <!-- dome specular -->
+              <ellipse cx="46" cy="37" rx="12" ry="4.5" fill="#FFFFFF" opacity=".16"/>
+            
+              <!-- ===== CYLINDER BODY ===== -->
+              <path d="M27 46 H93 V90 H27 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <line x1="27" y1="46" x2="27" y2="90" stroke="url(#gRim)" stroke-width="1.4"/>
+              <!-- body specular band upper-left -->
+              <rect x="32" y="50" width="9" height="36" rx="4" fill="#FFFFFF" opacity=".14"/>
+              <!-- right shaded edge -->
+              <rect x="86" y="46" width="7" height="44" fill="url(#gSteelDark)" opacity=".55"/>
+            
+              <!-- ===== POWDER FILL (animatable) ===== -->
+              <g clip-path="url(#clip-silo-1)">
+                <rect class="fill-level" id="silo-fill-1" x="29" y="45" width="62" height="94" fill="url(#gPowder)" opacity=".85"/>
+              </g>
+            
+              <!-- ===== CONICAL HOPPER ===== -->
+              <path d="M27 90 H93 L66 139 H54 Z" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.4"/>
+              <path d="M27 90 L54 139" stroke="url(#gRim)" stroke-width="1.2" fill="none"/>
+              <!-- cone shaded right facet -->
+              <path d="M93 90 L66 139 L61 139 L82 90 Z" fill="url(#gSteelDark)" opacity=".5"/>
+              <!-- cone specular -->
+              <path d="M37 93 L48 128 L43 128 L33 93 Z" fill="#FFFFFF" opacity=".12"/>
+              <!-- cone seam ribs -->
+              <line x1="60" y1="90" x2="60" y2="138" stroke="#2A3242" stroke-width=".8" opacity=".5"/>
+            
+              <!-- body/cone joint flange with bolt circle -->
+              <rect x="26" y="88" width="68" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+              <circle cx="33" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="45" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="60" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="75" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="87" cy="90" r="1.1" fill="#2A3242"/>
+            
+              <!-- ===== SIGHT GLASS (vertical) ===== -->
+              <rect x="52" y="56" width="9" height="26" rx="3.5" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+              <rect x="54" y="58" width="5" height="22" rx="2.2" fill="url(#gGlass)"/>
+              <rect x="55" y="60" width="1.6" height="18" rx=".8" fill="#FFFFFF" opacity=".14"/>
+              <circle cx="56.5" cy="57.5" r="1" fill="#2A3242"/>
+              <circle cx="56.5" cy="80.5" r="1" fill="#2A3242"/>
+            
+              <!-- ===== YELLOW SIDE VALVE ===== -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="86" y="66" width="12" height="9" rx="1.6" fill="#F5A524" stroke="#3A4455" stroke-width="1"/>
+                <rect x="90" y="61" width="4.5" height="6" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="92.2" cy="70.5" r="1.3" fill="#2A3242"/>
+                <line x1="86" y1="72" x2="82" y2="76" stroke="#2A3242" stroke-width="1.4"/>
+              </g>
+            
+              <!-- nameplate -->
+              <rect x="66" y="60" width="12" height="6" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+              <line x1="68" y1="62" x2="76" y2="62" stroke="#8FA0B5" stroke-width=".5" opacity=".6"/>
+              <line x1="68" y1="64" x2="74" y2="64" stroke="#8FA0B5" stroke-width=".5" opacity=".5"/>
+            
+              <!-- ===== PNEUMATIC DISCHARGE VALVE (bottom) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- upper discharge flange -->
+                <rect x="52" y="138" width="16" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <circle cx="55" cy="140" r="1.1" fill="#2A3242"/>
+                <circle cx="65" cy="140" r="1.1" fill="#2A3242"/>
+                <!-- valve body -->
+                <rect x="53.5" y="142" width="13" height="9" rx="1.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- lower flange -->
+                <rect x="52" y="151" width="16" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- pneumatic actuator (blue) -->
+                <rect x="68" y="140" width="12" height="8" rx="2" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1.1"/>
+                <rect x="66.5" y="142" width="3" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+                <circle cx="74" cy="144" r="1.4" fill="#2E86E6" opacity=".8"/>
+                <!-- air line stub -->
+                <path d="M80 143 q5 -1 6 4" fill="none" stroke="#2E86E6" stroke-width="1.4" opacity=".7"/>
+                <!-- outlet spigot -->
+                <rect x="56" y="155" width="8" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              </g></g>
+                </g>
+                <g transform="translate(589.2,56) scale(0.78)">
+                  <rect class="halo" x="-8" y="-8" width="136" height="191" rx="12"/>
+                  <g class="art"><clipPath id="clip-silo-2">
+                <path d="M29 45 H91 V96 L66 139 H54 L29 96 Z"/>
+              </clipPath>
+            
+              <!-- ground shadow -->
+              <ellipse cx="60" cy="169" rx="46" ry="4.5" fill="#0C1017" opacity=".5"/>
+            
+              <!-- ===== SUPPORT / SKID FRAME (behind cone) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- back legs -->
+                <rect x="34" y="92" width="4.4" height="70" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="82" y="92" width="4.4" height="70" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- top rail under cylinder -->
+                <rect x="24" y="90" width="72" height="6.5" rx="1.4" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- front legs -->
+                <rect x="27" y="94" width="5" height="70" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="88" y="94" width="5" height="70" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- lower cross rail -->
+                <rect x="27" y="150" width="66" height="5" rx="1.3" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- diagonal braces -->
+                <path d="M32 96 L58 150" stroke="#3A4455" stroke-width="2.2" fill="none" opacity=".8"/>
+                <path d="M88 96 L62 150" stroke="#3A4455" stroke-width="2.2" fill="none" opacity=".8"/>
+                <!-- feet -->
+                <rect x="24.5" y="162" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="85.5" y="162" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="55" y="153" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <line x1="27" y1="126" x2="32" y2="126" stroke="#8FA0B5" stroke-width="1" opacity=".5"/>
+              </g>
+            
+              <!-- ===== TOP PIPEWORK ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- vertical riser -->
+                <rect x="35" y="10" width="7" height="20" rx="2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- elbow curve to the right -->
+                <path d="M38.5 12 Q38.5 6 46 6 H70" fill="none" stroke="url(#gSteelH)" stroke-width="7" stroke-linecap="round"/>
+                <path d="M38.5 12 Q38.5 6 46 6 H70" fill="none" stroke="#3A4455" stroke-width="1" opacity=".6"/>
+                <!-- elbow flange -->
+                <rect x="34" y="28" width="9" height="3" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- level-sensor stub head (top-right) -->
+                <rect x="66" y="24" width="12" height="10" rx="1.6" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1"/>
+                <rect x="69.5" y="18" width="5" height="7" rx="1.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="72" cy="29" r="1.2" fill="#2E86E6"/>
+                <circle class="led" cx="76" cy="20" r="2.2" fill="#2FBF71" filter="url(#fGlow)"/>
+              </g>
+            
+              <!-- ===== DOMED TOP ===== -->
+              <path d="M29 45 Q30 31 60 30 Q90 31 91 45 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <path d="M29 45 Q30 31 60 30 Q90 31 91 45" fill="none" stroke="url(#gRim)" stroke-width="1.3"/>
+              <ellipse cx="29" cy="45" rx="0" ry="0"/>
+              <!-- top rim collar -->
+              <rect x="27" y="43" width="66" height="4.5" rx="2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+              <!-- dome specular -->
+              <ellipse cx="46" cy="37" rx="12" ry="4.5" fill="#FFFFFF" opacity=".16"/>
+            
+              <!-- ===== CYLINDER BODY ===== -->
+              <path d="M27 46 H93 V90 H27 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <line x1="27" y1="46" x2="27" y2="90" stroke="url(#gRim)" stroke-width="1.4"/>
+              <!-- body specular band upper-left -->
+              <rect x="32" y="50" width="9" height="36" rx="4" fill="#FFFFFF" opacity=".14"/>
+              <!-- right shaded edge -->
+              <rect x="86" y="46" width="7" height="44" fill="url(#gSteelDark)" opacity=".55"/>
+            
+              <!-- ===== POWDER FILL (animatable) ===== -->
+              <g clip-path="url(#clip-silo-2)">
+                <rect class="fill-level" id="silo-fill-2" x="29" y="45" width="62" height="94" fill="url(#gPowder)" opacity=".85"/>
+              </g>
+            
+              <!-- ===== CONICAL HOPPER ===== -->
+              <path d="M27 90 H93 L66 139 H54 Z" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.4"/>
+              <path d="M27 90 L54 139" stroke="url(#gRim)" stroke-width="1.2" fill="none"/>
+              <!-- cone shaded right facet -->
+              <path d="M93 90 L66 139 L61 139 L82 90 Z" fill="url(#gSteelDark)" opacity=".5"/>
+              <!-- cone specular -->
+              <path d="M37 93 L48 128 L43 128 L33 93 Z" fill="#FFFFFF" opacity=".12"/>
+              <!-- cone seam ribs -->
+              <line x1="60" y1="90" x2="60" y2="138" stroke="#2A3242" stroke-width=".8" opacity=".5"/>
+            
+              <!-- body/cone joint flange with bolt circle -->
+              <rect x="26" y="88" width="68" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+              <circle cx="33" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="45" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="60" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="75" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="87" cy="90" r="1.1" fill="#2A3242"/>
+            
+              <!-- ===== SIGHT GLASS (vertical) ===== -->
+              <rect x="52" y="56" width="9" height="26" rx="3.5" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+              <rect x="54" y="58" width="5" height="22" rx="2.2" fill="url(#gGlass)"/>
+              <rect x="55" y="60" width="1.6" height="18" rx=".8" fill="#FFFFFF" opacity=".14"/>
+              <circle cx="56.5" cy="57.5" r="1" fill="#2A3242"/>
+              <circle cx="56.5" cy="80.5" r="1" fill="#2A3242"/>
+            
+              <!-- ===== YELLOW SIDE VALVE ===== -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="86" y="66" width="12" height="9" rx="1.6" fill="#F5A524" stroke="#3A4455" stroke-width="1"/>
+                <rect x="90" y="61" width="4.5" height="6" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="92.2" cy="70.5" r="1.3" fill="#2A3242"/>
+                <line x1="86" y1="72" x2="82" y2="76" stroke="#2A3242" stroke-width="1.4"/>
+              </g>
+            
+              <!-- nameplate -->
+              <rect x="66" y="60" width="12" height="6" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+              <line x1="68" y1="62" x2="76" y2="62" stroke="#8FA0B5" stroke-width=".5" opacity=".6"/>
+              <line x1="68" y1="64" x2="74" y2="64" stroke="#8FA0B5" stroke-width=".5" opacity=".5"/>
+            
+              <!-- ===== PNEUMATIC DISCHARGE VALVE (bottom) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- upper discharge flange -->
+                <rect x="52" y="138" width="16" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <circle cx="55" cy="140" r="1.1" fill="#2A3242"/>
+                <circle cx="65" cy="140" r="1.1" fill="#2A3242"/>
+                <!-- valve body -->
+                <rect x="53.5" y="142" width="13" height="9" rx="1.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- lower flange -->
+                <rect x="52" y="151" width="16" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- pneumatic actuator (blue) -->
+                <rect x="68" y="140" width="12" height="8" rx="2" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1.1"/>
+                <rect x="66.5" y="142" width="3" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+                <circle cx="74" cy="144" r="1.4" fill="#2E86E6" opacity=".8"/>
+                <!-- air line stub -->
+                <path d="M80 143 q5 -1 6 4" fill="none" stroke="#2E86E6" stroke-width="1.4" opacity=".7"/>
+                <!-- outlet spigot -->
+                <rect x="56" y="155" width="8" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              </g></g>
+                </g>
+                <g transform="translate(697.2,56) scale(0.78)">
+                  <rect class="halo" x="-8" y="-8" width="136" height="191" rx="12"/>
+                  <g class="art"><clipPath id="clip-silo-3">
+                <path d="M29 45 H91 V96 L66 139 H54 L29 96 Z"/>
+              </clipPath>
+            
+              <!-- ground shadow -->
+              <ellipse cx="60" cy="169" rx="46" ry="4.5" fill="#0C1017" opacity=".5"/>
+            
+              <!-- ===== SUPPORT / SKID FRAME (behind cone) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- back legs -->
+                <rect x="34" y="92" width="4.4" height="70" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="82" y="92" width="4.4" height="70" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- top rail under cylinder -->
+                <rect x="24" y="90" width="72" height="6.5" rx="1.4" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- front legs -->
+                <rect x="27" y="94" width="5" height="70" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="88" y="94" width="5" height="70" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- lower cross rail -->
+                <rect x="27" y="150" width="66" height="5" rx="1.3" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- diagonal braces -->
+                <path d="M32 96 L58 150" stroke="#3A4455" stroke-width="2.2" fill="none" opacity=".8"/>
+                <path d="M88 96 L62 150" stroke="#3A4455" stroke-width="2.2" fill="none" opacity=".8"/>
+                <!-- feet -->
+                <rect x="24.5" y="162" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="85.5" y="162" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="55" y="153" width="10" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <line x1="27" y1="126" x2="32" y2="126" stroke="#8FA0B5" stroke-width="1" opacity=".5"/>
+              </g>
+            
+              <!-- ===== TOP PIPEWORK ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- vertical riser -->
+                <rect x="35" y="10" width="7" height="20" rx="2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- elbow curve to the right -->
+                <path d="M38.5 12 Q38.5 6 46 6 H70" fill="none" stroke="url(#gSteelH)" stroke-width="7" stroke-linecap="round"/>
+                <path d="M38.5 12 Q38.5 6 46 6 H70" fill="none" stroke="#3A4455" stroke-width="1" opacity=".6"/>
+                <!-- elbow flange -->
+                <rect x="34" y="28" width="9" height="3" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- level-sensor stub head (top-right) -->
+                <rect x="66" y="24" width="12" height="10" rx="1.6" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1"/>
+                <rect x="69.5" y="18" width="5" height="7" rx="1.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="72" cy="29" r="1.2" fill="#2E86E6"/>
+                <circle class="led" cx="76" cy="20" r="2.2" fill="#2FBF71" filter="url(#fGlow)"/>
+              </g>
+            
+              <!-- ===== DOMED TOP ===== -->
+              <path d="M29 45 Q30 31 60 30 Q90 31 91 45 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <path d="M29 45 Q30 31 60 30 Q90 31 91 45" fill="none" stroke="url(#gRim)" stroke-width="1.3"/>
+              <ellipse cx="29" cy="45" rx="0" ry="0"/>
+              <!-- top rim collar -->
+              <rect x="27" y="43" width="66" height="4.5" rx="2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+              <!-- dome specular -->
+              <ellipse cx="46" cy="37" rx="12" ry="4.5" fill="#FFFFFF" opacity=".16"/>
+            
+              <!-- ===== CYLINDER BODY ===== -->
+              <path d="M27 46 H93 V90 H27 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <line x1="27" y1="46" x2="27" y2="90" stroke="url(#gRim)" stroke-width="1.4"/>
+              <!-- body specular band upper-left -->
+              <rect x="32" y="50" width="9" height="36" rx="4" fill="#FFFFFF" opacity=".14"/>
+              <!-- right shaded edge -->
+              <rect x="86" y="46" width="7" height="44" fill="url(#gSteelDark)" opacity=".55"/>
+            
+              <!-- ===== POWDER FILL (animatable) ===== -->
+              <g clip-path="url(#clip-silo-3)">
+                <rect class="fill-level" id="silo-fill-3" x="29" y="45" width="62" height="94" fill="url(#gPowder)" opacity=".85"/>
+              </g>
+            
+              <!-- ===== CONICAL HOPPER ===== -->
+              <path d="M27 90 H93 L66 139 H54 Z" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.4"/>
+              <path d="M27 90 L54 139" stroke="url(#gRim)" stroke-width="1.2" fill="none"/>
+              <!-- cone shaded right facet -->
+              <path d="M93 90 L66 139 L61 139 L82 90 Z" fill="url(#gSteelDark)" opacity=".5"/>
+              <!-- cone specular -->
+              <path d="M37 93 L48 128 L43 128 L33 93 Z" fill="#FFFFFF" opacity=".12"/>
+              <!-- cone seam ribs -->
+              <line x1="60" y1="90" x2="60" y2="138" stroke="#2A3242" stroke-width=".8" opacity=".5"/>
+            
+              <!-- body/cone joint flange with bolt circle -->
+              <rect x="26" y="88" width="68" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+              <circle cx="33" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="45" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="60" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="75" cy="90" r="1.1" fill="#2A3242"/>
+              <circle cx="87" cy="90" r="1.1" fill="#2A3242"/>
+            
+              <!-- ===== SIGHT GLASS (vertical) ===== -->
+              <rect x="52" y="56" width="9" height="26" rx="3.5" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+              <rect x="54" y="58" width="5" height="22" rx="2.2" fill="url(#gGlass)"/>
+              <rect x="55" y="60" width="1.6" height="18" rx=".8" fill="#FFFFFF" opacity=".14"/>
+              <circle cx="56.5" cy="57.5" r="1" fill="#2A3242"/>
+              <circle cx="56.5" cy="80.5" r="1" fill="#2A3242"/>
+            
+              <!-- ===== YELLOW SIDE VALVE ===== -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="86" y="66" width="12" height="9" rx="1.6" fill="#F5A524" stroke="#3A4455" stroke-width="1"/>
+                <rect x="90" y="61" width="4.5" height="6" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="92.2" cy="70.5" r="1.3" fill="#2A3242"/>
+                <line x1="86" y1="72" x2="82" y2="76" stroke="#2A3242" stroke-width="1.4"/>
+              </g>
+            
+              <!-- nameplate -->
+              <rect x="66" y="60" width="12" height="6" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+              <line x1="68" y1="62" x2="76" y2="62" stroke="#8FA0B5" stroke-width=".5" opacity=".6"/>
+              <line x1="68" y1="64" x2="74" y2="64" stroke="#8FA0B5" stroke-width=".5" opacity=".5"/>
+            
+              <!-- ===== PNEUMATIC DISCHARGE VALVE (bottom) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- upper discharge flange -->
+                <rect x="52" y="138" width="16" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <circle cx="55" cy="140" r="1.1" fill="#2A3242"/>
+                <circle cx="65" cy="140" r="1.1" fill="#2A3242"/>
+                <!-- valve body -->
+                <rect x="53.5" y="142" width="13" height="9" rx="1.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- lower flange -->
+                <rect x="52" y="151" width="16" height="4" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- pneumatic actuator (blue) -->
+                <rect x="68" y="140" width="12" height="8" rx="2" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1.1"/>
+                <rect x="66.5" y="142" width="3" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+                <circle cx="74" cy="144" r="1.4" fill="#2E86E6" opacity=".8"/>
+                <!-- air line stub -->
+                <path d="M80 143 q5 -1 6 4" fill="none" stroke="#2E86E6" stroke-width="1.4" opacity=".7"/>
+                <!-- outlet spigot -->
+                <rect x="56" y="155" width="8" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              </g></g>
+                </g>
+              </g>
+              <g class="mnode" id="node-suction">
+                <g transform="translate(140,646) scale(0.85)">
+                  <rect class="halo" x="-8" y="-8" width="226" height="166" rx="12"/>
+                  <g class="art"><ellipse cx="108" cy="140" rx="98" ry="7" fill="url(#gSteelDark)" opacity=".45"/>
+            
+              <!-- ===== RAW POWDER SACK (left, on floor) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <path d="M12 100 Q10 96 15 94 L20 90 Q28 87 36 90 L41 94 Q46 96 44 100 L46 134 Q46 137 42 137 L16 137 Q12 137 13 134 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <path d="M20 90 Q28 87 36 90 L34 96 Q28 94 22 96 Z" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <path d="M27 88 Q29 84 31 88" fill="none" stroke="#3A4455" stroke-width="1.3"/>
+                <line x1="29" y1="100" x2="29" y2="134" stroke="#2A3242" stroke-width="1"/>
+                <path d="M16 104 Q29 108 43 104" fill="none" stroke="#2A3242" stroke-width="1"/>
+                <path d="M15 118 Q29 122 44 118" fill="none" stroke="#2A3242" stroke-width="1"/>
+                <ellipse cx="21" cy="102" rx="5" ry="10" fill="#fff" opacity=".14"/>
+              </g>
+              <!-- suction lance into sack -->
+              <path d="M32 90 L34 66 L50 66" fill="none" stroke="url(#gSteelDark)" stroke-width="4.5"/>
+              <path d="M32 90 L34 66 L50 66" fill="none" stroke="#3A4455" stroke-width="5.5" opacity=".35"/>
+              <rect x="30" y="86" width="6" height="5" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+            
+              <!-- ===== ROOT BLOWER SKID / BASE ===== -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="46" y="118" width="82" height="9" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.2"/>
+                <rect x="46" y="118" width="82" height="2.4" fill="#8FA0B5" opacity=".18"/>
+                <rect x="50" y="127" width="6" height="9" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="118" y="127" width="6" height="9" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="53" cy="122" r="1.2" fill="#2A3242"/>
+                <circle cx="121" cy="122" r="1.2" fill="#2A3242"/>
+              </g>
+            
+              <!-- blower housing (snail volute) -->
+              <g filter="url(#fSoftShadow)">
+                <path d="M96 118 L96 96 Q96 82 110 82 Q124 82 124 97 L124 118 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.3"/>
+                <circle cx="110" cy="100" r="12" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.2"/>
+                <circle cx="110" cy="100" r="12" fill="none" stroke="url(#gRim)" stroke-width="1" opacity=".6"/>
+                <circle cx="110" cy="100" r="3" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1"/>
+                <ellipse cx="105" cy="90" rx="6" ry="4" fill="#fff" opacity=".13"/>
+                <!-- outlet flange to pipe -->
+                <rect x="105" y="76" width="12" height="7" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="108" cy="79.5" r="1" fill="#2A3242"/>
+                <circle cx="114" cy="79.5" r="1" fill="#2A3242"/>
+              </g>
+            
+              <!-- motor (ART blue) coupled left of housing -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="54" y="93" width="42" height="26" rx="6" fill="url(#gMotor)" stroke="#2A3242" stroke-width="1.3"/>
+                <rect x="54" y="93" width="42" height="26" rx="6" fill="none" stroke="url(#gRim)" stroke-width="1" opacity=".5"/>
+                <line x1="61" y1="94" x2="61" y2="118" stroke="#2A3242" stroke-width="1" opacity=".5"/>
+                <line x1="67" y1="94" x2="67" y2="118" stroke="#2A3242" stroke-width="1" opacity=".5"/>
+                <line x1="73" y1="94" x2="73" y2="118" stroke="#2A3242" stroke-width="1" opacity=".5"/>
+                <line x1="79" y1="94" x2="79" y2="118" stroke="#2A3242" stroke-width="1" opacity=".5"/>
+                <line x1="85" y1="94" x2="85" y2="118" stroke="#2A3242" stroke-width="1" opacity=".5"/>
+                <ellipse cx="66" cy="99" rx="12" ry="3.5" fill="#fff" opacity=".16"/>
+                <!-- terminal box -->
+                <rect x="70" y="87" width="12" height="7" rx="1" fill="#2E86E6" stroke="#2A3242" stroke-width="1"/>
+                <!-- nameplate -->
+                <rect x="57" y="108" width="12" height="6" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+              </g>
+            
+              <!-- coupling / pulley fan between motor & housing -->
+              <g class="rotor">
+                <circle cx="96" cy="106" r="9.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.2"/>
+                <g fill="url(#gSteel)" stroke="#3A4455" stroke-width=".8">
+                  <path d="M96 106 L94 97 Q96 96 98 97 Z"/>
+                  <path d="M96 106 L104.8 108.6 Q104.2 110.6 102.6 111.6 Z"/>
+                  <path d="M96 106 L92.4 114.4 Q90.5 113.6 89.6 112 Z"/>
+                  <path d="M96 106 L88 102 Q88.4 100 90 99 Z"/>
+                  <path d="M96 106 L102 99.5 Q103.6 100.6 104 102.5 Z"/>
+                  <path d="M96 106 L100 114 Q98 114.8 96.2 114.4 Z"/>
+                </g>
+                <circle cx="96" cy="106" r="2.6" fill="#8FA0B5" opacity=".7"/>
+              </g>
+            
+              <circle class="led" cx="52" cy="123" r="2.5" fill="#2FBF71" filter="url(#fGlow)"/>
+              <circle class="led" cx="123" cy="123" r="2" fill="#F5A524" filter="url(#fGlow)"/>
+            
+              <!-- ===== PNEUMATIC CONVEYING PIPE (blower -> cyclone) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <path d="M111 76 L111 34 Q111 30 115 30 L150 30" fill="none" stroke="url(#gSteelH)" stroke-width="7"/>
+                <path d="M111 76 L111 34 Q111 30 115 30 L150 30" fill="none" stroke="#3A4455" stroke-width="8" opacity=".28"/>
+                <path d="M109 74 L109 35" stroke="#fff" stroke-width="1.2" opacity=".14"/>
+                <!-- pipe flange couplings -->
+                <rect x="107.5" y="56" width="7" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+                <rect x="130" y="26.5" width="4" height="7" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+              </g>
+            
+              <!-- ===== CYCLONE SEPARATOR (right) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- tangential inlet -->
+                <rect x="146" y="27" width="10" height="8" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- top head + vortex finder -->
+                <rect x="150" y="22" width="34" height="6" rx="2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.1"/>
+                <rect x="163" y="14" width="8" height="9" rx="1.5" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1"/>
+                <!-- cylinder body -->
+                <path d="M150 28 L184 28 L184 74 L150 74 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.3"/>
+                <ellipse cx="150" cy="51" rx="4" ry="18" fill="#fff" opacity=".12"/>
+                <path d="M150 28 L184 28" stroke="url(#gRim)" stroke-width="1.2" opacity=".7"/>
+                <!-- cone -->
+                <path d="M150 74 L184 74 L170 112 Q167 116 164 112 Z" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.3"/>
+                <path d="M150 74 L167 112" stroke="#fff" stroke-width="1.2" opacity=".13"/>
+                <!-- flange ring at cylinder/cone joint -->
+                <rect x="149" y="72" width="36" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".9"/>
+                <circle cx="153" cy="74" r="1" fill="#2A3242"/>
+                <circle cx="163" cy="74" r="1" fill="#2A3242"/>
+                <circle cx="173" cy="74" r="1" fill="#2A3242"/>
+                <circle cx="181" cy="74" r="1" fill="#2A3242"/>
+                <!-- dust discharge stub -->
+                <rect x="163" y="112" width="8" height="6" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- sight glass -->
+                <rect x="171" y="40" width="8" height="12" rx="2" fill="url(#gGlass)" stroke="#3A4455" stroke-width="1"/>
+                <rect x="172.5" y="42" width="2.5" height="8" fill="#fff" opacity=".14"/>
+                <!-- nameplate -->
+                <rect x="154" y="58" width="11" height="6" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+              </g>
+            
+              <!-- cyclone support legs -->
+              <g stroke="#2A3242" stroke-width="1">
+                <path d="M152 74 L146 128" fill="none" stroke="url(#gSteelDark)" stroke-width="3.5"/>
+                <path d="M182 74 L188 128" fill="none" stroke="url(#gSteelDark)" stroke-width="3.5"/>
+                <path d="M167 112 L167 128" fill="none" stroke="url(#gSteelDark)" stroke-width="3.5"/>
+                <path d="M148 104 L186 104" fill="none" stroke="url(#gSteelDark)" stroke-width="2"/>
+              </g>
+            
+              <circle class="led" cx="167" cy="120" r="2" fill="#E5484D" filter="url(#fGlow)"/></g>
+                </g>
+              </g>
+              <g class="mnode clickable" id="node-dust" data-machine="dust-collector" role="link" tabindex="0" aria-label="Dust Collector">
+                <g transform="translate(306.0,320) scale(-0.85,0.85)">
+                  <rect class="halo" x="-8" y="-8" width="176" height="286" rx="12"/>
+                  <g class="art"><g filter="url(#fSoftShadow)">
+            
+                <!-- ================= LEGS / SKID FRAME ================= -->
+                <g>
+                  <!-- back legs (darker) -->
+                  <rect x="48" y="150" width="6" height="106" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <rect x="108" y="150" width="6" height="106" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <!-- front legs -->
+                  <rect x="38" y="160" width="7" height="98" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+                  <rect x="115" y="160" width="7" height="98" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+                  <!-- cross bracing X -->
+                  <path d="M41,190 L119,232 M119,190 L41,232" stroke="#2A3242" stroke-width="2.4"/>
+                  <path d="M41,190 L119,232 M119,190 L41,232" stroke="#3A4455" stroke-width="1"/>
+                  <!-- foot pads -->
+                  <rect x="35" y="255" width="13" height="4" rx="1" fill="url(#gSteelDark)"/>
+                  <rect x="112" y="255" width="13" height="4" rx="1" fill="url(#gSteelDark)"/>
+                  <!-- top skid rail -->
+                  <rect x="32" y="162" width="92" height="6" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                </g>
+            
+                <!-- ================= COLLECTION HOPPER ================= -->
+                <!-- right depth face -->
+                <polygon points="116,166 124,160 98,206 92,210" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- front pyramidal face -->
+                <polygon points="32,166 116,166 92,210 60,210" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.3"/>
+                <!-- fold lines -->
+                <path d="M74,166 L76,210 M32,166 L60,210 M116,166 L92,210" stroke="#2A3242" stroke-width="0.9" opacity="0.7"/>
+                <!-- specular on hopper upper-left -->
+                <polygon points="36,168 66,168 60,196 50,196" fill="#ffffff" opacity="0.10"/>
+                <!-- rim light top edge -->
+                <path d="M32,166 L116,166" stroke="url(#gRim)" stroke-width="1.2"/>
+            
+                <!-- ================= ROTARY AIR-LOCK VALVE ================= -->
+                <g>
+                  <rect x="62" y="209" width="28" height="9" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <rect x="64" y="216" width="24" height="15" rx="2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                  <ellipse cx="76" cy="223" rx="9" ry="8.5" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                  <circle cx="76" cy="223" r="4.5" fill="url(#gSteelH)" stroke="#2A3242" stroke-width="0.9"/>
+                  <!-- bolt circle on valve face -->
+                  <circle cx="76" cy="216.5" r="1.2" fill="#2A3242"/><circle cx="82" cy="220" r="1.2" fill="#2A3242"/>
+                  <circle cx="82" cy="226.5" r="1.2" fill="#2A3242"/><circle cx="76" cy="229.5" r="1.2" fill="#2A3242"/>
+                  <circle cx="70" cy="226.5" r="1.2" fill="#2A3242"/><circle cx="70" cy="220" r="1.2" fill="#2A3242"/>
+                  <!-- drive motor (blue) -->
+                  <rect x="88" y="219" width="12" height="9" rx="2" fill="url(#gMotor)" stroke="#2A3242" stroke-width="1"/>
+                  <rect x="99" y="221" width="3" height="5" rx="1" fill="url(#gSteelDark)"/>
+                  <ellipse cx="90" cy="221" rx="4" ry="1.5" fill="#ffffff" opacity="0.16"/>
+                </g>
+            
+                <!-- ================= LEFT INLET DUCT ================= -->
+                <g>
+                  <!-- tapering duct into box -->
+                  <polygon points="18,92 32,90 32,120 18,122" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                  <!-- cylinder stub -->
+                  <rect x="6" y="92" width="14" height="30" rx="2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                  <!-- round flange face -->
+                  <ellipse cx="6" cy="107" rx="4" ry="15" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                  <ellipse cx="6" cy="107" rx="2" ry="10.5" fill="url(#gSteel)"/>
+                  <!-- flange bolts -->
+                  <circle cx="6" cy="94" r="1.1" fill="#2A3242"/><circle cx="6" cy="120" r="1.1" fill="#2A3242"/>
+                  <circle cx="4" cy="107" r="1.1" fill="#2A3242"/>
+                  <!-- ART blue flow arrow -->
+                  <path d="M9,107 L15,107 M13,104 L16,107 L13,110" stroke="#2E86E6" stroke-width="1.6" fill="none"/>
+                  <!-- specular highlight -->
+                  <rect x="8" y="94" width="9" height="4" rx="2" fill="#ffffff" opacity="0.14"/>
+                  <path d="M6,92 L20,92" stroke="url(#gRim)" stroke-width="1"/>
+                </g>
+            
+                <!-- ================= MAIN BOX HOUSING ================= -->
+                <!-- right depth face (shadow side) -->
+                <polygon points="116,60 124,54 124,160 116,166" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- top face -->
+                <polygon points="32,60 40,54 124,54 116,60" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+                <!-- front face -->
+                <rect x="32" y="60" width="84" height="106" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.3"/>
+                <!-- panel seams -->
+                <path d="M32,92 L116,92 M32,134 L116,134 M74,60 L74,166" stroke="#2A3242" stroke-width="0.8" opacity="0.6"/>
+                <!-- specular sheen upper-left -->
+                <ellipse cx="52" cy="82" rx="20" ry="30" fill="#ffffff" opacity="0.10"/>
+                <!-- corner bolt columns -->
+                <g fill="#2A3242">
+                  <circle cx="36" cy="66" r="1.2"/><circle cx="36" cy="100" r="1.2"/><circle cx="36" cy="134" r="1.2"/><circle cx="36" cy="160" r="1.2"/>
+                  <circle cx="112" cy="66" r="1.2"/><circle cx="112" cy="100" r="1.2"/><circle cx="112" cy="134" r="1.2"/><circle cx="112" cy="160" r="1.2"/>
+                </g>
+                <!-- rim light top + left edge -->
+                <path d="M40,54 L124,54 M32,60 L32,166" stroke="url(#gRim)" stroke-width="1.2"/>
+            
+                <!-- ART blue accent stripe / logo bar -->
+                <rect x="44" y="104" width="60" height="10" rx="1.5" fill="#2E86E6" opacity="0.9"/>
+                <rect x="44" y="104" width="60" height="4" rx="1.5" fill="#ffffff" opacity="0.14"/>
+            
+                <!-- ================= MAINTENANCE DOOR ================= -->
+                <g>
+                  <rect x="82" y="120" width="30" height="42" rx="2" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                  <rect x="85" y="123" width="24" height="36" rx="1.5" fill="url(#gSteel)" stroke="#2A3242" stroke-width="0.9"/>
+                  <!-- hinges -->
+                  <rect x="81" y="126" width="3" height="6" rx="1" fill="#2A3242"/>
+                  <rect x="81" y="150" width="3" height="6" rx="1" fill="#2A3242"/>
+                  <!-- latch handle -->
+                  <rect x="105" y="138" width="6" height="6" rx="1" fill="url(#gSteelH)" stroke="#2A3242" stroke-width="0.8"/>
+                  <circle cx="108" cy="141" r="1.4" fill="#2A3242"/>
+                  <ellipse cx="92" cy="130" rx="6" ry="8" fill="#ffffff" opacity="0.08"/>
+                </g>
+            
+                <!-- nameplate -->
+                <rect x="40" y="150" width="16" height="8" rx="1" fill="url(#gSteelH)" stroke="#2A3242" stroke-width="0.8"/>
+                <path d="M42,153 L54,153 M42,155.5 L52,155.5" stroke="#3A4455" stroke-width="0.7"/>
+            
+                <!-- status LED on housing -->
+                <circle class="led" cx="63" cy="152" r="2.2" fill="#2FBF71" filter="url(#fGlow)"/>
+            
+                <!-- ================= CLEAN-AIR OUTLET STACK (top-right) ================= -->
+                <g>
+                  <!-- rising vertical pipe -->
+                  <rect x="120" y="18" width="16" height="38" rx="3" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                  <!-- flange to housing top -->
+                  <rect x="118" y="52" width="20" height="5" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <circle cx="121" cy="54.5" r="1" fill="#2A3242"/><circle cx="135" cy="54.5" r="1" fill="#2A3242"/>
+                  <!-- rain-cap neck -->
+                  <rect x="123" y="12" width="10" height="8" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <!-- rain cap (conical hat) -->
+                  <polygon points="114,12 142,12 134,4 122,4" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.2"/>
+                  <ellipse cx="128" cy="12" rx="14" ry="2.4" fill="url(#gSteelDark)"/>
+                  <!-- up flow arrow -->
+                  <path d="M128,50 L128,26 M124,32 L128,26 L132,32" stroke="#2E86E6" stroke-width="1.8" fill="none"/>
+                  <!-- specular -->
+                  <rect x="122" y="22" width="4" height="26" rx="2" fill="#ffffff" opacity="0.16"/>
+                  <path d="M122,4 L134,4 M120,20 L120,54" stroke="url(#gRim)" stroke-width="1"/>
+                </g>
+            
+                <!-- ================= RIGHT-SIDE SAFETY LADDER ================= -->
+                <g stroke="#3A4455" stroke-width="1.4" fill="none">
+                  <line x1="140" y1="62" x2="140" y2="210"/>
+                  <line x1="148" y1="62" x2="148" y2="210"/>
+                  <line x1="140" y1="72" x2="148" y2="72"/><line x1="140" y1="84" x2="148" y2="84"/>
+                  <line x1="140" y1="96" x2="148" y2="96"/><line x1="140" y1="108" x2="148" y2="108"/>
+                  <line x1="140" y1="120" x2="148" y2="120"/><line x1="140" y1="132" x2="148" y2="132"/>
+                  <line x1="140" y1="144" x2="148" y2="144"/><line x1="140" y1="156" x2="148" y2="156"/>
+                  <line x1="140" y1="168" x2="148" y2="168"/><line x1="140" y1="180" x2="148" y2="180"/>
+                  <line x1="140" y1="192" x2="148" y2="192"/><line x1="140" y1="204" x2="148" y2="204"/>
+                  <!-- handrail top -->
+                  <path d="M140,62 L140,50 L148,50 L148,62" stroke-width="1.2"/>
+                </g>
+            
+                <!-- ================= TOP PLATFORM HANDRAIL (left) ================= -->
+                <g stroke="url(#gRim)" stroke-width="1.1" fill="none" opacity="0.9">
+                  <path d="M34,54 L34,40 L86,40"/>
+                  <path d="M34,47 L86,47"/>
+                  <line x1="48" y1="40" x2="48" y2="54"/><line x1="62" y1="40" x2="62" y2="54"/><line x1="76" y1="40" x2="76" y2="54"/>
+                </g>
+            
+                <!-- ================= PULSE-JET MANIFOLD + VALVES (animated) ================= -->
+                <g class="pulse">
+                  <!-- compressed-air header pipe -->
+                  <rect x="34" y="44" width="82" height="9" rx="4.5" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                  <rect x="36" y="45.5" width="74" height="2.5" rx="1.2" fill="#ffffff" opacity="0.18"/>
+                  <path d="M34,44 L116,44" stroke="url(#gRim)" stroke-width="1"/>
+            
+                  <!-- valve 1 -->
+                  <g>
+                    <rect x="40" y="36" width="9" height="9" rx="2" fill="url(#gSteel)" stroke="#2A3242" stroke-width="1"/>
+                    <ellipse cx="44.5" cy="36" rx="5.2" ry="2.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="0.8"/>
+                    <rect x="47" y="31" width="4" height="6" rx="1" fill="url(#gMotor)" stroke="#2A3242" stroke-width="0.7"/>
+                  </g>
+                  <!-- valve 2 -->
+                  <g>
+                    <rect x="53" y="36" width="9" height="9" rx="2" fill="url(#gSteel)" stroke="#2A3242" stroke-width="1"/>
+                    <ellipse cx="57.5" cy="36" rx="5.2" ry="2.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="0.8"/>
+                    <rect x="60" y="31" width="4" height="6" rx="1" fill="url(#gMotor)" stroke="#2A3242" stroke-width="0.7"/>
+                  </g>
+                  <!-- valve 3 -->
+                  <g>
+                    <rect x="66" y="36" width="9" height="9" rx="2" fill="url(#gSteel)" stroke="#2A3242" stroke-width="1"/>
+                    <ellipse cx="70.5" cy="36" rx="5.2" ry="2.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="0.8"/>
+                    <rect x="73" y="31" width="4" height="6" rx="1" fill="url(#gMotor)" stroke="#2A3242" stroke-width="0.7"/>
+                  </g>
+                  <!-- valve 4 -->
+                  <g>
+                    <rect x="79" y="36" width="9" height="9" rx="2" fill="url(#gSteel)" stroke="#2A3242" stroke-width="1"/>
+                    <ellipse cx="83.5" cy="36" rx="5.2" ry="2.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="0.8"/>
+                    <rect x="86" y="31" width="4" height="6" rx="1" fill="url(#gMotor)" stroke="#2A3242" stroke-width="0.7"/>
+                  </g>
+                  <!-- valve 5 -->
+                  <g>
+                    <rect x="92" y="36" width="9" height="9" rx="2" fill="url(#gSteel)" stroke="#2A3242" stroke-width="1"/>
+                    <ellipse cx="96.5" cy="36" rx="5.2" ry="2.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="0.8"/>
+                    <rect x="99" y="31" width="4" height="6" rx="1" fill="url(#gMotor)" stroke="#2A3242" stroke-width="0.7"/>
+                  </g>
+                  <!-- valve 6 -->
+                  <g>
+                    <rect x="105" y="36" width="9" height="9" rx="2" fill="url(#gSteel)" stroke="#2A3242" stroke-width="1"/>
+                    <ellipse cx="109.5" cy="36" rx="5.2" ry="2.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="0.8"/>
+                    <rect x="112" y="31" width="4" height="6" rx="1" fill="url(#gMotor)" stroke="#2A3242" stroke-width="0.7"/>
+                  </g>
+                </g>
+            
+              </g></g>
+                </g>
+              </g>
+              <g class="mnode clickable" id="node-buffer" data-machine="buffer-tank" role="link" tabindex="0" aria-label="Buffer Tank">
+                <g transform="translate(558,230) scale(0.78)">
+                  <rect class="halo" x="-8" y="-8" width="216" height="201" rx="12"/>
+                  <g class="art"><!-- ===== SKID / BASE FRAME (drawn first, behind) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- floor skid rails -->
+                <rect x="34" y="170" width="132" height="7" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.2"/>
+                <rect x="38" y="176" width="124" height="4" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- top support frame under tank -->
+                <rect x="44" y="90" width="112" height="7" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.2"/>
+              </g>
+            
+              <!-- back legs (recessed, darker) -->
+              <rect x="70" y="94" width="5" height="62" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              <rect x="125" y="94" width="5" height="62" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+            
+              <!-- ===== CONICAL HOPPER ===== -->
+              <path d="M57,95 L143,95 L112,137 L88,137 Z" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.4"/>
+              <!-- hopper sheen facets -->
+              <path d="M57,95 L88,137 L96,137 L74,95 Z" fill="#8FA0B5" opacity="0.10"/>
+              <path d="M120,95 L112,137 L104,137 L112,95 Z" fill="#2A3242" opacity="0.30"/>
+              <path d="M57,95 L143,95 L138,99 L62,99 Z" fill="#8FA0B5" opacity="0.14"/>
+            
+              <!-- ===== CYLINDRICAL BODY ===== -->
+              <rect x="57" y="44" width="86" height="52" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <!-- right shadow face -->
+              <rect x="126" y="44" width="17" height="52" fill="url(#gSteelDark)" opacity="0.55"/>
+              <!-- left specular sheen -->
+              <rect x="61" y="46" width="7" height="48" fill="#ffffff" opacity="0.16"/>
+              <ellipse cx="72" cy="60" rx="9" ry="18" fill="#ffffff" opacity="0.12"/>
+              <!-- weld / seam line -->
+              <line x1="57" y1="70" x2="143" y2="70" stroke="#2A3242" stroke-width="0.8" opacity="0.6"/>
+              <!-- left rim light -->
+              <line x1="57.6" y1="45" x2="57.6" y2="95" stroke="url(#gRim)" stroke-width="1.4"/>
+            
+              <!-- ===== DOMED TOP ===== -->
+              <path d="M57,46 C57,30 77,26 100,26 C123,26 143,30 143,46 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              <path d="M62,44 C63,33 80,29 100,28.5 C100,28.5 82,32 76,44 Z" fill="#ffffff" opacity="0.18"/>
+              <path d="M124,29 C136,32 141,37 141,45 L134,45 C134,38 130,33 124,31 Z" fill="#2A3242" opacity="0.4"/>
+              <path d="M57,46 C57,32 76,27 99,26.4" fill="none" stroke="url(#gRim)" stroke-width="1.3"/>
+            
+              <!-- ===== TOP VENT NOZZLE ===== -->
+              <rect x="94" y="16" width="12" height="12" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.1"/>
+              <rect x="90" y="12" width="20" height="4.5" rx="1" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1"/>
+              <rect x="93" y="8" width="14" height="4.5" rx="1" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1"/>
+              <ellipse cx="100" cy="8" rx="7" ry="2.4" fill="url(#gSteel)" stroke="#3A4455" stroke-width="0.9"/>
+              <circle cx="92.5" cy="14.2" r="1" fill="#3A4455"/>
+              <circle cx="107.5" cy="14.2" r="1" fill="#3A4455"/>
+              <circle cx="100" cy="14.2" r="1" fill="#3A4455"/>
+            
+              <!-- ===== LEVEL SENSORS (right, ART blue) ===== -->
+              <!-- riser pipe -->
+              <rect x="162" y="30" width="3.4" height="62" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="0.8"/>
+              <path d="M143,33 L162,33" stroke="#3A4455" stroke-width="0.8" fill="none"/>
+              <!-- high level sensor -->
+              <rect x="143" y="53" width="9" height="5" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1"/>
+              <rect x="151" y="49" width="13" height="13" rx="1.5" fill="url(#gMotor)" stroke="#2A3242" stroke-width="1.1"/>
+              <rect x="150" y="52" width="2.5" height="7" fill="url(#gSteelDark)"/>
+              <ellipse cx="155" cy="52.5" rx="4" ry="1.6" fill="#ffffff" opacity="0.18"/>
+              <circle cx="157.5" cy="55.5" r="1.2" fill="#2E86E6"/>
+              <!-- low level sensor -->
+              <rect x="143" y="81" width="9" height="5" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1"/>
+              <rect x="151" y="77" width="13" height="13" rx="1.5" fill="url(#gMotor)" stroke="#2A3242" stroke-width="1.1"/>
+              <rect x="150" y="80" width="2.5" height="7" fill="url(#gSteelDark)"/>
+              <ellipse cx="155" cy="80.5" rx="4" ry="1.6" fill="#ffffff" opacity="0.18"/>
+              <circle cx="157.5" cy="83.5" r="1.2" fill="#2E86E6"/>
+            
+              <!-- ===== NAMEPLATE ===== -->
+              <rect x="66" y="80" width="17" height="9" rx="0.8" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="0.9"/>
+              <line x1="68" y1="83" x2="81" y2="83" stroke="#8FA0B5" stroke-width="0.5" opacity="0.6"/>
+              <line x1="68" y1="85.5" x2="81" y2="85.5" stroke="#8FA0B5" stroke-width="0.5" opacity="0.5"/>
+              <circle cx="67.5" cy="81.5" r="0.7" fill="#3A4455"/>
+              <circle cx="81.5" cy="81.5" r="0.7" fill="#3A4455"/>
+            
+              <!-- ===== LEVEL FILL (clipped) ===== -->
+              <clipPath id="clip-buffer">
+                <path d="M58,45 L142,45 L142,95 L111,136 L89,136 L58,95 Z"/>
+              </clipPath>
+              <g clip-path="url(#clip-buffer)">
+                <rect class="fill-level" id="buffer-fill" x="58" y="45" width="84" height="91" fill="url(#gPowder)" opacity="0.85"/>
+              </g>
+            
+              <!-- ===== HOPPER-TO-VALVE FLANGE ===== -->
+              <rect x="85" y="134" width="30" height="5" rx="1" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+              <circle cx="88" cy="136.5" r="1.1" fill="#3A4455"/>
+              <circle cx="94" cy="136.5" r="1.1" fill="#3A4455"/>
+              <circle cx="100" cy="136.5" r="1.1" fill="#3A4455"/>
+              <circle cx="106" cy="136.5" r="1.1" fill="#3A4455"/>
+              <circle cx="112" cy="136.5" r="1.1" fill="#3A4455"/>
+            
+              <!-- ===== PNEUMATIC BUTTERFLY DISCHARGE VALVE ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- valve body (horizontal cylinder) -->
+                <rect x="82" y="139" width="36" height="13" rx="6.5" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.3"/>
+                <ellipse cx="100" cy="145.5" rx="6" ry="6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1"/>
+                <ellipse cx="100" cy="145.5" rx="2.4" ry="4.5" fill="#2A3242"/>
+                <!-- side clamp bands -->
+                <rect x="86" y="138" width="3" height="15" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="0.8"/>
+                <rect x="111" y="138" width="3" height="15" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="0.8"/>
+                <!-- pneumatic actuator (blue) -->
+                <rect x="118" y="140" width="14" height="11" rx="2" fill="url(#gMotor)" stroke="#2A3242" stroke-width="1.1"/>
+                <ellipse cx="122" cy="142.5" rx="4" ry="1.5" fill="#ffffff" opacity="0.18"/>
+                <rect x="123" y="136" width="4" height="4" rx="0.8" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="0.8"/>
+                <!-- air line stub -->
+                <path d="M132,145 q6,-2 7,-8" fill="none" stroke="#2E86E6" stroke-width="1.3"/>
+              </g>
+              <ellipse cx="90" cy="142" rx="5" ry="1.6" fill="#ffffff" opacity="0.16"/>
+              <!-- discharge outlet -->
+              <rect x="95" y="151" width="10" height="5" rx="1" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1"/>
+            
+              <!-- ===== FRONT LEGS ===== -->
+              <rect x="48" y="94" width="7.5" height="62" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+              <rect x="53" y="94" width="2.5" height="62" fill="url(#gSteelDark)" opacity="0.55"/>
+              <line x1="48.6" y1="95" x2="48.6" y2="156" stroke="url(#gRim)" stroke-width="1.1"/>
+              <rect x="144.5" y="94" width="7.5" height="62" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+            
+              <!-- diagonal cross brace -->
+              <path d="M56,150 L144,120" stroke="#3A4455" stroke-width="2" opacity="0.5" fill="none"/>
+            
+              <!-- ===== LOAD CELLS (HERO) — stepped pucks under each foot ===== -->
+              <!-- FRONT-LEFT load cell assembly -->
+              <g filter="url(#fSoftShadow)">
+                <!-- foot / top mount plate -->
+                <rect x="43" y="155" width="18" height="4.5" rx="1" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.1"/>
+                <!-- load cell puck (stepped) -->
+                <rect x="47" y="159.5" width="10" height="4" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <ellipse cx="52" cy="161.5" rx="5" ry="2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1"/>
+                <ellipse cx="50.5" cy="161" rx="2" ry="0.9" fill="#ffffff" opacity="0.20"/>
+                <!-- lower base plate -->
+                <rect x="42" y="163" width="20" height="5" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.1"/>
+                <!-- anchor bolts -->
+                <circle cx="45.5" cy="165.5" r="1.2" fill="#3A4455"/>
+                <circle cx="58.5" cy="165.5" r="1.2" fill="#3A4455"/>
+              </g>
+              <!-- load-cell status LED -->
+              <circle class="led" cx="52" cy="157.3" r="2.2" fill="#2FBF71" filter="url(#fGlow)"/>
+            
+              <!-- FRONT-RIGHT load cell assembly -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="139" y="155" width="18" height="4.5" rx="1" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.1"/>
+                <rect x="143" y="159.5" width="10" height="4" rx="1.5" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <ellipse cx="148" cy="161.5" rx="5" ry="2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1"/>
+                <ellipse cx="146.5" cy="161" rx="2" ry="0.9" fill="#ffffff" opacity="0.20"/>
+                <rect x="138" y="163" width="20" height="5" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.1"/>
+                <circle cx="141.5" cy="165.5" r="1.2" fill="#3A4455"/>
+                <circle cx="154.5" cy="165.5" r="1.2" fill="#3A4455"/>
+              </g>
+              <circle class="led" cx="148" cy="157.3" r="2.2" fill="#2FBF71" filter="url(#fGlow)"/>
+            
+              <!-- load-cell signal cable -->
+              <path d="M57,161 q12,10 30,4 q10,-3 22,0" fill="none" stroke="#2E86E6" stroke-width="1.1" opacity="0.8"/></g>
+                </g>
+              </g>
+              <g class="mnode clickable" id="node-mixer" data-machine="ribbon-mixer" role="link" tabindex="0" aria-label="Ribbon Mixer">
+                <g transform="translate(528,410) scale(0.8)">
+                  <rect class="halo" x="-8" y="-8" width="286" height="156" rx="12"/>
+                  <g class="art"><!-- trough interior, clips the travelling helix -->
+              <clipPath id="clip-mixer">
+                <path d="M30 50 H186 V78 Q186 104 160 104 H56 Q30 104 30 78 Z"/>
+              </clipPath>
+            
+              <!-- ground contact shadow -->
+              <ellipse cx="140" cy="136" rx="118" ry="4.2" fill="#0C1017" opacity=".5"/>
+            
+              <!-- ===== BASE FRAME ===== -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="34" y="104" width="8" height="24" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="118" y="104" width="8" height="24" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="176" y="104" width="8" height="24" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="228" y="110" width="8" height="18" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="26" y="128" width="240" height="6" rx="1.6" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- drive pedestal -->
+                <rect x="190" y="103" width="76" height="8" rx="1.4" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+              </g>
+            
+              <!-- ===== TROUGH BODY (U section) ===== -->
+              <path d="M28 48 H188 V78 Q188 106 160 106 H56 Q28 106 28 78 Z"
+                    fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.5"/>
+              <!-- interior shading so the ribbon reads as *inside* -->
+              <path d="M30 50 H186 V78 Q186 104 160 104 H56 Q30 104 30 78 Z"
+                    fill="url(#gSteelDark)" opacity=".55"/>
+              <!-- left rim light -->
+              <path d="M28 48 V78 Q28 106 56 106" fill="none" stroke="url(#gRim)" stroke-width="1.4"/>
+              <!-- body specular -->
+              <rect x="40" y="54" width="10" height="40" rx="5" fill="#FFFFFF" opacity=".10"/>
+            
+              <!-- ===== SHAFT + TRAVELLING HELICAL RIBBON ===== -->
+              <g clip-path="url(#clip-mixer)">
+                <!-- shaft (static) -->
+                <rect x="24" y="71.4" width="170" height="5.2" rx="2.6" fill="url(#gSteelH)" stroke="#3A4455" stroke-width=".9"/>
+            
+                <g class="screw">
+                  <!-- back edge of the ribbon (darker, half-pitch out of phase) -->
+                  <path d="M-48 74 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0"
+                        fill="none" stroke="#4A5568" stroke-width="2.6" opacity=".8"/>
+                  <!-- radial struts tying ribbon to shaft -->
+                  <g stroke="#5A6678" stroke-width="1.6" opacity=".75">
+                    <line x1="60"  y1="74" x2="60"  y2="54"/>
+                    <line x1="108" y1="74" x2="108" y2="54"/>
+                    <line x1="156" y1="74" x2="156" y2="54"/>
+                    <line x1="36"  y1="74" x2="36"  y2="94"/>
+                    <line x1="84"  y1="74" x2="84"  y2="94"/>
+                    <line x1="132" y1="74" x2="132" y2="94"/>
+                    <line x1="180" y1="74" x2="180" y2="94"/>
+                  </g>
+                  <!-- front edge of the ribbon (bright) -->
+                  <path d="M-48 74 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0"
+                        fill="none" stroke="url(#gSteelH)" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M-48 74 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0 q12 -40 24 0 q12 40 24 0"
+                        fill="none" stroke="#C6D2E0" stroke-width="1" opacity=".45"/>
+                </g>
+              </g>
+            
+              <!-- ===== LID with toggle clamps ===== -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="24" y="38" width="168" height="10" rx="2.4" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+                <line x1="26" y1="39.4" x2="190" y2="39.4" stroke="url(#gRim)" stroke-width="1.2"/>
+                <!-- charge port -->
+                <circle cx="66" cy="43" r="6.4" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                <circle cx="66" cy="43" r="3.4" fill="url(#gGlass)"/>
+                <circle cx="64.4" cy="41.4" r="1.1" fill="#FFFFFF" opacity=".22"/>
+                <!-- toggle clamps -->
+                <g>
+                  <rect x="46" y="46" width="5" height="8" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <rect x="45" y="53" width="7" height="2.6" rx="1.2" fill="#E5484D"/>
+                  <rect x="96" y="46" width="5" height="8" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <rect x="95" y="53" width="7" height="2.6" rx="1.2" fill="#E5484D"/>
+                  <rect x="140" y="46" width="5" height="8" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <rect x="139" y="53" width="7" height="2.6" rx="1.2" fill="#E5484D"/>
+                  <rect x="174" y="46" width="5" height="8" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                  <rect x="173" y="53" width="7" height="2.6" rx="1.2" fill="#E5484D"/>
+                </g>
+                <!-- nameplate -->
+                <rect x="112" y="40.4" width="18" height="5.6" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+                <line x1="114" y1="42.6" x2="128" y2="42.6" stroke="#8FA0B5" stroke-width=".5" opacity=".6"/>
+                <line x1="114" y1="44.4" x2="124" y2="44.4" stroke="#8FA0B5" stroke-width=".5" opacity=".5"/>
+              </g>
+            
+              <!-- ===== PNEUMATIC DISCHARGE GATE (bottom centre) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <rect x="94" y="103" width="30" height="4.4" rx="1.1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <circle cx="98" cy="105.2" r="1.1" fill="#2A3242"/>
+                <circle cx="109" cy="105.2" r="1.1" fill="#2A3242"/>
+                <circle cx="120" cy="105.2" r="1.1" fill="#2A3242"/>
+                <rect x="97" y="107.4" width="24" height="9" rx="1.6" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="94" y="116.4" width="30" height="4" rx="1.1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <!-- pneumatic actuator -->
+                <rect x="122" y="106" width="16" height="9" rx="2.2" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1.1"/>
+                <circle cx="130" cy="110.5" r="1.6" fill="#2E86E6" opacity=".85"/>
+                <path d="M138 109 q6 -1 7 5" fill="none" stroke="#2E86E6" stroke-width="1.4" opacity=".7"/>
+                <!-- outlet spigot -->
+                <rect x="102" y="120.4" width="14" height="5" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              </g>
+            
+              <!-- ===== DRIVE TRAIN (bearing → gearbox → motor) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- shaft stub -->
+                <rect x="188" y="72" width="6" height="4" fill="url(#gSteelH)" stroke="#3A4455" stroke-width=".8"/>
+                <!-- bearing housing -->
+                <rect x="192" y="62" width="15" height="24" rx="2" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.3"/>
+                <circle cx="199.5" cy="74" r="4.2" fill="url(#gSteelH)" stroke="#2A3242" stroke-width="1"/>
+                <circle cx="195" cy="65" r="1.1" fill="#2A3242"/>
+                <circle cx="204" cy="65" r="1.1" fill="#2A3242"/>
+                <circle cx="195" cy="83" r="1.1" fill="#2A3242"/>
+                <circle cx="204" cy="83" r="1.1" fill="#2A3242"/>
+            
+                <!-- coupling -->
+                <rect x="207" y="70" width="4" height="8" fill="url(#gSteelH)" stroke="#2A3242" stroke-width=".8"/>
+            
+                <!-- helical gearbox (ART blue) -->
+                <rect x="211" y="56" width="26" height="34" rx="3" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1.2"/>
+                <rect x="213" y="58" width="4" height="30" rx="2" fill="#FFFFFF" opacity=".16"/>
+                <rect x="216" y="66" width="14" height="7" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width=".9"/>
+                <circle cx="214" cy="59" r="1.1" fill="#143A6B"/>
+                <circle cx="234" cy="59" r="1.1" fill="#143A6B"/>
+                <circle cx="214" cy="87" r="1.1" fill="#143A6B"/>
+                <circle cx="234" cy="87" r="1.1" fill="#143A6B"/>
+                <!-- lifting eye -->
+                <path d="M221 56 q3 -5 6 0" fill="none" stroke="#8FA0B5" stroke-width="1.6"/>
+            
+                <!-- motor with cooling fins -->
+                <rect x="238" y="60" width="24" height="26" rx="3" fill="url(#gMotor)" stroke="#2E86E6" stroke-width="1.2"/>
+                <g stroke="#143A6B" stroke-width="1" opacity=".8">
+                  <line x1="243" y1="61.4" x2="243" y2="84.6"/>
+                  <line x1="247" y1="61.4" x2="247" y2="84.6"/>
+                  <line x1="251" y1="61.4" x2="251" y2="84.6"/>
+                  <line x1="255" y1="61.4" x2="255" y2="84.6"/>
+                  <line x1="259" y1="61.4" x2="259" y2="84.6"/>
+                </g>
+                <rect x="239" y="62" width="2.6" height="22" rx="1.3" fill="#FFFFFF" opacity=".15"/>
+                <!-- rear fan cowl -->
+                <circle cx="264" cy="73" r="5.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.1"/>
+                <g class="rotor">
+                  <circle cx="264" cy="73" r="3.4" fill="url(#gSteel)" stroke="#3A4455" stroke-width=".7"/>
+                  <g fill="#3A4455">
+                    <path d="M264 73 L263 69.8 Q264 69.6 265 69.8 Z"/>
+                    <path d="M264 73 L267.1 74 Q266.9 75 266 75.6 Z"/>
+                    <path d="M264 73 L261.5 75.4 Q260.8 74.7 260.7 73.7 Z"/>
+                  </g>
+                </g>
+                <!-- terminal box -->
+                <rect x="244" y="55.6" width="10" height="5" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".9"/>
+                <circle class="led" cx="257" cy="64" r="2.2" fill="#2FBF71" filter="url(#fGlow)"/>
+              </g></g>
+                </g>
+              </g>
+              <g class="mnode clickable" id="node-sifter" data-machine="vibro-sifter" role="link" tabindex="0" aria-label="Vibro Sifter">
+                <g transform="translate(564,556) scale(0.8)">
+                  <rect class="halo" x="-8" y="-8" width="196" height="146" rx="12"/>
+                  <g class="art"><!-- ground contact shadow -->
+              <ellipse cx="80" cy="126" rx="60" ry="4.2" fill="#0C1017" opacity=".5"/>
+            
+              <!-- ===== BASE (planted — does NOT vibrate) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- legs + pads -->
+                <rect x="50" y="111" width="6" height="11" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="77" y="111" width="6" height="11" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="104" y="111" width="6" height="11" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="46" y="121" width="14" height="3.6" rx="1.2" fill="url(#gSteelH)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="73" y="121" width="14" height="3.6" rx="1.2" fill="url(#gSteelH)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="100" y="121" width="14" height="3.6" rx="1.2" fill="url(#gSteelH)" stroke="#2A3242" stroke-width="1"/>
+            
+                <!-- motor base cylinder -->
+                <rect x="42" y="88" width="76" height="24" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.4"/>
+                <ellipse cx="80" cy="88" rx="38" ry="6" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.3"/>
+                <ellipse cx="80" cy="112" rx="38" ry="6" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.1"/>
+                <rect x="49" y="92" width="7" height="16" rx="3.5" fill="#FFFFFF" opacity=".13"/>
+                <!-- nameplate -->
+                <rect x="86" y="95" width="15" height="7" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+                <line x1="88" y1="97.5" x2="99" y2="97.5" stroke="#8FA0B5" stroke-width=".5" opacity=".6"/>
+                <line x1="88" y1="99.8" x2="96" y2="99.8" stroke="#8FA0B5" stroke-width=".5" opacity=".5"/>
+            
+                <!-- right vibro motor -->
+                <rect x="118" y="89" width="27" height="18" rx="3" fill="#B4531F" stroke="#3A4455" stroke-width="1.2"/>
+                <line x1="124" y1="90.5" x2="124" y2="105.5" stroke="#7E3714" stroke-width="1"/>
+                <line x1="129" y1="90.5" x2="129" y2="105.5" stroke="#7E3714" stroke-width="1"/>
+                <line x1="134" y1="90.5" x2="134" y2="105.5" stroke="#7E3714" stroke-width="1"/>
+                <rect x="119" y="91" width="3" height="14" rx="1.4" fill="#FFFFFF" opacity=".14"/>
+                <circle cx="146.5" cy="98" r="3.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <circle class="led" cx="140" cy="94" r="2.2" fill="#F5A524" filter="url(#fGlow)"/>
+            
+                <!-- left vibro motor -->
+                <rect x="17" y="90" width="25" height="16" rx="3" fill="#B4531F" stroke="#3A4455" stroke-width="1.2"/>
+                <line x1="23" y1="91.4" x2="23" y2="104.6" stroke="#7E3714" stroke-width="1"/>
+                <line x1="28" y1="91.4" x2="28" y2="104.6" stroke="#7E3714" stroke-width="1"/>
+                <line x1="33" y1="91.4" x2="33" y2="104.6" stroke="#7E3714" stroke-width="1"/>
+                <rect x="18" y="92" width="2.6" height="12" rx="1.3" fill="#FFFFFF" opacity=".13"/>
+            
+                <!-- suspension springs (planted) -->
+                <g stroke="#8FA0B5" stroke-width="1.6" fill="none" opacity=".9">
+                  <ellipse cx="50" cy="85.5" rx="5" ry="2.1"/><ellipse cx="50" cy="81" rx="5" ry="2.1"/><ellipse cx="50" cy="76.5" rx="5" ry="2.1"/>
+                  <ellipse cx="110" cy="85.5" rx="5" ry="2.1"/><ellipse cx="110" cy="81" rx="5" ry="2.1"/><ellipse cx="110" cy="76.5" rx="5" ry="2.1"/>
+                </g>
+                <g stroke="#5A6678" stroke-width="1.4" fill="none" opacity=".75">
+                  <ellipse cx="72" cy="85.5" rx="4.4" ry="1.9"/><ellipse cx="72" cy="81.4" rx="4.4" ry="1.9"/><ellipse cx="72" cy="77.3" rx="4.4" ry="1.9"/>
+                  <ellipse cx="94" cy="85.5" rx="4.4" ry="1.9"/><ellipse cx="94" cy="81.4" rx="4.4" ry="1.9"/><ellipse cx="94" cy="77.3" rx="4.4" ry="1.9"/>
+                </g>
+              </g>
+            
+              <!-- ===== SIEVING STACK (vibrates) ===== -->
+              <g class="shaker">
+                <!-- oversize outlet chute (off the middle deck) -->
+                <g filter="url(#fSoftShadow)">
+                  <path d="M119 49 L170 57 L170 69 L119 61 Z" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.3"/>
+                  <path d="M119 49 L170 57" stroke="url(#gRim)" stroke-width="1.2" fill="none"/>
+                  <rect x="168" y="55" width="4" height="16" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+                </g>
+            
+                <!-- bottom (fines) deck -->
+                <rect x="38" y="62" width="84" height="13" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.3"/>
+                <ellipse cx="80" cy="62" rx="42" ry="6.5" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="45" y="65" width="7" height="7" rx="3.5" fill="#FFFFFF" opacity=".13"/>
+            
+                <!-- clamp ring -->
+                <rect x="36" y="59" width="88" height="4.4" rx="2.2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="33.5" y="58.4" width="5.5" height="5.6" rx="1.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="121" y="58.4" width="5.5" height="5.6" rx="1.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+            
+                <!-- middle deck -->
+                <rect x="38" y="48" width="84" height="13" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.3"/>
+                <ellipse cx="80" cy="48" rx="42" ry="6.5" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="45" y="51" width="7" height="7" rx="3.5" fill="#FFFFFF" opacity=".14"/>
+            
+                <!-- clamp ring -->
+                <rect x="36" y="45" width="88" height="4.4" rx="2.2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="33.5" y="44.4" width="5.5" height="5.6" rx="1.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <rect x="121" y="44.4" width="5.5" height="5.6" rx="1.4" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+            
+                <!-- top deck -->
+                <rect x="38" y="34" width="84" height="13" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.3"/>
+                <ellipse cx="80" cy="34" rx="42" ry="6.5" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="45" y="37" width="7" height="7" rx="3.5" fill="#FFFFFF" opacity=".15"/>
+            
+                <!-- dust-tight dome cover -->
+                <path d="M38 34 Q40 18 80 17 Q120 18 122 34 Z" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+                <path d="M38 34 Q40 18 80 17 Q120 18 122 34" fill="none" stroke="url(#gRim)" stroke-width="1.3"/>
+                <ellipse cx="60" cy="25" rx="14" ry="4.6" fill="#FFFFFF" opacity=".16"/>
+            
+                <!-- centred inlet -->
+                <rect x="71" y="6" width="18" height="12" rx="2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="67.5" y="3.6" width="25" height="3.8" rx="1.2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1.1"/>
+                <circle cx="71" cy="5.5" r="1.1" fill="#2A3242"/>
+                <circle cx="80" cy="5.5" r="1.1" fill="#2A3242"/>
+                <circle cx="89" cy="5.5" r="1.1" fill="#2A3242"/>
+                <rect x="72.4" y="7.4" width="2.6" height="9" rx="1.3" fill="#FFFFFF" opacity=".14"/>
+              </g></g>
+                </g>
+              </g>
+              <g class="mnode clickable" id="node-trolley" data-machine="collection-trolley" role="link" tabindex="0" aria-label="Material Trolley">
+                <g transform="translate(564,694) scale(0.8)">
+                  <rect class="halo" x="-8" y="-8" width="196" height="131" rx="12"/>
+                  <g class="art"><ellipse cx="92" cy="110" rx="70" ry="6" fill="#0F1520" opacity=".45"/>
+            
+              <g stroke="#2A3242" stroke-width="1">
+                <rect x="67" y="60" width="3.4" height="34" rx="1.6" fill="url(#gSteelDark)"/>
+                <rect x="107" y="60" width="3.4" height="34" rx="1.6" fill="url(#gSteelDark)"/>
+                <rect x="66" y="84" width="46" height="3.4" rx="1.6" fill="url(#gSteelDark)"/>
+              </g>
+              <g stroke="#2A3242" stroke-width="1">
+                <ellipse cx="70" cy="92" rx="5.2" ry="5.6" fill="#232B39"/>
+                <ellipse cx="70" cy="92" rx="2" ry="2.2" fill="#3A4455"/>
+                <ellipse cx="110" cy="92" rx="5.2" ry="5.6" fill="#232B39"/>
+                <ellipse cx="110" cy="92" rx="2" ry="2.2" fill="#3A4455"/>
+              </g>
+            
+              <rect x="51" y="56.5" width="78" height="4" rx="2" fill="url(#gSteelH)" stroke="#3A4455" stroke-width="1"/>
+            
+              <g stroke="#3A4455" stroke-width="1">
+                <rect x="30" y="40.5" width="15" height="3.4" rx="1.7" fill="url(#gSteelH)"/>
+                <rect x="30.5" y="41" width="14" height="1.1" rx=".5" fill="#8FA0B5" opacity=".5"/>
+                <rect x="31" y="43" width="3.2" height="20" rx="1.6" fill="url(#gSteelH)"/>
+                <rect x="41" y="43" width="3.2" height="19" rx="1.6" fill="url(#gSteelH)"/>
+              </g>
+            
+              <g filter="url(#fSoftShadow)">
+                <path d="M55,56 L125,56 L99,85 L81,85 Z" fill="url(#gHopper)" stroke="#3A4455" stroke-width="1.2"/>
+                <path d="M55,56 L81,85 L84,85 L60,56 Z" fill="#8FA0B5" opacity=".12"/>
+                <path d="M118,58 L125,56 L104,80 L100,80 Z" fill="#1B2230" opacity=".35"/>
+            
+                <rect x="55" y="32" width="70" height="24.5" rx="1.5" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <rect x="56" y="33" width="9" height="22" rx="1" fill="#FFFFFF" opacity=".14"/>
+                <rect x="118" y="33" width="6" height="22.5" rx="1" fill="#1B2230" opacity=".3"/>
+            
+                <ellipse cx="90" cy="31.5" rx="37" ry="6.2" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.2"/>
+                <ellipse cx="90" cy="31.5" rx="37" ry="6.2" fill="none" stroke="url(#gRim)" stroke-width="1"/>
+                <ellipse cx="79" cy="29.5" rx="16" ry="2.6" fill="#FFFFFF" opacity=".16"/>
+                <ellipse cx="90" cy="30" rx="6" ry="2" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width=".8"/>
+            
+                <rect x="54" y="30.5" width="72" height="3.4" rx="1.2" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width=".8"/>
+              </g>
+            
+              <clipPath id="clip-trolley"><path d="M57,34 L123,34 L123,55 L98,84 L82,84 L57,55 Z"/></clipPath>
+              <g clip-path="url(#clip-trolley)"><rect class="fill-level" id="trolley-fill" x="57" y="34" width="66" height="50" fill="url(#gPowder)" opacity=".85"/></g>
+            
+              <g stroke="#2A3242" stroke-width="1">
+                <g transform="translate(58,32.5)"><rect x="-2.5" y="0" width="5" height="7" rx="1" fill="#2A3242"/><rect x="-1.5" y="1" width="3" height="2" fill="#3A4455"/></g>
+                <g transform="translate(90,32.5)"><rect x="-2.5" y="0" width="5" height="7" rx="1" fill="#2A3242"/><rect x="-1.5" y="1" width="3" height="2" fill="#3A4455"/></g>
+                <g transform="translate(122,32.5)"><rect x="-2.5" y="0" width="5" height="7" rx="1" fill="#2A3242"/><rect x="-1.5" y="1" width="3" height="2" fill="#3A4455"/></g>
+              </g>
+              <g fill="#3A4455"><circle cx="66" cy="27" r="1"/><circle cx="78" cy="25.4" r="1"/><circle cx="90" cy="25" r="1"/><circle cx="102" cy="25.4" r="1"/><circle cx="114" cy="27" r="1"/></g>
+            
+              <rect x="80" y="84.5" width="20" height="6" rx="1" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1"/>
+              <rect x="78" y="83.5" width="24" height="2" rx="1" fill="url(#gSteelH)" stroke="#3A4455" stroke-width=".8"/>
+              <g fill="#3A4455"><circle cx="81" cy="88" r="1"/><circle cx="90" cy="88" r="1"/><circle cx="99" cy="88" r="1"/></g>
+            
+              <ellipse cx="90" cy="94.5" rx="11" ry="5" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width="1.1"/>
+              <ellipse cx="90" cy="94.5" rx="6.5" ry="3.2" fill="#232B39" stroke="#2A3242" stroke-width=".8"/>
+              <line x1="90" y1="94.5" x2="90" y2="94.5"/>
+              <rect x="89" y="90.5" width="2" height="8" rx="1" fill="#3A4455"/>
+              <path d="M100,94.5 L118,90.5" stroke="#2A3242" stroke-width="2.6" stroke-linecap="round"/>
+              <circle cx="118" cy="90.5" r="2" fill="#2A3242" stroke="#3A4455" stroke-width=".8"/>
+              <rect x="86" y="88.5" width="8" height="3" rx="1" fill="url(#gMotor)" stroke="#2A3242" stroke-width=".8"/>
+            
+              <rect x="72" y="44" width="16" height="8" rx="1" fill="url(#gGlass)" stroke="#3A4455" stroke-width="1"/>
+              <rect x="73" y="45" width="14" height="2.4" rx="1" fill="#8FA0B5" opacity=".22"/>
+              <circle cx="76" cy="49.5" r="1.4" fill="#2FBF71" filter="url(#fGlow)"/>
+            
+              <ellipse cx="69" cy="42" rx="6.5" ry="12" fill="#FFFFFF" opacity=".12"/>
+            
+              <g stroke="#2A3242" stroke-width="1">
+                <rect x="51" y="60" width="3.6" height="35" rx="1.8" fill="url(#gSteelDark)"/>
+                <rect x="125.4" y="60" width="3.6" height="35" rx="1.8" fill="url(#gSteelDark)"/>
+                <rect x="51" y="91" width="78" height="3.8" rx="1.9" fill="url(#gSteelH)"/>
+                <rect x="52" y="91.6" width="76" height="1.2" rx=".6" fill="#8FA0B5" opacity=".45"/>
+              </g>
+            
+              <g stroke="#2A3242" stroke-width="1.1">
+                <rect x="49.5" y="94" width="9" height="4" rx="1" fill="url(#gSteelDark)"/>
+                <ellipse cx="54" cy="103" rx="7.5" ry="8" fill="#232B39"/>
+                <ellipse cx="54" cy="103" rx="7.5" ry="8" fill="none" stroke="url(#gRim)" stroke-width=".8"/>
+                <ellipse cx="54" cy="103" rx="3" ry="3.2" fill="#3A4455"/>
+                <ellipse cx="52" cy="100" rx="2.2" ry="3" fill="#FFFFFF" opacity=".12"/>
+              </g>
+              <g stroke="#2A3242" stroke-width="1.1">
+                <rect x="121.5" y="94" width="9" height="4" rx="1" fill="url(#gSteelDark)"/>
+                <ellipse cx="126" cy="103" rx="7.5" ry="8" fill="#232B39"/>
+                <ellipse cx="126" cy="103" rx="7.5" ry="8" fill="none" stroke="url(#gRim)" stroke-width=".8"/>
+                <ellipse cx="126" cy="103" rx="3" ry="3.2" fill="#3A4455"/>
+                <ellipse cx="124" cy="100" rx="2.2" ry="3" fill="#FFFFFF" opacity=".12"/>
+              </g>
+            
+              <rect x="98" y="47" width="13" height="6" rx=".8" fill="url(#gSteelDark)" stroke="#3A4455" stroke-width=".9"/>
+              <rect x="99" y="48" width="11" height="1.4" fill="#8FA0B5" opacity=".4"/></g>
+                </g>
+              </g>
+              <g class="mnode clickable" id="node-hmi" data-machine="control-panel" role="link" tabindex="0" aria-label="PLC / HMI Panel">
+                <g transform="translate(930,360) scale(1.1)">
+                  <rect class="halo" x="-8" y="-8" width="206" height="166" rx="12"/>
+                  <g class="art"><!-- ground contact shadow -->
+              <ellipse cx="96" cy="141" rx="66" ry="6" fill="#10151E" opacity="0.55"/>
+            
+              <!-- ===== CABINET BODY (3D) ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- right depth side -->
+                <path d="M140 20 L149 14 L149 132 L140 138 Z" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- top face -->
+                <path d="M42 20 L51 14 L149 14 L140 20 Z" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+                <!-- front face -->
+                <rect x="42" y="20" width="98" height="118" rx="3" fill="url(#gSteel)" stroke="#3A4455" stroke-width="1.4"/>
+              </g>
+            
+              <!-- base plinth + mounting feet -->
+              <rect x="46" y="137" width="92" height="6" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              <rect x="50" y="143" width="8" height="4" fill="url(#gSteelDark)"/>
+              <rect x="126" y="143" width="8" height="4" fill="url(#gSteelDark)"/>
+            
+              <!-- door inset seam -->
+              <rect x="46" y="24" width="90" height="110" rx="2.5" fill="none" stroke="#2A3242" stroke-width="1" opacity="0.9"/>
+              <!-- corner bolts -->
+              <circle cx="49" cy="27" r="1.3" fill="#2A3242"/>
+              <circle cx="133" cy="27" r="1.3" fill="#2A3242"/>
+              <circle cx="49" cy="131" r="1.3" fill="#2A3242"/>
+              <circle cx="133" cy="131" r="1.3" fill="#2A3242"/>
+            
+              <!-- vertical recessed door handle (left) -->
+              <rect x="44.4" y="70" width="3.6" height="28" rx="1.6" fill="url(#gGlass)" stroke="#2A3242" stroke-width="1"/>
+              <rect x="45.2" y="71" width="1" height="26" fill="#8FA0B5" opacity="0.2"/>
+            
+              <!-- big body specular (upper-left key light) -->
+              <path d="M46 24 Q70 22 92 26 Q70 42 50 58 Z" fill="#ffffff" opacity="0.10"/>
+              <!-- rim light top/left edge -->
+              <path d="M43 20 L139 20 M43 20 L43 137" fill="none" stroke="url(#gRim)" stroke-width="1.2" opacity="0.8"/>
+            
+              <!-- ===== TOP VENT LOUVER ===== -->
+              <rect x="99" y="27" width="34" height="10" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              <path d="M100 30 H132 M100 32 H132 M100 34 H132" stroke="#2A3242" stroke-width="0.8"/>
+              <path d="M100 29.4 H132 M100 31.4 H132 M100 33.4 H132" stroke="#8FA0B5" stroke-width="0.5" opacity="0.4"/>
+            
+              <!-- ART blue nameplate / logo strip (top-left) -->
+              <rect x="49" y="27" width="44" height="10" rx="1.2" fill="url(#gGlass)" stroke="#2A3242" stroke-width="1"/>
+              <rect x="51" y="29" width="18" height="6" rx="0.6" fill="#2E86E6" opacity="0.85"/>
+              <rect x="51" y="29" width="18" height="2" rx="0.6" fill="#ffffff" opacity="0.14"/>
+            
+              <!-- ===== HMI SCREEN ===== -->
+              <rect x="49" y="41" width="87" height="46" rx="3" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1.2"/>
+              <rect id="hmi-screen" x="52" y="44" width="81" height="40" rx="2" fill="url(#gGlass)" stroke="#3A4455" stroke-width="1"/>
+              <!-- screen glass reflection -->
+              <path d="M53 45 L80 45 L58 71 L53 71 Z" fill="#ffffff" opacity="0.08"/>
+              <rect x="52" y="44" width="81" height="3" fill="#8FA0B5" opacity="0.12"/>
+              <!-- bezel screws -->
+              <circle cx="51" cy="43" r="1.1" fill="#2A3242"/>
+              <circle cx="134" cy="43" r="1.1" fill="#2A3242"/>
+              <circle cx="51" cy="85" r="1.1" fill="#2A3242"/>
+              <circle cx="134" cy="85" r="1.1" fill="#2A3242"/>
+            
+              <!-- ===== INDICATOR LAMP ROW ===== -->
+              <g>
+                <circle cx="56" cy="95" r="2.7" fill="#2FBF71" filter="url(#fGlow)"/>
+                <circle cx="56" cy="95" r="2.7" fill="none" stroke="#2A3242" stroke-width="0.8"/>
+                <circle cx="72" cy="95" r="2.7" fill="#2FBF71" filter="url(#fGlow)"/>
+                <circle cx="72" cy="95" r="2.7" fill="none" stroke="#2A3242" stroke-width="0.8"/>
+                <circle cx="88" cy="95" r="2.7" fill="#F5A524" filter="url(#fGlow)"/>
+                <circle cx="88" cy="95" r="2.7" fill="none" stroke="#2A3242" stroke-width="0.8"/>
+                <circle cx="104" cy="95" r="2.7" fill="#E5484D" filter="url(#fGlow)"/>
+                <circle cx="104" cy="95" r="2.7" fill="none" stroke="#2A3242" stroke-width="0.8"/>
+              </g>
+            
+              <!-- ===== PUSH BUTTONS ROW ===== -->
+              <!-- START green -->
+              <circle cx="57" cy="110" r="4.3" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              <circle cx="57" cy="110" r="2.9" fill="#2FBF71"/>
+              <ellipse cx="56" cy="108.6" rx="1.4" ry="0.9" fill="#ffffff" opacity="0.2"/>
+              <!-- STOP red -->
+              <circle cx="73" cy="110" r="4.3" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              <circle cx="73" cy="110" r="2.9" fill="#E5484D"/>
+              <ellipse cx="72" cy="108.6" rx="1.4" ry="0.9" fill="#ffffff" opacity="0.2"/>
+              <!-- RESET blue -->
+              <circle cx="89" cy="110" r="4.3" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              <circle cx="89" cy="110" r="2.9" fill="#2E86E6"/>
+              <ellipse cx="88" cy="108.6" rx="1.4" ry="0.9" fill="#ffffff" opacity="0.2"/>
+            
+              <!-- ===== EMERGENCY STOP (yellow base + red mushroom) ===== -->
+              <circle cx="118" cy="112" r="12" fill="#F5A524" stroke="#2A3242" stroke-width="1.2"/>
+              <circle cx="118" cy="112" r="12" fill="none" stroke="#8FA0B5" stroke-width="0.5" opacity="0.35"/>
+              <circle cx="118" cy="110.5" r="7.6" fill="url(#gSteelDark)"/>
+              <circle cx="118" cy="110" r="7" fill="#E5484D" stroke="#2A3242" stroke-width="0.9"/>
+              <circle cx="118" cy="110" r="4.3" fill="#E5484D" stroke="#B02A2E" stroke-width="0.8"/>
+              <ellipse cx="115.6" cy="107.6" rx="2.6" ry="1.6" fill="#ffffff" opacity="0.22"/>
+            
+              <!-- lower nameplate -->
+              <rect x="49" y="120" width="38" height="9" rx="1" fill="url(#gGlass)" stroke="#2A3242" stroke-width="1"/>
+              <path d="M51 123 H84 M51 126 H78" stroke="#8FA0B5" stroke-width="0.7" opacity="0.4"/>
+            
+              <!-- bottom vent louver -->
+              <rect x="93" y="126" width="40" height="8" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="1"/>
+              <path d="M94 128.5 H132 M94 130.5 H132 M94 132.5 H132" stroke="#2A3242" stroke-width="0.8"/>
+              <path d="M94 128 H132 M94 130 H132 M94 132 H132" stroke="#8FA0B5" stroke-width="0.4" opacity="0.4"/>
+            
+              <!-- ===== STACK / TOWER LIGHT ===== -->
+              <g filter="url(#fSoftShadow)">
+                <!-- mount collar on top face -->
+                <rect x="89" y="14" width="14" height="5" rx="1" fill="url(#gSteelDark)" stroke="#2A3242" stroke-width="0.9"/>
+                <rect x="93" y="10" width="6" height="5" fill="url(#gSteelDark)"/>
+                <!-- green (bottom) -->
+                <rect id="lamp-green" x="88.5" y="9.5" width="15" height="5" rx="2" fill="#2FBF71" filter="url(#fGlow)"/>
+                <!-- amber (middle) -->
+                <rect id="lamp-amber" x="88.5" y="5.2" width="15" height="5" rx="2" fill="#F5A524" filter="url(#fGlow)"/>
+                <!-- red (top, domed) -->
+                <path id="lamp-red" d="M88.5 6 A7.5 6 0 0 1 103.5 6 L103.5 6.4 A2 2 0 0 1 101.5 8.4 L90.5 8.4 A2 2 0 0 1 88.5 6.4 Z" fill="#E5484D" filter="url(#fGlow)"/>
+              </g>
+              <!-- lamp glass gloss -->
+              <ellipse cx="92" cy="4.2" rx="2.4" ry="1.1" fill="#ffffff" opacity="0.24"/>
+              <ellipse cx="92" cy="7.4" rx="2.4" ry="1.1" fill="#ffffff" opacity="0.18"/>
+              <ellipse cx="92" cy="11.6" rx="2.4" ry="1.1" fill="#ffffff" opacity="0.18"/>
+              <rect x="88.5" y="5.2" width="15" height="5" rx="2" fill="none" stroke="#2A3242" stroke-width="0.5" opacity="0.5"/>
+              <rect x="88.5" y="9.5" width="15" height="5" rx="2" fill="none" stroke="#2A3242" stroke-width="0.5" opacity="0.5"/></g>
+                </g>
+              </g>
+              <g class="labels">
+                <text class="mlabel" x="234" y="792">Pneumatic Suction</text>
+                <text class="msub" x="234" y="808">Root blower · conveying</text>
+                <text class="mlabel" x="636" y="214">Storage Silos ×3</text>
+                <text class="msub" x="636" y="230">Level sensors · auto-refill</text>
+                <text class="mlabel" x="238" y="566">Dust Collector</text>
+                <text class="msub" x="238" y="582">Pulse-jet · 99.9% capture</text>
+                <text class="mlabel" x="636" y="392">Buffer Tank</text>
+                <text class="msub" x="636" y="408">Load cells · weigh &amp; batch</text>
+                <text class="mlabel" x="636" y="536">Ribbon Mixer</text>
+                <text class="msub" x="636" y="552">Uniform blending</text>
+                <text class="mlabel" x="636" y="676">Vibro Sifter</text>
+                <text class="msub" x="636" y="692">Sieve · separate</text>
+                <text class="mlabel" x="636" y="802">Material Trolley</text>
+                <text class="msub" x="636" y="818">Dust-free collection</text>
+                <text class="mlabel" x="1034" y="546">PLC / HMI Panel</text>
+                <text class="msub" x="1034" y="562">Recipe · alarms · report</text>
+              </g>
+              <g class="hmi-readout">
+                <text class="hmi-dim"  x="992" y="420">BATCH</text>
+                <text class="hmi-live" x="992" y="431" id="hmiBatch">#0001</text>
+                <text class="hmi-dim"  x="992" y="441">WEIGHT</text>
+                <text class="hmi-live" x="992" y="450" id="hmiWeight">0 kg</text>
+                <text class="hmi-dim"  x="1036" y="420">STAGE</text>
+                <text class="hmi-live" x="1036" y="431" id="hmiStage">1 / 8</text>
+                <text class="hmi-dim"  x="1036" y="441">STATUS</text>
+                <text class="hmi-live" x="1036" y="450" id="hmiStatus">RUN</text>
+              </g>
+            </svg>
+            <div class="scene-legend" id="legend"></div>
+            <div class="narr-caption" id="narrCaption" hidden aria-live="polite"></div>
+          </div>
+
+          <div class="sys-controls">
+            <button class="btn btn--primary walk-btn" id="walkBtn" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="walkIcon"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span id="walkLabel">Play walkthrough</span>
+            </button>
+            <button class="btn btn--ghost" id="playBtn" aria-pressed="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <span id="playLabel">Pause line</span>
+            </button>
+            <button class="btn btn--ghost" id="restartBtn">Restart</button>
+          </div>
+
+          <div class="sys-progress"><i id="seqBar"></i></div>
+          <div class="seq" id="seq" role="group" aria-label="Jump to a process stage"></div>
+        </div>
+
+        <!-- Side panel -->
+        <aside class="sys-panel" aria-live="polite">
+          <div class="sys-panel__head">
+            <div class="sys-panel__step" id="pStep">Stage 1 of 8</div>
+            <h2 class="sys-panel__title" id="pTitle">Pneumatic Suction</h2>
+          </div>
+          <div class="sys-panel__body">
+            <p class="sys-panel__note" id="pNote"></p>
+            <div class="sys-readout">
+              <div class="readout"><div class="k">Batch weight</div><div class="v"><span id="rWeight">0</span><small> kg</small></div></div>
+              <div class="readout"><div class="k">Line status</div><div class="v" id="rStatus" style="font-size:1rem">RUNNING</div></div>
+              <div class="readout"><div class="k">Throughput</div><div class="v"><span id="rTph">0.0</span><small> TPH</small></div></div>
+              <div class="readout"><div class="k">Dust capture</div><div class="v">99.9<small> %</small></div></div>
+            </div>
+            <div class="sys-panel__link" id="pLink"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section--tint">
+    <div class="wrap">
+      <span class="eyebrow">How the system works</span>
+      <h2>Eleven steps, fully automatic</h2>
+      <ol class="steps-list" id="stepsList"></ol>
+      <h3 style="margin-top:2rem">The result</h3>
+      <div class="outcomes" id="outcomes"></div>
+      <div style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+        <a class="btn btn--primary btn--lg" href="control-panel.html">Try the virtual control panel →</a>
+        <a class="btn btn--ghost btn--lg" href="machines.html">See every machine</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <div data-footer></div>
+
+  <script src="js/data.js?v=20260714d"></script>
+  <script src="js/layout.js?v=20260714"></script>
+  <script src="js/system.js?v=20260713"></script>
+</body>
+</html>
