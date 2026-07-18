@@ -1,0 +1,61 @@
+{
+  "version": 3,
+  "family": "Storage & Elevation",
+  "gradient": ["#082B4A", "#0B7189"],
+  "products": [
+    {
+      "slug": "storage-tank",
+      "normalizedCategory": "Storage & Elevation",
+      "configuration": "Hygienic vertical stainless-steel liquid storage vessel with domed top, four legs, top inlet and vent, side level instrument, bottom outlet valve and compact CIP/service pipework.",
+      "requiredVisible": ["vertical cylindrical vessel", "domed top", "support legs", "top inlet and vent", "side level instrument", "bottom outlet valve"],
+      "forbidden": ["conical dry-solids hopper bottom", "silo ladder cage", "mixing blades visible outside vessel"],
+      "confidence": "high",
+      "references": ["https://www.gea.com/en/products/pumps-valves-flow-components/valves-components-aseptic-liquid-processing/tank-bottom-valves/"]
+    },
+    {
+      "slug": "hopper",
+      "normalizedCategory": "Storage & Elevation",
+      "configuration": "Compact stainless-steel surge hopper for powders and granules, with open flanged top, steep tapered walls, load-cell supports, level sensor, vibrator and slide-gate outlet above a short screw-feeder connection.",
+      "requiredVisible": ["wide loading mouth", "steep tapered walls", "load-cell support frame", "side vibrator", "level sensor", "bottom slide gate"],
+      "forbidden": ["tall silo cylinder", "sealed liquid tank", "operator dumping a sack"],
+      "confidence": "high",
+      "references": ["https://flexicon.com/configurations/weigh-hopper/", "https://www.coperion.com/media/6864/200806_feeder-troubleshooting-article_cp_bsic-joural.pdf"]
+    },
+    {
+      "slug": "silo",
+      "normalizedCategory": "Storage & Elevation",
+      "configuration": "Large outdoor-style bolted cylindrical bulk-solids silo with conical hopper bottom, tall support legs and cross-bracing, roof vent filter, fill pipe, pressure-relief device, caged access ladder, level sensors and rotary-valve discharge.",
+      "requiredVisible": ["tall bolted cylinder", "conical hopper bottom", "cross-braced legs", "roof vent filter", "external fill pipe", "caged ladder", "rotary-valve discharge"],
+      "forbidden": ["small day bin", "liquid tank pipe manifold", "open-top hopper"],
+      "confidence": "high",
+      "references": ["https://wamgroup.com/WAMGROUP/media/GENCAT/SILOSYSTEM.pdf", "https://sepcom.wamgroup.com/en-GB/SEPCOM/Product/KCS/Silo-Safety-System"]
+    },
+    {
+      "slug": "day-bin",
+      "normalizedCategory": "Storage & Elevation",
+      "configuration": "Compact indoor intermediate day bin: short rectangular upper bin with steep pyramidal hopper bottom, four-leg frame, top pneumatic fill connection and small bin-vent filter, high/low level probes, vibrator and bottom rotary airlock feeding downstream equipment.",
+      "requiredVisible": ["short rectangular bin", "pyramidal hopper bottom", "four-leg frame", "top fill connection", "small vent filter", "level probes", "bottom rotary airlock"],
+      "forbidden": ["large outdoor silo", "open loading mouth", "liquid storage vessel"],
+      "confidence": "high",
+      "references": ["https://www.coperion.com/en/news-media/newsroom/2015/coperion-and-coperion-k-tron-at-fakuma-2015", "https://www.coperion.com/media/7044/cp2010_bsic_ejournal_v3.pdf"]
+    },
+    {
+      "slug": "bag-dump-station",
+      "normalizedCategory": "Storage & Elevation",
+      "configuration": "Dust-controlled manual sack-tip station with waist-height loading shelf, hinged hood and safety grid over a tapered receiving hopper, integral rear cartridge-filter housing with pulse manifold and fan, control box and sealed bottom conveyor outlet; no person or bag shown.",
+      "requiredVisible": ["waist-height loading shelf", "hinged dust hood", "safety grid", "tapered receiving hopper", "integral cartridge-filter housing", "pulse manifold", "bottom conveyor outlet"],
+      "forbidden": ["bulk-bag crane frame", "open unfiltered hopper", "person", "sack"],
+      "confidence": "high",
+      "references": ["https://www.coperion.com/en/news-media/newsroom/2015/coperion-and-coperion-k-tron-at-fakuma-2015", "https://flexicon.com/mobile-bag-dump-station-with-glovebox-for-total-dust-containment/"]
+    },
+    {
+      "slug": "storage-pit",
+      "normalizedCategory": "Storage & Elevation",
+      "configuration": "Cutaway industrial truck-receiving storage pit shown as a self-contained steel-and-RCC module: heavy drive-over grating at floor level, deep tapered receiving hopper below, dust-extraction hood and duct at the edge, level sensor, access guard and enclosed drag-chain/screw discharge at the lowest point.",
+      "requiredVisible": ["heavy drive-over grating", "below-floor tapered receiving pit", "dust-extraction hood and duct", "level sensor", "guarded access", "bottom mechanical discharge"],
+      "forbidden": ["above-ground silo", "plain empty hole", "truck", "person"],
+      "confidence": "medium",
+      "references": ["https://www.buhlergroup.com/content/buhlergroup/global/en/products/cooler.html", "https://flexicon.com/wp-content/uploads/2025/10/KK-0720.pdf"]
+    }
+  ]
+}

@@ -1,0 +1,617 @@
+{
+  "version": 3,
+  "family": "Mixing & Blending",
+  "source": "site/build/data/products.json",
+  "coverage": "All 22 normalized Mixing & Blending slugs except approved pilot rapid-mixer-granulator-rmg",
+  "gradient": [
+    "#4C1D95",
+    "#7C3AED"
+  ],
+  "styleReference": "assets/machines/v2/approval/storage-silos-art-logo-sample.png",
+  "output": {
+    "width": 1448,
+    "height": 1086,
+    "format": "png",
+    "fit": "smart crop or pad without distortion"
+  },
+  "brandRule": "Machine only on the purple engineering-studio gradient. Exactly one direct-on-surface physical decal reading ÄRT with mechatronics beneath it; no baked title, specifications, ribbon, callout, people or watermark.",
+  "sharingRule": "A master may be shared only when both the source copy and the externally visible mechanism are genuinely identical.",
+  "products": [
+    {
+      "slug": "ribbon-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "horizontal-u-trough-double-ribbon-blender",
+      "configuration": "Horizontal sanitary stainless U-trough batch blender on a four-leg frame, double-helical inner and outer ribbon on one shaft, hinged gasketed top covers, end-mounted bearing, gearbox and motor, and a pneumatic bottom-center slide-gate discharge. One lid is safely open so the defining nested ribbon agitator is visible.",
+      "requiredVisible": [
+        "horizontal U-shaped trough",
+        "nested inner and outer helical ribbons on one shaft",
+        "hinged gasketed top cover",
+        "end bearing, gearbox and motor in one drive line",
+        "bottom-center discharge valve"
+      ],
+      "forbidden": [
+        "flat paddles instead of ribbons",
+        "plough-shaped tools",
+        "rotating drum shell",
+        "vertical cone vessel"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.munsonmachinery.com/Ribbon-Blenders-Paddle-Blenders-Plow-Blenders/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/ribbon-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "paddle-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "horizontal-twin-shaft-paddle-mixer",
+      "configuration": "Rectangular sanitary stainless twin-shaft batch mixer with two parallel counter-rotating paddle shafts, intermeshing pitched paddles visible through an open service cover, synchronized end drive housings, top feed ports and a full-length bomb-bay discharge under the chamber.",
+      "requiredVisible": [
+        "rectangular horizontal mixing chamber",
+        "two parallel paddle shafts",
+        "intermeshing pitched paddles",
+        "twin synchronized end drives",
+        "full-length bottom discharge doors"
+      ],
+      "forbidden": [
+        "helical ribbon blades",
+        "single rotating drum",
+        "ploughshare tools with side chopper",
+        "open bakery bowl"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.gerickegroup.com/us/solutions/mixing/gms-double-shaft-batch-mixer",
+        "https://www.munsonmachinery.com/Ribbon-Blenders-Paddle-Blenders-Plow-Blenders/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/paddle-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "coating-pan-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "inclined-open-coating-pan",
+      "configuration": "Polished stainless pear-shaped coating pan mounted about 35 degrees from horizontal on a heavy gearbox pedestal, with a wide open mouth, rear geared rotation drive, adjustable food-grade spray lance and separate curved hot-air supply nozzle for coating and drying.",
+      "requiredVisible": [
+        "inclined pear-shaped open pan",
+        "wide unobstructed pan mouth",
+        "rear shaft, gearbox and motor",
+        "adjustable spray lance entering the pan",
+        "separate hot-air nozzle"
+      ],
+      "forbidden": [
+        "horizontal ribbon trough",
+        "closed tablet coater drum",
+        "fixed kettle with central agitator",
+        "open flame burner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://thermocaregroup.com/bv/coating-pan-handa-mixer/",
+        "https://www.sunnysolly.com/handa-mixer/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/coating-pan-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "handa-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "open-handa-pan-four-arm-agitator",
+      "configuration": "Deep open stainless handa pan on tilting trunnions, held in a rigid floor frame with an overhead central geared drive and four curved mixing arms reaching into the hemispherical bowl; the bowl can tilt forward for batch discharge. This follows the source copy's blade-agitated handa rather than duplicating the rotating coating pan.",
+      "requiredVisible": [
+        "deep open hemispherical handa pan",
+        "tilting side trunnions",
+        "overhead central geared drive",
+        "four curved mixing arms inside the bowl",
+        "heavy floor frame"
+      ],
+      "forbidden": [
+        "small domestic planetary mixer",
+        "unsupported floating whisk",
+        "closed horizontal trough",
+        "inclined freely rotating coating pan with no agitator"
+      ],
+      "confidence": "medium",
+      "disclosure": true,
+      "references": [
+        "https://www.ksenggwork.com/flavor-drum-coating-pan.html",
+        "https://www.sunnysolly.com/handa-mixer/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/handa-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "agitator",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "closed-jacketed-top-entry-agitator-vessel",
+      "configuration": "Closed vertical sanitary process vessel with cylindrical shell, shallow dished top and bottom, external heating/cooling dimple jacket, top-entry gearbox and motor aligned to a sealed shaft, CIP spray connection, manway, level instrument, jacket nozzles and bottom sanitary outlet valve.",
+      "requiredVisible": [
+        "closed vertical cylindrical vessel",
+        "external dimple heating/cooling jacket",
+        "top-entry motor and gearbox",
+        "sealed shaft lantern on the vessel roof",
+        "jacket service nozzles and bottom outlet"
+      ],
+      "forbidden": [
+        "portable clamp-on stirrer",
+        "open mixing bowl",
+        "horizontal powder trough",
+        "external rotor-stator workhead"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.alfalaval.us/products/fluid-handling/mixing-equipment/agitators/alt/",
+        "https://www.alfalaval.com/globalassets/documents/products/fluid-handling/mixing-equipment/agitators/altb/alfa-laval-top-mounted-agitators-type-altb---product-leaflet---ese00215.pdf"
+      ],
+      "asset": "assets/machines/v3/full/mixing/agitator/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "conical-screw-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "nauta-orbiting-conical-screw-mixer",
+      "configuration": "Tall inverted-cone stainless Nauta mixer with a steep conical vessel, offset top orbital drive arm and gearbox carrying a cantilevered screw close to the cone wall, central upper bearing housing, inspection port, support lugs and a sanitary bottom discharge valve.",
+      "requiredVisible": [
+        "tall steep conical vessel",
+        "offset orbital drive arm on top",
+        "screw drive gearbox at the arm end",
+        "central top orbit bearing housing",
+        "bottom discharge valve"
+      ],
+      "forbidden": [
+        "horizontal screw conveyor",
+        "central fixed auger only",
+        "double-cone tumble blender",
+        "V-shaped vessel"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://hosokawa-micron-bv.com/technologies/mixing/nauta-conical-screw-mixer"
+      ],
+      "asset": "assets/machines/v3/full/mixing/conical-screw-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "plow-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "horizontal-ploughshare-mixer-with-chopper",
+      "configuration": "Horizontal stainless cylindrical ploughshare batch mixer on a rigid frame, with end-mounted main shaft gearbox and motor, large top feed nozzles, hinged inspection door revealing plough-shaped tools, a separate high-speed side chopper motor entering radially and a wide bottom discharge flap.",
+      "requiredVisible": [
+        "horizontal cylindrical mixing drum",
+        "end-mounted main gearbox and motor",
+        "plough-shaped mixing tools visible through inspection door",
+        "separate radial side chopper motor",
+        "wide bottom discharge flap"
+      ],
+      "forbidden": [
+        "helical ribbon agitator",
+        "flat twin-shaft paddles",
+        "rotating tumble drum on trunnion rollers",
+        "vertical cone"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.loedige.de/en/machines/ploughshare-mixer-laboratory-machine/",
+        "https://www.loedige.de/pdf/maschines/FKMFOOD_202007_GB.pdf"
+      ],
+      "sharedConfiguration": "horizontal-ploughshare-mixer-with-radial-chopper",
+      "asset": "assets/machines/v3/full/mixing/plow-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "capsule-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "pharmaceutical-ibc-bin-blender",
+      "configuration": "GMP pedestal bin blender for capsule-filling powder preparation: a removable square stainless IBC with pyramidal lower cone and butterfly valve is positively clamped inside a rotating cage between drive and support pedestals, with guarding, braked drive and compact HMI.",
+      "requiredVisible": [
+        "removable square stainless IBC",
+        "pyramidal lower cone and butterfly valve",
+        "top and bottom positive clamp cage",
+        "opposed rotation pedestals",
+        "guarded braked drive and HMI"
+      ],
+      "forbidden": [
+        "V-shell blender",
+        "capsule filling machine",
+        "ribbon mixer",
+        "open food bowl"
+      ],
+      "confidence": "medium",
+      "disclosure": true,
+      "references": [
+        "https://www.gea.com/en/products/product-handling-systems/contained-materials-handling-systems/ibc-blenders/",
+        "https://www.gea.com/en/products/product-handling-systems/contained-materials-handling-systems/ibc-intermediate-bulk-containers/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/capsule-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "rotary-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "horizontal-rotary-batch-drum-mixer",
+      "configuration": "Horizontal cylindrical stainless rotary batch mixer with stationary inlet and stationary discharge at opposite ends, the central drum supported on four trunnion rollers and driven by an external ring drive and geared motor, with a sealed inspection hatch and internal mixing flights glimpsed at the inlet.",
+      "requiredVisible": [
+        "horizontal rotating cylindrical drum",
+        "stationary inlet at one end",
+        "stationary discharge at the other end",
+        "four trunnion support rollers",
+        "external ring drive and geared motor"
+      ],
+      "forbidden": [
+        "rotary dryer furnace",
+        "open concrete mixer",
+        "ribbon shaft inside fixed trough",
+        "coating pan tilted upward"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.munsonmachinery.com/Rotary-Batch-Mixers/",
+        "https://www.munsonmachinery.com/Rotary-Batch-Mixers/Principle.php"
+      ],
+      "sharedConfiguration": "horizontal-rotary-batch-drum-mixer",
+      "asset": "assets/machines/v3/full/mixing/rotary-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "drum-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "horizontal-rotary-batch-drum-mixer",
+      "configuration": "Horizontal cylindrical stainless rotary batch mixer with stationary inlet and stationary discharge at opposite ends, the central drum supported on four trunnion rollers and driven by an external ring drive and geared motor, with a sealed inspection hatch and internal mixing flights glimpsed at the inlet.",
+      "requiredVisible": [
+        "horizontal rotating cylindrical drum",
+        "stationary inlet at one end",
+        "stationary discharge at the other end",
+        "four trunnion support rollers",
+        "external ring drive and geared motor"
+      ],
+      "forbidden": [
+        "rotary dryer furnace",
+        "open concrete mixer",
+        "ribbon shaft inside fixed trough",
+        "coating pan tilted upward"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.munsonmachinery.com/Rotary-Batch-Mixers/",
+        "https://www.munsonmachinery.com/Rotary-Batch-Mixers/Principle.php"
+      ],
+      "sharedConfiguration": "horizontal-rotary-batch-drum-mixer",
+      "asset": "assets/machines/v3/full/mixing/drum-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "planetary-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "industrial-double-planetary-change-can-mixer",
+      "configuration": "Industrial double-planetary change-can mixer with a hydraulically raised stainless drive head on twin columns, two heavy planetary blades visible beneath the lifted head, removable cylindrical mix can on casters, can clamps, safety guard and floor-mounted hydraulic power pack.",
+      "requiredVisible": [
+        "hydraulically liftable drive head",
+        "two planetary blades on separate orbiting shafts",
+        "removable wheeled cylindrical mix can",
+        "twin lift columns",
+        "can clamps and safety guard"
+      ],
+      "forbidden": [
+        "small countertop bakery mixer",
+        "single spiral dough hook",
+        "fixed ribbon trough",
+        "unsupported floating head"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.mixers.com/products/planetary-mixers/",
+        "https://rossmixers.in/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/planetary-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "spiral-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "industrial-fixed-bowl-spiral-dough-mixer",
+      "configuration": "Floor-standing industrial bakery spiral mixer with a fixed rotating stainless bowl, one heavy spiral kneading hook descending from the drive head, a stationary breaker bar in the bowl, perforated safety guard, robust enclosed base and separate bowl and tool drives.",
+      "requiredVisible": [
+        "large rotating stainless dough bowl",
+        "single spiral kneading hook",
+        "stationary center breaker bar",
+        "perforated bowl safety guard",
+        "enclosed floor-standing drive base"
+      ],
+      "forbidden": [
+        "planetary whisk",
+        "double sigma blades",
+        "horizontal powder trough",
+        "domestic countertop appliance"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.diosna.com/products/kneading-machines/spiral-kneader/",
+        "https://www.diosna.com/fileadmin/media/PDF-Dateien/Choosing_and_using_the_right_kneading_system_Whitepaper_EN.pdf"
+      ],
+      "asset": "assets/machines/v3/full/mixing/spiral-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "plough-shear-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "horizontal-ploughshare-mixer-with-chopper",
+      "configuration": "Horizontal stainless cylindrical ploughshare batch mixer on a rigid frame, with end-mounted main shaft gearbox and motor, large top feed nozzles, hinged inspection door revealing plough-shaped tools, a separate high-speed side chopper motor entering radially and a wide bottom discharge flap.",
+      "requiredVisible": [
+        "horizontal cylindrical mixing drum",
+        "end-mounted main gearbox and motor",
+        "plough-shaped mixing tools visible through inspection door",
+        "separate radial side chopper motor",
+        "wide bottom discharge flap"
+      ],
+      "forbidden": [
+        "helical ribbon agitator",
+        "flat twin-shaft paddles",
+        "rotating tumble drum on trunnion rollers",
+        "vertical cone"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.loedige.de/en/machines/ploughshare-mixer-laboratory-machine/",
+        "https://www.loedige.de/pdf/maschines/FKMFOOD_202007_GB.pdf"
+      ],
+      "sharedConfiguration": "horizontal-ploughshare-mixer-with-radial-chopper",
+      "asset": "assets/machines/v3/full/mixing/plough-shear-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "stirrer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "portable-clamp-mounted-liquid-stirrer",
+      "configuration": "Portable sanitary liquid stirrer on a wheeled vertical lift stand, with compact electric gearmotor, rigid clamp and angle adjustment, long removable shaft and two pitched hydrofoil impellers lowered into a small open stainless mixing tank.",
+      "requiredVisible": [
+        "wheeled vertical lift stand",
+        "compact top gearmotor",
+        "heavy clamp and angle adjustment",
+        "long removable shaft",
+        "pitched impeller visible inside open tank"
+      ],
+      "forbidden": [
+        "closed jacketed process vessel",
+        "rotor-stator workhead",
+        "planetary bowl drive",
+        "horizontal powder mixer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.spxflow.com/lightnin/products/ev-small-portable-mixer",
+        "https://www.spxflow.com/lightnin/products/nettco-s-series-small-portable-mixer/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/stirrer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "shaker",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "enclosed-closed-container-reciprocating-shaker",
+      "configuration": "Floor-standing enclosed container shaker with the front safety door open for a catalog view, adjustable upper and lower clamping plates gripping one closed neutral stainless pail, a guarded eccentric reciprocating drive, anti-vibration mounts and a compact control panel.",
+      "requiredVisible": [
+        "rigid safety enclosure",
+        "open front access door",
+        "upper and lower container clamping plates",
+        "one closed pail held between clamps",
+        "guarded reciprocating eccentric drive"
+      ],
+      "forbidden": [
+        "laboratory flask shaker",
+        "vibratory sieve stack",
+        "open mixing tank",
+        "rotating drum blender"
+      ],
+      "confidence": "medium",
+      "disclosure": true,
+      "references": [
+        "https://www.biuged.com/En_Pr_d_gci_118_id_244.html",
+        "https://www.solvica.com/media/catalog/product/pdf/BGD%20763-2.pdf"
+      ],
+      "asset": "assets/machines/v3/full/mixing/shaker/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "high-shear-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "mobile-in-tank-rotor-stator-high-shear-mixer",
+      "configuration": "Heavy mobile high-shear batch mixer on a hydraulic floor stand, with a high-speed vertical motor and shaft, slotted rotor-stator workhead clearly visible just above an open stainless batch tank, lift cylinder, stabilizing base and guarded controls.",
+      "requiredVisible": [
+        "mobile hydraulic floor stand",
+        "large high-speed vertical motor",
+        "liftable shaft",
+        "slotted rotor-stator workhead",
+        "open stainless batch tank"
+      ],
+      "forbidden": [
+        "simple propeller impeller",
+        "high-pressure reciprocating pump block",
+        "ribbon trough",
+        "sealed homogenizer cabinet"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.silverson.com/us/products/batch-mixers/",
+        "https://www.silverson.com/us/products/in-line-mixers/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/high-shear-mixer/master-4x3.png",
+      "status": "visually-verified"
+    },
+    {
+      "slug": "homogenizer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "industrial-high-pressure-reciprocating-homogenizer",
+      "configuration": "Skid-mounted high-pressure homogenizer with a low rectangular stainless enclosure, front multi-plunger compression block, sanitary inlet manifold, two-stage homogenizing valve with pressure handwheels, analog pressure gauges, pulsation damper and guarded belt-drive motor compartment.",
+      "requiredVisible": [
+        "rectangular stainless machine enclosure",
+        "front multi-plunger pump block",
+        "two-stage homogenizing valve",
+        "high-pressure gauges",
+        "sanitary inlet and outlet pipework"
+      ],
+      "forbidden": [
+        "open mixing tank",
+        "rotor-stator head on a stand",
+        "cream separator bowl",
+        "centrifugal pump only"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.gea.com/en/products/homogenizers/industrial-homogenizers/homogenizers-ariete-series/",
+        "https://www.gea.com/en/assets/306269/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/homogenizer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "sigma-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "double-arm-sigma-kneader-tilting-trough",
+      "configuration": "Heavy horizontal jacketed sigma kneader with a deep W-shaped trough, two counter-rotating Z/sigma blades visible under an open safety lid, large end bearing housings and reduction gearbox, hydraulic trough-tilt cylinders and a stout floor frame.",
+      "requiredVisible": [
+        "deep W-shaped horizontal trough",
+        "two counter-rotating sigma or Z blades",
+        "open hinged safety lid",
+        "large end bearings and reduction drive",
+        "hydraulic tilting mechanism"
+      ],
+      "forbidden": [
+        "helical ribbon blades",
+        "planetary blades in a round can",
+        "spiral dough hook",
+        "rotating cylindrical drum"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.mixers.com/products/kneader-extruders/kneader-extruder/",
+        "https://cdn.mixers.com/articles/Hi_vis_mixing.pdf"
+      ],
+      "asset": "assets/machines/v3/full/mixing/sigma-mixer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "double-cone-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "horizontal-double-cone-tumble-blender",
+      "configuration": "Symmetrical polished stainless double-cone tumble vessel rotating about a horizontal axis between two enclosed support pedestals, with a central charge manway, sanitary butterfly discharge at the lowest cone apex, guarded geared drive and compact control box.",
+      "requiredVisible": [
+        "two cones joined base-to-base",
+        "horizontal rotation trunnions",
+        "two support pedestals",
+        "central charge manway",
+        "sanitary butterfly discharge valve"
+      ],
+      "forbidden": [
+        "V-shaped twin shell",
+        "single vertical cone",
+        "horizontal cylindrical drum",
+        "internal powered agitator shaft"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.servolift.de/en/products/blenders/bin-blenders"
+      ],
+      "asset": "assets/machines/v3/full/mixing/double-cone-mixer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "v-mixer",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "v-shell-tumble-blender",
+      "configuration": "Polished stainless V-shell tumble blender with two equal cylindrical legs joined at an acute angle, rotating about a horizontal trunnion between two support pedestals, capped charging ports at both upper ends and one sanitary butterfly discharge at the V apex.",
+      "requiredVisible": [
+        "two cylindrical legs forming a clear V",
+        "horizontal rotation trunnions",
+        "two support pedestals",
+        "charging caps at both upper ends",
+        "bottom apex discharge valve"
+      ],
+      "forbidden": [
+        "double-cone vessel",
+        "single cone screw mixer",
+        "horizontal drum",
+        "external ribbon or paddle shaft"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.servolift.de/en/products/blenders/bin-blenders"
+      ],
+      "asset": "assets/machines/v3/full/mixing/v-mixer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "mixer-automation-system",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "automated-multi-ingredient-batching-and-mixing-skid",
+      "configuration": "Complete self-contained powder batching and mixing cell: three elevated stainless day bins with conical bottoms and load cells, pneumatic fill lines and vent filters, individually valved screw or rotary feeders into one central weigh hopper, gravity discharge into a ribbon mixer below, dust collector ducting and one floor PLC cabinet.",
+      "requiredVisible": [
+        "three elevated ingredient day bins",
+        "load cells and independent discharge feeders",
+        "central weigh hopper",
+        "ribbon mixer directly below",
+        "coherent pneumatic and dust-control pipework",
+        "single PLC control cabinet"
+      ],
+      "forbidden": [
+        "unconnected collection of machines",
+        "chemical reactor plant",
+        "beverage bottling line",
+        "people or raw-material sacks"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.coperion.com/en/products-services/plants-systems/multi-ingredient-handling-systems",
+        "https://fhn.coperion.com/process/batch-weighing-system-vacuum-receiver/",
+        "https://www.gerickegroup.com/fileadmin/user_upload/Downloads/Brochures/UK/664_US_Gericke_Brochure_Food.pdf"
+      ],
+      "asset": "assets/machines/v3/full/mixing/mixer-automation-system/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "granulator",
+      "normalizedCategory": "Mixing & Blending",
+      "visualClass": "closed-rotor-screen-cutting-granulator",
+      "configuration": "Heavy-duty closed rotor-screen granulator with a wide gravity feed hopper, rectangular cutting chamber on anti-vibration mounts, hinged split-open service housing showing staggered rotor knives and bed knives, curved perforated screen cradle, side motor with guarded belt drive and sealed bottom granule bin.",
+      "requiredVisible": [
+        "wide gravity feed hopper",
+        "rectangular split-open cutting chamber",
+        "rotor knives and fixed bed knives",
+        "curved perforated screen cradle",
+        "side motor with guarded belt drive",
+        "sealed bottom collection bin"
+      ],
+      "forbidden": [
+        "pharmaceutical high-shear granulation bowl",
+        "pellet extruder die",
+        "hammer mill rotor",
+        "open wood chipper"
+      ],
+      "confidence": "medium",
+      "disclosure": true,
+      "references": [
+        "https://www.rapidgranulator.com/en/products/granulators/600-open-hearted/"
+      ],
+      "asset": "assets/machines/v3/full/mixing/granulator/master-4x3.png",
+      "status": "pending"
+    }
+  ]
+}

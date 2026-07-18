@@ -3,14 +3,10 @@
   const B = ART.brand, S = ART.system;
 
   // hero disciplines + presence
-  const disc = document.getElementById("heroDisc");
-  if (disc) disc.innerHTML = B.disciplines.map(d => `<span class="chip">${d}</span>`).join("");
   const pres = document.getElementById("heroPresence");
   if (pres) pres.textContent = B.presence.join(" · ");
 
   // flagship
-  const fp = document.getElementById("flagPitch");
-  if (fp) fp.textContent = S.pitch;
   const fb = document.getElementById("flagBadges");
   if (fb) fb.innerHTML = S.badges.slice(0, 6).map(b => `<span class="chip">${b}</span>`).join("");
   const sl = document.getElementById("seqLine");
@@ -20,7 +16,8 @@
   // machines preview grid
   const grid = document.getElementById("homeMgrid");
   if (grid) {
-    grid.innerHTML = [...ART.machines].sort((a, b) => a.order - b.order).map(m => {
+    const featured = ["storage-silos", "ribbon-mixer", "control-panel", "dust-collector"];
+    grid.innerHTML = featured.map(id => ART.machines.find(m => m.id === id)).filter(Boolean).map(m => {
       const href = `machine.html?id=${m.id}`;
       return `
       <article class="card hmcard reveal">
@@ -46,14 +43,24 @@
   const hp = document.getElementById("heroPlay");
   if (hv && hp) {
     const shell = hv.closest(".hero-visual--video");
+    const playIcon = '<path d="M8 5l11 7-11 7z"/>';
+    const pauseIcon = '<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
+    const syncControl = () => {
+      const playing = !hv.paused;
+      shell.classList.toggle("playing", playing);
+      hp.setAttribute("aria-pressed", String(playing));
+      hp.setAttribute("aria-label", playing ? "Pause the line running" : "Play the line running");
+      hp.querySelector("svg").innerHTML = playing ? pauseIcon : playIcon;
+    };
     const toggle = () => {
-      if (hv.paused) { hv.play().catch(() => {}); shell.classList.add("playing"); }
-      else { hv.pause(); shell.classList.remove("playing"); }
+      if (hv.paused) hv.play().catch(() => {});
+      else hv.pause();
     };
     hp.addEventListener("click", toggle);
     hv.addEventListener("click", toggle);
-    hv.addEventListener("pause", () => shell.classList.remove("playing"));
-    hv.addEventListener("play",  () => shell.classList.add("playing"));
+    hv.addEventListener("pause", syncControl);
+    hv.addEventListener("play", syncControl);
+    syncControl();
   }
 
   // reveal for injected cards

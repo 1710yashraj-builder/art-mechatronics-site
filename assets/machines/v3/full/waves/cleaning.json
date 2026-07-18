@@ -1,0 +1,849 @@
+{
+  "version": 3,
+  "family": "Cleaning, Sorting & Grading",
+  "gradient": ["#065F46", "#10B981"],
+  "styleReference": "assets/machines/v2/approval/storage-silos-art-logo-sample.png",
+  "categoryCorrections": [
+    {
+      "slug": "multi-track",
+      "sourceCategory": "Cleaning & Sorting",
+      "correctedCategory": "Packaging",
+      "reason": "A multi-track sachet packer is packaging machinery, not cleaning or grading equipment."
+    },
+    {
+      "slug": "multi-lane",
+      "sourceCategory": "Cleaning & Sorting",
+      "correctedCategory": "Packaging",
+      "reason": "A multi-lane sachet packer is packaging machinery, not cleaning or grading equipment."
+    },
+    {
+      "slug": "flow-wrap",
+      "sourceCategory": "Cleaning & Sorting",
+      "correctedCategory": "Packaging",
+      "reason": "A horizontal flow-wrapper forms and seals packs and belongs to Packaging."
+    },
+    {
+      "slug": "heat-shrink-tunnel",
+      "sourceCategory": "Cleaning & Sorting",
+      "correctedCategory": "Packaging",
+      "reason": "A heat-shrink tunnel shrinks packaging film and belongs to Packaging."
+    },
+    {
+      "slug": "batch-cutter",
+      "sourceCategory": "Cleaning & Sorting",
+      "correctedCategory": "Packaging",
+      "reason": "The catalogue record describes a packaging-line batch cutter, not cleaning or grading equipment."
+    },
+    {
+      "slug": "centralised-dust-collection-system-2",
+      "sourceCategory": "Cleaning & Sorting",
+      "correctedCategory": "Pollution Control",
+      "reason": "A central dust-extraction and filtration plant is pollution-control equipment."
+    }
+  ],
+  "products": [
+    {
+      "slug": "pre-cleaner",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "aspirated-rotary-drum-grain-pre-cleaner",
+      "configuration": "Heavy-duty grain pre-cleaner with a horizontal perforated rotary scalping drum inside a guarded housing, top feed inlet, coarse-impurity end outlet, undersize collection hopper, dust aspiration hood and geared drum drive.",
+      "requiredVisible": [
+        "horizontal perforated rotary scalping drum",
+        "top feed inlet and distribution chute",
+        "coarse-impurity end discharge",
+        "undersize collection hopper",
+        "dust aspiration hood and duct",
+        "guarded geared drum drive"
+      ],
+      "forbiddenMismatch": [
+        "flat vibrating destoner deck",
+        "multi-chute optical sorter",
+        "baghouse filter",
+        "plain storage drum"
+      ],
+      "forbidden": [
+        "flat vibrating destoner deck",
+        "multi-chute optical sorter",
+        "baghouse filter",
+        "plain storage drum"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.cimbria.com/en/products/processing/drum-scalper/",
+        "https://www.buhlergroup.com/global/en/products/drum_sieve.html"
+      ],
+      "output": "assets/machines/v3/full/cleaning/pre-cleaner/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "de-stoner",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "vibratory-vacuum-grain-destoner",
+      "configuration": "Approved compact grain destoner with an inclined vibrating mesh deck, top feed hopper, sealed aspiration plenum, adjustable air controls and physically separate cleaned-product and stone discharges.",
+      "requiredVisible": [
+        "inclined vibrating deck",
+        "top feed hopper",
+        "aspiration plenum",
+        "adjustable airflow control",
+        "separate product and stone discharges"
+      ],
+      "forbiddenMismatch": [
+        "external cyclone",
+        "optical sorter",
+        "rotary drum",
+        "large multi-outlet gravity table"
+      ],
+      "forbidden": [
+        "external cyclone",
+        "optical sorter",
+        "rotary drum",
+        "large multi-outlet gravity table"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.cimbria.com/en/products/processing/destoner/",
+        "https://www.buhlergroup.com/global/en/products/combistoner.html"
+      ],
+      "output": "assets/machines/v3/pilot/de-stoner/master-4x3.png",
+      "status": "approved-pilot"
+    },
+    {
+      "slug": "vibro",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "circular-vibratory-screen-two-deck",
+      "configuration": "Open-frame circular two-deck vibro screening machine with central top inlet, stacked round screen rings, independently oriented fraction outlets, four vibration-isolating mounts and an external adjustable unbalance motor.",
+      "requiredVisible": [
+        "central top inlet",
+        "two stacked circular screen decks",
+        "three separate fraction outlets",
+        "four vibration-isolating mounts",
+        "external unbalance vibration motor",
+        "open sanitary support frame"
+      ],
+      "forbiddenMismatch": [
+        "horizontal centrifugal sifter",
+        "rectangular grain cleaner",
+        "rotary grading cylinder",
+        "sealed liquid centrifuge"
+      ],
+      "forbidden": [
+        "horizontal centrifugal sifter",
+        "rectangular grain cleaner",
+        "rotary grading cylinder",
+        "sealed liquid centrifuge"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.allgaier-process-technology.com/en/maschine/Vibration-Screening-Machines-Vibrall_96",
+        "https://www.russellfinex.com/en/separation-equipment/sieving-machines/vibratory-separators/"
+      ],
+      "output": "assets/machines/v3/full/cleaning/vibro/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "siever",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "compact-single-deck-check-sieve",
+      "configuration": "Compact sanitary single-deck check sieve with a low-profile circular body, central top inlet, one clamped mesh deck, tangential oversize spout, conical fines outlet and underside vibratory motor on a mobile frame.",
+      "requiredVisible": [
+        "low-profile circular sieve body",
+        "single clamped mesh deck",
+        "central top inlet",
+        "tangential oversize outlet",
+        "conical fines discharge",
+        "underside vibratory motor"
+      ],
+      "forbiddenMismatch": [
+        "multiple stacked grading decks",
+        "horizontal rotary drum",
+        "rectangular linear screen",
+        "plansifter cabinet"
+      ],
+      "forbidden": [
+        "multiple stacked grading decks",
+        "horizontal rotary drum",
+        "rectangular linear screen",
+        "plansifter cabinet"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.russellfinex.com/en/separation-equipment/screening-machines/"
+      ],
+      "output": "assets/machines/v3/full/cleaning/siever/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "separator",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "enclosed-two-deck-grain-separator-classifier",
+      "configuration": "Enclosed rectangular grain separator-classifier with a controlled top feed, counterbalanced two-deck inclined sieve shoe, coarse outlet, cleaned-grain outlet, fine/sand outlet and a compact external vibration drive.",
+      "requiredVisible": [
+        "enclosed rectangular separator body",
+        "controlled top feed inlet",
+        "two inclined sieve decks",
+        "coarse-impurity discharge",
+        "cleaned-product discharge",
+        "fine or sand discharge",
+        "counterbalanced vibration drive"
+      ],
+      "forbiddenMismatch": [
+        "round vibro separator",
+        "liquid disc-stack centrifuge",
+        "cyclone cone",
+        "destoner stone deck"
+      ],
+      "forbidden": [
+        "round vibro separator",
+        "liquid disc-stack centrifuge",
+        "cyclone cone",
+        "destoner stone deck"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.buhlergroup.com/global/en/products/separator-classifier.html"
+      ],
+      "output": "assets/machines/v3/full/cleaning/separator/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "scourer",
+      "output": "assets/machines/v3/full/cleaning/scourer/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "horizontal-grain-surface-scourer",
+      "configuration": "Compact horizontal grain scourer with a cylindrical perforated working chamber, central high-speed beater rotor, top feed, tangential cleaned-grain discharge, separate aspiration port for loosened husk and a guarded belt or direct drive.",
+      "requiredVisible": [
+        "horizontal cylindrical scouring chamber",
+        "perforated sieve jacket access section",
+        "top feed inlet",
+        "cleaned-grain outlet",
+        "separate aspiration port",
+        "guarded high-speed rotor drive"
+      ],
+      "forbiddenMismatch": [
+        "abrasive vegetable peeler rollers",
+        "rice polishing water meter",
+        "rotary drying drum",
+        "open washer tank"
+      ],
+      "forbidden": [
+        "abrasive vegetable peeler rollers",
+        "rice polishing water meter",
+        "rotary drying drum",
+        "open washer tank"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.buhlergroup.com/global/en/products/scourer.html"
+      ]
+    },
+    {
+      "slug": "sifter",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "horizontal-centrifugal-powder-sifter",
+      "configuration": "Dust-tight horizontal centrifugal powder sifter with a feed screw, cylindrical static mesh basket, internal cantilevered rotating paddles, side drive motor, large fines hopper and a separate oversize end outlet.",
+      "requiredVisible": [
+        "horizontal dust-tight cylindrical housing",
+        "feed screw inlet",
+        "static cylindrical screen basket cue",
+        "cantilevered paddle rotor cue",
+        "large fines hopper underneath",
+        "separate oversize end outlet",
+        "side drive motor"
+      ],
+      "forbiddenMismatch": [
+        "round vibrating sieve",
+        "plansifter cabinet",
+        "rotary grain grader",
+        "mixing ribbon rotor"
+      ],
+      "forbidden": [
+        "round vibrating sieve",
+        "plansifter cabinet",
+        "rotary grain grader",
+        "mixing ribbon rotor"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.russellfinex.com/en/separation-equipment/screening-machines/rotary-sifters/"
+      ],
+      "output": "assets/machines/v3/full/cleaning/sifter/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "screener",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "rectangular-linear-vibratory-screener",
+      "configuration": "Long rectangular linear vibratory screener with an enclosed two-deck screen box, spring isolation mounts, paired side vibration motors, feed chute, oversize and undersize discharge chutes and quick-release access covers.",
+      "requiredVisible": [
+        "long rectangular screen box",
+        "two linear screen decks",
+        "spring isolation mounts",
+        "paired side vibration motors",
+        "feed chute",
+        "separate oversize and undersize discharges",
+        "quick-release access covers"
+      ],
+      "forbiddenMismatch": [
+        "round vibro sieve",
+        "horizontal centrifugal sifter",
+        "conveyor belt without screen deck",
+        "rotary drum screen"
+      ],
+      "forbidden": [
+        "round vibro sieve",
+        "horizontal centrifugal sifter",
+        "conveyor belt without screen deck",
+        "rotary drum screen"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.allgaier-process-technology.com/en/Competencies/Screening/Vibration-Screening-Machine"
+      ],
+      "output": "assets/machines/v3/full/cleaning/screener/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "grader",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "modular-cylindrical-seed-grader",
+      "configuration": "Modular cylindrical seed grader with two horizontal perforated rotating grading cylinders in series, inlet housing, enclosed product collection hoppers, separate size-fraction outlets and one guarded common drive.",
+      "requiredVisible": [
+        "two horizontal perforated grading cylinders",
+        "modular cylinders arranged in series",
+        "inlet housing",
+        "collection hoppers below the cylinders",
+        "separate size-fraction outlets",
+        "single guarded common drive"
+      ],
+      "forbiddenMismatch": [
+        "flat gravity table",
+        "circular vibro sieve",
+        "optical camera sorter",
+        "solid unperforated drum"
+      ],
+      "forbidden": [
+        "flat gravity table",
+        "circular vibro sieve",
+        "optical camera sorter",
+        "solid unperforated drum"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.cimbria.com/en/products/processing/cylindrical-grader/"
+      ],
+      "output": "assets/machines/v3/full/cleaning/grader/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "air-classifier",
+      "output": "assets/machines/v3/full/cleaning/air-classifier/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "standalone-dynamic-air-classifier-system",
+      "configuration": "Standalone dynamic air classifier for powders with a vertical classifier housing, top-mounted variable-speed classifier-wheel drive, controlled feed airlock, coarse bottom outlet, fines outlet duct to a compact cyclone receiver and recirculation blower.",
+      "requiredVisible": [
+        "vertical classifier housing",
+        "top-mounted classifier-wheel drive",
+        "controlled feed rotary airlock",
+        "coarse bottom discharge",
+        "fines outlet duct and cyclone receiver",
+        "recirculation blower"
+      ],
+      "forbiddenMismatch": [
+        "integrated impact grinding chamber",
+        "screen mesh decks",
+        "destoner table",
+        "filter-bag collector"
+      ],
+      "forbidden": [
+        "integrated impact grinding chamber",
+        "screen mesh decks",
+        "destoner table",
+        "filter-bag collector"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.hosokawa-alpine.com/powder-particle-processing/technologies/grinding-and-classifying/classifiers-and-air-classifiers/turboplex-atp/"
+      ]
+    },
+    {
+      "slug": "dust-separator",
+      "output": "assets/machines/v3/full/cleaning/dust-separator/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "inertial-air-dust-separator-with-screw-discharges",
+      "configuration": "Industrial inertial air dust separator with a broad rectangular separation chamber, dirty-air/product inlet, internal louver or separator bank visible through an access panel, clean-air outlet, and physically separate dust and light-particle screw discharges.",
+      "requiredVisible": [
+        "broad rectangular separation chamber",
+        "dirty-air or product inlet",
+        "internal louver separator bank cue",
+        "clean-air outlet",
+        "dust discharge screw",
+        "separate light-particle discharge screw"
+      ],
+      "forbiddenMismatch": [
+        "single conical cyclone",
+        "filter bags or cartridges",
+        "grain screen decks",
+        "wet scrubber vessel"
+      ],
+      "forbidden": [
+        "single conical cyclone",
+        "filter bags or cartridges",
+        "grain screen decks",
+        "wet scrubber vessel"
+      ],
+      "confidence": "medium",
+      "references": [
+        "https://www.buhlergroup.com/global/en/products/air_pre-cleaner.html",
+        "https://www.buhlergroup.com/global/en/products/air-recycling_separator.html"
+      ]
+    },
+    {
+      "slug": "cyclone-separator",
+      "output": "assets/machines/v3/full/cleaning/cyclone-separator/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "single-high-efficiency-cyclone-separator",
+      "configuration": "Standalone high-efficiency cyclone separator with a tall cylindrical barrel over a steep cone, tangential dirty-air inlet, central top vortex-finder outlet, bolted cone clean-out joint, support legs and rotary airlock beneath the dust outlet.",
+      "requiredVisible": [
+        "tall cylindrical cyclone barrel",
+        "steep conical lower body",
+        "tangential dirty-air inlet",
+        "central top clean-air vortex outlet",
+        "bolted removable cone joint",
+        "rotary airlock under the dust outlet"
+      ],
+      "forbiddenMismatch": [
+        "baghouse filter tubes",
+        "multiple small multiclone tubes",
+        "wet scrubber pump",
+        "grain screening deck"
+      ],
+      "forbidden": [
+        "baghouse filter tubes",
+        "multiple small multiclone tubes",
+        "wet scrubber pump",
+        "grain screening deck"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.donaldson.com/en/products/cyclone-dust-collector/"
+      ]
+    },
+    {
+      "slug": "color-sorter",
+      "output": "assets/machines/v3/full/cleaning/color-sorter/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "multi-chute-optical-color-sorter",
+      "configuration": "Industrial optical color sorter with a top feed hopper and vibratory feeder bank, several narrow gravity chutes, sealed inspection zone with opposing camera and LED-light housings, high-speed air-ejector manifold, accepted/reject split outlets and touchscreen HMI.",
+      "requiredVisible": [
+        "top feed hopper",
+        "bank of narrow gravity chutes",
+        "sealed optical inspection zone",
+        "opposing camera and LED-light housings",
+        "air-ejector manifold",
+        "separate accepted and reject outlets",
+        "touchscreen HMI"
+      ],
+      "forbiddenMismatch": [
+        "X-ray tunnel",
+        "metal-detector aperture",
+        "mechanical screen decks",
+        "manual sorting table"
+      ],
+      "forbidden": [
+        "X-ray tunnel",
+        "metal-detector aperture",
+        "mechanical screen decks",
+        "manual sorting table"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.buhlergroup.com/global/en/products/optical_sorter_sortexh.html",
+        "https://www.buhlergroup.com/global/en/process-technologies/Optical-Sorting.html"
+      ]
+    },
+    {
+      "slug": "peeler",
+      "output": "assets/machines/v3/full/cleaning/peeler/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "continuous-abrasive-roller-vegetable-peeler",
+      "configuration": "Continuous abrasive vegetable peeler with a long stainless trough containing parallel carborundum-coated rollers, feed hopper, hinged sanitary hood, water spray bar, peel-waste collection trough and screw, and a product discharge chute.",
+      "requiredVisible": [
+        "long stainless peeling trough",
+        "parallel abrasive peeling rollers",
+        "feed hopper",
+        "hinged sanitary hood",
+        "water spray bar",
+        "peel-waste trough and screw",
+        "product discharge chute"
+      ],
+      "forbiddenMismatch": [
+        "grain scourer cylinder",
+        "knife-only manual peeler",
+        "washing flume without abrasive rollers",
+        "solid rotary dryer drum"
+      ],
+      "forbidden": [
+        "grain scourer cylinder",
+        "knife-only manual peeler",
+        "washing flume without abrasive rollers",
+        "solid rotary dryer drum"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://sormac.com/en-us/potato-processing",
+        "https://sormac.com/en-int/carrot-processing"
+      ]
+    },
+    {
+      "slug": "washer",
+      "output": "assets/machines/v3/full/cleaning/washer/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "recirculating-spiral-fruit-vegetable-washer",
+      "configuration": "Sanitary recirculating spiral fruit-and-vegetable washer with an open water flume, helical product-flow channel, multiple adjustable wash nozzles, pump and filter tank, infeed chute, perforated dewatering outfeed conveyor and touchscreen controls.",
+      "requiredVisible": [
+        "open stainless water flume",
+        "helical product-flow channel",
+        "multiple adjustable wash nozzles",
+        "recirculation pump and filter tank",
+        "infeed chute",
+        "perforated dewatering outfeed",
+        "touchscreen control"
+      ],
+      "forbiddenMismatch": [
+        "laundry drum washer",
+        "abrasive peeling rollers",
+        "sealed pressure vessel",
+        "dry vibratory screen"
+      ],
+      "forbidden": [
+        "laundry drum washer",
+        "abrasive peeling rollers",
+        "sealed pressure vessel",
+        "dry vibratory screen"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://sormac.com/en-us/machines/spiral-washer-sw50",
+        "https://sormac.com/en-gb/machines/belt-washer-bw"
+      ]
+    },
+    {
+      "slug": "polisher",
+      "output": "assets/machines/v3/full/cleaning/polisher/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "industrial-rice-grain-polisher",
+      "configuration": "Compact industrial rice/grain polisher with a vertical feed column, enclosed polishing chamber, dedicated motor and drive, adjustable product-pressure outlet, water-metering tube and nozzle, aspiration connection and separate bran discharge.",
+      "requiredVisible": [
+        "vertical feed column",
+        "enclosed polishing chamber",
+        "dedicated motor and guarded drive",
+        "adjustable product-pressure outlet",
+        "water-metering tube and nozzle",
+        "aspiration connection",
+        "separate bran discharge"
+      ],
+      "forbiddenMismatch": [
+        "floor polishing machine",
+        "grain scourer without water metering",
+        "vegetable abrasive roller peeler",
+        "open mixing vessel"
+      ],
+      "forbidden": [
+        "floor polishing machine",
+        "grain scourer without water metering",
+        "vegetable abrasive roller peeler",
+        "open mixing vessel"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.buhlergroup.com/global/en/products/highpoly_polisher.html",
+        "https://www.buhlergroup.com/global/en/products/ultrapoly_polisher.html"
+      ]
+    },
+    {
+      "slug": "gravity-separator",
+      "output": "assets/machines/v3/full/cleaning/gravity-separator/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "inclined-fluidized-gravity-separation-table",
+      "configuration": "Industrial gravity separator with a broad inclined perforated deck on vibration mounts, an under-deck pressurized air plenum and fan bank, uniform feed hopper, adjustable deck tilt, and multiple graduated heavy/middling/light discharge gates along one edge.",
+      "requiredVisible": [
+        "broad inclined perforated separation deck",
+        "under-deck pressure-air plenum",
+        "air fan bank",
+        "uniform feed hopper",
+        "adjustable deck tilt mechanism",
+        "multiple heavy middling and light fraction gates"
+      ],
+      "forbiddenMismatch": [
+        "compact two-outlet destoner",
+        "mechanical multi-deck sieve",
+        "optical sorter chutes",
+        "liquid centrifuge"
+      ],
+      "forbidden": [
+        "compact two-outlet destoner",
+        "mechanical multi-deck sieve",
+        "optical sorter chutes",
+        "liquid centrifuge"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.cimbria.com/en/products/processing/gravity-separator/"
+      ]
+    },
+    {
+      "slug": "plan-sifter",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "suspended-multi-compartment-square-plansifter",
+      "configuration": "High-capacity square plansifter with a tall suspended multi-compartment cabinet, multiple internal sieve stacks behind insulated access doors, overhead feed manifold, central eccentric gyratory drive and many fraction outlet spouts beneath the cabinet.",
+      "requiredVisible": [
+        "tall square multi-compartment cabinet",
+        "suspended or hanger support system",
+        "multiple sieve-stack access doors",
+        "overhead feed manifold",
+        "central eccentric gyratory drive",
+        "many separate fraction outlet spouts below"
+      ],
+      "forbiddenMismatch": [
+        "small round vibro sieve",
+        "horizontal centrifugal sifter",
+        "rotary grading cylinder",
+        "single screen deck"
+      ],
+      "forbidden": [
+        "small round vibro sieve",
+        "horizontal centrifugal sifter",
+        "rotary grading cylinder",
+        "single screen deck"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.buhlergroup.com/global/en/product-families/Plansifters.html",
+        "https://www.buhlergroup.com/global/en/products/novastar_square_plansifter.html"
+      ],
+      "output": "assets/machines/v3/full/cleaning/plan-sifter/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "magnetic-separator",
+      "output": "assets/machines/v3/full/cleaning/magnetic-separator/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "sanitary-drawer-grate-magnetic-separator",
+      "configuration": "Sanitary free-fall drawer/grate magnetic separator with a rectangular stainless housing, flanged top and bottom product connections, a removable bank of parallel rare-earth magnetic tubes, guide rods and pull handle, and an external collection tray for stripped ferrous contamination.",
+      "requiredVisible": [
+        "rectangular stainless free-fall housing",
+        "flanged top inlet and bottom outlet",
+        "removable bank of parallel magnetic tubes",
+        "drawer guide rods",
+        "easy-clean pull handle",
+        "ferrous-contamination collection tray"
+      ],
+      "forbiddenMismatch": [
+        "electronic metal detector aperture",
+        "overband conveyor magnet",
+        "optical inspection camera",
+        "liquid separator bowl"
+      ],
+      "forbidden": [
+        "electronic metal detector aperture",
+        "overband conveyor magnet",
+        "optical inspection camera",
+        "liquid separator bowl"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.eriez.com/Products/Magnetic-Separation/Magnetic-Separation-for-Tramp-Metal/Small-Magnetic-Separation/Grate-Magnet",
+        "https://www.sesotec.com/en/products/magnet-systems/magnet-systems-for-free-fall-applications"
+      ]
+    },
+    {
+      "slug": "air-aspirator",
+      "output": "assets/machines/v3/full/cleaning/air-aspirator/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "fresh-air-grain-aspiration-channel",
+      "configuration": "Standalone fresh-air aspiration channel with a top feed and spreader forming a full-width product curtain, tall transparent inspection window, adjustable double separation wall and air gate, lower clean-grain finger-valve discharge and a top aspiration duct for light impurities.",
+      "requiredVisible": [
+        "top feed and full-width spreader",
+        "tall vertical aspiration channel",
+        "transparent inspection window",
+        "adjustable double separation wall cue",
+        "air-control gate",
+        "clean-grain finger-valve outlet",
+        "top light-fraction aspiration duct"
+      ],
+      "forbiddenMismatch": [
+        "cyclone cone",
+        "built-in recirculating fan",
+        "screen decks",
+        "filter bags"
+      ],
+      "forbidden": [
+        "cyclone cone",
+        "built-in recirculating fan",
+        "screen decks",
+        "filter bags"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.buhlergroup.com/global/en/products/aspiration_channel.html",
+        "https://www.cimbria.com/en/products/processing/aspirator/"
+      ]
+    },
+    {
+      "slug": "air-screen-cleaner",
+      "output": "assets/machines/v3/full/cleaning/air-screen-cleaner/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "integrated-air-and-screen-seed-cleaner",
+      "configuration": "Integrated air-and-screen seed cleaner with a metered shaker feeder, pre-suction chamber, long enclosed multi-deck inclined screen shoe, after-suction column, external air-lift fan, several size-fraction outlets and an HMI cabinet.",
+      "requiredVisible": [
+        "metered shaker feeder",
+        "pre-suction chamber",
+        "enclosed multi-deck inclined screen shoe",
+        "after-suction column",
+        "external air-lift fan",
+        "multiple size-fraction outlets",
+        "HMI control cabinet"
+      ],
+      "forbiddenMismatch": [
+        "screen-only separator without air system",
+        "standalone aspiration channel",
+        "optical sorter",
+        "rotary drum scalper"
+      ],
+      "forbidden": [
+        "screen-only separator without air system",
+        "standalone aspiration channel",
+        "optical sorter",
+        "rotary drum scalper"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.cimbria.com/en/products/processing/screen-cleaner/",
+        "https://www.buhlergroup.com/global/en/products/vega_grain_classifier.html"
+      ]
+    },
+    {
+      "slug": "metal-detector",
+      "output": "assets/machines/v3/full/cleaning/metal-detector/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "conveyorized-food-metal-detection-system",
+      "configuration": "Conveyorized food metal-detection system with a rectangular detection aperture surrounding a sanitary belt, separate touchscreen control head, upstream photoeye, automatic reject pusher or flap, lockable reject bin, reject-confirmation sensor and alarm beacon.",
+      "requiredVisible": [
+        "rectangular detector aperture around the belt",
+        "sanitary inspection conveyor",
+        "touchscreen control head",
+        "upstream product photoeye",
+        "automatic reject device",
+        "lockable reject bin",
+        "reject-confirmation sensor and alarm beacon"
+      ],
+      "forbiddenMismatch": [
+        "fully enclosed X-ray tunnel",
+        "lead curtains or radiation warning",
+        "optical camera array",
+        "free-fall magnetic grate"
+      ],
+      "forbidden": [
+        "fully enclosed X-ray tunnel",
+        "lead curtains or radiation warning",
+        "optical camera array",
+        "free-fall magnetic grate"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.mt.com/dam/product_organizations/pi/prod/MD/brochure/40-MB-60-70-Conveyors/Series-40-MB-60-70-Conveyors-EN.pdf",
+        "https://www.mt.com/dam/product_organizations/pi/brochure/PI_Capabilities_Brochure_EN.pdf"
+      ]
+    },
+    {
+      "slug": "x-ray-inspection",
+      "output": "assets/machines/v3/full/cleaning/x-ray-inspection/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "conveyorized-food-x-ray-inspection-system",
+      "configuration": "Conveyorized industrial food X-ray inspection machine with a fully enclosed stainless imaging tunnel, short lead-curtain entrance and exit apertures, through belt, side touchscreen HMI, radiation-warning lamp, automatic reject mechanism and lockable reject bin.",
+      "requiredVisible": [
+        "fully enclosed stainless X-ray tunnel",
+        "lead-curtain entrance and exit apertures",
+        "through inspection conveyor",
+        "side touchscreen HMI",
+        "radiation-warning lamp",
+        "automatic reject mechanism",
+        "lockable reject bin"
+      ],
+      "forbiddenMismatch": [
+        "open rectangular metal-detector aperture",
+        "medical X-ray cabinet",
+        "optical color-sorter chutes",
+        "camera-only vision station"
+      ],
+      "forbidden": [
+        "open rectangular metal-detector aperture",
+        "medical X-ray cabinet",
+        "optical color-sorter chutes",
+        "camera-only vision station"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.mt.com/ca/en/home/products/Product-Inspection_1/safeline-x-ray-inspection.html",
+        "https://www.mt.com/dam/product_organizations/pi/brochure/OEM/PI-OEM-EN.pdf"
+      ]
+    },
+    {
+      "slug": "winnower",
+      "output": "assets/machines/v3/full/cleaning/winnower/master-4x3.png",
+      "category": "Cleaning, Sorting & Grading",
+      "normalizedCategory": "Cleaning, Sorting & Grading",
+      "visualClass": "cocoa-bean-crushing-and-winnowing-system",
+      "configuration": "Industrial cocoa winnower with two enclosed impact-crushing stages, three to seven stacked sieve decks, a swing-out shell-aspiration box, variable vacuum duct and fan, separate nib fraction outlets, shell discharge and touchscreen control.",
+      "requiredVisible": [
+        "two enclosed cocoa crushing stages",
+        "stacked multi-deck sieve section",
+        "swing-out shell aspiration box",
+        "vacuum duct and centrifugal fan",
+        "separate nib fraction outlets",
+        "shell discharge",
+        "touchscreen control"
+      ],
+      "forbiddenMismatch": [
+        "simple grain aspiration channel",
+        "manual basket winnower",
+        "single vibrating screen",
+        "plain hammer mill"
+      ],
+      "forbidden": [
+        "simple grain aspiration channel",
+        "manual basket winnower",
+        "single vibrating screen",
+        "plain hammer mill"
+      ],
+      "confidence": "high",
+      "references": [
+        "https://www.buhlergroup.com/global/en/products/barth_winnower.html",
+        "https://www.selmi-group.com/winnower-cocoa-beans-crusher.html"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "family": "Pollution Control",
+  "products": [
+    {
+      "slug": "dust-collector-machine",
+      "visualClass": "industrial-baghouse-dust-collector",
+      "requiredVisible": ["enclosed fabric-filter housing", "multiple dust hoppers", "rotary airlocks", "induced-draft blower", "clean-air stack"],
+      "forbidden": ["single cyclone", "wet scrubber tower", "open filter bags"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/en/resources/technical-articles/what-is-a-baghouse/"]
+    },
+    {
+      "slug": "de-dusting-system",
+      "visualClass": "local-dedusting-filter-system",
+      "requiredVisible": ["compact modular filter tower", "dirty-air inlet duct", "centrifugal blower", "clean-air discharge stack", "dust discharge hopper"],
+      "forbidden": ["bare cyclone", "portable welding-fume arm", "wet scrubber"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/en/resources/technical-articles/what-is-a-baghouse/"]
+    },
+    {
+      "slug": "centralised-dust-collection-system",
+      "visualClass": "centralised-multipoint-dust-collection",
+      "sharedConfiguration": "centralised-dust-collection-system",
+      "requiredVisible": ["multi-point extraction header", "large central baghouse", "pre-separation cyclone", "induced-draft blower", "clean-air stack"],
+      "forbidden": ["single portable collector", "one local extraction arm", "wet scrubber"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/en-sg/industrial-dust-fume-mist/technical-articles/cost-effective-dust-collector-placement-strategies/"]
+    },
+    {
+      "slug": "centralised-dust-collection-system-2",
+      "visualClass": "centralised-multipoint-dust-collection",
+      "sharedConfiguration": "centralised-dust-collection-system",
+      "requiredVisible": ["multi-point extraction header", "large central baghouse", "pre-separation cyclone", "induced-draft blower", "clean-air stack"],
+      "forbidden": ["single portable collector", "one local extraction arm", "wet scrubber"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/en-sg/industrial-dust-fume-mist/technical-articles/cost-effective-dust-collector-placement-strategies/"]
+    },
+    {
+      "slug": "dust-extraction-system",
+      "visualClass": "multipoint-source-capture-extraction",
+      "requiredVisible": ["two source-capture hoods", "branch duct network", "central filter cabinet", "centrifugal blower", "discharge stack"],
+      "forbidden": ["filter cabinet without capture hoods", "single cyclone", "wet tower"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/en-sg/industrial-dust-fume-mist/technical-articles/cost-effective-dust-collector-placement-strategies/"]
+    },
+    {
+      "slug": "bag-house-dust-collector-machine",
+      "visualClass": "fabric-baghouse-collector",
+      "requiredVisible": ["rectangular fabric-filter housing", "filter-cleaning manifold", "pyramidal hopper", "rotary airlock", "service access"],
+      "forbidden": ["single cyclone", "cartridge access-door grid", "wet scrubber"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/en/resources/technical-articles/what-is-a-baghouse/"]
+    },
+    {
+      "slug": "multiclone-dust-collector-machine",
+      "visualClass": "parallel-multiclone-bank",
+      "requiredVisible": ["bank of multiple small cyclone tubes", "common dirty-air inlet plenum", "common clean-air outlet plenum", "individual conical dust legs", "common discharge"],
+      "forbidden": ["one large cyclone", "filter bags", "cartridge doors"],
+      "confidence": "high",
+      "references": ["https://www.babcock.com/home/products/multiclone-dust-collectors"]
+    },
+    {
+      "slug": "cartridge-dust-collector-machine",
+      "visualClass": "horizontal-cartridge-dust-collector",
+      "requiredVisible": ["compact rectangular collector cabinet", "grid of circular cartridge access doors", "compressed-air cleaning manifold", "dust hoppers", "control panel"],
+      "forbidden": ["long hanging filter bags", "single cyclone", "wet tower"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/content/dam/donaldson/dust-fume-mist/literature/north-america/equipment/dust-collectors/cartridge/downflo-evolution/f118005/Downflo-Evolution-Dust-Collector.pdf"]
+    },
+    {
+      "slug": "pleated-dust-collector-machine",
+      "visualClass": "pleated-filter-baghouse",
+      "requiredVisible": ["enclosed pulse-cleaned filter housing", "short pleated filter elements", "compressed-air manifold", "dust hopper", "service platform"],
+      "forbidden": ["smooth fabric bags", "single cyclone", "flat filter panels"],
+      "confidence": "high",
+      "references": ["https://www.donaldson.com/en-us/industrial-dust-fume-mist/filters-parts/baghouse-filters/pleated/standard/spunbond/"]
+    },
+    {
+      "slug": "fume-extraction-system",
+      "visualClass": "mobile-fume-extractor",
+      "requiredVisible": ["mobile filtered cabinet", "articulated extraction arm", "capture hood", "integrated fan", "caster base"],
+      "forbidden": ["large fixed baghouse", "cyclone separator", "wet packed tower"],
+      "confidence": "high",
+      "references": ["https://www.nederman.com/en-US/Products/Mobile-filters-and-compact-units"]
+    },
+    {
+      "slug": "flat-bag-dust-collector-machine",
+      "visualClass": "flat-filter-panel-collector",
+      "requiredVisible": ["rectangular collector housing", "flat rectangular filter panels", "pulse-cleaning header", "dust hopper", "service access door"],
+      "forbidden": ["cylindrical cartridges", "round filter bags", "single cyclone"],
+      "confidence": "high",
+      "references": ["https://www.camfil.com/en/products/dust%2Cfume-%2C-a-%2C-mist-collectors/filter-elements/retrofit-filter-elements/filter-plates-_-56957"]
+    },
+    {
+      "slug": "air-pollution-control-equipment",
+      "visualClass": "packaged-multistage-air-pollution-control-unit",
+      "requiredVisible": ["enclosed multi-stage treatment cabinet", "dirty-air inlet", "integrated centrifugal blower", "clean-air discharge", "control panel"],
+      "forbidden": ["standalone fan", "single cyclone", "unconnected vessels"],
+      "confidence": "medium",
+      "references": ["https://www.donaldson.com/en/resources/technical-articles/what-is-a-baghouse/", "https://www.cecoenviro.com/products/wet-packed-bed-scrubber-system-vertical/"]
+    },
+    {
+      "slug": "wet-scrubber",
+      "visualClass": "vertical-packed-bed-wet-scrubber",
+      "requiredVisible": ["vertical packed scrubber tower", "lower liquid sump", "recirculation pump", "spray header and piping", "induced-draft blower"],
+      "forbidden": ["dry filter bags", "cartridge cabinet", "bare cyclone"],
+      "confidence": "high",
+      "references": ["https://www.cecoenviro.com/products/wet-packed-bed-scrubber-system-vertical/"]
+    }
+  ]
+}

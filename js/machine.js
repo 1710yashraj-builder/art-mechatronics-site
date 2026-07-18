@@ -11,7 +11,7 @@
   const prev = list[(pos - 1 + list.length) % list.length];
   const next = list[(pos + 1) % list.length];
 
-  document.title = `${m.name} — ART Mechatronics`;
+  document.title = `${m.name} | ART Mechatronics`;
   const meta = document.getElementById("metaDesc");
   if (meta) meta.setAttribute("content", m.summary);
 

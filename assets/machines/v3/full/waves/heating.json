@@ -1,0 +1,294 @@
+{
+  "version": 3,
+  "family": "Heating & Drying",
+  "gradient": ["#7C2D12", "#D97706"],
+  "styleReference": "assets/machines/v2/approval/storage-silos-art-logo-sample.png",
+  "products": [
+    {
+      "slug": "batch-type-hot-air-dryer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Insulated mild-steel batch hot-air dryer with an openable W-shaped granular-product chamber, multi-layer heated shell, side gas/diesel burner, centrifugal recirculation blower, top moist-air vents and local control panel.",
+      "requiredVisible": ["W-shaped batch drying chamber", "multi-layer insulated shell", "side burner", "centrifugal hot-air blower", "top moisture exhausts", "control panel"],
+      "forbidden": ["tray-rack cabinet", "rotary drum", "fluid-bed product bowl", "continuous conveyor tunnel"],
+      "confidence": "medium",
+      "references": ["https://www.buhlergroup.com/global/en/process-technologies/Drying/Drying-rice-grain-or-oilseed.html"],
+      "output": "assets/machines/v3/full/heating/batch-type-hot-air-dryer/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "fluidized-bed-dryer-fbd",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "GMP stainless batch fluid-bed dryer with removable wheeled product bowl below an expansion/filter chamber, perforated distributor base, inlet-air handling plenum and blower, exhaust/filter head and control cabinet.",
+      "requiredVisible": ["removable wheeled product bowl", "perforated air-distributor base", "tall expansion/filter chamber", "inlet-air plenum and blower", "exhaust filter head", "control cabinet"],
+      "forbidden": ["spray-dryer cone tower", "rotary drying drum", "tray oven doors", "open mixing tank"],
+      "confidence": "high",
+      "references": ["https://www.gea.com/en/products/dryers-particle-processing/fluid-beds/fluid-bed-processors/", "https://www.gea.com/en/products/dryers-particle-processing/fluid-beds/fluid-bed-dryer/"],
+      "output": "assets/machines/v3/full/heating/fluidized-bed-dryer-fbd/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "rotary-dryer-drum-dryer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Heavy direct-fired rotary dryer with a long slightly inclined rotating cylindrical drum on riding rings and support rollers, feed chute and combustion chamber at the high end, girth-gear drive, sealed discharge hood and exhaust duct at the low end.",
+      "requiredVisible": ["long inclined rotary drum", "riding rings and support rollers", "feed chute", "combustion chamber and burner", "girth-gear drive", "sealed discharge hood"],
+      "forbidden": ["horizontal ball mill", "tray-dryer cabinet", "stationary tube heat exchanger", "spray-dryer tower"],
+      "confidence": "high",
+      "references": ["https://feeco.com/rotary-dryers/"],
+      "output": "assets/machines/v3/full/heating/rotary-dryer-drum-dryer/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "tray-dryer-tray-oven",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "GMP stainless hot-air tray dryer cabinet with gasketed double doors shown partially open, a removable trolley carrying many shallow horizontal trays, side/rear recirculation blower housing, heater plenum and top moisture exhaust.",
+      "requiredVisible": ["insulated double-door cabinet", "removable multi-tray trolley", "many horizontal trays", "recirculation blower housing", "heater plenum", "moist-air exhaust"],
+      "forbidden": ["rotating rack turntable", "rotary drum", "fluid-bed bowl", "continuous belt tunnel"],
+      "confidence": "high",
+      "references": ["https://www.gea.com/en/products/dryers-particle-processing/freeze-dryers/ray-freeze-dryer/"],
+      "output": "assets/machines/v3/full/heating/tray-dryer-tray-oven/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "rotary-rack-oven",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Commercial bakery rotary rack oven with a tall insulated stainless front, one full-height glazed loading door, a wheeled multi-tray bakery rack visible inside, overhead rack hook/rotation mechanism, forced-convection fan and burner/service module.",
+      "requiredVisible": ["tall insulated oven", "full-height loading door", "wheeled multi-tray rack", "overhead rack rotation hook", "forced-convection fan housing", "burner/service module"],
+      "forbidden": ["fixed tray shelves without rack", "rotary drum dryer", "conveyor tunnel oven", "domestic deck oven"],
+      "confidence": "high",
+      "references": ["https://revent.com/about-us/"],
+      "output": "assets/machines/v3/full/heating/rotary-rack-oven/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "hot-air-generator",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Packaged indirect-fired hot-air generator with insulated cylindrical combustion and heat-exchange chamber, front-mounted gas/oil burner, separate centrifugal process-air blower, clean hot-air outlet duct, flue stack and temperature-control panel.",
+      "requiredVisible": ["insulated combustion/heat-exchange chamber", "front burner", "centrifugal process-air blower", "clean hot-air outlet duct", "flue stack", "control panel"],
+      "forbidden": ["steam drum and steam header", "open flame", "product drying chamber", "thermal-oil expansion tank"],
+      "confidence": "high",
+      "references": ["https://www.gea.com/en/products/dryers-particle-processing/spray-dryers/hotswirl-indirect-heater/", "https://www.babcock-wanson.com/products/"],
+      "output": "assets/machines/v3/full/heating/hot-air-generator/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "continuous-conveyor-tunnel-dryer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Long modular insulated conveyor tunnel dryer with a perforated stainless belt passing through separate preheat, drying and cooling zones, large side access doors, roof recirculation fans/duct plenums, infeed/outfeed and PLC cabinet.",
+      "requiredVisible": ["long insulated multi-zone tunnel", "through perforated conveyor belt", "infeed and outfeed", "roof recirculation fans and plenums", "large access doors", "PLC cabinet"],
+      "forbidden": ["rotary drum", "batch tray cabinet", "open belt without tunnel", "spiral conveyor oven"],
+      "confidence": "high",
+      "references": ["https://www.buhlergroup.com/global/en/product-families/AeroDry_Conveyor_Dryer.html"],
+      "output": "assets/machines/v3/full/heating/continuous-conveyor-tunnel-dryer/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "spray-dryer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Approved tall stainless spray-drying tower with cylindrical chamber, steep conical bottom, top atomizer and hot-air inlet, external cyclone separator, powder receiver and exhaust blower.",
+      "requiredVisible": ["tall cylindrical drying chamber", "steep conical bottom", "top atomizer", "external cyclone", "powder receiver", "exhaust blower"],
+      "forbidden": ["fluid-bed product bowl", "rotary drum", "generic storage silo", "baghouse as primary machine"],
+      "confidence": "high",
+      "references": ["https://www.gea.com/en/products/dryers-particle-processing/spray-dryers/"],
+      "output": "assets/machines/v3/pilot/spray-dryer/master-4x3.png",
+      "status": "approved-pilot"
+    },
+    {
+      "slug": "rotocone-vacuum-dryer-rcvd",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Horizontal rotary double-cone vacuum dryer with a jacketed asymmetric cone vessel between two trunnion pedestals, guarded geared rotation drive, charging manway, bottom discharge valve, vapour line to condenser/receiver and vacuum pump skid.",
+      "requiredVisible": ["horizontal double-cone jacketed vessel", "two trunnion supports", "guarded rotation drive", "charging manway", "bottom discharge valve", "condenser and vacuum pump skid"],
+      "forbidden": ["vertical conical screw mixer", "plain double-cone blender without vacuum system", "rotary drum dryer", "open mixing vessel"],
+      "confidence": "high",
+      "references": ["https://www.amixon.com/en/vacuum-drying", "https://www.amixon.com/en/products/conical-vertical-dryer"],
+      "output": "assets/machines/v3/full/heating/rotocone-vacuum-dryer-rcvd/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "fryer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Continuous industrial fryer with a long covered stainless oil kettle, mesh product conveyor and submerged hold-down belt, hinged insulated hood, external oil circulation/filter skid, heat exchanger, sediment-removal section and discharge conveyor.",
+      "requiredVisible": ["long covered oil kettle", "mesh conveyor", "hold-down belt", "hinged insulated hood", "oil circulation and filter skid", "discharge conveyor"],
+      "forbidden": ["small batch kettle", "drying tunnel", "open household fryer", "water blancher"],
+      "confidence": "high",
+      "references": ["https://www.gea.com/en/products/further-food-processing/fryers-and-oil-treatment/gea-profry-industrial-fryer/"],
+      "output": "assets/machines/v3/full/heating/fryer/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "cooking-kettle-boiling-tank",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Food-grade steam-jacketed cooking kettle with a deep hemispherical/dished vessel, insulated outer jacket, hinged split lid, top geared anchor/scraper agitator, steam/condensate connections and sanitary bottom discharge on a rigid frame.",
+      "requiredVisible": ["deep dished cooking vessel", "insulated steam jacket", "hinged lid", "top geared agitator", "steam and condensate piping", "sanitary bottom outlet"],
+      "forbidden": ["plain storage tank", "horizontal boiler shell", "coating pan", "rotary drum"],
+      "confidence": "high",
+      "references": ["https://www.inoxpa.com/case-studies/cosmetic-and-pharmaceutical/hydroalcoholic-gel-manufacturing-equipment"],
+      "output": "assets/machines/v3/full/heating/cooking-kettle-boiling-tank/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "boiler",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Packaged horizontal three-pass fire-tube steam boiler with cylindrical pressure shell on saddles, large front burner and hinged smokebox door, rear flue outlet/economizer, top steam fittings and safety valves, feedwater pump module and boiler-control cabinet.",
+      "requiredVisible": ["horizontal cylindrical pressure shell", "front burner", "hinged smokebox door", "top steam and safety fittings", "rear flue/economizer", "feedwater pump and control cabinet"],
+      "forbidden": ["hot-air generator without steam fittings", "open water tank", "thermal-fluid coil heater", "vertical domestic boiler"],
+      "confidence": "high",
+      "references": ["https://www.bosch-industrial.com/global/en/ocs/commercial-industrial/universal-steam-boiler-csb-1001957-p/", "https://www.bosch-industrial.com/gb/en/ocs/commercial-industrial/steam-boilers-669471-c/"],
+      "output": "assets/machines/v3/full/heating/boiler/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "thermic-fluid-heater",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Packaged horizontal thermal-fluid heater with insulated cylindrical helical-coil furnace, front gas/oil burner, rear flue outlet, circulation-pump skid, elevated expansion/deaerator tank and clearly paired hot-oil supply/return headers.",
+      "requiredVisible": ["insulated fired coil heater", "front burner", "circulation pumps", "expansion/deaerator tank", "paired supply and return headers", "control panel"],
+      "forbidden": ["steam drum and steam header", "plain hot-water tank", "open furnace", "product drying chamber"],
+      "confidence": "high",
+      "references": ["https://www.babcock-wanson.com/product-category/thermal-fluid-heaters/", "https://www.babcock-wanson.com/products/thermal-fluid-heaters/tpc-ln-series/"],
+      "status": "pending"
+    },
+    {
+      "slug": "rotary-tube-dryer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Indirect rotary steam-tube dryer with a long rotating cylindrical shell on trunnion rollers, internal longitudinal steam-tube bundle visible at a cutaway end, steam/condensate rotary unions, feed and discharge hoods, ring-gear drive and vapour exhaust.",
+      "requiredVisible": ["rotating cylindrical shell", "trunnion rollers", "internal steam-tube bundle cue", "steam and condensate rotary unions", "ring-gear drive", "feed and discharge hoods"],
+      "forbidden": ["direct flame entering empty drum", "plain rotary drum dryer", "shell-and-tube exchanger on saddles", "disc dryer rotor"],
+      "confidence": "medium",
+      "references": ["https://www.bepex.com/lp/les", "https://www.bepex.com/products/torusdisc"],
+      "status": "pending"
+    },
+    {
+      "slug": "furnace-burner",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Industrial forced-draft process burner mounted horizontally through a refractory furnace front, showing burner gun and throat, combustion-air blower, gas train with regulator and safety shutoff valves, igniter/flame scanner and local burner-management panel.",
+      "requiredVisible": ["burner gun and refractory throat", "combustion-air blower", "gas train and safety valves", "igniter/flame scanner", "local control panel"],
+      "forbidden": ["freestanding open flame", "whole boiler as main subject", "domestic burner", "product vessel"],
+      "confidence": "high",
+      "references": ["https://www.zeeco.com/products/burners", "https://www.zeeco.com/burners/burners-process"],
+      "status": "pending"
+    },
+    {
+      "slug": "heat-exchanger",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Horizontal shell-and-tube process heat exchanger on two saddles, with cylindrical shell, removable bolted channel heads, shell-side and tube-side inlet/outlet nozzles, vents/drains and a small cutaway cue of the internal tube bundle.",
+      "requiredVisible": ["horizontal cylindrical shell", "two support saddles", "bolted channel heads", "four distinct process nozzles", "tube-bundle cue", "vents and drains"],
+      "forbidden": ["plate heat exchanger pack", "boiler burner", "mixing tank", "air-cooled condenser fan bank"],
+      "confidence": "high",
+      "references": ["https://www.alfalaval.com/en-GB/products/heat-transfer/tubular-heat-exchangers/shell-and-tube-heat-exchanger/"],
+      "status": "pending"
+    },
+    {
+      "slug": "heat-recovery-unit-hru",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Industrial gas-to-gas heat-recovery unit with an insulated rectangular exchanger casing, clearly separate hot exhaust inlet/outlet and clean-air inlet/outlet ducts, plate/tubular core access panels, bypass damper and compact control/instrument section.",
+      "requiredVisible": ["insulated exchanger casing", "two separate duct circuits", "four flanged duct connections", "core access panels", "bypass damper", "temperature instruments"],
+      "forbidden": ["single open fan", "steam boiler shell", "liquid storage tank", "unconnected generic duct box"],
+      "confidence": "medium",
+      "references": ["https://www.bosch-industrial.com/global/en/ocs/commercial-industrial/universal-heat-recovery-steam-boiler-hrsb-669521-p/", "https://www.alfalaval.com/en-US/products/heat-transfer/finned-tube-air-heat-exchangers/Finned-tube-air-heat-exchangers/"],
+      "status": "pending"
+    },
+    {
+      "slug": "incinerator",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Skid-mounted dual-chamber industrial incinerator with refractory-lined primary chamber and sealed loading door, smaller secondary afterburner chamber above/behind, separate burners, induced-draft fan, control panel and tall clean exhaust stack.",
+      "requiredVisible": ["primary refractory chamber and loading door", "secondary afterburner chamber", "two burner assemblies", "induced-draft fan", "control panel", "tall exhaust stack"],
+      "forbidden": ["open waste fire", "single dryer drum", "regenerative oxidizer bed towers", "boiler steam fittings"],
+      "confidence": "high",
+      "references": ["https://www.zeeco.com/products/thermal-oxidizers", "https://www.zeeco.com/india"],
+      "status": "pending"
+    },
+    {
+      "slug": "flash-dryer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Continuous pneumatic flash-drying line with wet-feed conditioner and metering screw, hot-air inlet, short disintegrator, tall vertical drying duct/column, cyclone separator, rotary airlock, bag filter or exhaust receiver and induced-draft blower.",
+      "requiredVisible": ["wet-feed conditioner and screw", "hot-air inlet", "vertical drying duct", "cyclone separator", "rotary airlock", "induced-draft blower"],
+      "forbidden": ["spray atomizer tower", "large rotary drum", "fluid-bed bowl", "tray cabinet"],
+      "confidence": "high",
+      "references": ["https://www.gea.com/en/products/dryers-particle-processing/flash-dryers-coolers/", "https://www.gea.com/en/products/dryers-particle-processing/flash-dryers-coolers/swirl-fluidizer/"],
+      "status": "pending"
+    },
+    {
+      "slug": "roaster",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Continuous stainless nut/seed roaster with a covered perforated conveyor or vertical convection roasting chamber, even feed hopper/spreader, separately controlled hot-air zones, recirculation fans/heat exchanger and cooling/discharge section.",
+      "requiredVisible": ["product feed hopper/spreader", "enclosed roasting chamber", "controlled hot-air zones", "recirculation fans", "heat-exchanger/heater module", "cooling or discharge section"],
+      "forbidden": ["coffee-shop drum roaster", "oil fryer kettle", "tray rack oven", "open cooking pan"],
+      "confidence": "medium",
+      "references": ["https://www.buhlergroup.com/content/buhlergroup/global/en/products/roastar_continuousdryerroaster.html", "https://www.buhlergroup.com/content/buhlergroup/global/en/products/solano_s_batch_roaster.html"],
+      "status": "pending"
+    },
+    {
+      "slug": "blancher",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Continuous food blancher/cooler with a long insulated stainless chamber, perforated or modular product conveyor, steam/hot-water spray and recirculation piping, lift-up service lids, separate cooling zone and dewatering discharge.",
+      "requiredVisible": ["long stainless blanching chamber", "through product conveyor", "steam/hot-water piping", "lift-up service lids", "cooling zone", "dewatering discharge"],
+      "forbidden": ["oil fryer kettle", "dry hot-air tunnel", "small batch kettle", "rotary dryer drum"],
+      "confidence": "high",
+      "references": ["https://www.gemequipment.com/blanchers", "https://www.cabinplant.com/products/blanchers/"],
+      "status": "pending"
+    },
+    {
+      "slug": "hot-water-generator",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Packaged low-pressure industrial hot-water generator with horizontal insulated cylindrical vessel, front gas/oil burner, circulation pump set, clearly paired hot-water supply/return headers, expansion tank, flue outlet and temperature-control cabinet.",
+      "requiredVisible": ["insulated hot-water vessel", "front burner", "circulation pumps", "supply and return headers", "expansion tank", "control cabinet"],
+      "forbidden": ["steam dome and steam header", "thermal-oil coil heater", "open water tank", "domestic water heater"],
+      "confidence": "high",
+      "references": ["https://www.bosch-industrial.com/gb/en/commercial-industrial/solutions/industrial-steam-and-hot-water/", "https://www.bosch-industrial.com/global/en/commercial-industrial/home/"],
+      "output": "assets/machines/v3/full/heating/hot-water-generator/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "steam-generator",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Compact once-through coil steam generator on a skid with small vertical insulated coil vessel, integral gas/oil burner, feedwater pump, steam separator/header, safety valves, water-treatment connection and PLC cabinet.",
+      "requiredVisible": ["compact coil steam vessel", "integral burner", "feedwater pump", "steam separator/header", "safety valves", "PLC cabinet"],
+      "forbidden": ["large horizontal fire-tube boiler", "open hot-water tank", "hot-air-only duct", "thermal-oil expansion tank"],
+      "confidence": "high",
+      "references": ["https://www.bosch-industrial.com/gb/en/ocs/commercial-industrial/steam-boilers-669471-c/", "https://www.babcock-wanson.com/products/"],
+      "output": "assets/machines/v3/full/heating/steam-generator/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "air-duct-heater",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Rectangular flanged inline electric duct-heater bank with visible finned tubular resistance elements behind a protective grid, upstream/downstream duct flanges, side terminal/control enclosure, airflow switch and over-temperature sensor.",
+      "requiredVisible": ["rectangular flanged duct module", "finned electric heater bank", "protective grid", "terminal/control enclosure", "airflow switch", "temperature sensor"],
+      "forbidden": ["gas burner flame", "standalone furnace", "liquid immersion heater", "product conveyor"],
+      "confidence": "high",
+      "references": ["https://www.watlow.com/en/products/heaters/air-heaters/d-series-duct-heaters", "https://www.chromalox.com/en/products-and-technologies/industrial-heaters-and-systems/air-and-radiant-heaters/duct-heaters/circular-duct-heaters"],
+      "output": "assets/machines/v3/full/heating/air-duct-heater/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "pasteurizer",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Hygienic continuous HTST liquid pasteurizer skid with balance tank, sanitary feed pump, gasketed plate heat exchanger, hot-water module, long holding tube, flow-diversion valve, cooling section and PLC/HMI cabinet.",
+      "requiredVisible": ["balance tank", "sanitary feed pump", "plate heat exchanger", "long holding tube", "flow-diversion valve", "cooling circuit", "PLC/HMI"],
+      "forbidden": ["retort pressure vessel", "open cooking kettle", "tunnel pasteurizer conveyor", "plain storage tank"],
+      "confidence": "high",
+      "references": ["https://www.tetrapak.com/solutions/integrated-solutions-equipment/processing-equipment/pasteurization", "https://www.tetrapak.com/content/dam/tetrapak/media-box/global/en/processing/technology-area-general/pasteurization/documents/Tetra_Pak_Pasteurizer_BF_pd_.pdf"],
+      "output": "assets/machines/v3/full/heating/pasteurizer/master-4x3.png",
+      "status": "generated"
+    },
+    {
+      "slug": "sterilization",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Horizontal batch retort/autoclave with a large insulated cylindrical pressure vessel, quick-lock circular loading door, internal basket/trolley rails, full-length steam-water spray manifold, recirculation pump and plate heat exchanger, safety interlocks and PLC control cabinet.",
+      "requiredVisible": ["horizontal cylindrical pressure vessel", "quick-lock circular door", "basket/trolley rail cue", "steam-water spray piping", "recirculation pump and heat exchanger", "safety interlocks and PLC"],
+      "forbidden": ["open tray oven", "unpressurized cooling tunnel", "vertical domestic autoclave", "plain boiler without loading door"],
+      "confidence": "high",
+      "references": ["https://www.jbtc.com/foodtech/wp-content/uploads/sites/2/2024/01/JBT-RR_Batch-Retort-Sterilizers-EN.pdf", "https://surdry.com/batch-retorts/"],
+      "status": "pending"
+    },
+    {
+      "slug": "jacketed-tank",
+      "normalizedCategory": "Heating & Drying",
+      "configuration": "Vertical hygienic stainless process vessel with a visibly separate insulated dimple/half-pipe heating-cooling jacket, domed lid and manway, top geared agitator, temperature/level instruments, steam or thermal-fluid inlet/return and sanitary bottom outlet.",
+      "requiredVisible": ["vertical stainless vessel", "visible outer jacket", "domed lid and manway", "top geared agitator", "temperature and level instruments", "jacket inlet/return", "bottom outlet"],
+      "forbidden": ["plain storage tank without jacket", "open cooking kettle", "silo cone", "rotating drum"],
+      "confidence": "high",
+      "references": ["https://www.inoxpa.com/company/news/equipment-for-vaccine-manufacturing", "https://www.inoxpa.com/case-studies/cosmetic-and-pharmaceutical/hydroalcoholic-gel-manufacturing-equipment"],
+      "status": "pending"
+    }
+  ]
+}

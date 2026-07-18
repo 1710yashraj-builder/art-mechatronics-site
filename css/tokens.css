@@ -34,12 +34,13 @@
   --steel-grad: linear-gradient(150deg,#f3f6fa 0%,#dbe2ec 40%,#c3ccd9 60%,#e7ecf3 100%);
 
   /* Type */
-  --font: "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font: "Avenir Next", "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-display: "DIN Alternate", "Avenir Next Condensed", "Avenir Next", "Segoe UI Variable", sans-serif;
   --font-mono: "SF Mono", "Consolas", "Roboto Mono", ui-monospace, monospace;
 
   /* Fluid type scale */
-  --fs-hero:  clamp(2.1rem, 1.3rem + 3.6vw, 4rem);
-  --fs-h2:    clamp(1.6rem, 1.1rem + 2.2vw, 2.6rem);
+  --fs-hero:  clamp(2.55rem, 1.5rem + 4vw, 4.7rem);
+  --fs-h2:    clamp(1.8rem, 1.2rem + 2.3vw, 3rem);
   --fs-h3:    clamp(1.2rem, 1rem + 0.9vw, 1.5rem);
   --fs-lead:  clamp(1.02rem, 0.95rem + 0.5vw, 1.25rem);
   --fs-body:  1rem;
@@ -50,11 +51,11 @@
   --s-5: 1.5rem; --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem;
 
   /* Radius + shadow */
-  --r-sm: 6px; --r: 12px; --r-lg: 18px; --r-xl: 26px;
+  --r-sm: 5px; --r: 9px; --r-lg: 14px; --r-xl: 18px;
   --shadow-sm: 0 1px 3px rgba(16,35,63,.08), 0 1px 2px rgba(16,35,63,.06);
   --shadow:    0 10px 30px rgba(16,35,63,.10);
   --shadow-lg: 0 24px 60px rgba(11,44,94,.18);
 
-  --wrap: 1200px;      /* content max width */
+  --wrap: 1280px;      /* content max width */
   --ease: cubic-bezier(.22,.61,.36,1);
 }

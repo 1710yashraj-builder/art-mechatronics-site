@@ -6,9 +6,9 @@
 (function () {
   /* ---------- recipes ---------- */
   const RECIPES = [
-    { name: "Food — Spice Blend",        sector: "Food",     ings: [["Chilli Powder", 120], ["Turmeric", 60], ["Iodised Salt", 70]] },
-    { name: "Pharma — Granule Premix",   sector: "Pharma",   ings: [["Excipient Base", 150], ["Active Blend", 40], ["Lubricant", 60]] },
-    { name: "Chemical — Detergent Base", sector: "Chemical", ings: [["Soda Ash", 100], ["STPP", 90], ["Filler", 60]] },
+    { name: "Food: Spice Blend",        sector: "Food",     ings: [["Chilli Powder", 120], ["Turmeric", 60], ["Iodised Salt", 70]] },
+    { name: "Pharma: Granule Premix",   sector: "Pharma",   ings: [["Excipient Base", 150], ["Active Blend", 40], ["Lubricant", 60]] },
+    { name: "Chemical: Detergent Base", sector: "Chemical", ings: [["Soda Ash", 100], ["STPP", 90], ["Filler", 60]] },
   ];
 
   const TILES = ["Suction", "Silos", "Weigh", "Buffer", "Mixer", "Sifter", "Trolley", "Dust"];
@@ -116,7 +116,7 @@
     els.batch.textContent = "#" + String(batchNo).padStart(4, "0");
     resetValues();
     log("Batch " + els.batch.textContent + " started · recipe: " + recipe.name, "ok");
-    log("Pneumatic suction ON — root blower conveying raw powder");
+    log("Pneumatic suction ON. Root blower conveying raw powder");
     setStack("green"); goPhase("fill"); setButtons();
   }
   function stop(byOperator) {
@@ -128,21 +128,21 @@
     if (fault) return;
     running = false; fault = true;
     setStack("red"); els.alarm.classList.add("show");
-    els.alarmMsg.textContent = "EMERGENCY STOP ACTIVE — press RESET to clear";
+    els.alarmMsg.textContent = "EMERGENCY STOP ACTIVE. Press RESET to clear.";
     setTiles(-1); setButtons();
-    log("✖ EMERGENCY STOP pressed — all drives halted", "err");
+    log("✖ EMERGENCY STOP pressed. All drives halted.", "err");
   }
   function reset() {
     fault = false; phase = "idle"; running = false;
     els.alarm.classList.remove("show"); els.report.classList.remove("show");
     setStack("amber"); setTiles(-1); resetValues(); setButtons();
-    log("System reset — ready", "ok");
+    log("System reset. Ready.", "ok");
   }
   function complete() {
     running = false; goPhase("complete");
     const total = recipe.ings.reduce((a, x) => a + x[1], 0);
     setStack("green"); setTiles(7); setButtons();
-    log("✓ Batch complete — " + total.toFixed(1) + " kg collected in trolley", "ok");
+    log("✓ Batch complete. " + total.toFixed(1) + " kg collected in trolley.", "ok");
     // report card
     els.rpBatch.textContent = els.batch.textContent;
     els.rpRecipe.textContent = recipe.name;
@@ -191,14 +191,14 @@
       setTiles(4);
       const remain = Math.max(0, MIX_SECS - tPhase / 1000);
       els.gMix.textContent = String(Math.ceil(remain)).padStart(2, "0");
-      if (!flags.mix) { flags.mix = true; log("Ribbon mixer running — homogeneous blending"); }
+      if (!flags.mix) { flags.mix = true; log("Ribbon mixer running. Homogeneous blending active."); }
       if (tPhase >= DUR.mix) { els.gMix.textContent = "00"; log("Mixing complete · discharging to vibro sifter"); goPhase("sieve"); }
 
     } else if (phase === "sieve") {
       setTiles(5);
       const p = Math.min(tPhase / DUR.sieve, 1);
       sieveOut = total * p; els.gSieve.textContent = sieveOut.toFixed(1);
-      if (!flags.sieve) { flags.sieve = true; log("Vibro sifter — sieving to quality output"); }
+      if (!flags.sieve) { flags.sieve = true; log("Vibro sifter running for quality separation."); }
       if (tPhase >= DUR.sieve) { els.gSieve.textContent = total.toFixed(1); goPhase("collect"); }
 
     } else if (phase === "collect") {

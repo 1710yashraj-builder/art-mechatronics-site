@@ -1,0 +1,343 @@
+{
+  "version": 3,
+  "family": "Packaging",
+  "gradient": ["#082F6B", "#1657B0"],
+  "policy": "Slugs may share a master only when the visible external mechanism named here is the same. Different container formats, sealing mechanisms, inspection methods, or product paths require distinct masters.",
+  "groups": [
+    {
+      "visualClass": "vffs-collar-platform",
+      "externalMechanism": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "slugs": ["form-fill-seal", "vertical-form-fill-seal", "pneumatic", "d-motion", "mechanical", "servo-driven", "collar-type", "center-seal", "pillow-pack", "pouch", "packet"]
+    },
+    {
+      "visualClass": "vffs-nitrogen-flush",
+      "externalMechanism": "VFFS collar machine with visible nitrogen manifold, gas-flow controls and sealed product path.",
+      "slugs": ["nitrogen-packing"]
+    },
+    {
+      "visualClass": "horizontal-flow-wrapper",
+      "externalMechanism": "Horizontal infeed conveyor, film former, longitudinal fin-seal rollers, rotary end-seal jaws and discharge conveyor.",
+      "slugs": ["horizontal-form-fill-seal", "dosing-and-flow-wrapping", "wrapper", "flow-wrap"]
+    },
+    {
+      "visualClass": "multihead-combination-weigher",
+      "externalMechanism": "Circular radial feeder and multiple weigh hoppers above a central discharge funnel on a service frame.",
+      "slugs": ["multi-head-weigher"]
+    },
+    {
+      "visualClass": "auger-powder-filler",
+      "externalMechanism": "Powder hopper with vertical servo auger, agitator drive, dosing funnel and support frame.",
+      "slugs": ["auger-filler"]
+    },
+    {
+      "visualClass": "volumetric-cup-filler",
+      "externalMechanism": "Rotary adjustable volumetric cup plate with feed hopper, leveling system and discharge funnel.",
+      "slugs": ["cup-filler"]
+    },
+    {
+      "visualClass": "rotary-premade-pouch-platform",
+      "externalMechanism": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "slugs": ["rotary", "pack-fill-seal", "pouch-filling", "retort-pouch", "premade-pouch", "zip-lock-zipper-pouch", "doypack", "standup-pouch", "premade-bag"]
+    },
+    {
+      "visualClass": "multilane-sachet-machine",
+      "externalMechanism": "Wide vertical rollstock web with multiple dosing lanes, longitudinal seal bars, cross-seal/cut station and lane outputs.",
+      "slugs": ["3-side-seal", "4-side-seal", "sachet", "stick", "multi-track", "multi-lane"]
+    },
+    {
+      "visualClass": "oral-pouch-former",
+      "externalMechanism": "Compact multi-lane porous-web forming, micro-dosing, sealing and cutting system for small oral pouches.",
+      "slugs": ["oral-pouches"]
+    },
+    {
+      "visualClass": "continuous-band-sealer",
+      "externalMechanism": "Horizontal continuous belt conveyor passing pouch tops through heated sealing bands and cooling blocks.",
+      "slugs": ["pouch-sealing", "band-sealer"]
+    },
+    {
+      "visualClass": "pouch-count-stack-collator",
+      "externalMechanism": "Short synchronized conveyors with optical counter, alignment guides, stacking magazine and batch discharge.",
+      "slugs": ["strip-collator", "pouch-stacking", "pouch-counting", "count-and-stack"]
+    },
+    {
+      "visualClass": "chamber-vacuum-packer",
+      "externalMechanism": "Stainless chamber vacuum packer with clear hinged lid, seal bar and vacuum controls.",
+      "slugs": ["vacuum"]
+    },
+    {
+      "visualClass": "automatic-sleeve-web-sealer",
+      "externalMechanism": "Automatic product conveyor with upper/lower film webs, transverse seal jaw and shrink-tunnel-ready discharge.",
+      "slugs": ["web-sealer"]
+    },
+    {
+      "visualClass": "automatic-l-bar-sealer",
+      "externalMechanism": "Product conveyor, film center-fold unwind and right-angle L-shaped sealing jaw.",
+      "slugs": ["l-sealer"]
+    },
+    {
+      "visualClass": "heat-shrink-tunnel",
+      "externalMechanism": "Insulated heated tunnel with mesh conveyor, recirculation blowers and temperature controls.",
+      "slugs": ["heat-shrink-tunnel"]
+    },
+    {
+      "visualClass": "l-sealer-shrink-tunnel-line",
+      "externalMechanism": "Integrated automatic L-bar sealer feeding a separate insulated heat-shrink tunnel.",
+      "slugs": ["l-sealer-with-heat-shrink-tunnel"]
+    },
+    {
+      "visualClass": "tea-bag-cartoner",
+      "externalMechanism": "Tea dosing, filter-paper forming, heat sealing, thread-and-tag attachment and envelope discharge modules.",
+      "slugs": ["tea-bag"]
+    },
+    {
+      "visualClass": "strip-pack-machine",
+      "externalMechanism": "Twin heat-seal rollers drawing two foil webs around tablets or capsules, followed by strip cutting.",
+      "slugs": ["strip"]
+    },
+    {
+      "visualClass": "horizontal-cartoner",
+      "externalMechanism": "Carton magazine, rotary pick-off, horizontal product infeed, leaflet station, tuck/close stations and discharge.",
+      "slugs": ["cartoning", "load-cartoner", "mono-carton-packing", "unit-carton-packing"]
+    },
+    {
+      "visualClass": "cellophane-overwrapper",
+      "externalMechanism": "Carton infeed, film roll, folding turret, side/end heat seals and tear-tape path.",
+      "slugs": ["overwrapping", "over-wrapping"]
+    },
+    {
+      "visualClass": "collator-cartoner",
+      "externalMechanism": "Counting and lane-collation conveyors feeding grouped packs into an automatic cartoner.",
+      "slugs": ["collating-and-cartoning"]
+    },
+    {
+      "visualClass": "lined-carton-packer",
+      "externalMechanism": "Carton erector with inner liner bag insertion/opening, product fill chute and liner/carton closing stations.",
+      "slugs": ["lined-carton"]
+    },
+    {
+      "visualClass": "automatic-case-packer",
+      "externalMechanism": "Corrugated case magazine/erector, grouped-product loading section, flap closer and tape/glue sealer.",
+      "slugs": ["master-carton-packing", "master-case-packing"]
+    },
+    {
+      "visualClass": "open-mouth-bagging-line",
+      "externalMechanism": "Weigh hopper above a bag clamp and fill spout, supported by a short takeaway conveyor.",
+      "slugs": ["filling", "bagging", "bag-packing", "sack-packing"]
+    },
+    {
+      "visualClass": "net-weigh-bagger",
+      "externalMechanism": "Feed gate, independent weigh hopper/load cells, discharge chute and bag clamp.",
+      "slugs": ["weighing-and-dosing"]
+    },
+    {
+      "visualClass": "industrial-bag-sewing-head",
+      "externalMechanism": "Pedestal-mounted sewing head above a height-adjustable bag conveyor with thread stand and bag-top guide.",
+      "slugs": ["sewing", "stitching"]
+    },
+    {
+      "visualClass": "rotary-pallet-stretch-wrapper",
+      "externalMechanism": "Powered turntable, vertical mast and traversing stretch-film carriage.",
+      "slugs": ["stretch-wrapping"]
+    },
+    {
+      "visualClass": "container-rinser-can-jar",
+      "externalMechanism": "Container infeed, inversion/rinse carousel or tunnel, spray manifold, drain tray and outfeed.",
+      "slugs": ["rinsing"]
+    },
+    {
+      "visualClass": "can-jar-box-filler",
+      "externalMechanism": "Indexed container conveyor beneath a configurable dosing/filling head bank with feed hopper.",
+      "slugs": ["filling-2"]
+    },
+    {
+      "visualClass": "double-seam-can-closer",
+      "externalMechanism": "Lid feed chute, can lift plate, seaming chuck and paired first/second-operation seaming rolls.",
+      "slugs": ["seaming"]
+    },
+    {
+      "visualClass": "mixed-container-sealer",
+      "externalMechanism": "Indexed conveyor with lid/cap feed, closing head and induction/heat sealing module for cans, jars and boxes.",
+      "slugs": ["sealing"]
+    },
+    {
+      "visualClass": "cap-lid-presser",
+      "externalMechanism": "Cap/lid feeder, starwheel and vertical pressing heads over an indexed container conveyor.",
+      "slugs": ["cap-lid-pressing"]
+    },
+    {
+      "visualClass": "can-jar-leak-tester",
+      "externalMechanism": "Enclosed inline pressure/vacuum test chamber with container fixtures, sensors and reject gate.",
+      "slugs": ["leak-tester"]
+    },
+    {
+      "visualClass": "servo-auger-container-filler",
+      "externalMechanism": "Servo-driven auger hopper and dosing head over an indexed can/jar conveyor.",
+      "slugs": ["servo-auger-filling"]
+    },
+    {
+      "visualClass": "wraparound-labeler",
+      "externalMechanism": "Container conveyor with label unwind/peel plate, wrap belt, pressure rollers and control enclosure.",
+      "slugs": ["wraparound-labelling", "wraparound-labelling-2", "labelling"]
+    },
+    {
+      "visualClass": "can-tin-packaging-line",
+      "externalMechanism": "Short integrated can/tin infeed, filling, lid placement, seaming and discharge line.",
+      "slugs": ["can-packing", "tin-box-packing"]
+    },
+    {
+      "visualClass": "jar-packaging-line",
+      "externalMechanism": "Jar infeed, dosing/filling, cap placement, capping and label-ready discharge line.",
+      "slugs": ["jar-packing"]
+    },
+    {
+      "visualClass": "cup-tray-thermoformer",
+      "externalMechanism": "Sheet unwind, heater bank, forming press, trim/cut station and formed-container stacker.",
+      "slugs": ["forming"]
+    },
+    {
+      "visualClass": "rollstock-thermoform-packager",
+      "externalMechanism": "Lower-web thermoforming section, open loading zone, upper-web sealing chamber and crosscut/slitter discharge.",
+      "slugs": ["thermoforming-sealing"]
+    },
+    {
+      "visualClass": "cup-tray-filler",
+      "externalMechanism": "Indexed cup/tray denester conveyor with product dosing heads and fill-level controls.",
+      "slugs": ["filling-3"]
+    },
+    {
+      "visualClass": "cup-tray-sealer",
+      "externalMechanism": "Tray/cup infeed, film unwind or lid denester, sealing die chamber and outfeed conveyor.",
+      "slugs": ["sealing-2"]
+    },
+    {
+      "visualClass": "map-tray-sealer",
+      "externalMechanism": "Enclosed tray sealer with vacuum/gas manifold, film unwind, sealing die and discharge conveyor.",
+      "slugs": ["map-tray-sealing", "tray-packing"]
+    },
+    {
+      "visualClass": "rotary-cup-fill-seal",
+      "externalMechanism": "Cup denester, rotary indexing table, filler, foil/lid placer, heat-seal station and discharge.",
+      "slugs": ["cup-packing"]
+    },
+    {
+      "visualClass": "container-rinser",
+      "externalMechanism": "General bottle/jar/jug rinser with inversion grippers, internal spray/air nozzles, drain tray and conveyor.",
+      "slugs": ["rinsing-2", "cleaning"]
+    },
+    {
+      "visualClass": "inline-servo-liquid-filler",
+      "externalMechanism": "Sanitary product tank/manifold feeding multiple servo-controlled nozzles over an indexed container conveyor.",
+      "slugs": ["filling-4", "servo-filling"]
+    },
+    {
+      "visualClass": "automatic-container-capper",
+      "externalMechanism": "Cap elevator/sorter, cap chute and spindle or chuck capping heads over a container conveyor.",
+      "slugs": ["capping"]
+    },
+    {
+      "visualClass": "induction-container-sealer",
+      "externalMechanism": "Inline induction sealing head with power enclosure over a container conveyor and foil-compatible closure path.",
+      "slugs": ["sealing-3"]
+    },
+    {
+      "visualClass": "container-crimper",
+      "externalMechanism": "Indexed bottle conveyor with closure placement and guarded rotary crimp heads for spray pumps/aluminium seals.",
+      "slugs": ["crimping"]
+    },
+    {
+      "visualClass": "collar-fitting-machine",
+      "externalMechanism": "Collar bowl feeder and chute feeding vertical placement/press heads over an indexed bottle conveyor.",
+      "slugs": ["collar-fitting"]
+    },
+    {
+      "visualClass": "automatic-decapper",
+      "externalMechanism": "Container centering starwheel with guarded gripping/unscrewing heads and removed-cap discharge chute.",
+      "slugs": ["decapper"]
+    },
+    {
+      "visualClass": "container-leak-detector",
+      "externalMechanism": "Enclosed inline pressure-decay or vacuum test carousel with sensors and reject lane.",
+      "slugs": ["leak-detector"]
+    },
+    {
+      "visualClass": "piston-liquid-paste-filler",
+      "externalMechanism": "Product hopper, one or more horizontal dosing pistons and anti-drip nozzles over a conveyor.",
+      "slugs": ["piston-filling"]
+    },
+    {
+      "visualClass": "continuous-nozzle-tracking-filler",
+      "externalMechanism": "Moving-nozzle gantry synchronized with a continuously moving container conveyor and servo manifold.",
+      "slugs": ["servo-nozzle-tracking-filling"]
+    },
+    {
+      "visualClass": "palletized-drum-filler",
+      "externalMechanism": "Pallet/drum roller conveyor on a weigh platform with overhead lance/nozzle and bung-management station.",
+      "slugs": ["palletized-drum-filling", "drum-packing"]
+    },
+    {
+      "visualClass": "bottle-packaging-line",
+      "externalMechanism": "Compact bottle rinser/filler/capper monoblock with infeed and outfeed conveyors.",
+      "slugs": ["bottle-packing"]
+    },
+    {
+      "visualClass": "jerry-can-packaging-line",
+      "externalMechanism": "Heavy-container conveyor with weigh/flow filling lance and cap placement/torque head for jerry cans.",
+      "slugs": ["jerry-can-packing"]
+    },
+    {
+      "visualClass": "canister-powder-packaging-line",
+      "externalMechanism": "Canister conveyor with powder auger filler, cap placer, capping head and label-ready outfeed.",
+      "slugs": ["cannister-packing"]
+    },
+    {
+      "visualClass": "pail-bucket-packaging-line",
+      "externalMechanism": "Pail conveyor/scale with filling lance, lid denester and lid-press station.",
+      "slugs": ["bucket-packing"]
+    },
+    {
+      "visualClass": "jar-jug-packaging-line",
+      "externalMechanism": "Jar/jug conveyor with multi-nozzle filler, cap feeder and capping head.",
+      "slugs": ["jar-jug-packing"]
+    },
+    {
+      "visualClass": "gallon-packaging-line",
+      "externalMechanism": "Large-bottle rinser, gravity/flow filler and capper arranged for gallon containers.",
+      "slugs": ["gallon-packing"]
+    },
+    {
+      "visualClass": "robotic-palletizer",
+      "externalMechanism": "Guarded robot cell with pallet dispenser, product infeed conveyor and pallet stacking zone.",
+      "slugs": ["palletizer"]
+    },
+    {
+      "visualClass": "slitter-rewinder",
+      "externalMechanism": "Web unwind, guide rollers, slitting knives, tension-control section and twin rewind shafts.",
+      "slugs": ["rewinder"]
+    },
+    {
+      "visualClass": "industrial-coder",
+      "externalMechanism": "Compact CIJ/laser marking controller and print head mounted beside a short product conveyor.",
+      "slugs": ["printer", "batch-coding"]
+    },
+    {
+      "visualClass": "checkweigher-print-apply",
+      "externalMechanism": "Infeed conveyor, weigh belt, print-and-apply label head, inspection sensors and reject conveyor.",
+      "slugs": ["checkweigher-with-printer"]
+    },
+    {
+      "visualClass": "conveyor-metal-detector",
+      "externalMechanism": "Rectangular detection aperture around a food-grade conveyor with control panel and reject device.",
+      "slugs": ["metal-detection"]
+    },
+    {
+      "visualClass": "packaged-product-xray",
+      "externalMechanism": "Shielded stainless X-ray tunnel over a conveyor with HMI, warning lamps and automatic reject lane.",
+      "slugs": ["x-ray-inspection-2"]
+    },
+    {
+      "visualClass": "packaging-batch-cutter",
+      "externalMechanism": "Driven web/pouch infeed rollers, guarded transverse cutting head and counted-batch discharge conveyor.",
+      "slugs": ["batch-cutter"]
+    }
+  ]
+}

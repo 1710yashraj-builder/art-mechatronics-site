@@ -1,0 +1,215 @@
+{
+  "version": 3,
+  "family": "Automation & Robotics",
+  "gradient": ["#312E81", "#2563EB"],
+  "products": [
+    {
+      "slug": "robot-conveyor",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Conveyor-tracking robot cell with a compact six-axis arm, parallel belt conveyor, upstream vision camera and encoder, end-effector and separate controller.",
+      "requiredVisible": ["six-axis arm", "belt conveyor", "overhead vision camera", "conveyor encoder", "robot end-effector", "controller"],
+      "forbidden": ["delta robot", "mobile robot base", "pallet-only cell"],
+      "confidence": "high",
+      "references": ["https://library.e.abb.com/public/547ef8c3fb6b477aa0fc12ae92e31cb4/3HAC066561%20AM%20Conveyor%20tracking%20OmniCore-en.pdf"],
+      "output": "assets/machines/v3/full/automation/robot-conveyor/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "automated-guided-vehicle-agv",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Low-profile unit-load AGV with flat roller-deck top, directional wheels, magnetic/QR guidance sensors, front safety laser/bumper, status beacon and charging contacts.",
+      "requiredVisible": ["low-profile guided vehicle", "roller-deck top", "front safety bumper", "guidance sensors", "status beacon", "charging contacts"],
+      "forbidden": ["forklift cabin", "robot arm", "free-flying drone"],
+      "confidence": "high",
+      "references": ["https://www.daifuku.com/us/solution/list/vehiclecart/", "https://www.daifuku.com/solution/assets/pdf/automated-guided-vehicles/SmartCart_Guide.pdf"]
+    },
+    {
+      "slug": "autonomous-mobile-robot-amr",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Compact autonomous mobile robot base with flush payload deck, opposed drive wheels/casters, front and rear safety laser scanners, corner cameras, emergency stop and illuminated status band.",
+      "requiredVisible": ["compact payload deck", "front and rear lidar scanners", "corner cameras", "emergency stop", "status light band", "low autonomous base"],
+      "forbidden": ["magnetic guide tape", "fork mast", "articulated arm"],
+      "confidence": "high",
+      "references": ["https://mobile-industrial-robots.com/", "https://mobile-industrial-robots.com/de/produkte/roboter/mir250"]
+    },
+    {
+      "slug": "robotic-arm",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Freestanding six-axis articulated industrial robot on a rigid pedestal with integrated dress pack, tool flange, teach pendant and separate compact controller cabinet.",
+      "requiredVisible": ["six rotary joints", "articulated arm", "rigid pedestal", "tool flange", "integrated cable dress", "controller cabinet"],
+      "forbidden": ["delta linkage", "mobile base", "conveyor cell"],
+      "confidence": "high",
+      "references": ["https://www.abb.com/global/en/areas/robotics", "https://new.abb.com/products/robotics/robots/articulated-robots/irb-1300"],
+      "output": "assets/machines/v3/full/automation/robotic-arm/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "pick-and-place-robot",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Six-axis robotic box pick-and-place cell with suction-array gripper, infeed roller conveyor, pallet fixture, overhead vision camera and controller.",
+      "requiredVisible": ["six-axis robot", "suction-array gripper", "roller conveyor", "pallet fixture", "overhead camera", "controller"],
+      "forbidden": ["delta robot", "welding torch", "mobile robot base"],
+      "confidence": "high",
+      "sharedConfiguration": "articulated-box-pick-and-place-cell",
+      "references": ["https://new.abb.com/products/robotics/applications/packaging-and-palletizing"]
+    },
+    {
+      "slug": "palletizer-and-de-palletizer-robot",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Heavy four/five-axis palletizing robot cell with layer or multi-box gripper, product infeed conveyor, empty pallet station, full pallet station, safety fencing and vision sensor.",
+      "requiredVisible": ["heavy palletizing robot", "layer or box gripper", "infeed conveyor", "two pallet stations", "safety fencing", "vision sensor"],
+      "forbidden": ["small tabletop cobot", "delta robot", "bare arm without pallet stations"],
+      "confidence": "high",
+      "references": ["https://www.fanucamerica.com/products/robot/m-410ib-140h", "https://new.abb.com/products/robotics/functional-modules/abb-robotic-depalletizer"],
+      "output": "assets/machines/v3/full/automation/palletizer-and-de-palletizer-robot/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "sorting-robot",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "High-speed vision-guided sorting cell with overhead delta robot, moving infeed conveyor, overhead camera/light, multiple sorted discharge lanes and compact controller.",
+      "requiredVisible": ["overhead delta robot", "moving conveyor", "vision camera and light", "multiple discharge lanes", "vacuum gripper", "controller"],
+      "forbidden": ["palletizing arm", "mobile base", "single unsorted conveyor"],
+      "confidence": "high",
+      "references": ["https://www.abb.com/global/en/areas/robotics/products/robots/delta-robots", "https://library.e.abb.com/public/c8d0f0cc8054d7fdc125799f0059d330/Sanitary%20Robotic%20Food%20Packaging%20White%20Paper.pdf"],
+      "output": "assets/machines/v3/full/automation/sorting-robot/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "material-handling-robot",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Medium-payload six-axis handling robot with parallel or vacuum gripper transferring parts between an infeed conveyor and a rack/fixture, with controller and guarded base.",
+      "requiredVisible": ["medium-payload six-axis arm", "material gripper", "infeed conveyor", "receiving rack or fixture", "guarded base", "controller"],
+      "forbidden": ["welding gun", "delta linkage", "pallet-only cell"],
+      "confidence": "high",
+      "references": ["https://new.abb.com/products/robotics/robots/articulated-robots/irb-5720", "https://www.abb.com/global/en/areas/robotics"],
+      "output": "assets/machines/v3/full/automation/material-handling-robot/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "packaging-robot",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Robotic primary-packaging cell with compact six-axis arm, product infeed conveyor, open carton/tray conveyor, multi-pick vacuum end-effector, vision camera and guarding.",
+      "requiredVisible": ["compact six-axis robot", "product infeed", "carton or tray conveyor", "multi-pick vacuum tool", "vision camera", "safety guarding"],
+      "forbidden": ["pallet stack", "welding tooling", "mobile platform"],
+      "confidence": "high",
+      "references": ["https://new.abb.com/products/robotics/applications/packaging-and-palletizing", "https://library.e.abb.com/public/6159fdf2aa384afd966a04d90bbd14a1/ABB%20Robotics%20Packaging%20Overview_Brochure_USL_Spreads.pdf"],
+      "output": "assets/machines/v3/full/automation/packaging-robot/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "plc-automation-control-panel",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Floor-standing industrial PLC control cabinet shown with doors open: modular PLC CPU and I/O rails, VFDs, contactors, relays, breakers, terminals, labelled wire duct and a door-mounted HMI/emergency stop.",
+      "requiredVisible": ["open control cabinet", "PLC and I/O modules", "VFDs and contactors", "terminal blocks and wire duct", "door-mounted HMI", "emergency stop"],
+      "forbidden": ["consumer computer rack", "empty cabinet", "robot arm"],
+      "confidence": "high",
+      "references": ["https://www.siemens.com/en-us/products/simatic/controller-configurator/", "https://support.industry.siemens.com/cs/attachments/59191792/s71500_et200mp_system_manual_en-US_en-US.pdf"]
+    },
+    {
+      "slug": "centralised-automation-system",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Central plant automation cabinet bank with main PLC rack, redundant power/network section, remote I/O, managed industrial Ethernet switches, SCADA operator console and annunciator/status tower.",
+      "requiredVisible": ["multi-bay cabinet bank", "central PLC rack", "network switches", "remote I/O", "SCADA operator screen", "status tower"],
+      "forbidden": ["single small machine panel", "server-only rack", "robot cell"],
+      "confidence": "high",
+      "references": ["https://support.industry.siemens.com/cs/attachments/59191792/s71500_et200mp_system_manual_en-US_en-US.pdf", "https://www.siemens.com/en-us/products/simatic/distributed-controllers/"],
+      "output": "assets/machines/v3/full/automation/centralised-automation-system/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "robotic-case-packer",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Guarded robotic case-packing cell with product collation conveyor, compact six-axis top-load robot, multi-pick gripper, erected-case conveyor and closed-case discharge.",
+      "requiredVisible": ["product collation conveyor", "six-axis top-load robot", "multi-pick gripper", "erected case conveyor", "case discharge", "safety guarding"],
+      "forbidden": ["pallet station", "delta-only cell", "bare robot arm"],
+      "confidence": "high",
+      "references": ["https://library.e.abb.com/public/6159fdf2aa384afd966a04d90bbd14a1/ABB%20Robotics%20Packaging%20Overview_Brochure_USL_Spreads.pdf"],
+      "output": "assets/machines/v3/full/automation/robotic-case-packer/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "secondary-packaging-automation",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Integrated secondary-packaging cell with pack counter/collator, case erector, robotic case loader, flap closer/tape sealer and discharge conveyor under one coordinated control system.",
+      "requiredVisible": ["collation section", "case erector", "robotic case loader", "flap closer or tape sealer", "discharge conveyor", "central control cabinet"],
+      "forbidden": ["single VFFS machine", "pallet-only robot", "primary filling heads"],
+      "confidence": "high",
+      "references": ["https://library.e.abb.com/public/6159fdf2aa384afd966a04d90bbd14a1/ABB%20Robotics%20Packaging%20Overview_Brochure_USL_Spreads.pdf"],
+      "output": "assets/machines/v3/full/automation/secondary-packaging-automation/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "robotic-pick-and-place",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Six-axis robotic box pick-and-place cell with suction-array gripper, infeed roller conveyor, pallet fixture, overhead vision camera and controller.",
+      "requiredVisible": ["six-axis robot", "suction-array gripper", "roller conveyor", "pallet fixture", "overhead camera", "controller"],
+      "forbidden": ["delta robot", "welding torch", "mobile robot base"],
+      "confidence": "high",
+      "sharedConfiguration": "articulated-box-pick-and-place-cell",
+      "references": ["https://new.abb.com/products/robotics/applications/packaging-and-palletizing"]
+    },
+    {
+      "slug": "delta-robot",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Ceiling-mounted industrial delta robot with three parallel-link arms, central vacuum end-effector, overhead frame, narrow conveyor, upstream vision camera and controller.",
+      "requiredVisible": ["ceiling-mounted delta body", "three parallel-link arms", "central vacuum tool", "overhead support frame", "conveyor", "vision camera"],
+      "forbidden": ["six-axis articulated arm", "pallet station", "mobile base"],
+      "confidence": "high",
+      "references": ["https://www.abb.com/global/en/areas/robotics/products/robots/delta-robots", "https://one.robotics.abb.com/Robots/p/IRB-360"]
+    },
+    {
+      "slug": "agv-amr",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Hybrid autonomous guided/mobile unit-load vehicle with low roller-deck top, lidar safety scanners, cameras, bumper, optional floor-code reader, status band and charging contacts.",
+      "requiredVisible": ["low unit-load vehicle", "roller deck", "lidar scanners", "corner cameras", "safety bumper", "floor-code reader", "charging contacts"],
+      "forbidden": ["forklift cabin", "robotic arm", "tugger trailer"],
+      "confidence": "medium",
+      "references": ["https://www.daifuku.com/jp/solution/intralogistics/products/vehicle/", "https://mobile-industrial-robots.com/"],
+      "output": "assets/machines/v3/full/automation/agv-amr/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "complete-packaging-automation",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Compact complete automated packaging line showing primary pouch packer, inspection conveyor, robotic case packer, case sealer and robotic palletizer connected by conveyors and one central control cabinet.",
+      "requiredVisible": ["primary packer", "inspection conveyor", "robotic case packer", "case sealer", "robotic palletizer", "central control cabinet"],
+      "forbidden": ["single isolated machine", "manual workstations", "unconnected equipment montage"],
+      "confidence": "medium",
+      "references": ["https://new.abb.com/products/robotics/applications/packaging-and-palletizing", "https://library.e.abb.com/public/6159fdf2aa384afd966a04d90bbd14a1/ABB%20Robotics%20Packaging%20Overview_Brochure_USL_Spreads.pdf"],
+      "output": "assets/machines/v3/full/automation/complete-packaging-automation/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "vision-inspection",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Enclosed inline machine-vision inspection station with conveyor, top and side industrial cameras, controlled LED lighting, encoder/photoeyes, HMI and a downstream reject-ready section.",
+      "requiredVisible": ["inspection conveyor", "top camera", "side cameras", "controlled LED lighting", "photoeyes or encoder", "HMI", "guarded enclosure"],
+      "forbidden": ["X-ray tunnel", "metal detector aperture", "camera without conveyor"],
+      "confidence": "high",
+      "references": ["https://www.cognex.com/industries/food-and-beverage/packaging-inspection", "https://www.cognex.com/industries/consumer-products/packaging/high-speed-reflective-packaging-inspection"],
+      "output": "assets/machines/v3/full/automation/vision-inspection/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "auto-reject-system",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Inline automatic reject conveyor with upstream inspection sensor, encoder/photoeye, pneumatic pusher or air-blast reject device, lockable reject bin, confirmation sensor and alarm beacon.",
+      "requiredVisible": ["inspection conveyor", "upstream sensor", "pneumatic reject device", "lockable reject bin", "reject confirmation sensor", "alarm beacon"],
+      "forbidden": ["robot arm", "manual diverter", "unprotected open reject area"],
+      "confidence": "high",
+      "references": ["https://www.mt.com/dam/product_organizations/pi/prod/MD/brochure/Conveyors/Conveyors-EN.pdf", "https://www.mt.com/dam/product_organizations/pi/prod/MD/datasheet/SL1500/SL1500-MD-US-EN.pdf"],
+      "output": "assets/machines/v3/full/automation/auto-reject-system/master-4x3.png",
+      "status": "generated-verified"
+    },
+    {
+      "slug": "drone",
+      "normalizedCategory": "Automation & Robotics",
+      "configuration": "Rugged enterprise quadcopter with four folding carbon arms and large propellers, tall landing gear, dual battery body, forward/omnidirectional vision sensors, top lidar/radar module and stabilized payload gimbal.",
+      "requiredVisible": ["four folding arms", "four large propellers", "tall landing gear", "dual battery body", "vision and lidar sensors", "stabilized payload gimbal"],
+      "forbidden": ["consumer toy drone", "six or eight rotors", "weapon or payload release"],
+      "confidence": "high",
+      "references": ["https://enterprise.dji.com/matrice-400", "https://enterprise.dji.com/matrice-400/specs"]
+    }
+  ]
+}

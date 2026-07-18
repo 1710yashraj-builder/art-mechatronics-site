@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Virtual Control Panel — ART Mechatronics</title>
+  <title>Virtual PLC Control Panel | ART Mechatronics</title>
   <meta name="description" content="Run a real ART PLC control panel in your browser: pick a recipe, press START, and watch the line weigh, mix, sieve and report a finished batch.">
+  <link rel="canonical" href="https://1710yashraj-builder.github.io/art-mechatronics-site/control-panel.html">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/tokens.css?v=20260713">
-  <link rel="stylesheet" href="css/base.css?v=20260713">
+  <link rel="stylesheet" href="css/tokens.css?v=20260714">
+  <link rel="stylesheet" href="css/base.css?v=20260714">
   <link rel="stylesheet" href="css/control-panel.css?v=20260713">
 </head>
 <body data-page="panel">
   <div data-header></div>
 
+  <main id="main">
+
   <section class="cp-hero">
     <div class="wrap">
       <span class="eyebrow">Virtual control panel</span>
-      <h1>Run an ART line yourself — right here in the browser</h1>
-      <p class="lead">This is a working simulation of the Centralised Automatic PLC Panel. Choose a recipe, press <strong>START</strong>, and watch the whole batch execute — weighing, dosing, mixing, sieving and reporting. Try the <strong>E-STOP</strong> too.</p>
+      <h1>Run an ART line yourself, right here in the browser</h1>
+      <p class="lead">This is a working simulation of the Centralised Automatic PLC Panel. Choose a recipe, press <strong>START</strong>, and watch the whole batch execute through weighing, dosing, mixing, sieving and reporting. Try the <strong>E-STOP</strong> too.</p>
     </div>
   </section>
 
@@ -43,7 +46,7 @@
           <div class="hmi">
             <div class="hmi__bar">
               <span>Batch <b id="hBatch">#0000</b></span>
-              <span>Recipe <b id="hRecipe">—</b></span>
+              <span>Recipe <b id="hRecipe">–</b></span>
               <span>Elapsed <b id="hTime">00:00</b></span>
               <span class="hmi__mode" id="hMode">AUTO</span>
             </div>
@@ -59,7 +62,7 @@
               <div class="gauge"><div class="g-k">Sieve output</div><div class="g-v"><span id="gSieve">0</span><small> kg</small></div></div>
             </div>
 
-            <div class="hmi__alarm" id="alarm"><span>⚠</span><span id="alarmMsg">EMERGENCY STOP ACTIVE — press RESET to clear</span></div>
+            <div class="hmi__alarm" id="alarm"><span>⚠</span><span id="alarmMsg">EMERGENCY STOP ACTIVE. Press RESET to clear.</span></div>
 
             <div class="hmi__log" id="log" aria-live="polite" aria-label="Event log"></div>
           </div>
@@ -94,10 +97,10 @@
             <h2 style="margin-top:0;font-size:var(--fs-h3)">✓ Batch complete</h2>
             <p style="color:var(--slate);margin:0">The line produced a finished, sieved batch with zero manual weighing.</p>
             <div class="r-grid">
-              <div class="r-cell"><div class="k">Batch no.</div><div class="v" id="rpBatch">—</div></div>
-              <div class="r-cell"><div class="k">Recipe</div><div class="v" id="rpRecipe" style="font-size:1rem">—</div></div>
-              <div class="r-cell"><div class="k">Net weight</div><div class="v" id="rpWeight">—</div></div>
-              <div class="r-cell"><div class="k">Cycle time</div><div class="v" id="rpTime">—</div></div>
+              <div class="r-cell"><div class="k">Batch no.</div><div class="v" id="rpBatch">–</div></div>
+              <div class="r-cell"><div class="k">Recipe</div><div class="v" id="rpRecipe" style="font-size:1rem">–</div></div>
+              <div class="r-cell"><div class="k">Net weight</div><div class="v" id="rpWeight">–</div></div>
+              <div class="r-cell"><div class="k">Cycle time</div><div class="v" id="rpTime">–</div></div>
               <div class="r-cell"><div class="k">Accuracy</div><div class="v">± 0.1%</div></div>
               <div class="r-cell"><div class="k">Dust capture</div><div class="v">99.9%</div></div>
             </div>
@@ -107,8 +110,8 @@
           <div class="card">
             <h2 style="margin-top:0;font-size:var(--fs-h3)">How to use it</h2>
             <ol class="cp-help">
-              <li>Pick a <strong>recipe</strong> — it loads the three ingredient set-weights.</li>
-              <li>Press <strong>START</strong> — the line fills silos, weighs each powder, mixes, sieves and collects.</li>
+              <li>Pick a <strong>recipe</strong> to load the three ingredient set-weights.</li>
+              <li>Press <strong>START</strong> and the line fills silos, weighs each powder, mixes, sieves and collects.</li>
               <li>Hit <strong>E-STOP</strong> any time to trip a fault, then <strong>RESET</strong> to clear it.</li>
             </ol>
             <p class="cp-note">This is a faithful behaviour simulation for demonstration. Real panels use Siemens / Allen Bradley / Mitsubishi / Schneider PLCs with recipe management, data logging and safety interlocks.</p>
@@ -118,10 +121,12 @@
     </div>
   </section>
 
+  </main>
+
   <div data-footer></div>
 
-  <script src="js/data.js?v=20260713"></script>
-  <script src="js/layout.js?v=20260713"></script>
-  <script src="js/control-panel.js?v=20260713"></script>
+  <script src="js/data.js?v=20260714d"></script>
+  <script src="js/layout.js?v=20260714"></script>
+  <script src="js/control-panel.js?v=20260714"></script>
 </body>
 </html>

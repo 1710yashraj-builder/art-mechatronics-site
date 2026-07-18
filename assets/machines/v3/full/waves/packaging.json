@@ -1,0 +1,3900 @@
+{
+  "version": 3,
+  "family": "Packaging",
+  "gradient": [
+    "#082F6B",
+    "#1657B0"
+  ],
+  "styleReference": "assets/machines/v2/approval/storage-silos-art-logo-sample.png",
+  "sharingPolicy": "Slugs may share a master only when the visible external mechanism named here is the same. Different container formats, sealing mechanisms, inspection methods, or product paths require distinct masters.",
+  "sourceNote": "External mechanisms are normalized from the verified 67-class taxonomy and grounded in current official OEM sources.",
+  "products": [
+    {
+      "slug": "form-fill-seal",
+      "name": "Form Fill Seal (Ffs)",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/form-fill-seal/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "vertical-form-fill-seal",
+      "name": "Vertical Form Fill Seal (Vffs)",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/pilot/vertical-form-fill-seal/master-4x3.png",
+      "status": "approved-pilot"
+    },
+    {
+      "slug": "pneumatic",
+      "name": "Pneumatic",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/pneumatic/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "d-motion",
+      "name": "D Motion",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/d-motion/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "mechanical",
+      "name": "Mechanical",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/mechanical/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "servo-driven",
+      "name": "Servo Driven",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/servo-driven/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "collar-type",
+      "name": "Collar Type",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/collar-type/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "center-seal",
+      "name": "Center Seal",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/center-seal/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "pillow-pack",
+      "name": "Pillow Pack",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/pillow-pack/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "pouch",
+      "name": "Pouch",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/pouch/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "packet",
+      "name": "Packet",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-collar-platform",
+      "sharedConfiguration": "packaging-vffs-collar-platform",
+      "configuration": "Vertical rollstock pouch machine with film unwind, forming collar and tube, vertical jaw set, discharge chute and control enclosure.",
+      "requiredVisible": [
+        "Vertical rollstock pouch machine",
+        "film unwind",
+        "forming collar",
+        "tube",
+        "vertical jaw set",
+        "discharge chute",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/packet/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "nitrogen-packing",
+      "name": "Nitrogen Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "vffs-nitrogen-flush",
+      "sharedConfiguration": "packaging-vffs-nitrogen-flush",
+      "configuration": "VFFS collar machine with visible nitrogen manifold, gas-flow controls and sealed product path.",
+      "requiredVisible": [
+        "VFFS collar machine",
+        "visible nitrogen manifold",
+        "gas-flow controls",
+        "sealed product path"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/nitrogen-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "horizontal-form-fill-seal",
+      "name": "Horizontal Form Fill Seal (Hffs)",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-flow-wrapper",
+      "sharedConfiguration": "packaging-horizontal-flow-wrapper",
+      "configuration": "Horizontal infeed conveyor, film former, longitudinal fin-seal rollers, rotary end-seal jaws and discharge conveyor.",
+      "requiredVisible": [
+        "Horizontal infeed conveyor",
+        "film former",
+        "longitudinal fin-seal rollers",
+        "rotary end-seal jaws",
+        "discharge conveyor"
+      ],
+      "forbidden": [
+        "vertical forming-collar machine",
+        "rotary pouch carousel",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical forming-collar machine",
+        "Do not depict a rotary pouch carousel",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/horizontal-form-fill-seal/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "dosing-and-flow-wrapping",
+      "name": "Dosing & Flow Wrapping",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-flow-wrapper",
+      "sharedConfiguration": "packaging-horizontal-flow-wrapper",
+      "configuration": "Horizontal infeed conveyor, film former, longitudinal fin-seal rollers, rotary end-seal jaws and discharge conveyor.",
+      "requiredVisible": [
+        "Horizontal infeed conveyor",
+        "film former",
+        "longitudinal fin-seal rollers",
+        "rotary end-seal jaws",
+        "discharge conveyor"
+      ],
+      "forbidden": [
+        "vertical forming-collar machine",
+        "rotary pouch carousel",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical forming-collar machine",
+        "Do not depict a rotary pouch carousel",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/dosing-and-flow-wrapping/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "wrapper",
+      "name": "Wrapper",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-flow-wrapper",
+      "sharedConfiguration": "packaging-horizontal-flow-wrapper",
+      "configuration": "Horizontal infeed conveyor, film former, longitudinal fin-seal rollers, rotary end-seal jaws and discharge conveyor.",
+      "requiredVisible": [
+        "Horizontal infeed conveyor",
+        "film former",
+        "longitudinal fin-seal rollers",
+        "rotary end-seal jaws",
+        "discharge conveyor"
+      ],
+      "forbidden": [
+        "vertical forming-collar machine",
+        "rotary pouch carousel",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical forming-collar machine",
+        "Do not depict a rotary pouch carousel",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/wrapper/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "flow-wrap",
+      "name": "Flow Wrap",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-flow-wrapper",
+      "sharedConfiguration": "packaging-horizontal-flow-wrapper",
+      "configuration": "Horizontal infeed conveyor, film former, longitudinal fin-seal rollers, rotary end-seal jaws and discharge conveyor.",
+      "requiredVisible": [
+        "Horizontal infeed conveyor",
+        "film former",
+        "longitudinal fin-seal rollers",
+        "rotary end-seal jaws",
+        "discharge conveyor"
+      ],
+      "forbidden": [
+        "vertical forming-collar machine",
+        "rotary pouch carousel",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical forming-collar machine",
+        "Do not depict a rotary pouch carousel",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/flow-wrap/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "multi-head-weigher",
+      "name": "Multi Head Weigher",
+      "normalizedCategory": "Packaging",
+      "visualClass": "multihead-combination-weigher",
+      "sharedConfiguration": "packaging-multihead-combination-weigher",
+      "configuration": "Circular radial feeder and multiple weigh hoppers above a central discharge funnel on a service frame.",
+      "requiredVisible": [
+        "Circular radial feeder",
+        "multiple weigh hoppers above a central discharge funnel on a service frame",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "sealing-only machine",
+        "capping machine",
+        "flow wrapper",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a sealing-only machine",
+        "Do not depict a capping machine",
+        "Do not depict a flow wrapper",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/in/products/weighing/ccw/"
+      ],
+      "output": "assets/machines/v3/full/packaging/multi-head-weigher/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "auger-filler",
+      "name": "Auger Filler",
+      "normalizedCategory": "Packaging",
+      "visualClass": "auger-powder-filler",
+      "sharedConfiguration": "packaging-auger-powder-filler",
+      "configuration": "Powder hopper with vertical servo auger, agitator drive, dosing funnel and support frame.",
+      "requiredVisible": [
+        "Powder hopper",
+        "vertical servo auger",
+        "agitator drive",
+        "dosing funnel",
+        "support frame"
+      ],
+      "forbidden": [
+        "sealing-only machine",
+        "capping machine",
+        "flow wrapper",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a sealing-only machine",
+        "Do not depict a capping machine",
+        "Do not depict a flow wrapper",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.all-fill.com/equipment/auger-fillers"
+      ],
+      "output": "assets/machines/v3/full/packaging/auger-filler/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "cup-filler",
+      "name": "Cup Filler",
+      "normalizedCategory": "Packaging",
+      "visualClass": "volumetric-cup-filler",
+      "sharedConfiguration": "packaging-volumetric-cup-filler",
+      "configuration": "Rotary adjustable volumetric cup plate with feed hopper, leveling system and discharge funnel.",
+      "requiredVisible": [
+        "Rotary adjustable volumetric cup plate",
+        "feed hopper",
+        "leveling system",
+        "discharge funnel"
+      ],
+      "forbidden": [
+        "sealing-only machine",
+        "capping machine",
+        "flow wrapper",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a sealing-only machine",
+        "Do not depict a capping machine",
+        "Do not depict a flow wrapper",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://all-fill.com/media/brochures/AFI_Fillers_Cup_SC-Series_HzF4MeR.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/cup-filler/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "rotary",
+      "name": "Rotary",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/rotary/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "pack-fill-seal",
+      "name": "Pack Fill Seal",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/pack-fill-seal/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "pouch-filling",
+      "name": "Pouch Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/pouch-filling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "retort-pouch",
+      "name": "Retort Pouch",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/retort-pouch/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "premade-pouch",
+      "name": "Premade Pouch",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/premade-pouch/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "zip-lock-zipper-pouch",
+      "name": "Zip Lock/ Zipper Pouch",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/zip-lock-zipper-pouch/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "doypack",
+      "name": "Doypack",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/doypack/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "standup-pouch",
+      "name": "Standup Pouch",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/standup-pouch/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "premade-bag",
+      "name": "Premade Bag",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-premade-pouch-platform",
+      "sharedConfiguration": "packaging-rotary-premade-pouch-platform",
+      "configuration": "Horizontal rotary indexing carousel with pouch magazine, pick-up, opening, filling and heat-seal stations.",
+      "requiredVisible": [
+        "Horizontal rotary indexing carousel",
+        "pouch magazine",
+        "pick-up",
+        "opening",
+        "filling",
+        "heat-seal stations"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/premade-bag/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "3-side-seal",
+      "name": "3 Side Seal",
+      "normalizedCategory": "Packaging",
+      "visualClass": "multilane-sachet-machine",
+      "sharedConfiguration": "packaging-multilane-sachet-machine",
+      "configuration": "Wide vertical rollstock web with multiple dosing lanes, longitudinal seal bars, cross-seal/cut station and lane outputs.",
+      "requiredVisible": [
+        "Wide vertical rollstock web",
+        "multiple dosing lanes",
+        "longitudinal seal bars",
+        "cross-seal/cut station",
+        "lane outputs"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/3-side-seal/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "4-side-seal",
+      "name": "4 Side Seal",
+      "normalizedCategory": "Packaging",
+      "visualClass": "multilane-sachet-machine",
+      "sharedConfiguration": "packaging-multilane-sachet-machine",
+      "configuration": "Wide vertical rollstock web with multiple dosing lanes, longitudinal seal bars, cross-seal/cut station and lane outputs.",
+      "requiredVisible": [
+        "Wide vertical rollstock web",
+        "multiple dosing lanes",
+        "longitudinal seal bars",
+        "cross-seal/cut station",
+        "lane outputs"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/4-side-seal/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "sachet",
+      "name": "Sachet",
+      "normalizedCategory": "Packaging",
+      "visualClass": "multilane-sachet-machine",
+      "sharedConfiguration": "packaging-multilane-sachet-machine",
+      "configuration": "Wide vertical rollstock web with multiple dosing lanes, longitudinal seal bars, cross-seal/cut station and lane outputs.",
+      "requiredVisible": [
+        "Wide vertical rollstock web",
+        "multiple dosing lanes",
+        "longitudinal seal bars",
+        "cross-seal/cut station",
+        "lane outputs"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/sachet/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "stick",
+      "name": "Stick",
+      "normalizedCategory": "Packaging",
+      "visualClass": "multilane-sachet-machine",
+      "sharedConfiguration": "packaging-multilane-sachet-machine",
+      "configuration": "Wide vertical rollstock web with multiple dosing lanes, longitudinal seal bars, cross-seal/cut station and lane outputs.",
+      "requiredVisible": [
+        "Wide vertical rollstock web",
+        "multiple dosing lanes",
+        "longitudinal seal bars",
+        "cross-seal/cut station",
+        "lane outputs"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/stick/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "multi-track",
+      "name": "Multi Track",
+      "normalizedCategory": "Packaging",
+      "visualClass": "multilane-sachet-machine",
+      "sharedConfiguration": "packaging-multilane-sachet-machine",
+      "configuration": "Wide vertical rollstock web with multiple dosing lanes, longitudinal seal bars, cross-seal/cut station and lane outputs.",
+      "requiredVisible": [
+        "Wide vertical rollstock web",
+        "multiple dosing lanes",
+        "longitudinal seal bars",
+        "cross-seal/cut station",
+        "lane outputs"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/multi-track/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "multi-lane",
+      "name": "Multi Lane",
+      "normalizedCategory": "Packaging",
+      "visualClass": "multilane-sachet-machine",
+      "sharedConfiguration": "packaging-multilane-sachet-machine",
+      "configuration": "Wide vertical rollstock web with multiple dosing lanes, longitudinal seal bars, cross-seal/cut station and lane outputs.",
+      "requiredVisible": [
+        "Wide vertical rollstock web",
+        "multiple dosing lanes",
+        "longitudinal seal bars",
+        "cross-seal/cut station",
+        "lane outputs"
+      ],
+      "forbidden": [
+        "horizontal flow wrapper",
+        "rotary premade-pouch carousel",
+        "bottle filling line",
+        "cartoning machine"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a rotary premade-pouch carousel",
+        "Do not depict a bottle filling line",
+        "Do not depict a cartoning machine"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/multi-lane/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "oral-pouches",
+      "name": "Oral Pouches",
+      "normalizedCategory": "Packaging",
+      "visualClass": "oral-pouch-former",
+      "sharedConfiguration": "packaging-oral-pouch-former",
+      "configuration": "Compact multi-lane porous-web forming, micro-dosing, sealing and cutting system for small oral pouches.",
+      "requiredVisible": [
+        "Compact multi-lane porous-web forming",
+        "micro-dosing",
+        "sealing",
+        "cutting system for small oral pouches"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ishida.com/ww/en/news/upload/products2018_eng_0911.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/oral-pouches/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "pouch-sealing",
+      "name": "Pouch Sealing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "continuous-band-sealer",
+      "sharedConfiguration": "packaging-continuous-band-sealer",
+      "configuration": "Horizontal continuous belt conveyor passing pouch tops through heated sealing bands and cooling blocks.",
+      "requiredVisible": [
+        "Horizontal continuous belt conveyor passing pouch tops through heated sealing bands",
+        "cooling blocks",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/pouch-sealing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "band-sealer",
+      "name": "Band Sealer",
+      "normalizedCategory": "Packaging",
+      "visualClass": "continuous-band-sealer",
+      "sharedConfiguration": "packaging-continuous-band-sealer",
+      "configuration": "Horizontal continuous belt conveyor passing pouch tops through heated sealing bands and cooling blocks.",
+      "requiredVisible": [
+        "Horizontal continuous belt conveyor passing pouch tops through heated sealing bands",
+        "cooling blocks",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/band-sealer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "strip-collator",
+      "name": "Strip Collator",
+      "normalizedCategory": "Packaging",
+      "visualClass": "pouch-count-stack-collator",
+      "sharedConfiguration": "packaging-pouch-count-stack-collator",
+      "configuration": "Short synchronized conveyors with optical counter, alignment guides, stacking magazine and batch discharge.",
+      "requiredVisible": [
+        "Short synchronized conveyors",
+        "optical counter",
+        "alignment guides",
+        "stacking magazine",
+        "batch discharge"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/strip-collator/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "pouch-stacking",
+      "name": "Pouch Stacking",
+      "normalizedCategory": "Packaging",
+      "visualClass": "pouch-count-stack-collator",
+      "sharedConfiguration": "packaging-pouch-count-stack-collator",
+      "configuration": "Short synchronized conveyors with optical counter, alignment guides, stacking magazine and batch discharge.",
+      "requiredVisible": [
+        "Short synchronized conveyors",
+        "optical counter",
+        "alignment guides",
+        "stacking magazine",
+        "batch discharge"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/pouch-stacking/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "pouch-counting",
+      "name": "Pouch Counting",
+      "normalizedCategory": "Packaging",
+      "visualClass": "pouch-count-stack-collator",
+      "sharedConfiguration": "packaging-pouch-count-stack-collator",
+      "configuration": "Short synchronized conveyors with optical counter, alignment guides, stacking magazine and batch discharge.",
+      "requiredVisible": [
+        "Short synchronized conveyors",
+        "optical counter",
+        "alignment guides",
+        "stacking magazine",
+        "batch discharge"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/pouch-counting/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "count-and-stack",
+      "name": "Count & Stack",
+      "normalizedCategory": "Packaging",
+      "visualClass": "pouch-count-stack-collator",
+      "sharedConfiguration": "packaging-pouch-count-stack-collator",
+      "configuration": "Short synchronized conveyors with optical counter, alignment guides, stacking magazine and batch discharge.",
+      "requiredVisible": [
+        "Short synchronized conveyors",
+        "optical counter",
+        "alignment guides",
+        "stacking magazine",
+        "batch discharge"
+      ],
+      "forbidden": [
+        "vertical rollstock bagger",
+        "horizontal flow wrapper",
+        "bottle filler",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a vertical rollstock bagger",
+        "Do not depict a horizontal flow wrapper",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/count-and-stack/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "vacuum",
+      "name": "Vacuum",
+      "normalizedCategory": "Packaging",
+      "visualClass": "chamber-vacuum-packer",
+      "sharedConfiguration": "packaging-chamber-vacuum-packer",
+      "configuration": "Stainless chamber vacuum packer with clear hinged lid, seal bar and vacuum controls.",
+      "requiredVisible": [
+        "Stainless chamber vacuum packer",
+        "clear hinged lid",
+        "seal bar",
+        "vacuum controls"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://multivac.com/gb/en/our-solutions/portfolio/packaging-solutions/traysealers"
+      ],
+      "output": "assets/machines/v3/full/packaging/vacuum/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "web-sealer",
+      "name": "Web Sealer",
+      "normalizedCategory": "Packaging",
+      "visualClass": "automatic-sleeve-web-sealer",
+      "sharedConfiguration": "packaging-automatic-sleeve-web-sealer",
+      "configuration": "Automatic product conveyor with upper/lower film webs, transverse seal jaw and shrink-tunnel-ready discharge.",
+      "requiredVisible": [
+        "Automatic product conveyor",
+        "upper/lower film webs",
+        "transverse seal jaw",
+        "shrink-tunnel-ready discharge"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/web-sealer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "l-sealer",
+      "name": "L Sealer",
+      "normalizedCategory": "Packaging",
+      "visualClass": "automatic-l-bar-sealer",
+      "sharedConfiguration": "packaging-automatic-l-bar-sealer",
+      "configuration": "Product conveyor, film center-fold unwind and right-angle L-shaped sealing jaw.",
+      "requiredVisible": [
+        "Product conveyor",
+        "film center-fold unwind",
+        "right-angle L-shaped sealing jaw",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/l-sealer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "heat-shrink-tunnel",
+      "name": "Heat Shrink Tunnel",
+      "normalizedCategory": "Packaging",
+      "visualClass": "heat-shrink-tunnel",
+      "sharedConfiguration": "packaging-heat-shrink-tunnel",
+      "configuration": "Insulated heated tunnel with mesh conveyor, recirculation blowers and temperature controls.",
+      "requiredVisible": [
+        "Insulated heated tunnel",
+        "mesh conveyor",
+        "recirculation blowers",
+        "temperature controls"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/heat-shrink-tunnel/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "l-sealer-with-heat-shrink-tunnel",
+      "name": "L Sealer With Heat Shrink Tunnel",
+      "normalizedCategory": "Packaging",
+      "visualClass": "l-sealer-shrink-tunnel-line",
+      "sharedConfiguration": "packaging-l-sealer-shrink-tunnel-line",
+      "configuration": "Integrated automatic L-bar sealer feeding a separate insulated heat-shrink tunnel.",
+      "requiredVisible": [
+        "Integrated automatic L-bar sealer feeding a separate insulated heat-shrink tunnel",
+        "stable hygienic support frame with a coherent product path",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/l-sealer-with-heat-shrink-tunnel/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "tea-bag",
+      "name": "Tea Bag",
+      "normalizedCategory": "Packaging",
+      "visualClass": "tea-bag-cartoner",
+      "sharedConfiguration": "packaging-tea-bag-cartoner",
+      "configuration": "Tea dosing, filter-paper forming, heat sealing, thread-and-tag attachment and envelope discharge modules.",
+      "requiredVisible": [
+        "Tea dosing",
+        "filter-paper forming",
+        "heat sealing",
+        "thread-and-tag attachment",
+        "envelope discharge modules"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/tea-bag/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "strip",
+      "name": "Strip",
+      "normalizedCategory": "Packaging",
+      "visualClass": "strip-pack-machine",
+      "sharedConfiguration": "packaging-strip-pack-machine",
+      "configuration": "Twin heat-seal rollers drawing two foil webs around tablets or capsules, followed by strip cutting.",
+      "requiredVisible": [
+        "Twin heat-seal rollers drawing two foil webs around tablets or capsules",
+        "followed by strip cutting",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/strip/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "cartoning",
+      "name": "Cartoning",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-cartoner",
+      "sharedConfiguration": "packaging-horizontal-cartoner",
+      "configuration": "Carton magazine, rotary pick-off, horizontal product infeed, leaflet station, tuck/close stations and discharge.",
+      "requiredVisible": [
+        "Carton magazine",
+        "rotary pick-off",
+        "horizontal product infeed",
+        "leaflet station",
+        "tuck/close stations",
+        "discharge"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/cartoning/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "load-cartoner",
+      "name": "Load Cartoner",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-cartoner",
+      "sharedConfiguration": "packaging-horizontal-cartoner",
+      "configuration": "Carton magazine, rotary pick-off, horizontal product infeed, leaflet station, tuck/close stations and discharge.",
+      "requiredVisible": [
+        "Carton magazine",
+        "rotary pick-off",
+        "horizontal product infeed",
+        "leaflet station",
+        "tuck/close stations",
+        "discharge"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/load-cartoner/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "mono-carton-packing",
+      "name": "Mono Carton Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-cartoner",
+      "sharedConfiguration": "packaging-horizontal-cartoner",
+      "configuration": "Carton magazine, rotary pick-off, horizontal product infeed, leaflet station, tuck/close stations and discharge.",
+      "requiredVisible": [
+        "Carton magazine",
+        "rotary pick-off",
+        "horizontal product infeed",
+        "leaflet station",
+        "tuck/close stations",
+        "discharge"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/mono-carton-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "unit-carton-packing",
+      "name": "Unit Carton Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "horizontal-cartoner",
+      "sharedConfiguration": "packaging-horizontal-cartoner",
+      "configuration": "Carton magazine, rotary pick-off, horizontal product infeed, leaflet station, tuck/close stations and discharge.",
+      "requiredVisible": [
+        "Carton magazine",
+        "rotary pick-off",
+        "horizontal product infeed",
+        "leaflet station",
+        "tuck/close stations",
+        "discharge"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/unit-carton-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "overwrapping",
+      "name": "Overwrapping",
+      "normalizedCategory": "Packaging",
+      "visualClass": "cellophane-overwrapper",
+      "sharedConfiguration": "packaging-cellophane-overwrapper",
+      "configuration": "Carton infeed, film roll, folding turret, side/end heat seals and tear-tape path.",
+      "requiredVisible": [
+        "Carton infeed",
+        "film roll",
+        "folding turret",
+        "side/end heat seals",
+        "tear-tape path"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/overwrapping/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "over-wrapping",
+      "name": "Over Wrapping",
+      "normalizedCategory": "Packaging",
+      "visualClass": "cellophane-overwrapper",
+      "sharedConfiguration": "packaging-cellophane-overwrapper",
+      "configuration": "Carton infeed, film roll, folding turret, side/end heat seals and tear-tape path.",
+      "requiredVisible": [
+        "Carton infeed",
+        "film roll",
+        "folding turret",
+        "side/end heat seals",
+        "tear-tape path"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/over-wrapping/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "collating-and-cartoning",
+      "name": "Collating & Cartoning",
+      "normalizedCategory": "Packaging",
+      "visualClass": "collator-cartoner",
+      "sharedConfiguration": "packaging-collator-cartoner",
+      "configuration": "Counting and lane-collation conveyors feeding grouped packs into an automatic cartoner.",
+      "requiredVisible": [
+        "Counting",
+        "lane-collation conveyors feeding grouped packs into an automatic cartoner",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/collating-and-cartoning/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "lined-carton",
+      "name": "Lined Carton",
+      "normalizedCategory": "Packaging",
+      "visualClass": "lined-carton-packer",
+      "sharedConfiguration": "packaging-lined-carton-packer",
+      "configuration": "Carton erector with inner liner bag insertion/opening, product fill chute and liner/carton closing stations.",
+      "requiredVisible": [
+        "Carton erector",
+        "inner liner bag insertion/opening",
+        "product fill chute",
+        "liner/carton closing stations"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/lined-carton/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "master-carton-packing",
+      "name": "Master Carton Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "automatic-case-packer",
+      "sharedConfiguration": "packaging-automatic-case-packer",
+      "configuration": "Corrugated case magazine/erector, grouped-product loading section, flap closer and tape/glue sealer.",
+      "requiredVisible": [
+        "Corrugated case magazine/erector",
+        "grouped-product loading section",
+        "flap closer",
+        "tape/glue sealer"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/master-carton-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "master-case-packing",
+      "name": "Master Case Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "automatic-case-packer",
+      "sharedConfiguration": "packaging-automatic-case-packer",
+      "configuration": "Corrugated case magazine/erector, grouped-product loading section, flap closer and tape/glue sealer.",
+      "requiredVisible": [
+        "Corrugated case magazine/erector",
+        "grouped-product loading section",
+        "flap closer",
+        "tape/glue sealer"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "bottle filler",
+        "tray sealer",
+        "open-mouth bagger"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a bottle filler",
+        "Do not depict a tray sealer",
+        "Do not depict a open-mouth bagger"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/master-case-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "filling",
+      "name": "Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "open-mouth-bagging-line",
+      "sharedConfiguration": "packaging-open-mouth-bagging-line",
+      "configuration": "Weigh hopper above a bag clamp and fill spout, supported by a short takeaway conveyor.",
+      "requiredVisible": [
+        "Weigh hopper above a bag clamp",
+        "fill spout",
+        "supported by a short takeaway conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "small pouch machine",
+        "bottle filler",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a small pouch machine",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ptchronos.com/products/bag-packaging-equipment"
+      ],
+      "output": "assets/machines/v3/full/packaging/filling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "bagging",
+      "name": "Bagging",
+      "normalizedCategory": "Packaging",
+      "visualClass": "open-mouth-bagging-line",
+      "sharedConfiguration": "packaging-open-mouth-bagging-line",
+      "configuration": "Weigh hopper above a bag clamp and fill spout, supported by a short takeaway conveyor.",
+      "requiredVisible": [
+        "Weigh hopper above a bag clamp",
+        "fill spout",
+        "supported by a short takeaway conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "small pouch machine",
+        "bottle filler",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a small pouch machine",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ptchronos.com/products/bag-packaging-equipment"
+      ],
+      "output": "assets/machines/v3/full/packaging/bagging/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "bag-packing",
+      "name": "Bag Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "open-mouth-bagging-line",
+      "sharedConfiguration": "packaging-open-mouth-bagging-line",
+      "configuration": "Weigh hopper above a bag clamp and fill spout, supported by a short takeaway conveyor.",
+      "requiredVisible": [
+        "Weigh hopper above a bag clamp",
+        "fill spout",
+        "supported by a short takeaway conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "small pouch machine",
+        "bottle filler",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a small pouch machine",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ptchronos.com/products/bag-packaging-equipment"
+      ],
+      "output": "assets/machines/v3/full/packaging/bag-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "sack-packing",
+      "name": "Sack Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "open-mouth-bagging-line",
+      "sharedConfiguration": "packaging-open-mouth-bagging-line",
+      "configuration": "Weigh hopper above a bag clamp and fill spout, supported by a short takeaway conveyor.",
+      "requiredVisible": [
+        "Weigh hopper above a bag clamp",
+        "fill spout",
+        "supported by a short takeaway conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "small pouch machine",
+        "bottle filler",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a small pouch machine",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ptchronos.com/products/bag-packaging-equipment"
+      ],
+      "output": "assets/machines/v3/full/packaging/sack-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "weighing-and-dosing",
+      "name": "Weighing & Dosing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "net-weigh-bagger",
+      "sharedConfiguration": "packaging-net-weigh-bagger",
+      "configuration": "Feed gate, independent weigh hopper/load cells, discharge chute and bag clamp.",
+      "requiredVisible": [
+        "Feed gate",
+        "independent weigh hopper/load cells",
+        "discharge chute",
+        "bag clamp"
+      ],
+      "forbidden": [
+        "sealing-only machine",
+        "capping machine",
+        "flow wrapper",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a sealing-only machine",
+        "Do not depict a capping machine",
+        "Do not depict a flow wrapper",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ptchronos.com/products/bag-packaging-equipment"
+      ],
+      "output": "assets/machines/v3/full/packaging/weighing-and-dosing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "sewing",
+      "name": "Sewing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "industrial-bag-sewing-head",
+      "sharedConfiguration": "packaging-industrial-bag-sewing-head",
+      "configuration": "Pedestal-mounted sewing head above a height-adjustable bag conveyor with thread stand and bag-top guide.",
+      "requiredVisible": [
+        "Pedestal-mounted sewing head above a height-adjustable bag conveyor",
+        "thread stand",
+        "bag-top guide",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "small pouch machine",
+        "bottle filler",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a small pouch machine",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.fischbein.com/wp-content/uploads/2018/06/fischbein-brochure_sewing-system-mtr-3.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/sewing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "stitching",
+      "name": "Stitching",
+      "normalizedCategory": "Packaging",
+      "visualClass": "industrial-bag-sewing-head",
+      "sharedConfiguration": "packaging-industrial-bag-sewing-head",
+      "configuration": "Pedestal-mounted sewing head above a height-adjustable bag conveyor with thread stand and bag-top guide.",
+      "requiredVisible": [
+        "Pedestal-mounted sewing head above a height-adjustable bag conveyor",
+        "thread stand",
+        "bag-top guide",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "small pouch machine",
+        "bottle filler",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a small pouch machine",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.fischbein.com/wp-content/uploads/2018/06/fischbein-brochure_sewing-system-mtr-3.pdf"
+      ],
+      "output": "assets/machines/v3/full/packaging/stitching/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "stretch-wrapping",
+      "name": "Stretch Wrapping",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-pallet-stretch-wrapper",
+      "sharedConfiguration": "packaging-rotary-pallet-stretch-wrapper",
+      "configuration": "Powered turntable, vertical mast and traversing stretch-film carriage.",
+      "requiredVisible": [
+        "Powered turntable",
+        "vertical mast",
+        "traversing stretch-film carriage",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "small pouch machine",
+        "bottle filler",
+        "cartoner",
+        "tray sealer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a small pouch machine",
+        "Do not depict a bottle filler",
+        "Do not depict a cartoner",
+        "Do not depict a tray sealer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery/vertical-stretch-wrapping"
+      ],
+      "output": "assets/machines/v3/full/packaging/stretch-wrapping/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "rinsing",
+      "name": "Rinsing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "container-rinser-can-jar",
+      "sharedConfiguration": "packaging-container-rinser-can-jar",
+      "configuration": "Container infeed, inversion/rinse carousel or tunnel, spray manifold, drain tray and outfeed.",
+      "requiredVisible": [
+        "Container infeed",
+        "inversion/rinse carousel or tunnel",
+        "spray manifold",
+        "drain tray",
+        "outfeed"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/rinsing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "filling-2",
+      "name": "Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "can-jar-box-filler",
+      "sharedConfiguration": "packaging-can-jar-box-filler",
+      "configuration": "Indexed container conveyor beneath a configurable dosing/filling head bank with feed hopper.",
+      "requiredVisible": [
+        "Indexed container conveyor beneath a configurable dosing/filling head bank",
+        "feed hopper",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/filling-2/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "seaming",
+      "name": "Seaming",
+      "normalizedCategory": "Packaging",
+      "visualClass": "double-seam-can-closer",
+      "sharedConfiguration": "packaging-double-seam-can-closer",
+      "configuration": "Lid feed chute, can lift plate, seaming chuck and paired first/second-operation seaming rolls.",
+      "requiredVisible": [
+        "Lid feed chute",
+        "can lift plate",
+        "seaming chuck",
+        "paired first/second-operation seaming rolls"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/seaming/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "sealing",
+      "name": "Sealing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "mixed-container-sealer",
+      "sharedConfiguration": "packaging-mixed-container-sealer",
+      "configuration": "Indexed conveyor with lid/cap feed, closing head and induction/heat sealing module for cans, jars and boxes.",
+      "requiredVisible": [
+        "Indexed conveyor",
+        "lid/cap feed",
+        "closing head",
+        "induction/heat sealing module for cans",
+        "jars",
+        "boxes"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/sealing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "cap-lid-pressing",
+      "name": "Cap Lid Pressing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "cap-lid-presser",
+      "sharedConfiguration": "packaging-cap-lid-presser",
+      "configuration": "Cap/lid feeder, starwheel and vertical pressing heads over an indexed container conveyor.",
+      "requiredVisible": [
+        "Cap/lid feeder",
+        "starwheel",
+        "vertical pressing heads over an indexed container conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/cap-lid-pressing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "leak-tester",
+      "name": "Leak Tester",
+      "normalizedCategory": "Packaging",
+      "visualClass": "can-jar-leak-tester",
+      "sharedConfiguration": "packaging-can-jar-leak-tester",
+      "configuration": "Enclosed inline pressure/vacuum test chamber with container fixtures, sensors and reject gate.",
+      "requiredVisible": [
+        "Enclosed inline pressure/vacuum test chamber",
+        "container fixtures",
+        "sensors",
+        "reject gate"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://resources.bonfiglioliengineering.com/hubfs/50%20100%2010979%20Rev.008.pdf",
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/leak-tester/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "servo-auger-filling",
+      "name": "Servo Auger Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "servo-auger-container-filler",
+      "sharedConfiguration": "packaging-servo-auger-container-filler",
+      "configuration": "Servo-driven auger hopper and dosing head over an indexed can/jar conveyor.",
+      "requiredVisible": [
+        "Servo-driven auger hopper",
+        "dosing head over an indexed can/jar conveyor",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "sealing-only machine",
+        "capping machine",
+        "flow wrapper",
+        "cartoner"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a sealing-only machine",
+        "Do not depict a capping machine",
+        "Do not depict a flow wrapper",
+        "Do not depict a cartoner"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.all-fill.com/equipment/auger-fillers"
+      ],
+      "output": "assets/machines/v3/full/packaging/servo-auger-filling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "wraparound-labelling",
+      "name": "Wraparound Labelling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "wraparound-labeler",
+      "sharedConfiguration": "packaging-wraparound-labeler",
+      "configuration": "Container conveyor with label unwind/peel plate, wrap belt, pressure rollers and control enclosure.",
+      "requiredVisible": [
+        "Container conveyor",
+        "label unwind/peel plate",
+        "wrap belt",
+        "pressure rollers",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.herma.com/machines/products/labeling-machines/wrap-around-labeler-152c/"
+      ],
+      "output": "assets/machines/v3/full/packaging/wraparound-labelling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "wraparound-labelling-2",
+      "name": "Wraparound Labelling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "wraparound-labeler",
+      "sharedConfiguration": "packaging-wraparound-labeler",
+      "configuration": "Container conveyor with label unwind/peel plate, wrap belt, pressure rollers and control enclosure.",
+      "requiredVisible": [
+        "Container conveyor",
+        "label unwind/peel plate",
+        "wrap belt",
+        "pressure rollers",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.herma.com/machines/products/labeling-machines/wrap-around-labeler-152c/"
+      ],
+      "output": "assets/machines/v3/full/packaging/wraparound-labelling-2/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "labelling",
+      "name": "Labelling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "wraparound-labeler",
+      "sharedConfiguration": "packaging-wraparound-labeler",
+      "configuration": "Container conveyor with label unwind/peel plate, wrap belt, pressure rollers and control enclosure.",
+      "requiredVisible": [
+        "Container conveyor",
+        "label unwind/peel plate",
+        "wrap belt",
+        "pressure rollers",
+        "control enclosure"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.herma.com/machines/products/labeling-machines/wrap-around-labeler-152c/"
+      ],
+      "output": "assets/machines/v3/full/packaging/labelling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "can-packing",
+      "name": "Can Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "can-tin-packaging-line",
+      "sharedConfiguration": "packaging-can-tin-packaging-line",
+      "configuration": "Short integrated can/tin infeed, filling, lid placement, seaming and discharge line.",
+      "requiredVisible": [
+        "Short integrated can/tin infeed",
+        "filling",
+        "lid placement",
+        "seaming",
+        "discharge line"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/can-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "tin-box-packing",
+      "name": "Tin Box Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "can-tin-packaging-line",
+      "sharedConfiguration": "packaging-can-tin-packaging-line",
+      "configuration": "Short integrated can/tin infeed, filling, lid placement, seaming and discharge line.",
+      "requiredVisible": [
+        "Short integrated can/tin infeed",
+        "filling",
+        "lid placement",
+        "seaming",
+        "discharge line"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/tin-box-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "jar-packing",
+      "name": "Jar Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "jar-packaging-line",
+      "sharedConfiguration": "packaging-jar-packaging-line",
+      "configuration": "Jar infeed, dosing/filling, cap placement, capping and label-ready discharge line.",
+      "requiredVisible": [
+        "Jar infeed",
+        "dosing/filling",
+        "cap placement",
+        "capping",
+        "label-ready discharge line"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/jar-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "forming",
+      "name": "Forming",
+      "normalizedCategory": "Packaging",
+      "visualClass": "cup-tray-thermoformer",
+      "sharedConfiguration": "packaging-cup-tray-thermoformer",
+      "configuration": "Sheet unwind, heater bank, forming press, trim/cut station and formed-container stacker.",
+      "requiredVisible": [
+        "Sheet unwind",
+        "heater bank",
+        "forming press",
+        "trim/cut station",
+        "formed-container stacker"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://multivac.com/gb/en/our-solutions/portfolio/packaging-solutions/traysealers"
+      ],
+      "output": "assets/machines/v3/full/packaging/forming/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "thermoforming-sealing",
+      "name": "Thermoforming Sealing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rollstock-thermoform-packager",
+      "sharedConfiguration": "packaging-rollstock-thermoform-packager",
+      "configuration": "Lower-web thermoforming section, open loading zone, upper-web sealing chamber and crosscut/slitter discharge.",
+      "requiredVisible": [
+        "Lower-web thermoforming section",
+        "open loading zone",
+        "upper-web sealing chamber",
+        "crosscut/slitter discharge"
+      ],
+      "forbidden": [
+        "unrelated filling machine",
+        "unrelated sealing machine",
+        "unrelated cartoner",
+        "disconnected product path"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a unrelated filling machine",
+        "Do not depict a unrelated sealing machine",
+        "Do not depict a unrelated cartoner",
+        "Do not depict a disconnected product path"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://multivac.com/gb/en/our-solutions/portfolio/packaging-solutions/traysealers"
+      ],
+      "output": "assets/machines/v3/full/packaging/thermoforming-sealing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "filling-3",
+      "name": "Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "cup-tray-filler",
+      "sharedConfiguration": "packaging-cup-tray-filler",
+      "configuration": "Indexed cup/tray denester conveyor with product dosing heads and fill-level controls.",
+      "requiredVisible": [
+        "Indexed cup/tray denester conveyor",
+        "product dosing heads",
+        "fill-level controls",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://multivac.com/gb/en/our-solutions/portfolio/packaging-solutions/traysealers"
+      ],
+      "output": "assets/machines/v3/full/packaging/filling-3/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "sealing-2",
+      "name": "Sealing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "cup-tray-sealer",
+      "sharedConfiguration": "packaging-cup-tray-sealer",
+      "configuration": "Tray/cup infeed, film unwind or lid denester, sealing die chamber and outfeed conveyor.",
+      "requiredVisible": [
+        "Tray/cup infeed",
+        "film unwind or lid denester",
+        "sealing die chamber",
+        "outfeed conveyor"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://multivac.com/gb/en/our-solutions/portfolio/packaging-solutions/traysealers"
+      ],
+      "output": "assets/machines/v3/full/packaging/sealing-2/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "map-tray-sealing",
+      "name": "Map Tray Sealing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "map-tray-sealer",
+      "sharedConfiguration": "packaging-map-tray-sealer",
+      "configuration": "Enclosed tray sealer with vacuum/gas manifold, film unwind, sealing die and discharge conveyor.",
+      "requiredVisible": [
+        "Enclosed tray sealer",
+        "vacuum/gas manifold",
+        "film unwind",
+        "sealing die",
+        "discharge conveyor"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://multivac.com/gb/en/our-solutions/portfolio/packaging-solutions/traysealers"
+      ],
+      "output": "assets/machines/v3/full/packaging/map-tray-sealing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "tray-packing",
+      "name": "Tray Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "map-tray-sealer",
+      "sharedConfiguration": "packaging-map-tray-sealer",
+      "configuration": "Enclosed tray sealer with vacuum/gas manifold, film unwind, sealing die and discharge conveyor.",
+      "requiredVisible": [
+        "Enclosed tray sealer",
+        "vacuum/gas manifold",
+        "film unwind",
+        "sealing die",
+        "discharge conveyor"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://multivac.com/gb/en/our-solutions/portfolio/packaging-solutions/traysealers"
+      ],
+      "output": "assets/machines/v3/full/packaging/tray-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "cup-packing",
+      "name": "Cup Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "rotary-cup-fill-seal",
+      "sharedConfiguration": "packaging-rotary-cup-fill-seal",
+      "configuration": "Cup denester, rotary indexing table, filler, foil/lid placer, heat-seal station and discharge.",
+      "requiredVisible": [
+        "Cup denester",
+        "rotary indexing table",
+        "filler",
+        "foil/lid placer",
+        "heat-seal station",
+        "discharge"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/cup-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "rinsing-2",
+      "name": "Rinsing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "container-rinser",
+      "sharedConfiguration": "packaging-container-rinser",
+      "configuration": "General bottle/jar/jug rinser with inversion grippers, internal spray/air nozzles, drain tray and conveyor.",
+      "requiredVisible": [
+        "General bottle/jar/jug rinser",
+        "inversion grippers",
+        "internal spray/air nozzles",
+        "drain tray",
+        "conveyor"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/rinsing-2/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "cleaning",
+      "name": "Cleaning",
+      "normalizedCategory": "Packaging",
+      "visualClass": "container-rinser",
+      "sharedConfiguration": "packaging-container-rinser",
+      "configuration": "General bottle/jar/jug rinser with inversion grippers, internal spray/air nozzles, drain tray and conveyor.",
+      "requiredVisible": [
+        "General bottle/jar/jug rinser",
+        "inversion grippers",
+        "internal spray/air nozzles",
+        "drain tray",
+        "conveyor"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/cleaning/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "filling-4",
+      "name": "Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "inline-servo-liquid-filler",
+      "sharedConfiguration": "packaging-inline-servo-liquid-filler",
+      "configuration": "Sanitary product tank/manifold feeding multiple servo-controlled nozzles over an indexed container conveyor.",
+      "requiredVisible": [
+        "Sanitary product tank/manifold feeding multiple servo-controlled nozzles over an indexed container conveyor",
+        "stable hygienic support frame with a coherent product path",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/filling-4/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "servo-filling",
+      "name": "Servo Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "inline-servo-liquid-filler",
+      "sharedConfiguration": "packaging-inline-servo-liquid-filler",
+      "configuration": "Sanitary product tank/manifold feeding multiple servo-controlled nozzles over an indexed container conveyor.",
+      "requiredVisible": [
+        "Sanitary product tank/manifold feeding multiple servo-controlled nozzles over an indexed container conveyor",
+        "stable hygienic support frame with a coherent product path",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/servo-filling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "capping",
+      "name": "Capping",
+      "normalizedCategory": "Packaging",
+      "visualClass": "automatic-container-capper",
+      "sharedConfiguration": "packaging-automatic-container-capper",
+      "configuration": "Cap elevator/sorter, cap chute and spindle or chuck capping heads over a container conveyor.",
+      "requiredVisible": [
+        "Cap elevator/sorter",
+        "cap chute",
+        "spindle or chuck capping heads over a container conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/capping/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "sealing-3",
+      "name": "Sealing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "induction-container-sealer",
+      "sharedConfiguration": "packaging-induction-container-sealer",
+      "configuration": "Inline induction sealing head with power enclosure over a container conveyor and foil-compatible closure path.",
+      "requiredVisible": [
+        "Inline induction sealing head",
+        "power enclosure over a container conveyor",
+        "foil-compatible closure path",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product dosing filler",
+        "bottle capper",
+        "cartoner",
+        "inspection-only conveyor"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product dosing filler",
+        "Do not depict a bottle capper",
+        "Do not depict a cartoner",
+        "Do not depict a inspection-only conveyor"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/sealing-3/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "crimping",
+      "name": "Crimping",
+      "normalizedCategory": "Packaging",
+      "visualClass": "container-crimper",
+      "sharedConfiguration": "packaging-container-crimper",
+      "configuration": "Indexed bottle conveyor with closure placement and guarded rotary crimp heads for spray pumps/aluminium seals.",
+      "requiredVisible": [
+        "Indexed bottle conveyor",
+        "closure placement",
+        "guarded rotary crimp heads for spray pumps/aluminium seals",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/crimping/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "collar-fitting",
+      "name": "Collar Fitting",
+      "normalizedCategory": "Packaging",
+      "visualClass": "collar-fitting-machine",
+      "sharedConfiguration": "packaging-collar-fitting-machine",
+      "configuration": "Collar bowl feeder and chute feeding vertical placement/press heads over an indexed bottle conveyor.",
+      "requiredVisible": [
+        "Collar bowl feeder",
+        "chute feeding vertical placement/press heads over an indexed bottle conveyor",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/collar-fitting/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "decapper",
+      "name": "Decapper",
+      "normalizedCategory": "Packaging",
+      "visualClass": "automatic-decapper",
+      "sharedConfiguration": "packaging-automatic-decapper",
+      "configuration": "Container centering starwheel with guarded gripping/unscrewing heads and removed-cap discharge chute.",
+      "requiredVisible": [
+        "Container centering starwheel",
+        "guarded gripping/unscrewing heads",
+        "removed-cap discharge chute",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/decapper/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "leak-detector",
+      "name": "Leak Detector",
+      "normalizedCategory": "Packaging",
+      "visualClass": "container-leak-detector",
+      "sharedConfiguration": "packaging-container-leak-detector",
+      "configuration": "Enclosed inline pressure-decay or vacuum test carousel with sensors and reject lane.",
+      "requiredVisible": [
+        "Enclosed inline pressure-decay or vacuum test carousel",
+        "sensors",
+        "reject lane",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://resources.bonfiglioliengineering.com/hubfs/50%20100%2010979%20Rev.008.pdf",
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/leak-detector/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "piston-filling",
+      "name": "Piston Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "piston-liquid-paste-filler",
+      "sharedConfiguration": "packaging-piston-liquid-paste-filler",
+      "configuration": "Product hopper, one or more horizontal dosing pistons and anti-drip nozzles over a conveyor.",
+      "requiredVisible": [
+        "Product hopper",
+        "one or more horizontal dosing pistons",
+        "anti-drip nozzles over a conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/piston-filling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "servo-nozzle-tracking-filling",
+      "name": "Servo Nozzle Tracking Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "continuous-nozzle-tracking-filler",
+      "sharedConfiguration": "packaging-continuous-nozzle-tracking-filler",
+      "configuration": "Moving-nozzle gantry synchronized with a continuously moving container conveyor and servo manifold.",
+      "requiredVisible": [
+        "Moving-nozzle gantry synchronized",
+        "a continuously moving container conveyor",
+        "servo manifold",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/servo-nozzle-tracking-filling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "palletized-drum-filling",
+      "name": "Palletized Drum Filling",
+      "normalizedCategory": "Packaging",
+      "visualClass": "palletized-drum-filler",
+      "sharedConfiguration": "packaging-palletized-drum-filler",
+      "configuration": "Pallet/drum roller conveyor on a weigh platform with overhead lance/nozzle and bung-management station.",
+      "requiredVisible": [
+        "Pallet/drum roller conveyor on a weigh platform",
+        "overhead lance/nozzle",
+        "bung-management station",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/palletized-drum-filling/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "drum-packing",
+      "name": "Drum Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "palletized-drum-filler",
+      "sharedConfiguration": "packaging-palletized-drum-filler",
+      "configuration": "Pallet/drum roller conveyor on a weigh platform with overhead lance/nozzle and bung-management station.",
+      "requiredVisible": [
+        "Pallet/drum roller conveyor on a weigh platform",
+        "overhead lance/nozzle",
+        "bung-management station",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/drum-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "bottle-packing",
+      "name": "Bottle Packing (Spray, Pet, Glass)",
+      "normalizedCategory": "Packaging",
+      "visualClass": "bottle-packaging-line",
+      "sharedConfiguration": "packaging-bottle-packaging-line",
+      "configuration": "Compact bottle rinser/filler/capper monoblock with infeed and outfeed conveyors.",
+      "requiredVisible": [
+        "Compact bottle rinser/filler/capper monoblock",
+        "infeed",
+        "outfeed conveyors",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/bottle-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "jerry-can-packing",
+      "name": "Jerry Can Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "jerry-can-packaging-line",
+      "sharedConfiguration": "packaging-jerry-can-packaging-line",
+      "configuration": "Heavy-container conveyor with weigh/flow filling lance and cap placement/torque head for jerry cans.",
+      "requiredVisible": [
+        "Heavy-container conveyor",
+        "weigh/flow filling lance",
+        "cap placement/torque head for jerry cans",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/jerry-can-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "cannister-packing",
+      "name": "Cannister Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "canister-powder-packaging-line",
+      "sharedConfiguration": "packaging-canister-powder-packaging-line",
+      "configuration": "Canister conveyor with powder auger filler, cap placer, capping head and label-ready outfeed.",
+      "requiredVisible": [
+        "Canister conveyor",
+        "powder auger filler",
+        "cap placer",
+        "capping head",
+        "label-ready outfeed"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/cannister-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "bucket-packing",
+      "name": "Bucket Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "pail-bucket-packaging-line",
+      "sharedConfiguration": "packaging-pail-bucket-packaging-line",
+      "configuration": "Pail conveyor/scale with filling lance, lid denester and lid-press station.",
+      "requiredVisible": [
+        "Pail conveyor/scale",
+        "filling lance",
+        "lid denester",
+        "lid-press station"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/bucket-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "jar-jug-packing",
+      "name": "Jar/ Jug Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "jar-jug-packaging-line",
+      "sharedConfiguration": "packaging-jar-jug-packaging-line",
+      "configuration": "Jar/jug conveyor with multi-nozzle filler, cap feeder and capping head.",
+      "requiredVisible": [
+        "Jar/jug conveyor",
+        "multi-nozzle filler",
+        "cap feeder",
+        "capping head"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/jar-jug-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "gallon-packing",
+      "name": "Gallon Packing",
+      "normalizedCategory": "Packaging",
+      "visualClass": "gallon-packaging-line",
+      "sharedConfiguration": "packaging-gallon-packaging-line",
+      "configuration": "Large-bottle rinser, gravity/flow filler and capper arranged for gallon containers.",
+      "requiredVisible": [
+        "Large-bottle rinser",
+        "gravity/flow filler",
+        "capper arranged for gallon containers",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "open-mouth sack bagger",
+        "cartoner",
+        "robot palletizer"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a open-mouth sack bagger",
+        "Do not depict a cartoner",
+        "Do not depict a robot palletizer"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.krones.com/en/products/machines/unitxpress-for-the-modulfill.php"
+      ],
+      "output": "assets/machines/v3/full/packaging/gallon-packing/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "palletizer",
+      "name": "Palletizer",
+      "normalizedCategory": "Packaging",
+      "visualClass": "robotic-palletizer",
+      "sharedConfiguration": "packaging-robotic-palletizer",
+      "configuration": "Guarded robot cell with pallet dispenser, product infeed conveyor and pallet stacking zone.",
+      "requiredVisible": [
+        "Guarded robot cell",
+        "pallet dispenser",
+        "product infeed conveyor",
+        "pallet stacking zone"
+      ],
+      "forbidden": [
+        "VFFS bagger",
+        "container filler",
+        "labeler",
+        "checkweigher"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a VFFS bagger",
+        "Do not depict a container filler",
+        "Do not depict a labeler",
+        "Do not depict a checkweigher"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.ocmeusa.com/en-us/products/case-packing/case-packers-cartoning-machines",
+        "https://ima.it/personalcare/turnkey-line-for-hair-dye-packaging/?lang=en"
+      ],
+      "output": "assets/machines/v3/full/packaging/palletizer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "rewinder",
+      "name": "Rewinder",
+      "normalizedCategory": "Packaging",
+      "visualClass": "slitter-rewinder",
+      "sharedConfiguration": "packaging-slitter-rewinder",
+      "configuration": "Web unwind, guide rollers, slitting knives, tension-control section and twin rewind shafts.",
+      "requiredVisible": [
+        "Web unwind",
+        "guide rollers",
+        "slitting knives",
+        "tension-control section",
+        "twin rewind shafts"
+      ],
+      "forbidden": [
+        "bagger",
+        "cartoner",
+        "labeler",
+        "container filler"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a bagger",
+        "Do not depict a cartoner",
+        "Do not depict a labeler",
+        "Do not depict a container filler"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.kampf.de/"
+      ],
+      "output": "assets/machines/v3/full/packaging/rewinder/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "printer",
+      "name": "Printer (Cij, Inkjet, Co2 Laser, Hand)",
+      "normalizedCategory": "Packaging",
+      "visualClass": "industrial-coder",
+      "sharedConfiguration": "packaging-industrial-coder",
+      "configuration": "Compact CIJ/laser marking controller and print head mounted beside a short product conveyor.",
+      "requiredVisible": [
+        "Compact CIJ/laser marking controller",
+        "print head mounted beside a short product conveyor",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product filler",
+        "capper",
+        "cartoner",
+        "shrink tunnel"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product filler",
+        "Do not depict a capper",
+        "Do not depict a cartoner",
+        "Do not depict a shrink tunnel"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.domino-printing.com/en-gb/home.aspx"
+      ],
+      "output": "assets/machines/v3/full/packaging/printer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "batch-coding",
+      "name": "Batch Coding",
+      "normalizedCategory": "Packaging",
+      "visualClass": "industrial-coder",
+      "sharedConfiguration": "packaging-industrial-coder",
+      "configuration": "Compact CIJ/laser marking controller and print head mounted beside a short product conveyor.",
+      "requiredVisible": [
+        "Compact CIJ/laser marking controller",
+        "print head mounted beside a short product conveyor",
+        "accessible infeed and discharge interfaces",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product filler",
+        "capper",
+        "cartoner",
+        "shrink tunnel"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product filler",
+        "Do not depict a capper",
+        "Do not depict a cartoner",
+        "Do not depict a shrink tunnel"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.domino-printing.com/en-gb/home.aspx"
+      ],
+      "output": "assets/machines/v3/full/packaging/batch-coding/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "checkweigher-with-printer",
+      "name": "Checkweigher With Printer",
+      "normalizedCategory": "Packaging",
+      "visualClass": "checkweigher-print-apply",
+      "sharedConfiguration": "packaging-checkweigher-print-apply",
+      "configuration": "Infeed conveyor, weigh belt, print-and-apply label head, inspection sensors and reject conveyor.",
+      "requiredVisible": [
+        "Infeed conveyor",
+        "weigh belt",
+        "print-and-apply label head",
+        "inspection sensors",
+        "reject conveyor"
+      ],
+      "forbidden": [
+        "product filler",
+        "capper",
+        "cartoner",
+        "shrink tunnel"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product filler",
+        "Do not depict a capper",
+        "Do not depict a cartoner",
+        "Do not depict a shrink tunnel"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.mt.com/us/en/home/products/Product-Inspection_1.html"
+      ],
+      "output": "assets/machines/v3/full/packaging/checkweigher-with-printer/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "metal-detection",
+      "name": "Metal Detection",
+      "normalizedCategory": "Packaging",
+      "visualClass": "conveyor-metal-detector",
+      "sharedConfiguration": "packaging-conveyor-metal-detector",
+      "configuration": "Rectangular detection aperture around a food-grade conveyor with control panel and reject device.",
+      "requiredVisible": [
+        "Rectangular detection aperture around a food-grade conveyor",
+        "control panel",
+        "reject device",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "product filler",
+        "capper",
+        "cartoner",
+        "shrink tunnel"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product filler",
+        "Do not depict a capper",
+        "Do not depict a cartoner",
+        "Do not depict a shrink tunnel"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.mt.com/us/en/home/products/Product-Inspection_1.html"
+      ],
+      "output": "assets/machines/v3/full/packaging/metal-detection/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "x-ray-inspection-2",
+      "name": "X Ray Inspection",
+      "normalizedCategory": "Packaging",
+      "visualClass": "packaged-product-xray",
+      "sharedConfiguration": "packaging-packaged-product-xray",
+      "configuration": "Shielded stainless X-ray tunnel over a conveyor with HMI, warning lamps and automatic reject lane.",
+      "requiredVisible": [
+        "Shielded stainless X-ray tunnel over a conveyor",
+        "HMI",
+        "warning lamps",
+        "automatic reject lane"
+      ],
+      "forbidden": [
+        "product filler",
+        "capper",
+        "cartoner",
+        "shrink tunnel"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a product filler",
+        "Do not depict a capper",
+        "Do not depict a cartoner",
+        "Do not depict a shrink tunnel"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.mt.com/us/en/home/products/Product-Inspection_1.html"
+      ],
+      "output": "assets/machines/v3/full/packaging/x-ray-inspection-2/master-4x3.png",
+      "status": "pending"
+    },
+    {
+      "slug": "batch-cutter",
+      "name": "Batch Cutter",
+      "normalizedCategory": "Packaging",
+      "visualClass": "packaging-batch-cutter",
+      "sharedConfiguration": "packaging-packaging-batch-cutter",
+      "configuration": "Driven web/pouch infeed rollers, guarded transverse cutting head and counted-batch discharge conveyor.",
+      "requiredVisible": [
+        "Driven web/pouch infeed rollers",
+        "guarded transverse cutting head",
+        "counted-batch discharge conveyor",
+        "guarded drive and machine controls appropriate to this mechanism"
+      ],
+      "forbidden": [
+        "unrelated filling machine",
+        "unrelated sealing machine",
+        "unrelated cartoner",
+        "disconnected product path"
+      ],
+      "forbiddenMismatch": [
+        "Do not depict a unrelated filling machine",
+        "Do not depict a unrelated sealing machine",
+        "Do not depict a unrelated cartoner",
+        "Do not depict a disconnected product path"
+      ],
+      "confidence": "high",
+      "disclosure": true,
+      "references": [
+        "https://www.robopac.com/en/business-units/robopac-machinery",
+        "https://www.rovema-na.com/vertical-form-fill-seal-machine-vffs"
+      ],
+      "output": "assets/machines/v3/full/packaging/batch-cutter/master-4x3.png",
+      "status": "pending"
+    }
+  ]
+}

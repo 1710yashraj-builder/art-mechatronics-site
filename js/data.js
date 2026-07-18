@@ -19,7 +19,7 @@ const ART = {
   system: {
     title: "Automatic Powder Batching, Weighing, Dosing, Mixing, Sieving & Collection System",
     short: "Fully automatic powder processing line",
-    pitch: "One PLC-controlled line takes raw powder from ground level and delivers a precisely weighed, uniformly mixed, cleanly sieved batch — with almost no manpower and zero dust escape.",
+    pitch: "One PLC-controlled line takes raw powder from ground level and delivers a precisely weighed, uniformly mixed, cleanly sieved batch while reducing manual handling and containing dust through central extraction.",
     badges: ["Fully Automatic", "PLC Controlled", "High Accuracy", "Accurate Dosing", "Uniform Mixing", "Sieved Quality Output", "Centralised Dust Collection"],
     legend: [
       { key: "powder", label: "Powder flow", var: "--flow-powder" },
@@ -52,7 +52,7 @@ const ART = {
       "Sieved and mixed powder is collected in the Material Trolley for further processing / packing.",
     ],
     outcomes: ["Complete Automation", "Accurate Dosing", "Uniform Mixing", "High Product Quality", "Minimal Manpower"],
-    image: "assets/machines/system.jpg",
+    image: "assets/machines/v2/masters/system/detail-1280.webp",
 
     /* ---- Narrated walkthrough ----
        Edit these lines freely. To upgrade to a premium recorded voice, drop MP3s
@@ -62,17 +62,17 @@ const ART = {
     narration: {
       voiceHint: "en-IN",           // prefer an Indian-English voice
       audioDir: "assets/audio/",
-      intro: "Welcome to ART Mechatronics. Watch our fully automatic powder line turn raw material into a finished, quality batch — all under one PLC.",
+      intro: "Welcome to ART Mechatronics. Watch our fully automatic powder line turn raw material into a finished, quality batch under one PLC.",
       outro: "One line. Fully automatic. Engineered by ART Mechatronics.",
       lines: {
-        suction:  "It starts here — raw powder is drawn from ground level by our root blower and conveyed up. No manual lifting, no spillage.",
+        suction:  "It starts here. Raw powder is drawn from ground level by our root blower and conveyed up, reducing manual lifting and spillage.",
         silos:    "The powder settles into the storage silos, kept topped up automatically by level sensors.",
-        weighing: "Now precision takes over — high-accuracy load cells weigh each ingredient to within a tenth of a percent.",
+        weighing: "Now precision takes over. High-accuracy load cells weigh each ingredient to the configured set point.",
         buffer:   "Every weighed ingredient collects in the buffer tank as one accurate, repeatable batch.",
         mixer:    "The ribbon mixer blends it into a uniform, homogeneous mix.",
         sifter:   "The vibro sifter screens the batch, so only clean, quality output moves ahead.",
         trolley:  "The finished powder is collected dust-free in a mobile trolley, ready for packing.",
-        dust:     "And throughout, our dust collector captures over ninety-nine percent of fines — a cleaner workplace, a contained product.",
+        dust:     "Throughout the line, the dust collector draws fines away from transfer points for a cleaner workplace and better-contained product.",
       },
     },
   },
@@ -83,9 +83,9 @@ const ART = {
       id: "storage-silos",
       name: "Storage Silos System",
       order: 1,
-      image: "assets/machines/storage-silos.jpg",
+      image: "assets/machines/v2/masters/storage-silos/detail-1280.webp",
       tagline: "Reliable Storage · Accurate Weighing · Automatic Discharge",
-      summary: "Load-cell weighed storage silos with top/low level indication and automatic pneumatic discharge — the buffer store that keeps the line continuously fed.",
+      summary: "Load-cell weighed storage silos with top and low level indication plus automatic pneumatic discharge keep the line continuously fed.",
       features: [
         "Top & low level indication",
         "Load-cell based weighing",
@@ -112,7 +112,7 @@ const ART = {
       id: "buffer-tank",
       name: "Buffer Tank with Load Cells",
       order: 2,
-      image: "assets/machines/buffer-tank.jpg",
+      image: "assets/machines/v2/masters/buffer-tank/detail-1280.webp",
       tagline: "Accurate Weighing · Reliable Storage · Automatic Discharge",
       summary: "Intermediate storage between process & packaging that guarantees a continuous material supply with accurate weighing and controlled, dust-tight discharge.",
       features: [
@@ -143,9 +143,9 @@ const ART = {
       id: "vibro-sifter",
       name: "Vibro Sifter",
       order: 3,
-      image: "assets/machines/vibro-sifter.jpg",
+      image: "assets/machines/v2/masters/vibro-sifter/detail-1280.webp",
       tagline: "High-Efficiency Sieving · Accurate Separation · Maximum Performance",
-      summary: "Multi-deck vibratory sieve for powders, granules & dry bulk. A high-performance vibro motor spreads material across the mesh — fines pass through, oversize moves to the outlet.",
+      summary: "Multi-deck vibratory sieve for powders, granules and dry bulk. A high-performance vibro motor spreads material across the mesh so fines pass through and oversize moves to the outlet.",
       features: [
         "High screening efficiency",
         "Dust-tight & hygienic design",
@@ -176,9 +176,9 @@ const ART = {
       id: "control-panel",
       name: "Centralised Automatic PLC Control Panel",
       order: 4,
-      image: "assets/machines/control-panel.jpg",
+      image: "assets/machines/v2/masters/control-panel/detail-1280.webp",
       tagline: "Smart Automation · Central Control · Maximum Efficiency",
-      summary: "The brain of the line. One HMI touchscreen runs the entire process — recipes, weighing, dosing, alarms and reports — with inbuilt safety interlocks and easy expansion.",
+      summary: "The brain of the line. One HMI touchscreen runs recipes, weighing, dosing, alarms and reports with inbuilt safety interlocks and room for expansion.",
       features: [
         "Centralised monitoring & control",
         "High-performance PLC automation",
@@ -211,8 +211,8 @@ const ART = {
       id: "ribbon-mixer",
       name: "Ribbon Mixer",
       order: 5,
-      image: "assets/machines/ribbon-mixer.jpg",
-      gallery: ["assets/machines/ribbon-mixer.jpg", "assets/machines/ribbon-mixer-drive.jpg"],
+      image: "assets/machines/v2/masters/ribbon-mixer/detail-1280.webp",
+      gallery: ["assets/machines/v2/masters/ribbon-mixer/detail-1280.webp", "assets/machines/v2/masters/ribbon-mixer-drive/detail-1280.webp"],
       tagline: "Uniform Mixing · Homogeneous Blending · Heavy Duty",
       summary: "A precision-welded double-ribbon shaft driven by a helical gearbox blends powders to a homogeneous mix, then discharges through a dust-tight pneumatic gate.",
       features: [
@@ -243,11 +243,11 @@ const ART = {
       id: "dust-collector",
       name: "Dust Collector",
       order: 6,
-      image: "assets/machines/dust-collector.jpg",
+      image: "assets/machines/v2/masters/dust-collector/detail-1280.webp",
       tagline: "High Efficiency · Clean Environment · Reliable Performance",
       summary: "Pulse-jet bag filter that captures fine dust from every process point at over 99.9 % efficiency, keeping the workplace clean and the product contained.",
       features: [
-        "High suction efficiency — captures fine dust",
+        "High suction efficiency for fine dust capture",
         "Automatic pulse-jet bag cleaning",
         "Low maintenance, easy inspection access",
         "SS 304 / MS corrosion-resistant build",
@@ -275,7 +275,7 @@ const ART = {
       id: "collection-trolley",
       name: "Material Collection Trolley",
       order: 7,
-      image: "assets/machines/collection-trolley.jpg",
+      image: "assets/machines/v2/masters/collection-trolley/detail-1280.webp",
       tagline: "Dust-Free Powder Collection & Conveyance",
       summary: "A fully enclosed, mobile SS collection vessel that sits under the Vibro Sifter to gather sifted powder with zero dust leakage, then wheels it away for packing.",
       features: [
@@ -307,9 +307,9 @@ const ART = {
       id: "platform-ladder",
       name: "Platform & Ladder Unit",
       order: 8,
-      image: "assets/machines/platform-ladder.jpg",
+      image: "assets/machines/v2/masters/platform-ladder/detail-1280.webp",
       tagline: "2-Level Access Platform · Safe Access · Strong Structure",
-      summary: "A full-welded, two-level stainless access platform with anti-slip flooring and guardrails — safe operator access to silos, tanks and conveying equipment at height.",
+      summary: "A full-welded, two-level stainless access platform with anti-slip flooring and guardrails provides safe operator access to silos, tanks and conveying equipment at height.",
       features: [
         "Two-level platform for better accessibility",
         "Strong & durable SS 304 construction",

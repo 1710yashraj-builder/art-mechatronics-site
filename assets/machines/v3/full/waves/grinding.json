@@ -1,0 +1,149 @@
+{
+  "family": "Size Reduction & Grinding",
+  "products": [
+    {
+      "slug": "impact-pulverizer-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "fine-impact-pulverizer-with-cyclone",
+      "requiredVisible": ["top feed hopper", "circular impact grinding chamber", "guarded high-speed motor drive", "pneumatic product duct", "cyclone separator", "sealed powder receiver"],
+      "forbidden": ["exposed millstones", "roller pack", "jaw crusher chamber", "ball-mill drum"],
+      "confidence": "high",
+      "references": ["https://www.hosokawa-alpine.com/powder-particle-processing/technologies/grinding-and-classifying/fine-impact-mills/ultraplex-upz/", "https://www.fmixer.com/impact-pulverizer/"]
+    },
+    {
+      "slug": "micro-pulverizer-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "compact-micro-pulverizer-closed-collection",
+      "requiredVisible": ["small metered hopper", "compact hinged circular mill chamber", "guarded high-speed motor", "pneumatic transfer pipe", "small cyclone", "fine-powder filter receiver"],
+      "forbidden": ["large jaw crusher", "millstone housing", "open powder discharge", "ball-mill drum"],
+      "confidence": "high",
+      "references": ["https://www.micropulverizer.com/index.htm", "https://www.premiumpulverisers.com/micro_pulveriser.html"]
+    },
+    {
+      "slug": "hammer-mill-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "full-screen-industrial-hammer-mill",
+      "requiredVisible": ["wide gravity feed hopper", "horizontal hammer chamber", "rotor bearing blocks", "rounded screen cradle", "guarded belt drive", "bottom discharge chute"],
+      "forbidden": ["cyclone-only collector", "exposed rollers", "jaw plates", "millstones"],
+      "confidence": "high",
+      "references": ["https://www.praterindustries.com/products/hammermills/mega-mill/", "https://www.praterindustries.com/resources/documentation-literature/"]
+    },
+    {
+      "slug": "roller-mill-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "four-roller-compression-mill",
+      "requiredVisible": ["wide feed inlet", "two stacked pairs of counter-rotating rollers", "roller-gap handwheels", "enclosed side transmissions", "side drive motors", "tapered discharge chutes"],
+      "forbidden": ["hammer rotor", "millstones", "jaw crusher", "ball-mill drum"],
+      "confidence": "high",
+      "references": ["https://www.buhlergroup.com/global/en/products/dolomit_mill.html", "https://www.buhlergroup.com/global/vi/product-families/Roller-mills.html"]
+    },
+    {
+      "slug": "stone-mill-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "industrial-horizontal-stone-mill",
+      "requiredVisible": ["large conical feed hopper", "paired grooved emery millstones", "horizontal shaft and bearing blocks", "millstone-gap handwheel", "low-speed geared motor", "flour outlet chute"],
+      "forbidden": ["steel roller pack", "hammer rotor", "jaw plates", "ball-mill drum"],
+      "confidence": "high",
+      "references": ["https://unitedmillingsystems.com/products/grinding-mills/europemill-standard/", "https://unitedmillingsystems.com/wp-content/uploads/Grindmaster-950-LEAFLET-2022-1.pdf"]
+    },
+    {
+      "slug": "pulverizer-with-dust-collector",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "integrated-pulverizer-cyclone-bag-filter-system",
+      "requiredVisible": ["impact pulverizer and feed hopper", "pneumatic transfer duct", "cyclone separator", "sealed powder receiver", "separate fabric dust collector", "centrifugal extraction blower"],
+      "forbidden": ["standalone grinder without dust collection", "single bare cyclone only", "wet scrubber tower", "unconnected process equipment"],
+      "confidence": "high",
+      "references": ["https://www.premiumpulverisers.com/micro_pulveriser.html", "https://www.varahiindustries.com/mini-pulveriser.php"]
+    },
+    {
+      "slug": "grinding-mill-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "vertical-stirred-media-grinding-mill",
+      "requiredVisible": ["tall vertical grinding vessel", "top-mounted motor and planetary gearbox", "bolted drive head", "side service doors", "upper overflow separator tank", "coherent recycle pump loop"],
+      "forbidden": ["horizontal ball-mill drum", "roller pack", "hammer chamber", "unconnected tank and pump"],
+      "confidence": "medium",
+      "references": ["https://www.metso.com/portfolio/vertimill/", "https://www.metso.com/globalassets/saleshub/documents---episerver/2020_03_vertimill_brochure_en.pdf"]
+    },
+    {
+      "slug": "milling-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "industrial-cereal-disc-mill",
+      "requiredVisible": ["wide cereal feed hopper", "corrugated disc grinding elements", "horizontal drive shaft", "grinding-gap handwheel", "side electric motor", "lower product discharge spout"],
+      "forbidden": ["emery millstones", "roller pack", "hammer rotor", "machine-tool milling table"],
+      "confidence": "medium",
+      "references": ["https://unitedmillingsystems.com/products/grinding-mills/", "https://unitedmillingsystems.com/wp-content/uploads/Discmill.pdf"]
+    },
+    {
+      "slug": "grinding-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "vertical-shaft-universal-grinder",
+      "requiredVisible": ["small top feed hopper", "upright cylindrical grinding chamber", "vertical motor beneath chamber", "plate-beater rotor", "stationary ribbed grinding track", "side outlet with compact cyclone"],
+      "forbidden": ["horizontal hammer chamber", "roller pack", "millstones", "ball-mill drum"],
+      "confidence": "medium",
+      "references": ["https://www.hosokawa-alpine.com/powder-particle-processing/technologies/grinding-and-classifying/fine-impact-mills/ultraplex-upz/", "https://www.hosokawa-alpine.com/fileadmin/user_upload/0031-EN-2014-05_-_Ultraplex_Fine_impact_mills_100_UPZ_-_1400_UPZ.pdf"]
+    },
+    {
+      "slug": "crushing-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "stationary-primary-jaw-crusher",
+      "requiredVisible": ["reinforced feed opening", "fixed and moving jaw plates", "pitman and eccentric shaft", "large guarded flywheels", "toggle mechanism", "lower discharge gap"],
+      "forbidden": ["hammer chamber", "roller pack", "shredder cutters", "grinding cyclone"],
+      "confidence": "high",
+      "references": ["https://www.metso.com/portfolio/nordberg-c-series/", "https://www.metso.com/portfolio/nordberg-c-series/nordberg-c130/"]
+    },
+    {
+      "slug": "pin-mill-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "counter-rotating-pin-disc-mill",
+      "requiredVisible": ["wide circular grinding chamber", "two opposing pin discs", "concentric rows of intermeshing pins", "independent motor on each side", "top feed inlet", "sealed bottom discharge"],
+      "forbidden": ["corrugated solid grinding plates", "millstones", "hammer rotor", "single-sided drive"],
+      "confidence": "high",
+      "references": ["https://www.hosokawa-alpine.com/powder-particle-processing/technologies/grinding-and-classifying/fine-impact-mills/contraplex-cw-ii/", "https://www.hosokawa-alpine.com/fileadmin/mechanische-verfahrenstechnik/Brosch%C3%BCren/Maschinen/Feinprallm%C3%BChlen/Contraplex_CW_II/0165-EN-2022-11-Contraplex-Pin-Mill.pdf"]
+    },
+    {
+      "slug": "air-classifier-mill-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "integrated-air-classifier-impact-mill",
+      "requiredVisible": ["upright mill housing", "lower impact beater rotor", "upper dynamic classifier wheel", "independent grinding and classifier drives", "controlled feed screw", "classifier-head outlet to cyclone"],
+      "forbidden": ["mill without classifier wheel", "single common drive", "pin-disc chamber", "colored flow arrows or callouts"],
+      "confidence": "high",
+      "references": ["https://www.hosokawa-alpine.com/powder-particle-processing/technologies/grinding-and-classifying/classifier-mills/acm/", "https://www.hosokawa-alpine.com/powder-particle-processing/technologies/grinding-and-classifying/classifier-mills/zirkoplex-zps/"]
+    },
+    {
+      "slug": "powderizer-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "multi-stage-turbo-powderizer",
+      "requiredVisible": ["top metered hopper", "horizontal volute grinding housing", "multi-stage rotor with radial blades", "ribbed stationary liner", "direct-coupled side motor", "tangential outlet to cyclone receiver"],
+      "forbidden": ["pin discs", "hammer screen cradle", "roller pack", "dynamic classifier wheel"],
+      "confidence": "medium",
+      "references": ["https://www.freund-turbo.co.jp/en/product/product/dry/", "https://www.freund-turbo.co.jp/product/product/dry/-s-m.html"]
+    },
+    {
+      "slug": "disintegrator-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "multi-row-counter-rotating-cage-disintegrator",
+      "requiredVisible": ["central top feed chute", "nested multi-row cage rotor", "heavy cage rings and impact bars", "opposing drive shafts", "motor on each side", "wide bottom discharge hopper"],
+      "forbidden": ["fine pin discs", "swinging hammers", "shredder knives", "roller pack"],
+      "confidence": "high",
+      "references": ["https://www.stedman-machine.com/cage-mill-pulverizers.html", "https://www.stedman-machine.com/cage-mill-history.html", "https://www.stedman-machine.com/h-series-impact-mills.html"]
+    },
+    {
+      "slug": "micronizer-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "spiral-fluid-energy-jet-micronizer",
+      "requiredVisible": ["flat circular pancake grinding chamber", "annular compressed-air manifold", "multiple tangential jet nozzles", "venturi feed injector", "pressure gauges and air valves", "fine-product outlet to cyclone receiver"],
+      "forbidden": ["grinding motor", "hammer rotor", "classifier wheel", "millstones"],
+      "confidence": "high",
+      "references": ["https://sturtevantinc.com/wp-content/uploads/2023/09/S_Sturtevant_Micronizer_Brochure.pdf", "https://sturtevantinc.com/wp-content/uploads/2020/07/AgChem_Application_Bulletin.pdf"]
+    },
+    {
+      "slug": "shredder-machine",
+      "normalizedCategory": "Size Reduction & Grinding",
+      "visualClass": "single-shaft-hydraulic-pusher-shredder",
+      "requiredVisible": ["large rectangular feed hopper", "single slow-speed rotor", "staggered hooked cutter blocks", "fixed counter-knife", "curved perforated sizing screen", "hydraulic ram and side geared drive"],
+      "forbidden": ["cage impact bars", "swinging hammers", "jaw plates", "fine pin discs"],
+      "confidence": "high",
+      "references": ["https://weima.com/us/shredders/w5-22/"]
+    }
+  ]
+}

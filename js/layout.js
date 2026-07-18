@@ -19,7 +19,6 @@
     ["machines",  "Flagship Line", "machines.html"],
     ["system",    "Live System",   "system.html"],
     ["about",     "About",         "about.html"],
-    ["contact",   "Contact",       "contact.html"],
   ];
 
   const navLinks = NAV.map(([id, label, href]) =>
@@ -28,6 +27,7 @@
 
   /* ---------- HEADER ---------- */
   const headerHTML = `
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="brand" href="${BASE}index.html" aria-label="${B.name} home">
@@ -40,7 +40,7 @@
       </button>
       <nav class="nav" id="primary-nav">
         ${navLinks}
-        <a class="btn btn--primary" href="${BASE}contact.html">Get a Quote</a>
+        <a class="btn btn--primary" href="${BASE}contact.html"${page === "contact" ? ' aria-current="page"' : ""}>Get a Quote</a>
       </nav>
     </div>
   </header>`;
@@ -55,7 +55,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <img src="${BASE}assets/logo-white.svg" alt="${B.name}">
-          <p style="color:#9fb4d4;max-width:34ch">${B.tagline}. Turnkey industrial process &amp; packaging automation — designed, manufactured and integrated in-house.</p>
+          <p style="color:#9fb4d4;max-width:34ch">Turnkey industrial process and packaging automation, backed by Thermocare manufacturing experience since 1997.</p>
           <div class="footer-flags">${B.presence.map(c => `<span>${c}</span>`).join('<span aria-hidden="true">·</span>')}</div>
         </div>
         <div class="footer-col">
@@ -103,18 +103,36 @@
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("primary-nav");
   if (toggle && nav) {
+    const mobileMenu = window.matchMedia("(max-width: 900px)");
+    const syncNavAccess = () => {
+      nav.inert = mobileMenu.matches && nav.getAttribute("data-open") !== "true";
+    };
+    syncNavAccess();
     toggle.addEventListener("click", () => {
       const open = nav.getAttribute("data-open") === "true";
       nav.setAttribute("data-open", String(!open));
       toggle.setAttribute("aria-expanded", String(!open));
       toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+      syncNavAccess();
     });
     nav.addEventListener("click", e => {
       if (e.target.tagName === "A") {
         nav.setAttribute("data-open", "false");
         toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+        syncNavAccess();
       }
     });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && nav.getAttribute("data-open") === "true") {
+        nav.setAttribute("data-open", "false");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+        syncNavAccess();
+        toggle.focus();
+      }
+    });
+    mobileMenu.addEventListener("change", syncNavAccess);
   }
 
   /* ---------- quote form → WhatsApp composer (backend-free) ---------- */
@@ -125,10 +143,16 @@
       const fd = new FormData(f);
       const nm = (fd.get("name") || "").toString().trim();
       const co = (fd.get("company") || "").toString().trim();
+      const material = (fd.get("material") || "").toString().trim();
+      const capacity = (fd.get("capacity") || "").toString().trim();
+      const location = (fd.get("location") || "").toString().trim();
       const rq = (fd.get("req") || "").toString().trim();
       let msg = `Hi ART Mechatronics, I'd like a quote for the ${machine}.`;
       if (nm) msg += `\nName: ${nm}`;
       if (co) msg += `\nCompany: ${co}`;
+      if (material) msg += `\nProduct or material: ${material}`;
+      if (capacity) msg += `\nTarget capacity: ${capacity}`;
+      if (location) msg += `\nPlant location: ${location}`;
       if (rq) msg += `\nRequirement: ${rq}`;
       window.open("https://wa.me/" + B.phoneDial + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
     });
