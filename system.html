@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Powder Processing System Demo | ART Mechatronics</title>
   <meta name="description" content="Watch the ART Mechatronics automatic powder batching, weighing, mixing, sieving and collection line run stage by stage in your browser.">
-  <link rel="canonical" href="https://1710yashraj-builder.github.io/art-mechatronics-site/system.html">
+  <link rel="canonical" href="https://art-mechatronics-catalogue.personal-buildanta.chatgpt.site/system.html">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/tokens.css?v=20260714">
   <link rel="stylesheet" href="css/base.css?v=20260714">
-  <link rel="stylesheet" href="css/system.css?v=20260713">
-  <link rel="stylesheet" href="css/scene.css?v=20260713">
+  <link rel="stylesheet" href="css/system.css?v=20260724b">
+  <link rel="stylesheet" href="css/scene.css?v=20260724b">
 </head>
 <body data-page="system">
   <div data-header></div>
@@ -18,21 +18,74 @@
   <main id="main">
 
   <section class="sys-hero">
-    <div class="wrap">
-      <span class="eyebrow">Live system demo</span>
-      <h1 id="sysTitle">The complete automatic powder line, running live</h1>
-      <p class="lead">Press <strong>Play walkthrough</strong> for a narrated tour, or <strong>Start line</strong> to watch raw powder travel through pneumatic suction, silo filling, precision weighing, buffering, mixing, sieving and dust-contained collection under one PLC.</p>
-      <div class="sys-badges" id="sysBadges"></div>
+    <div class="sys-hero__glow" aria-hidden="true"></div>
+    <div class="wrap sys-hero__grid">
+      <div class="sys-hero__copy">
+        <span class="eyebrow eyebrow--live"><i aria-hidden="true"></i> ART process automation · digital twin</span>
+        <h1 id="sysTitle">Watch one powder line think, move and protect product.</h1>
+        <p class="lead">Explore the coordinated journey from ground-level intake to dust-contained collection. Every active machine, transfer path and interlock is visualised stage by stage under one PLC-controlled sequence.</p>
+        <div class="sys-hero__actions">
+          <a class="btn btn--primary btn--lg" href="#liveTwin">Enter the live control room</a>
+          <a class="btn btn--outline-light btn--lg" href="machines.html">Inspect the engineered line</a>
+        </div>
+        <div class="sys-badges" id="sysBadges"></div>
+        <p class="sys-disclosure">Interactive representative simulation. Final process values and machine configuration are engineered for each application.</p>
+      </div>
+
+      <div class="hero-console" aria-label="Powder line process overview">
+        <div class="hero-console__head">
+          <div>
+            <span class="console-kicker">LINE 01</span>
+            <strong>Automatic powder processing</strong>
+          </div>
+          <span class="live-state"><i aria-hidden="true"></i> Simulation live</span>
+        </div>
+        <div class="hero-process" id="heroProcess" aria-label="Eight coordinated process stages">
+          <span data-stage="suction"><b>01</b> Intake</span>
+          <span data-stage="silos"><b>02</b> Storage</span>
+          <span data-stage="weighing"><b>03</b> Dosing</span>
+          <span data-stage="buffer"><b>04</b> Buffer</span>
+          <span data-stage="mixer"><b>05</b> Mixing</span>
+          <span data-stage="sifter"><b>06</b> Sifting</span>
+          <span data-stage="trolley"><b>07</b> Collection</span>
+          <span data-stage="dust"><b>08</b> Extraction</span>
+        </div>
+        <div class="hero-console__foot">
+          <div><span>Control mode</span><strong>AUTO</strong></div>
+          <div><span>Sequence</span><strong>8 STAGES</strong></div>
+          <div><span>Safety logic</span><strong>INTERLOCKED</strong></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="system-console-section" id="liveTwin">
     <div class="wrap">
+      <div class="console-masthead">
+        <div>
+          <span class="console-kicker">ART CONTROL ROOM / PROCESS TWIN</span>
+          <h2>Automatic powder line · Line 01</h2>
+        </div>
+        <div class="console-masthead__status" aria-label="Live simulation status">
+          <span><i class="status-light status-light--run" aria-hidden="true"></i><b id="mastStatus">RUNNING</b></span>
+          <span>MODE <b>AUTO</b></span>
+          <span id="plantClock" aria-label="Local time">--:--:--</span>
+        </div>
+      </div>
+
       <div class="sys-stage">
         <!-- Diagram -->
-        <div>
+        <div class="sys-main">
           <div class="scene-stage running focusing" id="diagramCard">
-            <svg class="scene" id="flow" viewBox="0 0 1180 862" role="img" aria-labelledby="flowTitle flowDesc">
+            <div class="scene-status scene-status--left" aria-hidden="true">
+              <span id="sceneStageCode">STAGE 01 / 08</span>
+              <strong id="sceneStageName">PNEUMATIC SUCTION</strong>
+            </div>
+            <div class="scene-status scene-status--right" aria-hidden="true">
+              <span>PROCESS STATE</span>
+              <strong><i></i><span id="sceneState">ACTIVE</span></strong>
+            </div>
+            <svg class="scene" id="flow" viewBox="0 0 1180 862" role="group" aria-labelledby="flowTitle flowDesc">
               <title id="flowTitle">ART automatic powder processing line</title>
               <desc id="flowDesc">A control-room view of the running line: pneumatic suction feeds three storage silos, which dose into a load-cell buffer tank, then a ribbon mixer, a vibro sifter and a dust-free collection trolley, with a centralised dust collector and a PLC/HMI panel.</desc>
             <defs>
@@ -1569,15 +1622,17 @@
               <g class="hmi-readout">
                 <text class="hmi-dim"  x="992" y="420">BATCH</text>
                 <text class="hmi-live" x="992" y="431" id="hmiBatch">#0001</text>
-                <text class="hmi-dim"  x="992" y="441">WEIGHT</text>
-                <text class="hmi-live" x="992" y="450" id="hmiWeight">0 kg</text>
+                <text class="hmi-dim"  x="992" y="441">BATCH %</text>
+                <text class="hmi-live" x="992" y="450" id="hmiWeight">0 %</text>
                 <text class="hmi-dim"  x="1036" y="420">STAGE</text>
                 <text class="hmi-live" x="1036" y="431" id="hmiStage">1 / 8</text>
                 <text class="hmi-dim"  x="1036" y="441">STATUS</text>
                 <text class="hmi-live" x="1036" y="450" id="hmiStatus">RUN</text>
               </g>
             </svg>
+            <div class="scene-scan" aria-hidden="true"></div>
             <div class="scene-legend" id="legend"></div>
+            <div class="machine-probe" id="machineProbe" hidden></div>
             <div class="narr-caption" id="narrCaption" hidden aria-live="polite"></div>
           </div>
 
@@ -1591,27 +1646,70 @@
               <span id="playLabel">Pause line</span>
             </button>
             <button class="btn btn--ghost" id="restartBtn">Restart</button>
+            <button class="btn btn--ghost full-btn" id="fullBtn" type="button" aria-label="Open control room full screen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+              <span id="fullLabel">Full screen</span>
+            </button>
+            <span class="control-state"><i aria-hidden="true"></i> PLC sequence linked</span>
+            <span class="visually-hidden" id="stageAnnounce" aria-live="polite" aria-atomic="true"></span>
           </div>
 
           <div class="sys-progress"><i id="seqBar"></i></div>
           <div class="seq" id="seq" role="group" aria-label="Jump to a process stage"></div>
+
+          <div class="operations-feed" aria-label="Current process events">
+            <div class="operations-feed__label">
+              <span>EVENT STREAM</span>
+              <b>Live sequence</b>
+            </div>
+            <ol id="eventLog">
+              <li><time>--:--:--</time><span>Initialising process model</span></li>
+            </ol>
+          </div>
         </div>
 
         <!-- Side panel -->
-        <aside class="sys-panel" aria-live="polite">
+        <aside class="sys-panel">
           <div class="sys-panel__head">
-            <div class="sys-panel__step" id="pStep">Stage 1 of 8</div>
+            <div class="sys-panel__head-row">
+              <div class="sys-panel__step" id="pStep">Stage 1 of 8</div>
+              <span class="panel-mode">AUTO</span>
+            </div>
             <h2 class="sys-panel__title" id="pTitle">Pneumatic Suction</h2>
           </div>
           <div class="sys-panel__body">
             <p class="sys-panel__note" id="pNote"></p>
             <div class="sys-readout">
-              <div class="readout"><div class="k">Batch weight</div><div class="v"><span id="rWeight">0</span><small> kg</small></div></div>
-              <div class="readout"><div class="k">Line status</div><div class="v" id="rStatus" style="font-size:1rem">RUNNING</div></div>
-              <div class="readout"><div class="k">Throughput</div><div class="v"><span id="rTph">0.0</span><small> TPH</small></div></div>
-              <div class="readout"><div class="k">Dust capture</div><div class="v">99.9<small> %</small></div></div>
+              <div class="readout"><div class="k">Cycle progress</div><div class="v"><span id="rCycle">0</span><small> %</small></div></div>
+              <div class="readout"><div class="k">Line state</div><div class="v v--status" id="rStatus">RUNNING</div></div>
+              <div class="readout"><div class="k" id="rSignalLabel">Process signal</div><div class="v v--signal" id="rSignal">STABLE</div></div>
+              <div class="readout"><div class="k">Interlocks</div><div class="v v--signal" id="rInterlocks">8 / 8 READY</div></div>
             </div>
+
+            <div class="telemetry">
+              <div class="telemetry__head">
+                <div>
+                  <span>REPRESENTATIVE TELEMETRY</span>
+                  <strong>Process response</strong>
+                </div>
+                <span class="telemetry__live"><i aria-hidden="true"></i> LIVE</span>
+              </div>
+              <canvas id="telemetryChart" width="520" height="184" aria-label="Representative chart of process load, material flow and extraction"></canvas>
+              <div class="telemetry__legend" aria-hidden="true">
+                <span><i class="line-blue"></i>Process load</span>
+                <span><i class="line-green"></i>Material flow</span>
+                <span><i class="line-amber"></i>Extraction</span>
+              </div>
+            </div>
+
+            <div class="system-health">
+              <div><span>Batch</span><b id="rBatch">#0001</b></div>
+              <div><span>Sequence</span><b id="rSequence">01 / 08</b></div>
+              <div><span>Dust extraction</span><b>LINKED</b></div>
+            </div>
+
             <div class="sys-panel__link" id="pLink"></div>
+            <p class="panel-disclosure">Demonstration telemetry is representative, not a commissioned plant performance record.</p>
           </div>
         </aside>
       </div>
@@ -1619,16 +1717,30 @@
   </section>
 
   <!-- How it works -->
-  <section class="section section--tint">
+  <section class="section process-proof">
     <div class="wrap">
-      <span class="eyebrow">How the system works</span>
-      <h2>Eleven steps, fully automatic</h2>
+      <div class="process-proof__intro">
+        <div>
+          <span class="eyebrow">How the system works</span>
+          <h2>One coordinated process. Eleven controlled actions.</h2>
+          <p class="lead">The visual twin explains the sequence. The engineered system coordinates machines, sensors, pneumatic valves and extraction as one line.</p>
+        </div>
+        <div class="process-assurance" aria-label="System assurance">
+          <span><i aria-hidden="true">01</i><b>Material movement</b><small>From intake to collection</small></span>
+          <span><i aria-hidden="true">02</i><b>Process control</b><small>Recipe-led sequencing</small></span>
+          <span><i aria-hidden="true">03</i><b>Dust containment</b><small>Linked transfer-point extraction</small></span>
+        </div>
+      </div>
       <ol class="steps-list" id="stepsList"></ol>
-      <h3 style="margin-top:2rem">The result</h3>
-      <div class="outcomes" id="outcomes"></div>
-      <div style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
-        <a class="btn btn--primary btn--lg" href="control-panel.html">Try the virtual control panel →</a>
-        <a class="btn btn--ghost btn--lg" href="machines.html">See every machine</a>
+      <div class="process-proof__result">
+        <div>
+          <span class="eyebrow">The operating outcome</span>
+          <div class="outcomes" id="outcomes"></div>
+        </div>
+        <div class="process-proof__actions">
+          <a class="btn btn--primary btn--lg" href="control-panel.html">Operate the virtual HMI</a>
+          <a class="btn btn--ghost btn--lg" href="machines.html">Inspect every machine</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1639,6 +1751,6 @@
 
   <script src="js/data.js?v=20260714d"></script>
   <script src="js/layout.js?v=20260714"></script>
-  <script src="js/system.js?v=20260713"></script>
+  <script src="js/system.js?v=20260724b"></script>
 </body>
 </html>
