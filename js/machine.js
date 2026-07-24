@@ -25,7 +25,7 @@
   if (CATALOG_CANON[m.id]) {
     let link = document.querySelector('link[rel="canonical"]');
     if (!link) { link = document.createElement("link"); link.rel = "canonical"; document.head.appendChild(link); }
-    link.href = "https://art-mechatronics-catalogue.personal-buildanta.chatgpt.site/" + CATALOG_CANON[m.id];
+    link.href = "https://artmechatronics.com/" + CATALOG_CANON[m.id];
   }
 
   const gallery = (m.gallery && m.gallery.length ? m.gallery : [m.image]);
