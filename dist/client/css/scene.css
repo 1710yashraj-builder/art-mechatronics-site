@@ -1,204 +1,456 @@
 /* =========================================================
-   ART Mechatronics — Live System "control room" scene
-   A dark, cinematic stage card sitting on the light page.
+   ART Mechatronics · control-room digital twin scene
    ========================================================= */
 
 :root {
-  --stage-0:   #0A0F1A;   /* deepest bg */
-  --stage-1:   #131A28;   /* mid bg */
-  --stage-2:   #1B2434;   /* raised surfaces */
-  --edge:      #3A4455;
-  --edge-hi:   #8FA0B5;
-  --stage-ink: #D7E2F0;
-  --stage-dim: #8494AA;
-
-  --flow-powder: #2FBF71;
-  --flow-air:    #38A3F1;
-  --flow-dust:   #A06CE4;
-  --flow-signal: #F5A524;
-  --art-blue:    #2E86E6;
+  --stage-0: #060b12;
+  --stage-1: #0d1725;
+  --stage-2: #152236;
+  --edge: #35465d;
+  --edge-hi: #91a2b8;
+  --stage-ink: #dce8f4;
+  --stage-dim: #8093aa;
+  --flow-powder: #47cf82;
+  --flow-air: #49a5ff;
+  --flow-dust: #d9a441;
+  --flow-signal: #8fa0b5;
+  --art-blue: #2e86e6;
 }
 
-/* ---------- the stage ---------- */
+/* ---------- viewport ---------- */
 .scene-stage {
+  --spot-x: 52%;
+  --spot-y: 38%;
   position: relative;
-  border-radius: var(--r-lg);
+  isolation: isolate;
+  min-height: 0;
   overflow: hidden;
-  padding: 0;
   background:
-    radial-gradient(120% 90% at 22% 8%, #1E2A3D 0%, transparent 58%),
-    radial-gradient(90% 80% at 88% 92%, #16202F 0%, transparent 60%),
-    linear-gradient(168deg, var(--stage-1) 0%, var(--stage-0) 100%);
-  border: 1px solid #232D3E;
+    radial-gradient(65% 54% at var(--spot-x) var(--spot-y), rgba(62, 101, 146, .17), transparent 74%),
+    linear-gradient(180deg, #101c2b 0%, #09121e 63%, #060b12 100%);
+  border: 1px solid #2a3d53;
+  border-radius: 7px;
   box-shadow:
-    0 30px 70px -24px rgba(5, 10, 20, .75),
-    inset 0 1px 0 rgba(255, 255, 255, .05);
+    0 26px 60px -30px rgba(0, 0, 0, .9),
+    inset 0 1px 0 rgba(255, 255, 255, .04);
 }
-
-/* faint engineering grid + vignette */
 .scene-stage::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background-image:
-    linear-gradient(rgba(143,160,181,.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(143,160,181,.055) 1px, transparent 1px);
+    linear-gradient(rgba(143, 160, 181, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 160, 181, .045) 1px, transparent 1px);
   background-size: 34px 34px;
-  mask-image: radial-gradient(85% 75% at 50% 45%, #000 40%, transparent 100%);
+  mask-image: linear-gradient(#000 0 71%, transparent 100%);
 }
 .scene-stage::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
-  background: radial-gradient(135% 115% at 50% 45%, transparent 70%, rgba(4,8,16,.34) 100%);
+  content: "";
+  position: absolute;
+  inset: 68% -15% -40%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(91, 114, 140, .075) 0 1px, transparent 1px 70px),
+    linear-gradient(180deg, rgba(82, 105, 133, .11), transparent 38%);
+  transform: perspective(520px) rotateX(58deg);
+  transform-origin: top;
+}
+.scene-stage svg.scene {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(.88) contrast(1.04) drop-shadow(0 18px 20px rgba(0, 0, 0, .24));
+}
+.scene-scan {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .36;
+  background:
+    linear-gradient(100deg, transparent 0 43%, rgba(116, 181, 247, .065) 48%, transparent 54%),
+    radial-gradient(38% 28% at var(--spot-x) var(--spot-y), rgba(149, 202, 255, .08), transparent);
+  transform: translateX(-32%);
+  animation: scene-scan 12s ease-in-out infinite alternate;
+}
+@keyframes scene-scan {
+  to { transform: translateX(32%); }
 }
 
-.scene-stage svg.scene { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
+/* ---------- scene HUD ---------- */
+.scene-status {
+  position: absolute;
+  z-index: 5;
+  top: .75rem;
+  display: grid;
+  gap: .08rem;
+  padding: .48rem .62rem;
+  pointer-events: none;
+  background: rgba(6, 13, 22, .78);
+  border: 1px solid rgba(118, 151, 188, .18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(7px);
+}
+.scene-status--left { left: .75rem; }
+.scene-status--right { right: .75rem; text-align: right; }
+.scene-status > span {
+  color: #5b7591;
+  font-family: var(--font-mono);
+  font-size: .51rem;
+  letter-spacing: .11em;
+}
+.scene-status > strong {
+  color: #dce9f6;
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  letter-spacing: .045em;
+}
+.scene-status--right strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .42rem;
+  color: #7fe3ac;
+}
+.scene-status--right strong i {
+  width: .38rem;
+  height: .38rem;
+  border-radius: 50%;
+  background: #34d27b;
+  box-shadow: 0 0 10px rgba(52, 210, 123, .7);
+}
 
-/* ---------- pipes & flow ---------- */
+/* ---------- steel pipework ---------- */
 .pipe {
   fill: none;
-  stroke: #5B6A82;
+  stroke: #53637a;
   stroke-width: 7;
   stroke-linecap: round;
   stroke-linejoin: round;
+  filter: drop-shadow(0 1px 0 rgba(202, 220, 240, .16)) drop-shadow(0 3px 3px rgba(0, 0, 0, .35));
 }
-.pipe-core {           /* inner bore, sells the tube */
+.pipe-core {
   fill: none;
-  stroke: #2B364A;
-  stroke-width: 3.4;
+  stroke: #253246;
+  stroke-width: 3.35;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* the flowing material: a soft glow layer + a bright core, both dashed & marching */
-.flow, .flow-glow {
+/* ---------- stage-aware material ---------- */
+.flow,
+.flow-glow {
   fill: none;
   stroke-linecap: round;
-  stroke-dasharray: 16 30;
-  animation: march 1.15s linear infinite;
+  stroke-dasharray: 11 32;
+  stroke-dashoffset: 0;
+  opacity: .035;
+  animation: material-march 1.25s linear infinite paused;
+  transition: opacity .45s var(--ease), filter .45s var(--ease);
 }
-.flow      { stroke-width: 3.2; opacity: .95; }
-.flow-glow { stroke-width: 9;   opacity: .30; filter: blur(4px); }
-
-.flow.powder, .flow-glow.powder { stroke: var(--flow-powder); }
-.flow.air,    .flow-glow.air    { stroke: var(--flow-air);   animation-duration: .85s; }
-.flow.dust,   .flow-glow.dust   { stroke: var(--flow-dust);  animation-duration: 1.7s; stroke-dasharray: 8 34; }
-
-@keyframes march { to { stroke-dashoffset: -46; } }
-
-/* control signal: dashed amber, slower, no glow */
+.flow { stroke-width: 2.5; }
+.flow-glow {
+  stroke-width: 8;
+  filter: blur(4px);
+}
+.flow.powder,
+.flow-glow.powder { stroke: var(--flow-powder); }
+.flow.air,
+.flow-glow.air {
+  stroke: var(--flow-air);
+  animation-duration: .9s;
+}
+.flow.dust,
+.flow-glow.dust {
+  stroke: var(--flow-dust);
+  stroke-dasharray: 7 35;
+  animation-duration: 1.85s;
+}
+.scene-stage.running .flow.active-flow,
+.scene-stage.running .flow-glow.active-flow {
+  animation-play-state: running;
+}
+.flow.active-flow { opacity: .9; }
+.flow-glow.active-flow { opacity: .24; }
+.flow.support-flow { opacity: .12; }
+.flow-glow.support-flow { opacity: .025; }
+@keyframes material-march {
+  to { stroke-dashoffset: -43; }
+}
 .signal {
-  fill: none; stroke: var(--flow-signal); stroke-width: 1.6;
-  stroke-dasharray: 5 7; opacity: .55;
-  animation: march 2.6s linear infinite;
+  fill: none;
+  stroke: var(--flow-signal);
+  stroke-width: 1.25;
+  stroke-dasharray: 4 9;
+  opacity: .18;
+  animation: signal-march 2.8s linear infinite paused;
+}
+.scene-stage.running .signal {
+  opacity: .42;
+  animation-play-state: running;
+}
+@keyframes signal-march {
+  to { stroke-dashoffset: -26; }
 }
 
-/* everything freezes when the line is paused */
-.scene-stage:not(.running) .flow,
-.scene-stage:not(.running) .flow-glow,
-.scene-stage:not(.running) .signal,
-.scene-stage:not(.running) .rotor,
-.scene-stage:not(.running) .screw,
-.scene-stage:not(.running) .shaker,
-.scene-stage:not(.running) .pulse,
-.scene-stage:not(.running) .led { animation-play-state: paused; }
+/* Small physical material markers, positioned by JS on active SVG paths. */
+.fx-particle {
+  pointer-events: none;
+  opacity: .94;
+  filter: drop-shadow(0 0 3px currentColor);
+}
+.fx-particle.powder { color: var(--flow-powder); fill: var(--flow-powder); }
+.fx-particle.air { color: var(--flow-air); fill: var(--flow-air); }
+.fx-particle.dust { color: var(--flow-dust); fill: var(--flow-dust); }
 
 /* ---------- machine behaviours ---------- */
-.rotor  { animation: spin 1.6s linear infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* a side-on helix reads as rotating when it travels exactly one pitch (48u) */
-.screw  { animation: screw 1.05s linear infinite; }
-@keyframes screw { to { transform: translateX(48px); } }
-
-.shaker { animation: shake .09s linear infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes shake {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(.7px, -.6px); }
-  50%  { transform: translate(0, .7px); }
-  75%  { transform: translate(-.7px, -.4px); }
-  100% { transform: translate(0, 0); }
+.rotor,
+.screw,
+.shaker,
+.pulse,
+.led {
+  animation-play-state: paused !important;
 }
-
-.pulse  { animation: jet 2.4s ease-in-out infinite; }
-@keyframes jet { 0%, 82%, 100% { opacity: .55; } 88% { opacity: 1; } }
-
-.led    { animation: blink 2.6s ease-in-out infinite; }
-@keyframes blink { 0%, 100% { opacity: 1; } 55% { opacity: .35; } }
-
-/* powder level inside vessels — the rect spans the full inner vessel and is
-   clipped to its shape; JS scales it from the bottom (0 = empty, 1 = full) */
+.rotor {
+  animation: rotor-spin 1.65s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes rotor-spin { to { transform: rotate(360deg); } }
+.screw { animation: screw-travel 1.15s linear infinite; }
+@keyframes screw-travel { to { transform: translateX(48px); } }
+.shaker {
+  animation: sieve-shake .1s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes sieve-shake {
+  25% { transform: translate(.65px, -.45px); }
+  50% { transform: translate(0, .65px); }
+  75% { transform: translate(-.65px, -.35px); }
+}
+.pulse { animation: dust-pulse 2.6s ease-in-out infinite; }
+@keyframes dust-pulse {
+  0%, 82%, 100% { opacity: .52; }
+  88% { opacity: 1; }
+}
+.led { animation: led-breathe 2.4s ease-in-out infinite; }
+@keyframes led-breathe {
+  50% { opacity: .42; }
+}
+.scene-stage.running .mnode.active .rotor,
+.scene-stage.running .mnode.active .screw,
+.scene-stage.running .mnode.active .shaker,
+.scene-stage.running .mnode.active .led,
+.scene-stage.running #node-dust .pulse {
+  animation-play-state: running !important;
+}
 .fill-level {
+  transform: scaleY(0);
   transform-box: fill-box;
   transform-origin: 50% 100%;
-  transform: scaleY(0);
-  transition: transform .55s var(--ease);
+  transition: transform 1.1s cubic-bezier(.22, .61, .36, 1);
   will-change: transform;
 }
 
-/* ---------- machine nodes & labels ---------- */
+/* ---------- machinery focus ---------- */
 .mnode { cursor: default; }
 .mnode.clickable { cursor: pointer; }
-/* a soft spotlight behind the active machine — never a hard selection box */
 .mnode .halo {
-  fill: var(--art-blue); stroke: none;
-  opacity: 0; transition: opacity .4s var(--ease);
-  filter: blur(18px);
+  fill: var(--art-blue);
+  stroke: none;
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity .5s var(--ease);
 }
-.mnode.active .halo { opacity: .30; }
-.mnode.clickable:hover .halo { opacity: .17; }
-.mnode.clickable:focus-visible .halo { opacity: .24; }
+.mnode.active .halo { opacity: .22; }
+.mnode.clickable:hover .halo { opacity: .14; }
 .mnode.clickable:focus-visible { outline: none; }
+.mnode.clickable:focus-visible .halo { opacity: .28; }
+.mnode .art {
+  transition: opacity .48s var(--ease), filter .48s var(--ease);
+}
+.scene-stage.focusing .mnode .art {
+  opacity: .64;
+  filter: saturate(.72) brightness(.84);
+}
+.scene-stage.focusing .mnode.active .art,
+.scene-stage.focusing #node-dust.utility-online .art {
+  opacity: 1;
+  filter: saturate(.95) brightness(1.03) drop-shadow(0 7px 9px rgba(0, 0, 0, .32));
+}
+.scene-stage:not(.running) .mnode .art {
+  opacity: .72;
+}
 
-/* dim the machines that aren't the active stage (gently — they must stay legible) */
-.mnode .art { transition: opacity .4s var(--ease); }
-.scene-stage.focusing .mnode .art { opacity: .80; }
-.scene-stage.focusing .mnode.active .art { opacity: 1; }
-
-/* sized in viewBox units: the scene scales to ~0.58×, so 18u ≈ 10.5px on screen */
+/* ---------- SVG labels ---------- */
 .mlabel {
-  font: 700 18px/1 var(--font, system-ui, sans-serif);
   fill: var(--stage-ink);
-  letter-spacing: .02em;
+  font: 700 18px/1 var(--font, system-ui, sans-serif);
+  letter-spacing: .015em;
   text-anchor: middle;
   paint-order: stroke;
-  stroke: rgba(6,11,20,.9);
-  stroke-width: 4px;
+  stroke: rgba(4, 9, 16, .96);
   stroke-linejoin: round;
+  stroke-width: 4px;
 }
 .msub {
+  fill: var(--stage-dim);
   font: 500 12.5px/1 var(--font, system-ui, sans-serif);
-  fill: var(--stage-dim); text-anchor: middle;
-  paint-order: stroke; stroke: rgba(6,11,20,.9); stroke-width: 3px; stroke-linejoin: round;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(4, 9, 16, .95);
+  stroke-linejoin: round;
+  stroke-width: 3px;
 }
 .mnode.active .mlabel { fill: #fff; }
+.hmi-live {
+  fill: #7fe3ac;
+  font: 700 10.5px/1 var(--font-mono, monospace);
+  letter-spacing: .02em;
+}
+.hmi-dim {
+  fill: #6b819a;
+  font: 600 7.2px/1 var(--font-mono, monospace);
+  letter-spacing: .08em;
+}
 
-/* ---------- glass HMI readout overlaid on the panel ---------- */
-.hmi-live { font: 700 10.5px/1 var(--font, system-ui, sans-serif); fill: #7FE3AC; letter-spacing: .02em; }
-.hmi-dim  { font: 600 7.2px/1 var(--font, system-ui, sans-serif);  fill: #6B819A; letter-spacing: .08em; }
-
-/* ---------- legend / controls on the dark stage ---------- */
+/* ---------- legend and contextual probe ---------- */
 .scene-legend {
-  position: absolute; z-index: 4; right: 1rem; bottom: 1rem;
-  display: flex; flex-wrap: wrap; gap: .35rem .9rem; max-width: 44%;
-  padding: .6rem .85rem;
-  background: rgba(12, 18, 30, .72);
-  border: 1px solid rgba(143,160,181,.16);
-  border-radius: 10px;
+  position: absolute;
+  z-index: 5;
+  right: .75rem;
+  bottom: .75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem .75rem;
+  max-width: 54%;
+  padding: .48rem .62rem;
+  background: rgba(6, 13, 22, .76);
+  border: 1px solid rgba(118, 151, 188, .16);
+  backdrop-filter: blur(7px);
+}
+.scene-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: .32rem;
+  color: #71869e;
+  font-family: var(--font-mono);
+  font-size: .54rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.scene-legend i {
+  width: .38rem;
+  height: .38rem;
+  border-radius: 50%;
+  color: inherit;
+}
+.machine-probe {
+  position: absolute;
+  z-index: 7;
+  left: .75rem;
+  bottom: .75rem;
+  max-width: 280px;
+  padding: .5rem .62rem;
+  color: #bdd1e5;
+  background: rgba(5, 12, 20, .88);
+  border: 1px solid #29425d;
+  font-family: var(--font-mono);
+  font-size: .59rem;
+  pointer-events: none;
+}
+.machine-probe b {
+  display: block;
+  color: #fff;
+  font-family: var(--font);
+  font-size: .7rem;
+}
+
+/* ---------- narrated caption ---------- */
+.narr-caption {
+  position: absolute;
+  z-index: 8;
+  left: 1rem;
+  right: 1rem;
+  bottom: 3.9rem;
+  padding: .72rem 1rem;
+  color: #eaf4ff;
+  background: rgba(7, 22, 38, .94);
+  border: 1px solid rgba(105, 171, 238, .28);
+  border-radius: 5px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .34);
+  font-size: clamp(.78rem, .72rem + .2vw, .95rem);
+  line-height: 1.45;
+  text-align: center;
   backdrop-filter: blur(8px);
+  animation: caption-in .32s var(--ease);
 }
-.scene-legend span { display: inline-flex; align-items: center; gap: .4rem; font-size: .68rem; font-weight: 600; color: var(--stage-dim); letter-spacing: .03em; }
-.scene-legend i { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 8px currentColor; background: currentColor; }
-
-/* subtitle bar sits above the legend on the dark stage */
-.scene-stage .narr-caption { bottom: 4.6rem; }
-
-@media (max-width: 700px) {
-  .scene-legend { position: static; margin: .75rem; backdrop-filter: none; }
-  .scene-stage .narr-caption { bottom: 1rem; }
+.narr-caption::before {
+  content: "AUDIO / ";
+  color: #6da9e7;
+  font-family: var(--font-mono);
+  font-size: .58rem;
+  letter-spacing: .08em;
+}
+@keyframes caption-in {
+  from { opacity: 0; transform: translateY(6px); }
 }
 
-/* ---------- reduced motion ---------- */
+/* ---------- state changes ---------- */
+.scene-stage:not(.running) .scene-status--right strong {
+  color: #d9a441;
+}
+.scene-stage:not(.running) .scene-status--right strong i {
+  background: #d9a441;
+  box-shadow: 0 0 9px rgba(217, 164, 65, .58);
+}
+.scene-stage:not(.running) .scene-scan {
+  animation-play-state: paused;
+  opacity: .18;
+}
+
+@media (max-width: 720px) {
+  .scene-status { position: sticky; width: max-content; }
+  .scene-status--left { left: .5rem; }
+  .scene-legend {
+    position: sticky;
+    left: .5rem;
+    right: auto;
+    bottom: .5rem;
+    width: max-content;
+    max-width: none;
+  }
+  .narr-caption {
+    position: sticky;
+    left: .5rem;
+    bottom: .5rem;
+    width: calc(100vw - 2rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .flow, .flow-glow, .signal, .rotor, .screw, .shaker, .pulse, .led { animation: none; }
-  .flow, .flow-glow { stroke-dasharray: none; opacity: .55; }
-  .fill-level { transition: none; }
-  .scene-stage.focusing .mnode .art { opacity: 1; }
+  .flow,
+  .flow-glow,
+  .signal,
+  .rotor,
+  .screw,
+  .shaker,
+  .pulse,
+  .led,
+  .scene-scan {
+    animation: none !important;
+  }
+  .flow.active-flow { opacity: .62; stroke-dasharray: none; }
+  .flow-glow.active-flow { opacity: .1; stroke-dasharray: none; }
+  .fill-level,
+  .mnode .halo,
+  .mnode .art { transition: none; }
+  .scene-stage.focusing .mnode .art { opacity: .85; filter: none; }
+  .scene-stage.focusing .mnode.active .art { opacity: 1; }
 }
