@@ -18,7 +18,7 @@
   if (grid) {
     const featured = ["storage-silos", "ribbon-mixer", "control-panel", "dust-collector"];
     grid.innerHTML = featured.map(id => ART.machines.find(m => m.id === id)).filter(Boolean).map(m => {
-      const href = `machine.html?id=${m.id}`;
+      const href = `machine?id=${m.id}`;
       return `
       <article class="card hmcard reveal">
         <a class="hmcard__img" href="${href}" aria-label="${m.name}"><img src="${m.image}" alt="${m.name}" loading="lazy"></a>

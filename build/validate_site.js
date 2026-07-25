@@ -47,6 +47,18 @@ function resolveLocal(fromFile, reference) {
   else if (pathOnly.startsWith("/")) target = path.join(ROOT, pathOnly.replace(/^\/+/, ""));
   else target = path.resolve(path.dirname(fromFile), decodeURIComponent(pathOnly));
   if (target.endsWith(path.sep)) target = path.join(target, "index.html");
+  // Public URLs are extensionless because Cloudflare Pages serves foo.html at
+  // /foo (and 308s the .html form). On disk the file still ends in .html, so a
+  // link to "products/x" must resolve to "products/x.html"; "./" means index.
+  if (!fs.existsSync(target)) {
+    if (target.endsWith(`${path.sep}.`)) {
+      const asIndex = path.join(path.dirname(target), "index.html");
+      if (fs.existsSync(asIndex)) return { target: asIndex, hash };
+    }
+    if (!path.extname(target) && fs.existsSync(`${target}.html`)) {
+      return { target: `${target}.html`, hash };
+    }
+  }
   return { target, hash };
 }
 

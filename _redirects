@@ -1,2 +1,176 @@
-https://www.artmechatronics.com/* https://artmechatronics.com/:splat 301!
-http://www.artmechatronics.com/* https://artmechatronics.com/:splat 301!
+# ART Mechatronics — redirects for Cloudflare Pages
+#
+# NOTE: Cloudflare Pages _redirects matches on PATH ONLY — it cannot match a
+# hostname. The www -> apex redirect is therefore NOT here; it is a Cloudflare
+# Redirect Rule on the zone (see DNS-AND-GO-LIVE.md). Netlify-style host rules
+# were removed because they silently do nothing on Pages.
+#
+# Old WordPress site -> new site. Light map by design: the old install was an
+# abandoned, unfinished theme with no sitemap and near-zero earned rankings, so
+# only core pages, real industry matches and money pages get 1:1 rules. Section
+# wildcards catch the rest so nothing dead-ends. Widen only if Search Console
+# shows an old URL actually earning traffic.
+#
+# First match wins - specific rules MUST stay above the wildcards.
+
+
+# --- core ---
+/about-us  /about  301
+/about-us/  /about  301
+/blog  /  301
+/blog/  /  301
+/career  /contact  301
+/career/  /contact  301
+/channel-partner  /contact  301
+/channel-partner/  /contact  301
+/contact-us  /contact  301
+/contact-us/  /contact  301
+/industry  /industries  301
+/industry/  /industries  301
+/manufacturing  /catalog  301
+/manufacturing/  /catalog  301
+/news-media  /  301
+/news-media/  /  301
+/privacy-policy  /  301
+/privacy-policy/  /  301
+/products  /catalog  301
+/products/  /catalog  301
+/project-installations  /system  301
+/project-installations/  /system  301
+/services  /catalog  301
+/services/  /catalog  301
+
+# --- money page ---
+/manufacturing-cat/flash-dryer  /products/flash-dryer  301
+/manufacturing-cat/flash-dryer/  /products/flash-dryer  301
+/manufacturing-cat/freeze-dryer  /products/freeze-dryer  301
+/manufacturing-cat/freeze-dryer/  /products/freeze-dryer  301
+/manufacturing-cat/plan-sifter  /products/plan-sifter  301
+/manufacturing-cat/plan-sifter/  /products/plan-sifter  301
+/manufacturing-cat/screener  /products/screener  301
+/manufacturing-cat/screener/  /products/screener  301
+/manufacturing-cat/siever  /products/siever  301
+/manufacturing-cat/siever/  /products/siever  301
+/manufacturing-cat/sifter  /products/sifter  301
+/manufacturing-cat/sifter/  /products/sifter  301
+/manufacturing-cat/spray-dryer  /products/spray-dryer  301
+/manufacturing-cat/spray-dryer/  /products/spray-dryer  301
+
+# --- industry ---
+/industry-cat/almond  /industries/almond  301
+/industry-cat/almond/  /industries/almond  301
+/industry-cat/arecanut  /industries/areca-nut  301
+/industry-cat/arecanut/  /industries/areca-nut  301
+/industry-cat/betelnut  /industries/betel-nut  301
+/industry-cat/betelnut/  /industries/betel-nut  301
+/industry-cat/cake  /industries/cake  301
+/industry-cat/cake/  /industries/cake  301
+/industry-cat/chemical  /industries/chemical  301
+/industry-cat/chemical/  /industries/chemical  301
+/industry-cat/chocolate  /industries/chocolate  301
+/industry-cat/chocolate/  /industries/chocolate  301
+/industry-cat/cigar  /industries/cigar  301
+/industry-cat/cigar/  /industries/cigar  301
+/industry-cat/cigarette  /industries/cigarette  301
+/industry-cat/cigarette/  /industries/cigarette  301
+/industry-cat/coconut  /industries/coco-nut  301
+/industry-cat/coconut/  /industries/coco-nut  301
+/industry-cat/coffee  /industries/coffee  301
+/industry-cat/coffee/  /industries/coffee  301
+/industry-cat/dates  /industries/dates  301
+/industry-cat/dates/  /industries/dates  301
+/industry-cat/dokha  /industries/dokha  301
+/industry-cat/dokha/  /industries/dokha  301
+/industry-cat/foxnut  /industries/fox-nut  301
+/industry-cat/foxnut/  /industries/fox-nut  301
+/industry-cat/honey  /industries/honey  301
+/industry-cat/honey/  /industries/honey  301
+/industry-cat/ink  /industries/ink  301
+/industry-cat/ink/  /industries/ink  301
+/industry-cat/instant-noodle  /industries/instant-noodle  301
+/industry-cat/instant-noodle/  /industries/instant-noodle  301
+/industry-cat/milk-powder  /industries/milk-powder  301
+/industry-cat/milk-powder/  /industries/milk-powder  301
+/industry-cat/noodle  /industries/noodle  301
+/industry-cat/noodle/  /industries/noodle  301
+/industry-cat/paint  /industries/paint  301
+/industry-cat/paint/  /industries/paint  301
+/industry-cat/pan-masala  /industries/pan-masala  301
+/industry-cat/pan-masala/  /industries/pan-masala  301
+/industry-cat/pasta  /industries/pasta  301
+/industry-cat/pasta/  /industries/pasta  301
+/industry-cat/peanut-butter  /industries/peanut-butter  301
+/industry-cat/peanut-butter/  /industries/peanut-butter  301
+/industry-cat/pigment-powder  /industries/pigment-powder  301
+/industry-cat/pigment-powder/  /industries/pigment-powder  301
+/industry-cat/pistachio  /industries/pistachio  301
+/industry-cat/pistachio/  /industries/pistachio  301
+/industry-cat/plastic  /industries/plastic  301
+/industry-cat/plastic/  /industries/plastic  301
+/industry-cat/plastic-recycling  /industries/plastic-recycling  301
+/industry-cat/plastic-recycling/  /industries/plastic-recycling  301
+/industry-cat/popcorn  /industries/popcorn  301
+/industry-cat/popcorn/  /industries/popcorn  301
+/industry-cat/premix-powder  /industries/premix-powder  301
+/industry-cat/premix-powder/  /industries/premix-powder  301
+/industry-cat/rice  /industries/rice  301
+/industry-cat/rice/  /industries/rice  301
+/industry-cat/seasoning  /industries/seasoning  301
+/industry-cat/seasoning/  /industries/seasoning  301
+/industry-cat/spices  /industries/spices  301
+/industry-cat/spices/  /industries/spices  301
+/industry-cat/supari  /industries/supari  301
+/industry-cat/supari/  /industries/supari  301
+/industry-cat/sweet-supari  /industries/sweet-supari  301
+/industry-cat/sweet-supari/  /industries/sweet-supari  301
+/industry-cat/syrup  /industries/syrup  301
+/industry-cat/syrup/  /industries/syrup  301
+/industry-cat/tea  /industries/tea  301
+/industry-cat/tea/  /industries/tea  301
+/industry-cat/tobacco-powder  /industries/tobacco-powder  301
+/industry-cat/tobacco-powder/  /industries/tobacco-powder  301
+/industry-cat/walnut  /industries/wal-nut  301
+/industry-cat/walnut/  /industries/wal-nut  301
+/industry/betelnut  /industries/betel-nut  301
+/industry/betelnut/  /industries/betel-nut  301
+/industry/chemical  /industries/chemical  301
+/industry/chemical/  /industries/chemical  301
+/industry/construction  /industries/construction  301
+/industry/construction/  /industries/construction  301
+/industry/dairy  /industries/dairy  301
+/industry/dairy/  /industries/dairy  301
+/industry/food-processing  /industries/food-processing  301
+/industry/food-processing/  /industries/food-processing  301
+/industry/grains  /industries/grains  301
+/industry/grains/  /industries/grains  301
+/industry/hospitality  /industries/hospitality  301
+/industry/hospitality/  /industries/hospitality  301
+/industry/mouth-freshner  /industries/mouth-freshner  301
+/industry/mouth-freshner/  /industries/mouth-freshner  301
+/industry/packaging  /industries/packaging  301
+/industry/packaging/  /industries/packaging  301
+/industry/paint  /industries/paint  301
+/industry/paint/  /industries/paint  301
+/industry/pasta  /industries/pasta  301
+/industry/pasta/  /industries/pasta  301
+/industry/pellet  /industries/pellet  301
+/industry/pellet/  /industries/pellet  301
+/industry/pharmaceutical  /industries/pharmaceutical  301
+/industry/pharmaceutical/  /industries/pharmaceutical  301
+/industry/plastic  /industries/plastic  301
+/industry/plastic/  /industries/plastic  301
+/industry/pulses  /industries/pulses  301
+/industry/pulses/  /industries/pulses  301
+/industry/seeds  /industries/seeds  301
+/industry/seeds/  /industries/seeds  301
+
+# --- section wildcards (catch every remaining old URL) ---
+# Deliberately NO /products/* rule: the new site owns /products/<slug>.html and
+# a wildcard there would hijack real pages. Old /products/*.html were 404s anyway.
+/manufacturing-cat/*  /catalog  301
+/industry-cat/*  /industries  301
+/industry/*  /industries  301
+/services/*  /catalog  301
+/blog/*  /  301
+/news-media/*  /  301
+

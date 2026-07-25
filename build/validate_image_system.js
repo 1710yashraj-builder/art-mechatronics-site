@@ -415,8 +415,11 @@ function validateV3GeneratedHtml(manifest) {
       `products/${entry.slug}.html representative caption does not match disclosure ${String(entry.disclosure)}`,
     );
 
-    const href = `href="products/${entry.slug}.html"`;
-    const hrefAt = catalog.indexOf(href);
+    // Public URLs are extensionless (Cloudflare Pages serves foo.html at /foo),
+    // but accept the .html form too so this check survives either URL shape.
+    const href = `href="products/${entry.slug}"`;
+    let hrefAt = catalog.indexOf(href);
+    if (hrefAt < 0) hrefAt = catalog.indexOf(`href="products/${entry.slug}.html"`);
     expect(hrefAt >= 0, "V3 generated HTML", `catalog.html has no card for v3 product ${entry.slug}`);
     if (hrefAt < 0) continue;
     const cardStart = catalog.lastIndexOf('<a class="cat-card ', hrefAt);

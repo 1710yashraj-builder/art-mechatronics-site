@@ -119,8 +119,8 @@
       </div>
 
       <nav class="md-nav" aria-label="Machine navigation">
-        <a class="prev" href="machine.html?id=${prev.id}"><span class="dir">← Previous</span><span class="nm">${prev.name}</span></a>
-        <a class="next" href="machine.html?id=${next.id}"><span class="dir">Next →</span><span class="nm">${next.name}</span></a>
+        <a class="prev" href="machine?id=${prev.id}"><span class="dir">← Previous</span><span class="nm">${prev.name}</span></a>
+        <a class="next" href="machine?id=${next.id}"><span class="dir">Next →</span><span class="nm">${next.name}</span></a>
       </nav>
     </div>
   </section>`;

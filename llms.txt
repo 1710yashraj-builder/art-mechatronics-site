@@ -1,0 +1,94 @@
+# ART Mechatronics
+
+> Manufacturer of industrial processing, packaging, material-handling and dust-collection
+> machinery — single machines through to complete PLC-controlled turnkey lines. Based in
+> India, serving India, the UAE and Thailand. Next-generation automation backed by
+> Thermocare manufacturing experience since 1997.
+
+ART Mechatronics designs, manufactures, installs and commissions equipment for food
+processing, spices and seasoning, pan masala and mouth freshener, pharmaceuticals,
+chemicals, agro processing, plastics and allied industries. Machines are
+custom-engineered to the customer's product, capacity and plant layout rather than
+sold from a fixed catalogue.
+
+Contact: info@artmechatronics.com · India +91 80903 15151 · UAE +971 50 216 7151 ·
+Thailand +66 838291089
+
+Note on imagery: product photographs on this site are disclosed representative
+renders, not photographs of the specific unit supplied. Specifications are engineered
+per order — confirm capacities and materials with the company directly.
+
+## Core pages
+
+- [Home](https://artmechatronics.com/): Company overview and flagship automation line
+- [About ART Mechatronics](https://artmechatronics.com/about): Company background and manufacturing heritage
+- [Machine catalogue](https://artmechatronics.com/catalog): Full searchable catalogue of machines
+- [Industries served](https://artmechatronics.com/industries): Industry-by-industry equipment guides
+- [Flagship line](https://artmechatronics.com/machines): The integrated powder processing line
+- [Live system demo](https://artmechatronics.com/system): Stage-by-stage walkthrough of an automatic powder line
+- [Virtual PLC control panel](https://artmechatronics.com/control-panel): Interactive simulation of the centralised control panel
+- [Contact](https://artmechatronics.com/contact): Enquiry form, WhatsApp and regional phone numbers
+
+## Machines
+
+- [Band Sealer](https://artmechatronics.com/products/band-sealer): High-speed band sealer machine for continuous pouch sealing applications. Industrial continuous band sealing m
+- [Sealing](https://artmechatronics.com/products/sealing): High-performance can, jar and box sealing machine for automatic container sealing applications. Industrial sea
+- [Pouch Sealing](https://artmechatronics.com/products/pouch-sealing): High-performance pouch sealing machine for automatic pouch sealing and packaging applications. Industrial pouc
+- [L Sealer](https://artmechatronics.com/products/l-sealer): High-speed L sealer machine for automatic shrink wrapping and sealing applications. Industrial L sealing machi
+- [Web Sealer](https://artmechatronics.com/products/web-sealer): High-speed web sealer machine for automatic sealing and shrink wrapping applications. Industrial web sealing m
+- [Center Seal](https://artmechatronics.com/products/center-seal): High-speed center seal packing machine for automatic pouch forming, filling and sealing applications. Industri
+- [3 Side Seal](https://artmechatronics.com/products/3-side-seal): High-speed 3 side seal packing machine for automatic sachet and pouch packaging applications. Industrial three
+- [4 Side Seal](https://artmechatronics.com/products/4-side-seal): High-speed 4 side seal packing machine for automatic sachet and pouch packaging applications. Industrial four
+- [Vacuum](https://artmechatronics.com/products/vacuum): High-performance vacuum packing machine for airtight vacuum packaging applications. Industrial vacuum packagin
+- [Heat Shrink Tunnel](https://artmechatronics.com/products/heat-shrink-tunnel): High-performance heat shrink tunnel machine for automatic shrink wrapping applications. Industrial shrink tunn
+- [L Sealer With Heat Shrink Tunnel](https://artmechatronics.com/products/l-sealer-with-heat-shrink-tunnel): High-performance automatic sealer with heat shrink tunnel machine for bottles, jars and containers. Industrial
+- [Stretch Wrapping](https://artmechatronics.com/products/stretch-wrapping): High-performance stretch film wrapping machine for sacks and bags for automatic pallet wrapping and load secur
+- [Flow Wrap](https://artmechatronics.com/products/flow-wrap): High-speed flow wrap packing machine for automatic pillow pack and flow wrap packaging applications. Industria
+- [Overwrapping](https://artmechatronics.com/products/overwrapping): High-performance overwrapping machine for automatic unit carton wrapping applications. Industrial overwrapping
+- [Impact Pulverizer Machine](https://artmechatronics.com/products/impact-pulverizer-machine): High-efficiency impact pulverizer machine for fine grinding of spices, chemicals, minerals and food products
+- [Micro Pulverizer Machine](https://artmechatronics.com/products/micro-pulverizer-machine): High-efficiency micro pulverizer machine for ultra fine grinding of spices, chemicals, pharma powders and mine
+- [Pulverizer With Dust Collector](https://artmechatronics.com/products/pulverizer-with-dust-collector): High-performance pulverizer with dust collector for clean and efficient grinding. Complete system with cyclone
+- [Ribbon Mixer](https://artmechatronics.com/products/ribbon-mixer): High-performance ribbon blender machine for mixing powders, granules and dry materials. Industrial ribbon mixe
+- [Pouch](https://artmechatronics.com/products/pouch): High-performance pouch packaging machine for automatic pouch filling and sealing applications. Industrial pouc
+- [Pouch Filling](https://artmechatronics.com/products/pouch-filling): High-speed pouch filling machine for automatic pouch filling and sealing applications. Industrial pouch packag
+- [Premade Pouch](https://artmechatronics.com/products/premade-pouch): High-speed premade pouch packing machine for automatic pouch filling and sealing applications. Industrial prem
+- [Standup Pouch](https://artmechatronics.com/products/standup-pouch): High-performance stand up pouch packaging machine for automatic filling and sealing of stand-up pouches. Indus
+- [Doypack](https://artmechatronics.com/products/doypack): High-performance Doypack packaging machine for automatic filling and sealing of stand-up pouches and Doypack b
+- [Zip Lock/ Zipper Pouch](https://artmechatronics.com/products/zip-lock-zipper-pouch): High-performance zip lock and zipper pouch packaging machine for automatic filling and sealing of resealable p
+- [Retort Pouch](https://artmechatronics.com/products/retort-pouch): High-performance retort pouch packing machine for heat-resistant airtight food packaging applications. Industr
+- [Vibro](https://artmechatronics.com/products/vibro): High-performance vibro machine for screening, grading, sieving and separation of powders, granules and bulk ma
+- [Sifter](https://artmechatronics.com/products/sifter): High-performance sifter machine for screening, grading and separation of powders, granules and bulk materials
+- [Siever](https://artmechatronics.com/products/siever): High-performance siever machine for screening, grading and separation of powders, granules and bulk materials
+- [Plan Sifter](https://artmechatronics.com/products/plan-sifter): High-performance plan sifter machine for grading, sifting and classification of flour, powders and granular ma
+- [Screener](https://artmechatronics.com/products/screener): High-performance screener machine for screening, grading and separation of powders, granules and bulk material
+- [Auger Filler](https://artmechatronics.com/products/auger-filler): High-precision auger filler packing machine for automatic powder filling and pouch packaging applications. Ind
+- [Servo Auger Filling](https://artmechatronics.com/products/servo-auger-filling): High-performance servo auger filling machine for cans and jars for automatic powder filling applications. Indu
+- [Multi Head Weigher](https://artmechatronics.com/products/multi-head-weigher): High-speed multi head weigher packing machine for accurate automatic weighing and packaging applications. Indu
+- [Cup Filler](https://artmechatronics.com/products/cup-filler): High-speed cup filler packing machine for accurate volumetric filling and automatic pouch packaging applicatio
+- [Spray Dryer](https://artmechatronics.com/products/spray-dryer): High-performance spray dryer machine for converting liquid into fine powder. Ideal for milk powder, coffee, ph
+- [Tray Dryer, Tray Oven](https://artmechatronics.com/products/tray-dryer-tray-oven): High-efficiency tray dryer machine for uniform drying of food, pharma and chemical products. Industrial hot ai
+- [Rotary Dryer, Drum Dryer](https://artmechatronics.com/products/rotary-dryer-drum-dryer): High-performance rotary dryer machine for continuous drying of minerals, biomass, chemicals and agro materials
+- [Fluidized Bed Dryer – Fbd](https://artmechatronics.com/products/fluidized-bed-dryer-fbd): High-efficiency fluidized bed dryer (FBD) for uniform drying of powders and granules. Ideal for pharma, food
+- [Flash Dryer](https://artmechatronics.com/products/flash-dryer): High-efficiency flash dryer machine for rapid drying of powders and fine materials. Industrial pneumatic dryin
+- [Freeze Dryer](https://artmechatronics.com/products/freeze-dryer): High-performance freeze dryer machine for fruits, vegetables, coffee, pharmaceuticals, herbs and food products
+- [Checkweigher With Printer](https://artmechatronics.com/products/checkweigher-with-printer): High-performance checkweigher with printer machine for mono cartons and master cartons. Automatic carton weigh
+- [Form Fill Seal (Ffs)](https://artmechatronics.com/products/form-fill-seal): High-speed form fill seal packing machine for automatic pouch forming, filling and sealing applications. Indus
+- [Vertical Form Fill Seal (Vffs)](https://artmechatronics.com/products/vertical-form-fill-seal): High-speed Vertical Form Fill Seal (VFFS) packing machine for automatic pouch forming, filling and sealing app
+- [Horizontal Form Fill Seal (Hffs)](https://artmechatronics.com/products/horizontal-form-fill-seal): High-speed Horizontal Form Fill Seal (HFFS) packing machine for automatic flow wrap and pouch packaging applic
+## Industries
+
+- [Green Tea & Flavoured Tea](https://artmechatronics.com/industries/green-tea-and-flavoured-tea)
+- [Construction - (Cement, Rmc, Mortar, Sand, Stone, Interlock Paver, Marble, Granite, Ceramic, Tile, Fly Ash, Gypsum, Mineral)](https://artmechatronics.com/industries/construction)
+- [Food Processing – (Packed, Frozen, Instant, Ready To Eat)](https://artmechatronics.com/industries/food-processing)
+- [Cosmetic – (Facewash, Bodywash, Shampoo, Cream, Lotion)](https://artmechatronics.com/industries/cosmetic)
+- [Pickle & Chutney](https://artmechatronics.com/industries/pickle-and-chutney)
+- [Premix Powder](https://artmechatronics.com/industries/premix-powder)
+- [Perfume & Essential Oil](https://artmechatronics.com/industries/perfume-and-essential-oil)
+- [Soap & Detergent](https://artmechatronics.com/industries/soap-and-detergent)
+- [Spread, Dips & Dressing](https://artmechatronics.com/industries/spread-dips-and-dressing)
+- [Iron & Steel – (Fabrication, Foundries, Casting, Shot & Sand Blast, Metal, Alumunium)](https://artmechatronics.com/industries/iron-and-steel)
+- [Plastic](https://artmechatronics.com/industries/plastic)
+- [Pharmaceutical – (Medicine, Tablet, Syrup, Neutraceutical, Supplement, Protein Powder, Herbs)](https://artmechatronics.com/industries/pharmaceutical)
+## Optional
+
+- [Sitemap](https://artmechatronics.com/sitemap.xml): Machine-readable index of indexable pages

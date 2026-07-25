@@ -1,3 +1,6 @@
 .DS_Store
 build/__pycache__/
 dist/
+
+# wrangler local cache (account id / deploy cache) — never commit
+.wrangler/

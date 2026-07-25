@@ -69,6 +69,100 @@ const attr = (s = "") => esc(s).replace(/'/g, "&#39;");
 const firstPara = (t = "") => (t.split("\n").find((l) => l.trim()) || "").trim();
 const clip = (s, n) => (s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…" : s);
 
+/* The client's source docs paste tick-lists into a single paragraph
+   ("used for: ✔ a ✔ b ✔ c"). Rendered as prose that reads as a wall and is
+   invisible to answer engines, which favour real lists. Split it back apart. */
+function checkRun(text) {
+  const marks = (text.match(/[✔✓]/g) || []).length;
+  if (marks < 2) return null;
+  const parts = text.split(/\s*[✔✓]\s*/).map((s) => s.trim()).filter(Boolean);
+  if (parts.length < 3) return null;
+  const startsWithMark = /^\s*[✔✓]/.test(text);
+  return { leadIn: startsWithMark ? "" : parts[0], items: startsWithMark ? parts : parts.slice(1) };
+}
+
+/* Paragraph renderer that promotes a pasted tick-run to a real <ul>. */
+function proseP(text, cls) {
+  const run = checkRun(text);
+  const open = cls ? `<p class="${cls}">` : "<p>";
+  if (!run) return `${open}${esc(text)}</p>`;
+  const intro = run.leadIn ? `${open}${esc(run.leadIn)}</p>` : "";
+  return `${intro}<ul class="checks">${run.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`;
+}
+
+/* Visible body copy must never end mid-sentence. Drop any tick-run tail, then
+   cut on a sentence boundary — the "…" clip is fine for meta, not for the page. */
+function leadText(raw, max = 320) {
+  const stripped = String(raw).replace(/\s*[✔✓].*$/s, "").trim();
+  const base = stripped.length > 40 ? stripped : String(raw).trim();
+  if (base.length <= max) return base;
+  const sentences = base.match(/[^.!?]+[.!?]+(?:\s|$)/g);
+  if (!sentences || !sentences.length) return base;  // no punctuation: leave copy alone
+  let out = "";
+  for (const s of sentences) {
+    if (out && (out + s).trim().length > max) break;
+    out += s;
+  }
+  // A first sentence longer than max is kept whole — an over-long lead reads far
+  // better than one that stops mid-clause.
+  return (out.trim() || sentences[0].trim());
+}
+
+/* Index focus (notebook 2026-07-16 + 07-17): every product image is a disclosed
+   RECONSTRUCTED render, and a brand-new domain should not ask Google to swallow
+   315 near-template pages at once. These are the pages mapped to the measured
+   Ahrefs demand (UAE commercial terms + Thai bag-sealing cluster); they stay
+   indexable and everything else ships noindex,follow until real photos land.
+   Widening the launch = add slugs here, regenerate, resubmit the sitemap. */
+const KEYWORD_PAGES = new Set([
+  "band-sealer", "sealing", "pouch-sealing", "l-sealer", "web-sealer",
+  "center-seal", "3-side-seal", "4-side-seal",
+  "vacuum",
+  "heat-shrink-tunnel", "l-sealer-with-heat-shrink-tunnel", "stretch-wrapping",
+  "flow-wrap", "overwrapping",
+  "impact-pulverizer-machine", "micro-pulverizer-machine", "pulverizer-with-dust-collector",
+  "ribbon-mixer",
+  "pouch", "pouch-filling", "premade-pouch", "standup-pouch", "doypack",
+  "zip-lock-zipper-pouch", "retort-pouch",
+  "vibro", "sifter", "siever", "plan-sifter", "screener",
+  "auger-filler", "servo-auger-filling", "multi-head-weigher", "cup-filler",
+  "spray-dryer", "tray-dryer-tray-oven", "rotary-dryer-drum-dryer",
+  "fluidized-bed-dryer-fbd", "flash-dryer", "freeze-dryer",
+  "checkweigher-with-printer",
+  "form-fill-seal", "vertical-form-fill-seal", "horizontal-form-fill-seal",
+]);
+const productIndexable = (slug) => KEYWORD_PAGES.has(slug);
+
+/* ---- public URL shape ----
+   Cloudflare Pages serves foo.html at /foo and 308-redirects the .html form.
+   If we advertise .html URLs, every canonical, sitemap entry and internal link
+   points at a redirect — Google is told the canonical URL is one that moves.
+   So every URL we EMIT is extensionless, while the files on disk stay *.html.
+   pubPath: "products/x.html" -> "products/x", "index.html" -> "".
+   abs:     absolute production URL.   rel: base-relative href for a page. */
+const pubPath = (p) => String(p).replace(/(^|\/)index\.html$/, "$1").replace(/\.html$/, "");
+const abs = (p) => `${BRAND.site}/${pubPath(p)}`;
+const rel = (base, p) => {
+  const s = pubPath(p);
+  return s ? `${base}${s}` : (base || "./");
+};
+
+/* Organization entity reused by the generated listing pages, mirroring the block
+   injected into the hand-maintained core pages. 1997 + the patents belong to the
+   parent company, so they are modelled there rather than on ART itself. */
+const ORG_NODE = {
+  "@type": "Organization", "@id": `${BRAND.site}/#organization`,
+  name: BRAND.name, url: `${BRAND.site}/`, logo: `${BRAND.site}/assets/logo.svg`,
+  email: BRAND.email,
+  areaServed: BRAND.presence.map((c) => ({ "@type": "Country", name: c === "UAE" ? "United Arab Emirates" : c })),
+  parentOrganization: { "@type": "Organization", name: "Thermocare Industries Limited", url: "https://thermocaregroup.com/", foundingDate: "1997" },
+};
+const listingSchema = (url, name, desc) => ({
+  "@context": "https://schema.org",
+  "@graph": [ORG_NODE, { "@type": "CollectionPage", "@id": `${url}#page`, url, name, description: desc, about: { "@id": `${BRAND.site}/#organization` } }],
+});
+
+
 // Clean HUMAN-FACING name: drop the client's long keyword dumps ("Spices – (Herbs,
 // Turmeric, …)" → "Spices") but keep a short acronym and upper-case it
 // ("Form Fill Seal (Ffs)" → "Form Fill Seal (FFS)"). SEO strings stay in <title>/meta.
@@ -131,7 +225,12 @@ function assignOutputMetadata(items, kind) {
 function wa(text) {
   return "https://wa.me/" + BRAND.phoneDial + "?text=" + encodeURIComponent(text);
 }
-const waQuote = (name) => wa(`Hi ART Mechatronics, I'd like a quote for the ${name}. Please share details.`);
+/* Market-tagged prefill (setup artifact #9): every inquiry must arrive already
+   labelled with the machine and the page it came from, so inquiries — the KPI
+   we actually sell — are countable per market instead of anonymous chats.
+   The runtime region picker rewrites the number; this tags the message. */
+const waQuote = (name, market = "Global") =>
+  wa(`Hi ART Mechatronics, I'd like a quote for the ${name}. [${market}] Please share details.`);
 
 /* Clean product categories via keyword map (the doc's own dividers are noisy).
    Match keyword as a WORD-START (\b + prefix) so "industrial" can't match "dust",
@@ -413,11 +512,14 @@ function renderBlocks(blocks, linkMachine) {
   return blocks.map((b) => {
     if (b.type === "para") {
       const text = publicText(b.text);
-      return !text || isEditorial(b.text) ? "" : `<p>${esc(text)}</p>`;
+      return !text || isEditorial(b.text) ? "" : proseP(text);
     }
     if (b.type === "note") {
       const text = publicText(b.text);
-      return !text || isEditorial(b.text) ? "" : `<p class="cat-note"><span aria-hidden="true">➜</span> ${esc(text)}</p>`;
+      if (!text || isEditorial(b.text)) return "";
+      const run = checkRun(text);
+      if (run) return proseP(text);
+      return `<p class="cat-note"><span aria-hidden="true">➜</span> ${esc(text)}</p>`;
     }
     if (b.type === "list") {
       const items = b.items.filter((item) => !isEditorial(item) && publicText(item));
@@ -430,7 +532,7 @@ function renderBlocks(blocks, linkMachine) {
       const desc = b.desc.filter((line) => !isEditorial(line)).map(publicText).filter(Boolean).join(" ");
       const noteText = b.note && !isEditorial(b.note) ? publicText(b.note) : "";
       const note = noteText ? `<p class="cat-note"><span aria-hidden="true">➜</span> ${esc(noteText)}</p>` : "";
-      return `<div class="step"><div class="step__t">${esc(publicText(b.title))}</div>${desc ? `<p>${esc(desc)}</p>` : ""}${machines}${note}</div>`;
+      return `<div class="step"><div class="step__t">${esc(publicText(b.title))}</div>${desc ? proseP(desc) : ""}${machines}${note}</div>`;
     }
     return "";
   }).join("\n");
@@ -445,9 +547,11 @@ function linkMaybe(text, linkMachine, chip) {
 }
 
 /* ---- page shell ---- */
-function shell({ page, base, title, desc, canonical, schema, main, ogType, extraJS, ogImage }) {
+function shell({ page, base, title, desc, canonical, schema, main, ogType, extraJS, ogImage, noindex }) {
   const extra = extraJS ? `  <script src="${base}js/catalog-search.js${CSSV}"></script>\n` : "";
   const ogImg = ogImage || (BRAND.site + "/assets/video/hero-poster.jpg");
+  // noindex,follow — keep the page out of the index but let its links pass equity.
+  const robots = noindex ? `\n  <meta name="robots" content="noindex,follow">` : "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -455,7 +559,7 @@ function shell({ page, base, title, desc, canonical, schema, main, ogType, extra
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(title)}</title>
   <meta name="description" content="${attr(desc)}">
-  <link rel="canonical" href="${canonical}">
+  <link rel="canonical" href="${canonical}">${robots}
   <meta property="og:type" content="${ogType || "website"}">
   <meta property="og:title" content="${attr(title)}">
   <meta property="og:description" content="${attr(desc)}">
@@ -491,7 +595,7 @@ function quoteBand(name) {
         <h2>Get pricing &amp; specs for the ${esc(name)}</h2>
         <p>Share the product, target capacity, current process and plant location. These details help our engineers discuss the right machine or line configuration.</p>
         <div class="quote-band__links">
-          <a class="btn btn--wa btn--lg" href="${waQuote(name)}" target="_blank" rel="noopener">WhatsApp us</a>
+          <a class="btn btn--wa btn--lg" href="${waQuote(name, "Quote band")}" target="_blank" rel="noopener">WhatsApp us</a>
           <a class="btn btn--outline-light btn--lg" href="tel:+${BRAND.phoneDial}">${BRAND.phoneDisplay}</a>
         </div>
       </div>
@@ -512,13 +616,13 @@ function quoteBand(name) {
 /* ---- breadcrumb ---- */
 function crumbs(items, base, selfUrl) {
   const html = items.map((c, i) =>
-    c.href ? `<a href="${base}${c.href}">${esc(c.label)}</a>` : `<span aria-current="page">${esc(c.label)}</span>`
+    c.href ? `<a href="${rel(base, c.href)}">${esc(c.label)}</a>` : `<span aria-current="page">${esc(c.label)}</span>`
   ).join('<span class="sep" aria-hidden="true">/</span>');
   const schema = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: items.map((c, i) => ({
       "@type": "ListItem", position: i + 1, name: c.label,
-      item: c.href ? BRAND.site + "/" + c.href.replace(/^\//, "") : (selfUrl || BRAND.site),
+      item: c.href ? abs(c.href.replace(/^\//, "")) : (selfUrl || BRAND.site),
     })),
   };
   return { html: `<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap">${html}</div></nav>`, schema };
@@ -537,7 +641,7 @@ function renderProduct(p, ctx) {
   if (!productSocialImage) throw new Error(`Missing social image crop for product ${p.slug}`);
 
   // sections
-  const overviewRest = p.intro.split("\n").filter((l) => l.trim()).slice(1).map((t) => `<p>${esc(t)}</p>`).join("");
+  const overviewRest = p.intro.split("\n").filter((l) => l.trim()).slice(1).map((t) => proseP(t)).join("");
   const aka = p.aka.length
     ? `<section class="md-section md-section--tint"><div class="wrap"><span class="eyebrow">Also known as</span>
        <h2>One machine, many names</h2><p class="muted">Buyers search for this equipment under many terms — we manufacture all of them:</p>
@@ -557,19 +661,19 @@ function renderProduct(p, ctx) {
   const usedBy = ctx.industriesUsing(p);
   const siblings = ctx.selectedProducts.filter((x) => x.category === p.category && x.slug !== p.slug).slice(0, 6);
   const usedByHtml = usedBy.length ? `<div class="rel"><h3>Industries that use the ${esc(p.display)}</h3>
-      <div class="tag-row">${usedBy.map((i) => `<a class="tag" href="${base}industries/${i.slug}.html">${esc(i.display)}</a>`).join("")}</div></div>` : "";
+      <div class="tag-row">${usedBy.map((i) => `<a class="tag" href="${rel(base, `industries/${i.slug}.html`)}">${esc(i.display)}</a>`).join("")}</div></div>` : "";
   const siblingsHtml = siblings.length ? `<div class="rel"><h3>Related ${esc(p.category)} machines</h3>
-      <div class="tag-row">${siblings.map((s) => `<a class="tag" href="${base}products/${s.slug}.html">${esc(s.display)}</a>`).join("")}</div></div>` : "";
+      <div class="tag-row">${siblings.map((s) => `<a class="tag" href="${rel(base, `products/${s.slug}.html`)}">${esc(s.display)}</a>`).join("")}</div></div>` : "";
   const related = `<section class="md-section"><div class="wrap">${usedByHtml}${siblingsHtml}</div></section>`;
 
-  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Catalog", href: "catalog.html" }, { label: p.display }], base, `${BRAND.site}/products/${p.slug}.html`);
+  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Catalog", href: "catalog.html" }, { label: p.display }], base, abs(`products/${p.slug}.html`));
   const schema = {
     "@context": "https://schema.org", "@type": "Product",
     name: p.h1, description: p.metaDesc || lead, category: p.category,
     brand: { "@type": "Brand", name: BRAND.name },
     manufacturer: { "@type": "Organization", name: BRAND.name },
     image: absoluteMediaPath(productSocialImage),
-    url: `${BRAND.site}/products/${p.slug}.html`,
+    url: abs(`products/${p.slug}.html`),
   };
 
   const main = `
@@ -579,9 +683,9 @@ function renderProduct(p, ctx) {
       <span class="eyebrow">${esc(p.category)}</span>
       <h1>${esc(p.h1)}</h1>
       <div class="md-hero__tag">Custom-engineered · Turnkey supply · ${BRAND.presence.join(" · ")}</div>
-      <p class="lead">${esc(clip(lead, 300))}</p>
+      <p class="lead">${esc(leadText(lead))}</p>
       <div class="md-cta">
-        <a class="btn btn--wa btn--lg" href="${waQuote(p.display)}" target="_blank" rel="noopener">${waIcon()} Get a quote on WhatsApp</a>
+        <a class="btn btn--wa btn--lg" href="${waQuote(p.display, `Product: ${p.slug}`)}" target="_blank" rel="noopener">${waIcon()} Get a quote on WhatsApp</a>
         <a class="btn btn--outline-light btn--lg" href="#quote">Enquire</a>
       </div>
     </div>
@@ -598,9 +702,10 @@ function renderProduct(p, ctx) {
   return shell({
     page: "catalog", base, title: p.seoTitle, desc: p.seoDesc,
     ogImage: absoluteMediaPath(productSocialImage),
-    canonical: `${BRAND.site}/products/${p.slug}.html`,
+    canonical: abs(`products/${p.slug}.html`),
     schema: { "@context": "https://schema.org", "@graph": [schema, cr.schema] },
     main, ogType: "product",
+    noindex: !productIndexable(p.slug),
   });
 }
 
@@ -610,7 +715,7 @@ function renderProduct(p, ctx) {
 function renderIndustry(ind, ctx) {
   const base = "../";
   const lead = firstPara(ind.intro) || `Complete turnkey ${ind.display} plant & machinery by ${BRAND.name}.`;
-  const overviewRest = ind.intro.split("\n").filter((l) => l.trim()).slice(1).map((t) => `<p>${esc(t)}</p>`).join("");
+  const overviewRest = ind.intro.split("\n").filter((l) => l.trim()).slice(1).map((t) => proseP(t)).join("");
   const linkMachine = ctx.linkMachine;
   const industryImage = mediaEntry(ind, "industries").mapping;
 
@@ -633,12 +738,12 @@ function renderIndustry(ind, ctx) {
 
   const apps = ind.applications.length ? `<div class="app-chips">${ind.applications.map((a) => `<span class="chip">${esc(a)}</span>`).join("")}</div>` : "";
 
-  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Industries", href: "industries.html" }, { label: ind.display }], base, `${BRAND.site}/industries/${ind.slug}.html`);
+  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Industries", href: "industries.html" }, { label: ind.display }], base, abs(`industries/${ind.slug}.html`));
   const schema = {
     "@context": "https://schema.org", "@type": "Service",
     serviceType: `${ind.display} Plant & Machinery`, provider: { "@type": "Organization", name: BRAND.name },
     areaServed: BRAND.presence, description: ind.metaDesc || lead,
-    image: absoluteMediaPath(industryImage.hero), url: `${BRAND.site}/industries/${ind.slug}.html`,
+    image: absoluteMediaPath(industryImage.hero), url: abs(`industries/${ind.slug}.html`),
   };
 
   const main = `
@@ -648,7 +753,7 @@ function renderIndustry(ind, ctx) {
       <span class="eyebrow">Industry solution</span>
       <h1>${esc(ind.h1)}</h1>
       <div class="md-hero__tag">Turnkey plant · Machinery · Automation · ${BRAND.presence.join(" · ")}</div>
-      <p class="lead">${esc(clip(lead, 300))}</p>
+      <p class="lead">${esc(leadText(lead))}</p>
       <div class="md-cta">
         <a class="btn btn--wa btn--lg" href="${wa(`Hi ART Mechatronics, I'd like a quote for a ${ind.display} plant. Please share details.`)}" target="_blank" rel="noopener" aria-label="Plan a ${esc(ind.display)} project with ART Mechatronics">${waIcon()} Plan this plant</a>
         <a class="btn btn--outline-light btn--lg" href="#quote">Talk to an expert</a>
@@ -667,7 +772,7 @@ function renderIndustry(ind, ctx) {
   return shell({
     page: "industries", base, title: ind.seoTitle, desc: ind.seoDesc,
     ogImage: absoluteMediaPath(industryImage.hero),
-    canonical: `${BRAND.site}/industries/${ind.slug}.html`,
+    canonical: abs(`industries/${ind.slug}.html`),
     schema: { "@context": "https://schema.org", "@graph": [schema, cr.schema] },
     main,
   });
@@ -692,8 +797,8 @@ function lineBand(name, base) {
   return `<section class="md-section"><div class="wrap"><div class="md-line-band">
     <div><h3>One partner, from design to start-up</h3>
       <p>ART Mechatronics designs, manufactures, installs and commissions your ${esc(name)} solution with regional presence in India, UAE and Thailand.</p></div>
-    <div class="btns"><a class="btn btn--light" href="${base}about.html">About ART →</a>
-      <a class="btn btn--outline-light" href="${base}contact.html">Contact us</a></div>
+    <div class="btns"><a class="btn btn--light" href="${rel(base, 'about.html')}">About ART →</a>
+      <a class="btn btn--outline-light" href="${rel(base, 'contact.html')}">Contact us</a></div>
   </div></div></section>`;
 }
 
@@ -701,8 +806,11 @@ function lineBand(name, base) {
    LISTING pages
    ============================================================ */
 function card(item, kind) {
-  const href = `${kind}/${item.slug}.html`;
-  const desc = clip(firstPara(item.intro) || item.metaDesc || "", 120);
+  const href = pubPath(`${kind}/${item.slug}.html`);
+  // Card teasers may ellipsis (that's normal card UI) but must never open with a
+  // pasted tick-run, so drop that tail first — same rule metaDescOf applies.
+  const teaser = String(firstPara(item.intro) || item.metaDesc || "").replace(/\s*[✔✓].*$/s, "").trim();
+  const desc = clip(teaser || item.metaDesc || "", 120);
   const tag = kind === "products" ? item.category : "Industry";
   const media = cardMedia(item, kind);
   return `<a class="cat-card cat-card--${kind === "products" ? "product" : "industry"}" href="${href}" data-name="${attr((item.display + " " + item.shortName + " " + item.h1 + " " + (item.aka||[]).join(" ")).toLowerCase())}" data-cat="${attr(item.category)}">
@@ -720,7 +828,7 @@ function renderIndustriesHub(sel) {
     <span class="eyebrow">Industries we serve</span>
     <h1>Turnkey plants &amp; machinery for every industry</h1>
     <p class="lead">Explore innovative, end-to-end customised engineering solutions designed to optimise performance, efficiency and scalability across industries.</p>
-    <a class="btn btn--light btn--lg" href="catalog.html">Browse the machine catalogue →</a>
+    <a class="btn btn--light btn--lg" href="catalog">Browse the machine catalogue →</a>
   </div></section>
   <section class="section"><div class="wrap">
     <h2 class="visually-hidden">All industries</h2>
@@ -732,7 +840,8 @@ function renderIndustriesHub(sel) {
   return shell({
     page: "industries", base: "", title: "Industries We Serve | ART Mechatronics",
     desc: "Turnkey processing plants & machinery for pan masala, spices, snacks, flour, rice, dairy, tea & more — built and automated by ART Mechatronics.",
-    canonical: `${BRAND.site}/industries.html`, main,
+    canonical: abs("industries.html"), main,
+    schema: listingSchema(abs("industries.html"), "Industries We Serve", "Turnkey processing plants and machinery by ART Mechatronics, by industry."),
     extraJS: true,
   });
 }
@@ -759,7 +868,8 @@ function renderCatalog(sel) {
   return shell({
     page: "catalog", base: "", title: "Machine Catalogue | ART Mechatronics",
     desc: "Browse ART Mechatronics' machinery: dust collectors, pulverizers, mixers, dryers, sifters, conveyors & packaging machines. Turnkey supply.",
-    canonical: `${BRAND.site}/catalog.html`, main, extraJS: true,
+    canonical: abs("catalog.html"), main, extraJS: true,
+    schema: listingSchema(abs("catalog.html"), "Machine Catalogue", "Full catalogue of processing, packaging and material-handling machines by ART Mechatronics."),
   });
 }
 function moreBand(shown, total, what) {
@@ -784,7 +894,7 @@ const selProdSlugs = new Set(selProd.map((p) => p.slug));
 // linker: only link to a machine if we actually generated its page
 function linkMachine(name) {
   const m = matchProduct(name);
-  if (m && selProdSlugs.has(m.slug)) return { href: `../products/${m.slug}.html`, product: m };
+  if (m && selProdSlugs.has(m.slug)) return { href: `../${pubPath(`products/${m.slug}.html`)}`, product: m };
   return null;
 }
 function industriesUsing(product) {
@@ -815,11 +925,13 @@ const urls = [
   "", "about.html", "contact.html", "machines.html", "system.html", "control-panel.html",
   "industries.html", "catalog.html",
   ...selInd.map((i) => `industries/${i.slug}.html`),
-  ...selProd.map((p) => `products/${p.slug}.html`),
+  // Only indexable product pages belong in the sitemap — submitting a noindex
+  // URL asks Google to crawl a page we've told it to drop.
+  ...selProd.filter((p) => productIndexable(p.slug)).map((p) => `products/${p.slug}.html`),
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${BRAND.site}/${u}</loc></url>`).join("\n")}
+${urls.map((u) => `  <url><loc>${abs(u)}</loc></url>`).join("\n")}
 </urlset>`;
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap);
 

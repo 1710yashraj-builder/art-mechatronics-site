@@ -7,7 +7,7 @@
   grid.innerHTML = machines.map(m => {
     const specs = m.specs.slice(0, 3).map(([k, v]) =>
       `<li><span class="k">${k}</span><span class="v">${v}</span></li>`).join("");
-    const href = `machine.html?id=${m.id}`;
+    const href = `machine?id=${m.id}`;
     return `
     <article class="card mcard reveal">
       <a class="mcard__img" href="${href}" aria-label="${m.name}">

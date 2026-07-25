@@ -12,6 +12,11 @@
   const BASE = document.body.dataset.base || "";        // "" at root, "../" in subfolders
   const wa = ART.helper.wa();
 
+  /* Cloudflare Pages serves foo.html at /foo and 308-redirects the .html form,
+     so every link we build must already be extensionless. Files stay *.html. */
+  const pub = (f) => String(f).replace(/(^|\/)index\.html$/, "$1").replace(/\.html$/, "");
+  const href = (f) => { const s = pub(f); return s ? BASE + s : (BASE || "./"); };
+
   const NAV = [
     ["home",      "Home",          "index.html"],
     ["industries","Industries",    "industries.html"],
@@ -21,8 +26,8 @@
     ["about",     "About",         "about.html"],
   ];
 
-  const navLinks = NAV.map(([id, label, href]) =>
-    `<a href="${BASE}${href}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`
+  const navLinks = NAV.map(([id, label, hrefPath]) =>
+    `<a href="${href(hrefPath)}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`
   ).join("");
 
   /* ---------- HEADER ---------- */
@@ -30,7 +35,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="${BASE}index.html" aria-label="${B.name} home">
+      <a class="brand" href="${href('index.html')}" aria-label="${B.name} home">
         <img src="${BASE}assets/logo.svg" alt="${B.name}" width="150" height="51">
       </a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
@@ -40,14 +45,14 @@
       </button>
       <nav class="nav" id="primary-nav">
         ${navLinks}
-        <a class="btn btn--primary" href="${BASE}contact.html"${page === "contact" ? ' aria-current="page"' : ""}>Get a Quote</a>
+        <a class="btn btn--primary" href="${href('contact.html')}"${page === "contact" ? ' aria-current="page"' : ""}>Get a Quote</a>
       </nav>
     </div>
   </header>`;
 
   /* ---------- FOOTER ---------- */
   const machineLinks = ART.machines
-    .map(m => `<li><a href="${BASE}machine.html?id=${m.id}">${m.name}</a></li>`).join("");
+    .map(m => `<li><a href="${href('machine.html')}?id=${m.id}">${m.name}</a></li>`).join("");
 
   const footerHTML = `
   <footer class="site-footer">
@@ -65,12 +70,12 @@
         <div class="footer-col">
           <h2>Explore</h2>
           <ul>
-            <li><a href="${BASE}industries.html">Industries we serve</a></li>
-            <li><a href="${BASE}catalog.html">Machine catalogue</a></li>
-            <li><a href="${BASE}system.html">Live System Demo</a></li>
-            <li><a href="${BASE}control-panel.html">Virtual Control Panel</a></li>
-            <li><a href="${BASE}about.html">About ART</a></li>
-            <li><a href="${BASE}contact.html">Contact</a></li>
+            <li><a href="${href('industries.html')}">Industries we serve</a></li>
+            <li><a href="${href('catalog.html')}">Machine catalogue</a></li>
+            <li><a href="${href('system.html')}">Live System Demo</a></li>
+            <li><a href="${href('control-panel.html')}">Virtual Control Panel</a></li>
+            <li><a href="${href('about.html')}">About ART</a></li>
+            <li><a href="${href('contact.html')}">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">

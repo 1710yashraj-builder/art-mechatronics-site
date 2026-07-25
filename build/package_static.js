@@ -24,7 +24,7 @@ fs.mkdirSync(CLIENT, { recursive: true });
 fs.mkdirSync(SERVER, { recursive: true });
 
 for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
-  if (entry.isFile() && (entry.name.endsWith(".html") || ["sitemap.xml", "robots.txt", "_headers", "_redirects", ".htaccess"].includes(entry.name))) {
+  if (entry.isFile() && (entry.name.endsWith(".html") || ["sitemap.xml", "robots.txt", "llms.txt", "_headers", "_redirects", ".htaccess"].includes(entry.name))) {
     copyFile(path.join(ROOT, entry.name), path.join(CLIENT, entry.name));
   }
 }

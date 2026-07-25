@@ -323,7 +323,7 @@
     const machineId = MACHINE[stage.id];
     const machine = machineId && ART.helper.get(machineId);
     el.link.innerHTML = machine
-      ? `<a class="btn btn--ghost" href="machine.html?id=${machineId}">Inspect ${machine.name}</a>`
+      ? `<a class="btn btn--ghost" href="machine?id=${machineId}">Inspect ${machine.name}</a>`
       : "";
 
     seq.querySelectorAll("button").forEach(button =>
@@ -465,7 +465,7 @@
       const machineId = node.dataset.machine;
       const href = node.dataset.href;
       if (href) location.href = href;
-      else if (machineId) location.href = `machine.html?id=${machineId}`;
+      else if (machineId) location.href = `machine?id=${machineId}`;
     };
     node.addEventListener("pointerenter", showProbe);
     node.addEventListener("pointerleave", hideProbe);
