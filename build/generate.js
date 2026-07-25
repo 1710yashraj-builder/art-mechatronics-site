@@ -17,7 +17,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260724a";
+const CSSV = "?v=20260725a";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -58,8 +58,8 @@ const BRAND = {
   tagline: "Shaping the Future of the Industrial World",
   site: "https://artmechatronics.com",
   email: "info@artmechatronics.com",
-  phoneDisplay: "+91 81918 48660",
-  phoneDial: "918191848660",
+  phoneDisplay: "+91 80903 15151",
+  phoneDial: "918090315151",
   presence: ["India", "UAE", "Thailand"],
 };
 

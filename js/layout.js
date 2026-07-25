@@ -76,7 +76,8 @@
         <div class="footer-col">
           <h2>Contact</h2>
           <ul>
-            <li><a href="tel:+${B.phoneDial}">${B.phoneDisplay}</a></li>
+            ${(B.contacts || [{ region: "", display: B.phoneDisplay, dial: B.phoneDial }])
+              .map(c => `<li><a href="tel:+${c.dial}">${c.region ? c.region + ": " : ""}${c.display}</a></li>`).join("")}
             <li><a href="mailto:${B.email}">${B.email}</a></li>
             <li><a href="${wa}" target="_blank" rel="noopener">WhatsApp us</a></li>
             <li>${B.web}</li>
@@ -98,6 +99,122 @@
 
   const yr = document.querySelector("[data-year]");
   if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ---------- regional contact picker (WhatsApp / Call) ----------
+     ART works from India, UAE and Thailand. WhatsApp deep links and tel:
+     can only target ONE number, so every quote / WhatsApp / call action
+     opens this small chooser and then routes to the picked region.
+     The baked <a href="wa.me/..."> stays a valid fallback if JS fails. */
+  const CONTACTS = (B.contacts && B.contacts.length)
+    ? B.contacts
+    : [{ region: "India", role: "", display: B.phoneDisplay, dial: B.phoneDial }];
+  const FLAG = { India: "🇮🇳", UAE: "🇦🇪", Thailand: "🇹🇭" };
+
+  const picker = (function () {
+    let overlay = null, lastFocus = null, mode = "wa", payload = "";
+
+    function build() {
+      const style = document.createElement("style");
+      style.id = "rp-style";
+      style.textContent =
+        ".rp-ov{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1.2rem;background:rgba(11,44,94,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}" +
+        ".rp-ov.rp-open{display:flex}" +
+        ".rp-panel{width:100%;max-width:430px;background:var(--white,#fff);border-radius:var(--r-lg,14px);box-shadow:var(--shadow-lg,0 24px 60px rgba(11,44,94,.18));overflow:hidden;animation:rp-in .18s var(--ease,ease)}" +
+        "@keyframes rp-in{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}" +
+        ".rp-head{display:flex;align-items:center;gap:.65rem;padding:1rem 1.15rem;border-bottom:1px solid var(--line,#dde3ec)}" +
+        ".rp-ic{width:36px;height:36px;flex:0 0 36px;border-radius:9px;display:grid;place-items:center;color:#fff}" +
+        ".rp-wa .rp-ic{background:#25D366}.rp-call .rp-ic{background:var(--blue,#1657b0)}" +
+        ".rp-head h3{margin:0;font:700 1.05rem/1.2 var(--font,sans-serif);color:var(--ink,#10233f)}" +
+        ".rp-head .rp-sub{margin:.1rem 0 0;font-size:.8rem;color:var(--steel,#5c6678)}" +
+        ".rp-x{margin-left:auto;border:0;background:none;cursor:pointer;color:var(--steel,#5c6678);font-size:1.5rem;line-height:1;padding:.1rem .3rem;border-radius:6px}" +
+        ".rp-x:hover{background:var(--mist,#f4f7fb);color:var(--ink,#10233f)}" +
+        ".rp-list{padding:.7rem;display:flex;flex-direction:column;gap:.5rem}" +
+        ".rp-opt{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;padding:.72rem .9rem;border:1px solid var(--line,#dde3ec);border-radius:var(--r,9px);background:var(--white,#fff);cursor:pointer;transition:border-color .15s,background .15s,transform .08s;font-family:var(--font,sans-serif)}" +
+        ".rp-opt:hover,.rp-opt:focus-visible{border-color:var(--blue,#1657b0);background:var(--blue-soft,#eaf2fd);outline:none}" +
+        ".rp-opt:active{transform:translateY(1px)}" +
+        ".rp-flag{font-size:1.5rem;flex:0 0 auto;line-height:1}" +
+        ".rp-r{font:700 1rem/1.15 var(--font,sans-serif);color:var(--ink,#10233f);display:block}" +
+        ".rp-role{font-size:.76rem;color:var(--steel,#5c6678);display:block;margin-top:.08rem}" +
+        ".rp-num{margin-left:auto;font:600 .9rem/1 var(--font-mono,monospace);color:var(--blue,#1657b0);white-space:nowrap}" +
+        "@media(max-width:430px){.rp-num{display:none}}";
+      document.head.appendChild(style);
+
+      overlay = document.createElement("div");
+      overlay.className = "rp-ov";
+      overlay.innerHTML =
+        '<div class="rp-panel" role="dialog" aria-modal="true" aria-labelledby="rp-title">' +
+        '<div class="rp-head"><span class="rp-ic" aria-hidden="true"></span>' +
+        '<div><h3 id="rp-title"></h3><p class="rp-sub">Choose your region</p></div>' +
+        '<button class="rp-x" type="button" aria-label="Close">×</button></div>' +
+        '<div class="rp-list"></div></div>';
+      document.body.appendChild(overlay);
+
+      overlay.querySelector(".rp-x").addEventListener("click", close);
+      overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && overlay.classList.contains("rp-open")) close();
+      });
+    }
+
+    const CALL_IC = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>';
+    const WA_IC = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>';
+
+    function open(opts) {
+      opts = opts || {};
+      if (!overlay) build();
+      mode = opts.mode === "call" ? "call" : "wa";
+      payload = opts.text || "";
+      const head = overlay.querySelector(".rp-head");
+      head.className = "rp-head " + (mode === "call" ? "rp-call" : "rp-wa");
+      head.querySelector(".rp-ic").innerHTML = mode === "call" ? CALL_IC : WA_IC;
+      overlay.querySelector("#rp-title").textContent = mode === "call" ? "Call ART Mechatronics" : "Chat on WhatsApp";
+      const list = overlay.querySelector(".rp-list");
+      list.innerHTML = CONTACTS.map((c, i) =>
+        '<button class="rp-opt" type="button" data-i="' + i + '">' +
+        '<span class="rp-flag" aria-hidden="true">' + (FLAG[c.region] || "📞") + '</span>' +
+        '<span><span class="rp-r">' + c.region + '</span><span class="rp-role">' + (c.role || "") + '</span></span>' +
+        '<span class="rp-num">' + c.display + '</span></button>'
+      ).join("");
+      list.querySelectorAll(".rp-opt").forEach(btn =>
+        btn.addEventListener("click", () => choose(CONTACTS[+btn.dataset.i]))
+      );
+      lastFocus = document.activeElement;
+      overlay.classList.add("rp-open");
+      const first = list.querySelector(".rp-opt");
+      if (first) first.focus();
+    }
+
+    function choose(c) {
+      if (mode === "call") {
+        close();
+        location.href = "tel:+" + c.dial;
+      } else {
+        const url = "https://wa.me/" + c.dial + (payload ? "?text=" + encodeURIComponent(payload) : "");
+        close();
+        window.open(url, "_blank", "noopener");
+      }
+    }
+
+    function close() {
+      if (!overlay) return;
+      overlay.classList.remove("rp-open");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    return { open };
+  })();
+  ART.picker = picker;
+
+  // Intercept every WhatsApp link so it opens the region picker (href stays the fallback).
+  document.addEventListener("click", e => {
+    const a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+    if (!a) return;
+    e.preventDefault();
+    let text = "";
+    const m = /[?&]text=([^&]*)/.exec(a.getAttribute("href") || "");
+    if (m) { try { text = decodeURIComponent(m[1].replace(/\+/g, " ")); } catch (_) { text = ""; } }
+    picker.open({ mode: "wa", text });
+  });
 
   /* ---------- mobile nav ---------- */
   const toggle = document.querySelector(".nav-toggle");
@@ -154,7 +271,7 @@
       if (capacity) msg += `\nTarget capacity: ${capacity}`;
       if (location) msg += `\nPlant location: ${location}`;
       if (rq) msg += `\nRequirement: ${rq}`;
-      window.open("https://wa.me/" + B.phoneDial + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+      picker.open({ mode: "wa", text: msg });
     });
   });
 

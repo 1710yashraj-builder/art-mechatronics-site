@@ -11,8 +11,15 @@ const ART = {
     presence: ["India", "UAE", "Thailand"],
     web: "www.artmechatronics.com",
     email: "info@artmechatronics.com",
-    phoneDisplay: "+91 81918 48660",
-    phoneDial: "918191848660",     // for tel: and wa.me
+    // Regional contacts — WhatsApp / quote buttons open a region picker; each is tap-to-call.
+    contacts: [
+      { region: "India",    role: "Design & manufacturing", display: "+91 80903 15151",  dial: "918090315151" },
+      { region: "UAE",      role: "Sales & projects",       display: "+971 50 216 7151", dial: "971502167151" },
+      { region: "Thailand", role: "Regional partnerships",  display: "+66 838291089",    dial: "66838291089" },
+    ],
+    // Primary = India HQ: the no-JS fallback for WhatsApp links and the default tel:.
+    phoneDisplay: "+91 80903 15151",
+    phoneDial: "918090315151",     // for tel: and wa.me fallback
   },
 
   /* ---- The flagship integrated line (hero + live demo) ---- */
