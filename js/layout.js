@@ -24,6 +24,7 @@
     ["machines",  "Flagship Line", "machines.html"],
     ["system",    "Live System",   "system.html"],
     ["about",     "About",         "about.html"],
+    ["services",  "Services",      "services.html"],
   ];
 
   const navLinks = NAV.map(([id, label, hrefPath]) =>
@@ -75,6 +76,7 @@
             <li><a href="${href('system.html')}">Live System Demo</a></li>
             <li><a href="${href('control-panel.html')}">Virtual Control Panel</a></li>
             <li><a href="${href('about.html')}">About ART</a></li>
+            <li><a href="${href('services.html')}">Services &amp; support</a></li>
             <li><a href="${href('contact.html')}">Contact</a></li>
           </ul>
         </div>
@@ -225,7 +227,7 @@
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("primary-nav");
   if (toggle && nav) {
-    const mobileMenu = window.matchMedia("(max-width: 900px)");
+    const mobileMenu = window.matchMedia("(max-width: 1024px)");
     const syncNavAccess = () => {
       nav.inert = mobileMenu.matches && nav.getAttribute("data-open") !== "true";
     };

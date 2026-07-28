@@ -17,7 +17,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260727a";
+const CSSV = "?v=20260728b";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1140,7 +1140,7 @@ fs.writeFileSync(path.join(ROOT, "catalog.html"), renderCatalog(selProd));
 
 // sitemap
 const urls = [
-  "", "about.html", "contact.html", "machines.html", "system.html", "control-panel.html",
+  "", "about.html", "contact.html", "services.html", "machines.html", "system.html", "control-panel.html",
   "industries.html", "catalog.html",
   ...selInd.map((i) => `industries/${i.slug}.html`),
   // Only indexable product pages belong in the sitemap — submitting a noindex
