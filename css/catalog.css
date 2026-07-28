@@ -106,7 +106,8 @@
 .cat-card:focus-visible { outline: 3px solid rgba(46,134,230,.42); outline-offset: 3px; }
 .cat-card__media { position: relative; display: block; overflow: hidden; aspect-ratio: 4/3;
   background: var(--navy-2); border-bottom: 1px solid var(--line); }
-.cat-card--industry .cat-card__media { aspect-ratio: 16/9; }
+/* Industry cards now carry the 4:3 tile covers, so they use the base 4:3 box.
+   Forcing 16/9 here cropped the subject and ate into the label-safe bottom. */
 .cat-card__picture { display: block; width: 100%; height: 100%; }
 .cat-card__picture img { display: block; width: 100%; height: 100%; object-fit: cover;
   transition: transform .24s cubic-bezier(.23,1,.32,1); }

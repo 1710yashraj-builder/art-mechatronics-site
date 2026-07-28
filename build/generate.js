@@ -17,7 +17,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260725a";
+const CSSV = "?v=20260727a";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -464,6 +464,25 @@ function cardMedia(item, kind) {
     });
   }
 
+  // Prefer the parent tile's cover photo. The old hero-16x9 montages are green
+  // and orange machine collages with captions baked in — beside the blue tile
+  // grid they read as a different website. An industry's material photo is also
+  // simply the truer image for an industry card: almonds belong under nuts.
+  const parentCover = groupCoverFor(item.slug);
+  if (parentCover) {
+    return responsivePicture({
+      src: parentCover,
+      srcset: `${parentCover} 800w`,
+      sizes: "(max-width: 620px) calc(100vw - 2rem), (max-width: 980px) 45vw, 320px",
+      altText: mapping.alt,
+      width: 800,
+      height: 600,
+      loading: "lazy",
+      priority: "low",
+      className: "cat-card__picture",
+    });
+  }
+
   const hero = localWebp(mapping.hero, `${item.slug} industry montage card image`);
   return responsivePicture({
     src: hero,
@@ -803,6 +822,144 @@ function lineBand(name, base) {
 }
 
 /* ============================================================
+   INDUSTRY TILE GRID — the "Industries We Serve" block
+   ------------------------------------------------------------
+   41 buyer-facing tiles taken from Anurag's ART Catalogue '26.
+   Each tile: cover photo + name label, plus a caret that opens the
+   sub-industries beneath it (our existing 88 pages). Clicking the
+   photo opens the parent industry page; the caret never navigates.
+
+   Cover image resolution order:
+     1. assets/industries/<slug>/cover-800.webp   <- the real photo, once shot
+     2. the first child's existing industry hero  <- TEMPORARY stand-in
+     3. childless tile -> no image, tinted plate  <- needs content + a photo
+   The build prints a summary so stand-ins can never go unnoticed.
+   ============================================================ */
+const industryGroups = JSON.parse(fs.readFileSync(path.join(DATA, "industry-groups.json"), "utf8"));
+const coverStats = { real: 0, standIn: 0, none: 0 };
+
+/* industry slug -> the cover photo of the tile it sits under, when that photo
+   exists on disk. Used so the 88 industry cards share the blue cover set instead
+   of the old montages. Declared as a function so cardMedia (defined earlier in
+   the file) can call it — it only runs during rendering, after the data loads. */
+let _coverForIndustry = null;
+function groupCoverFor(industrySlug) {
+  if (!_coverForIndustry) {
+    _coverForIndustry = new Map();
+    for (const group of industryGroups.groups) {
+      const rel = `assets/industries/${group.slug}/cover-800.webp`;
+      if (!fs.existsSync(path.join(ROOT, rel))) continue;
+      for (const child of group.children) _coverForIndustry.set(child, rel);
+    }
+  }
+  return _coverForIndustry.get(industrySlug) || null;
+}
+
+function groupCover(group) {
+  const real = path.join(ROOT, "assets", "industries", group.slug, "cover-800.webp");
+  if (fs.existsSync(real)) {
+    coverStats.real++;
+    return { src: `assets/industries/${group.slug}/cover-800.webp`, standIn: false };
+  }
+  // Deliberately NO stand-in from the existing industry heroes: those are 16:9
+  // machine collages with captions baked in, so cropping them to 4:3 slices the
+  // text and their green/purple backdrops fight the brand blue. A clean plate is
+  // honest about the photo being absent and lets the layout be judged on its own.
+  coverStats.none++;
+  return null;
+}
+
+/* ---- markets band ----
+   Anurag asked for the catalogue's flag row. The catalogue heads it "Global
+   presence", but BRIEF.md only confirms staffed offices in India, UAE and
+   Thailand — the rest are places machines have shipped to. So the heading is
+   "Markets we serve" and the three real offices are marked as such. He gets his
+   flags; nothing on the page can be challenged by a buyer or an AI engine. */
+const MARKETS = [
+  { file: "india", name: "India", ratio: 1.5 },
+  { file: "uae", name: "UAE", ratio: 2 },
+  { file: "thailand", name: "Thailand", ratio: 1.5 },
+  { file: "usa", name: "USA", ratio: 1.9 },
+  { file: "nepal", name: "Nepal", ratio: 0.82 },
+  { file: "bangladesh", name: "Bangladesh", ratio: 1.667 },
+];
+
+function marketsBand() {
+  // Real vector flags, not emoji — emoji collapse into tiny glyphs at this size
+  // and render differently on every platform. Each keeps its own official
+  // aspect ratio at a shared height, so nothing is stretched.
+  const one = MARKETS.map((m) => `
+        <li class="mk-item">
+          <img class="mk-flag" src="assets/flags/${m.file}.svg" alt="${attr(m.name)}"
+               height="96" width="${Math.round(96 * m.ratio)}" loading="lazy" decoding="async">
+          <span class="mk-name">${esc(m.name)}</span>
+        </li>`).join("");
+  // Two identical tracks: the pair shifts by exactly one track width, so the
+  // loop point is invisible. The duplicate is hidden from screen readers.
+  return `
+  <section class="section mk-section">
+    <div class="wrap sec-head">
+      <span class="eyebrow">Where we work</span>
+      <h2>Markets we serve</h2>
+      <p class="mk-sub">Machines engineered in India and supplied across these markets, with teams on the ground in India, the UAE and Thailand.</p>
+    </div>
+    <div class="mk-marquee">
+      <ul class="mk-track">${one}</ul>
+      <ul class="mk-track" aria-hidden="true">${one}</ul>
+    </div>
+  </section>`;
+}
+
+function industryGrid(base = "") {
+  const tiles = industryGroups.groups.map((group) => {
+    const cover = groupCover(group);
+    const kids = group.children
+      .map((slug) => industries.find((i) => i.slug === slug))
+      .filter(Boolean);
+
+    // Childless tiles still render — the grid must match the catalogue Anurag
+    // hands to buyers — but they route to a tagged enquiry instead of a thin page.
+    const href = kids.length
+      ? rel(base, `industries/${kids[0].slug}.html`)
+      : wa(`Hi ART Mechatronics, do you supply machinery for ${group.name}? [Industry: ${group.name}]`);
+    const external = kids.length ? "" : ' target="_blank" rel="noopener"';
+
+    const media = cover
+      ? `<img src="${base}${cover.src}" alt="${attr(group.name)}" loading="lazy" decoding="async" width="800" height="600">`
+      : `<span class="ig-plate" aria-hidden="true"></span>`;
+
+    // The dropdown mirrors what the old site showed, so a buyer sees the same
+    // breadth Anurag is used to demoing. A sub with a slug goes to its own page;
+    // one without has no page yet and falls back to the parent tile.
+    const subs = group.subs || [];
+    const parentHref = kids.length ? rel(base, `industries/${kids[0].slug}.html`) : null;
+    const caret = subs.length ? `
+        <button class="ig-caret" type="button" aria-expanded="false" aria-controls="igd-${group.slug}" aria-label="Show categories under ${attr(group.name)}">
+          <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="ig-drop" id="igd-${group.slug}" hidden>
+          <p class="ig-drop__h">Related categories</p>
+          <ul>${subs.map((s) => {
+            const target = s.slug ? rel(base, `industries/${s.slug}.html`) : parentHref;
+            return target
+              ? `<li><a href="${target}"><span class="ig-dot" aria-hidden="true"></span>${esc(s.label)}</a></li>`
+              : `<li><span class="ig-drop__plain"><span class="ig-dot" aria-hidden="true"></span>${esc(s.label)}</span></li>`;
+          }).join("")}</ul>
+        </div>` : "";
+
+    return `
+      <div class="ig-tile${kids.length > 1 ? " has-drop" : ""}">
+        <a class="ig-link" href="${href}"${external}>
+          <span class="ig-media">${media}</span>
+          <span class="ig-name">${esc(group.name)}</span>
+        </a>${caret}
+      </div>`;
+  }).join("");
+
+  return `<div class="ig-grid">${tiles}</div>`;
+}
+
+/* ============================================================
    LISTING pages
    ============================================================ */
 function card(item, kind) {
@@ -829,6 +986,11 @@ function renderIndustriesHub(sel) {
     <h1>Turnkey plants &amp; machinery for every industry</h1>
     <p class="lead">Explore innovative, end-to-end customised engineering solutions designed to optimise performance, efficiency and scalability across industries.</p>
     <a class="btn btn--light btn--lg" href="catalog">Browse the machine catalogue →</a>
+  </div></section>
+  <section class="section section--tint"><div class="wrap">
+    <h2 class="ig-head">Industries We Serve</h2>
+    <p class="ig-sub">Tailored solutions for food processing, advanced materials and industrial manufacturing. Open any industry to see the machines and the complete line.</p>
+    ${industryGrid("")}
   </div></section>
   <section class="section"><div class="wrap">
     <h2 class="visually-hidden">All industries</h2>
@@ -918,6 +1080,34 @@ for (const p of selProd) { fs.writeFileSync(path.join(ROOT, "products", p.slug +
 
 // listing hubs (search JS appended via extraJS in shell)
 fs.writeFileSync(path.join(ROOT, "industries.html"), renderIndustriesHub(selInd));
+
+/* index.html is hand-maintained, but its industry grid must stay in lockstep with
+   the taxonomy — so the generator owns the markup between the two markers and
+   rewrites it on every build. Idempotent; the rest of the page is never touched. */
+{
+  const homePath = path.join(ROOT, "index.html");
+  const home = fs.readFileSync(homePath, "utf8");
+  const START = "<!-- industry-grid:start -->";
+  const END = "<!-- industry-grid:end -->";
+  const from = home.indexOf(START);
+  const to = home.indexOf(END);
+  if (from < 0 || to < 0) {
+    throw new Error("index.html is missing the industry-grid markers — the homepage grid cannot be injected");
+  }
+  let next = home.slice(0, from + START.length) + "\n      " + industryGrid("") + "\n      " + home.slice(to);
+
+  // markets band — same marker pattern, generated from the MARKETS list
+  const MS = "<!-- markets-band:start -->";
+  const ME = "<!-- markets-band:end -->";
+  const mf = next.indexOf(MS);
+  const mt = next.indexOf(ME);
+  if (mf < 0 || mt < 0) {
+    throw new Error("index.html is missing the markets-band markers");
+  }
+  next = next.slice(0, mf + MS.length) + "\n" + marketsBand() + "\n  " + next.slice(mt);
+
+  fs.writeFileSync(homePath, next);
+}
 fs.writeFileSync(path.join(ROOT, "catalog.html"), renderCatalog(selProd));
 
 // sitemap

@@ -2,18 +2,46 @@
    ART Mechatronics — design tokens
    The single source of truth for colour, type, spacing, motion.
    ============================================================ */
+/* Self-hosted so the strict CSP (font-src 'self') keeps working and there is no
+   extra DNS + TLS hop to fonts.gstatic.com on first paint. Latin subset only. */
+@font-face {
+  font-family: "Monda";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/monda-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Monda";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/monda-700.woff2") format("woff2");
+}
+
 :root {
-  /* Brand blues (from the ÄRT metallic-blue logo) */
-  --navy:        #0B2C5E;   /* deep header navy */
-  --navy-2:      #0A2148;   /* darker navy for gradients */
-  --blue:        #1657B0;   /* primary brand blue */
-  --blue-bright: #2E86E6;   /* accent / links / highlights */
+  /* Brand blues — taken from the ÄRT logo itself (assets/logo.svg is built from
+     #1657b0 / #2e86e6 / #0b2c5e). Decided 2026-07-27: the orange on the old
+     WordPress site came from "Machino", the off-the-shelf theme it was built on,
+     and was inherited rather than chosen — the same way that theme's logo and
+     "People Says About Machino" heading are still sitting on the live homepage.
+     Blue is also the more accessible choice: #1657B0 is 6.94:1 on white and
+     passes AA for body text, where the orange managed only 3.97:1. */
+  --navy:        #0B2C5E;   /* deep header/hero ground */
+  --navy-2:      #0A2148;   /* darker ground for gradients */
+  --blue:        #1657B0;   /* PRIMARY ACCENT — buttons, rules, badges */
+  --blue-bright: #2E86E6;   /* hover / highlight (3.7:1 — large text & UI only) */
   --blue-soft:   #EAF2FD;   /* tinted panel background */
 
+  /* Kept from the palette experiment: a single place to reach for when small
+     text needs the brand colour. #1657B0 already passes AA, so these match. */
+  --accent:      #1657B0;
+  --accent-ink:  #1657B0;
+
   /* Steel / neutrals (the stainless-steel machine world) */
-  --ink:      #10233F;      /* primary text */
+  --ink:      #10233F;      /* primary text — 15.7:1 on white */
   --slate:    #45566E;      /* secondary text */
-  --steel:    #5C6678;      /* muted text / captions (AA on white ≈4.6:1) */
+  --steel:    #5C6678;      /* muted text / captions */
   --line:     #DDE3EC;      /* hairline borders */
   --mist:     #F4F7FB;      /* page tint */
   --white:    #FFFFFF;
@@ -33,9 +61,9 @@
   /* Metallic steel gradient for surfaces */
   --steel-grad: linear-gradient(150deg,#f3f6fa 0%,#dbe2ec 40%,#c3ccd9 60%,#e7ecf3 100%);
 
-  /* Type */
-  --font: "Avenir Next", "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
-  --font-display: "DIN Alternate", "Avenir Next Condensed", "Avenir Next", "Segoe UI Variable", sans-serif;
+  /* Type — Monda is the approved site's typeface, self-hosted above. */
+  --font: "Monda", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-display: "Monda", "Avenir Next Condensed", "Avenir Next", sans-serif;
   --font-mono: "SF Mono", "Consolas", "Roboto Mono", ui-monospace, monospace;
 
   /* Fluid type scale */

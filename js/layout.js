@@ -280,6 +280,39 @@
     });
   });
 
+  /* ---------- industry tile grid: caret dropdowns ----------
+     The caret opens the sub-industry list; it must never navigate, so the
+     click is stopped before it reaches the surrounding link. One open at a
+     time, closes on outside click and on Escape. */
+  const carets = document.querySelectorAll(".ig-caret");
+  if (carets.length) {
+    const closeAll = (except) => {
+      carets.forEach((btn) => {
+        if (btn === except) return;
+        btn.setAttribute("aria-expanded", "false");
+        const panel = document.getElementById(btn.getAttribute("aria-controls"));
+        if (panel) panel.hidden = true;
+      });
+    };
+    carets.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const panel = document.getElementById(btn.getAttribute("aria-controls"));
+        const open = btn.getAttribute("aria-expanded") === "true";
+        closeAll(btn);
+        btn.setAttribute("aria-expanded", String(!open));
+        if (panel) panel.hidden = open;
+      });
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".ig-tile")) closeAll(null);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAll(null);
+    });
+  }
+
   /* ---------- reveal on scroll ---------- */
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length && "IntersectionObserver" in window) {

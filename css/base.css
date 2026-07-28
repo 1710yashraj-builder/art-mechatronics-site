@@ -177,3 +177,154 @@ p { margin: 0 0 1em; }
 .stack > * + * { margin-top: 1rem; }
 .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 :focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 2px; border-radius: 4px; }
+
+/* ============================================================
+   Industry tile grid ("Industries We Serve")
+   41 catalogue tiles: cover photo + name label on the image, with a
+   caret that reveals the sub-industries beneath. Matches the layout
+   Anurag approved in the ART Catalogue '26.
+   ============================================================ */
+.ig-head { text-align: center; margin: 0 0 .5rem; }
+.ig-sub {
+  text-align: center; color: var(--steel); max-width: 60ch;
+  margin: 0 auto 2rem; font-size: var(--fs-small);
+}
+.ig-grid {
+  display: grid; gap: .85rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.ig-tile { position: relative; }
+.ig-link {
+  display: block; position: relative; overflow: hidden;
+  border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--navy-2); text-decoration: none;
+  transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
+}
+.ig-link:hover, .ig-link:focus-visible {
+  border-color: var(--accent); transform: translateY(-2px);
+  box-shadow: var(--shadow-sm); outline: none;
+}
+/* Covers are dark editorial stills, so the plate behind them is dark too —
+   a light placeholder would flash white before the image paints. */
+.ig-media { display: block; aspect-ratio: 4 / 3; background: var(--navy-2); }
+.ig-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ig-plate {
+  display: block; width: 100%; height: 100%;
+  background: linear-gradient(155deg, #14315f 0%, #0f2547 55%, #0a1a34 100%);
+}
+/* Awaiting its real cover photo — a faint diagonal sheen so the plate reads as
+   an intentional placeholder rather than a failed image. */
+.ig-plate::after {
+  content: ""; display: block; width: 100%; height: 100%;
+  background: linear-gradient(115deg, transparent 42%, rgba(255,255,255,.05) 50%, transparent 58%);
+}
+/* Name sits ON the photo, with a gradient so light images stay readable. */
+.ig-name {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 1.6rem .6rem .5rem;
+  font-size: .78rem; font-weight: 700; line-height: 1.2;
+  color: var(--white); text-align: center; text-transform: uppercase;
+  letter-spacing: .02em;
+  /* The photo's own bottom strip is already dark, so this only needs to
+     guarantee legibility, not manufacture contrast. */
+  background: linear-gradient(to top, rgba(12,10,9,.82) 0%, rgba(12,10,9,.42) 60%, rgba(12,10,9,0) 100%);
+}
+.ig-caret {
+  position: absolute; top: .4rem; right: .4rem; z-index: 2;
+  width: 26px; height: 26px; border: 0; border-radius: 50%;
+  background: var(--accent); color: var(--white);
+  display: grid; place-items: center; cursor: pointer; padding: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,.28);
+  transition: transform .18s var(--ease), background .18s var(--ease);
+}
+.ig-caret svg { width: 12px; height: 12px; }
+.ig-caret:hover { background: var(--blue-bright); }
+.ig-caret[aria-expanded="true"] { transform: rotate(180deg); }
+.ig-caret:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.ig-drop {
+  position: absolute; z-index: 5; top: calc(100% - .4rem); left: 0; right: 0;
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--r); box-shadow: var(--shadow);
+  padding: .6rem; max-height: 260px; overflow-y: auto;
+}
+.ig-drop__h {
+  margin: 0 0 .4rem; font-size: .62rem; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--steel);
+}
+.ig-drop ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .1rem; }
+/* Small accent dot before each entry, matching the pattern Anurag knows. */
+.ig-dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  flex: 0 0 5px;
+}
+.ig-drop a, .ig-drop__plain { display: flex; align-items: center; gap: .5rem; }
+/* Sub-categories with no page of their own: shown, but not a dead link. */
+.ig-drop__plain { padding: .32rem .4rem; font-size: .78rem; color: var(--steel); line-height: 1.3; }
+.ig-drop a {
+  padding: .32rem .4rem; border-radius: var(--r-sm);
+  font-size: .78rem; color: var(--ink); text-decoration: none; line-height: 1.3;
+}
+.ig-drop a:hover, .ig-drop a:focus-visible {
+  background: var(--blue-soft); color: var(--accent-ink); outline: none;
+}
+@media (max-width: 640px) {
+  .ig-grid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: .6rem; }
+  .ig-name { font-size: .68rem; padding: 1.3rem .4rem .4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig-link, .ig-caret { transition: none; }
+  .ig-link:hover { transform: none; }
+}
+
+/* ============================================================
+   Markets band — large landscape flags on a full-bleed strip that
+   travels left to right. Two tracks shift by one track width so the
+   loop is seamless.
+   ============================================================ */
+.mk-section { text-align: center; overflow: hidden; }
+.mk-sub { color: var(--steel); max-width: 62ch; margin: .6rem auto 0; font-size: var(--fs-small); }
+/* break out of .wrap so the strip runs edge to edge */
+.mk-marquee {
+  margin: 2.6rem 0 0; width: 100%; overflow: hidden; display: flex;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.mk-track {
+  list-style: none; margin: 0;
+  /* padding-right MUST equal the gap: it is the space across the seam between
+     the two tracks. Any mismatch shows up as a stutter once per loop. */
+  padding: 0 5rem 0 0;
+  display: flex; align-items: flex-end; gap: 5rem; flex: 0 0 auto;
+  animation: mk-scroll 44s linear infinite;
+  /* keep the whole strip on its own compositor layer so each frame is a GPU
+     transform rather than a repaint of twelve shadowed flags */
+  will-change: transform;
+  backface-visibility: hidden;
+}
+@keyframes mk-scroll {          /* travels left -> right */
+  from { transform: translate3d(-100%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+.mk-item { display: flex; flex-direction: column; align-items: center; gap: .8rem; }
+.mk-flag {
+  height: 96px; width: auto; display: block;
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(11,44,94,.18), 0 0 0 1px rgba(16,35,63,.08);
+}
+.mk-name {
+  font-weight: 700; font-size: .95rem; letter-spacing: .02em;
+  color: var(--ink); white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .mk-track { gap: 3rem; }
+  .mk-flag { height: 66px; }
+  .mk-name { font-size: .82rem; }
+}
+/* Motion here is decorative — hold it still if the visitor asked for less. */
+@media (prefers-reduced-motion: reduce) {
+  .mk-track { animation: none; }
+  .mk-marquee { justify-content: center; flex-wrap: wrap;
+    -webkit-mask-image: none; mask-image: none; }
+  .mk-track { flex-wrap: wrap; justify-content: center; padding-right: 0; }
+  .mk-track + .mk-track { display: none; }
+}
