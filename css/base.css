@@ -294,8 +294,10 @@ p { margin: 0 0 1em; }
   /* padding-right MUST equal the gap: it is the space across the seam between
      the two tracks. Any mismatch shows up as a stutter once per loop. */
   padding: 0 5rem 0 0;
-  display: flex; align-items: flex-end; gap: 5rem; flex: 0 0 auto;
-  animation: mk-scroll 44s linear infinite;
+  display: flex; align-items: center; gap: 5rem; flex: 0 0 auto;
+  /* 25 flags is roughly four times the old track, so the duration scales
+     with it — the on-screen speed stays the same, it just takes longer to lap. */
+  animation: mk-scroll 150s linear infinite;
   /* keep the whole strip on its own compositor layer so each frame is a GPU
      transform rather than a repaint of twelve shadowed flags */
   will-change: transform;
@@ -305,9 +307,13 @@ p { margin: 0 0 1em; }
   from { transform: translate3d(-100%, 0, 0); }
   to   { transform: translate3d(0, 0, 0); }
 }
-.mk-item { display: flex; flex-direction: column; align-items: center; gap: .8rem; }
+.mk-item { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: .8rem; }
 .mk-flag {
-  height: 96px; width: auto; display: block;
+  /* per-flag dimensions come from the generator (equal-area sizing); the scale
+     var shrinks the whole set on small screens without touching the ratios */
+  width: calc(var(--fw) * var(--mk-scale, 1));
+  height: calc(var(--fh) * var(--mk-scale, 1));
+  display: block;
   border-radius: 4px;
   box-shadow: 0 6px 20px rgba(11,44,94,.18), 0 0 0 1px rgba(16,35,63,.08);
 }
@@ -316,8 +322,8 @@ p { margin: 0 0 1em; }
   color: var(--ink); white-space: nowrap;
 }
 @media (max-width: 720px) {
+  .mk-marquee { --mk-scale: .68; }
   .mk-track { gap: 3rem; }
-  .mk-flag { height: 66px; }
   .mk-name { font-size: .82rem; }
 }
 /* Motion here is decorative — hold it still if the visitor asked for less. */

@@ -875,27 +875,55 @@ function groupCover(group) {
    Thailand — the rest are places machines have shipped to. So the heading is
    "Markets we serve" and the three real offices are marked as such. He gets his
    flags; nothing on the page can be challenged by a buyer or an AI engine. */
+/* All 25 countries from ART Catalogue '26 page 13. Ratios are read from each
+   flag's own viewBox, so nothing is stretched — Nepal stays its correct
+   non-rectangular 0.82, Malaysia and the UAE stay 2:1. */
 const MARKETS = [
   { file: "india", name: "India", ratio: 1.5 },
-  { file: "uae", name: "UAE", ratio: 2 },
-  { file: "thailand", name: "Thailand", ratio: 1.5 },
   { file: "usa", name: "USA", ratio: 1.9 },
+  { file: "uae", name: "UAE", ratio: 2.0 },
   { file: "nepal", name: "Nepal", ratio: 0.82 },
   { file: "bangladesh", name: "Bangladesh", ratio: 1.667 },
+  { file: "sri-lanka", name: "Sri Lanka", ratio: 2.0 },
+  { file: "mexico", name: "Mexico", ratio: 1.75 },
+  { file: "myanmar", name: "Myanmar", ratio: 1.5 },
+  { file: "bhutan", name: "Bhutan", ratio: 1.5 },
+  { file: "indonesia", name: "Indonesia", ratio: 1.5 },
+  { file: "thailand", name: "Thailand", ratio: 1.5 },
+  { file: "vietnam", name: "Vietnam", ratio: 1.5 },
+  { file: "uk", name: "UK", ratio: 1.667 },
+  { file: "malaysia", name: "Malaysia", ratio: 2.0 },
+  { file: "south-africa", name: "South Africa", ratio: 1.5 },
+  { file: "saudi-arabia", name: "Saudi Arabia", ratio: 1.5 },
+  { file: "israel", name: "Israel", ratio: 1.375 },
+  { file: "namibia", name: "Namibia", ratio: 1.5 },
+  { file: "poland", name: "Poland", ratio: 1.6 },
+  { file: "russia", name: "Russia", ratio: 1.5 },
+  { file: "kenya", name: "Kenya", ratio: 1.5 },
+  { file: "morocco", name: "Morocco", ratio: 1.5 },
+  { file: "nigeria", name: "Nigeria", ratio: 2.0 },
+  { file: "philippines", name: "Philippines", ratio: 2.0 },
+  { file: "egypt", name: "Egypt", ratio: 1.5 },
 ];
 
 function marketsBand() {
-  // Real vector flags, not emoji — emoji collapse into tiny glyphs at this size
-  // and render differently on every platform. Each keeps its own official
-  // aspect ratio at a shared height, so nothing is stretched.
-  const one = MARKETS.map((m) => `
+  // Flags are sized by EQUAL AREA, not equal height. At a common height a 2:1
+  // flag like Malaysia covers 2.44x the area of Nepal's 0.82 and the row reads
+  // as lumpy. Normalising on area brings that spread to 1.35x. Height is
+  // clamped so nothing gets extreme, and every flag keeps its true ratio —
+  // no stretching, no cropping a national flag.
+  const TARGET = 144 * 96;
+  const one = MARKETS.map((m) => {
+    const h = Math.round(Math.max(80, Math.min(112, Math.sqrt(TARGET / m.ratio))));
+    const w = Math.round(h * m.ratio);
+    return `
         <li class="mk-item">
           <img class="mk-flag" src="assets/flags/${m.file}.svg" alt="${attr(m.name)}"
-               height="96" width="${Math.round(96 * m.ratio)}" loading="lazy" decoding="async">
+               style="--fw:${w}px;--fh:${h}px" width="${w}" height="${h}"
+               loading="lazy" decoding="async">
           <span class="mk-name">${esc(m.name)}</span>
-        </li>`).join("");
-  // Two identical tracks: the pair shifts by exactly one track width, so the
-  // loop point is invisible. The duplicate is hidden from screen readers.
+        </li>`;
+  }).join("");
   return `
   <section class="section mk-section">
     <div class="wrap sec-head">
