@@ -929,7 +929,7 @@ function marketsBand() {
     <div class="wrap sec-head">
       <span class="eyebrow">Where we work</span>
       <h2>Markets we serve</h2>
-      <p class="mk-sub">Machines engineered in India and supplied across these markets, with teams on the ground in India, the UAE and Thailand.</p>
+      <p class="mk-sub">A selection of the markets we supply. Machines are engineered in India, with teams on the ground in India, the UAE and Thailand.</p>
     </div>
     <div class="mk-marquee">
       <ul class="mk-track">${one}</ul>

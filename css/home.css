@@ -371,3 +371,59 @@
 @media (prefers-reduced-motion:reduce) {
   .hero-visual__tag .live { animation:none; }
 }
+
+/* ============================================================
+   Credentials band — the six facts Anurag confirmed 2026-07-29.
+   Sits directly under the hero as the first thing a buyer reads.
+   ============================================================ */
+.stat-band {
+  background: var(--mist);
+  border-block: 1px solid var(--line);
+  padding: clamp(2rem, 3.5vw, 2.9rem) 0 clamp(1.5rem, 2.5vw, 2rem);
+}
+.stat-band__grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1.2rem 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+.stat-band__grid li {
+  display: flex; flex-direction: column; align-items: center; gap: .3rem;
+  padding-inline: .4rem;
+}
+/* Not a heading, so it must not inherit heading weight from base.css. */
+.stat-band__grid b {
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  line-height: 1; font-weight: 700; color: var(--navy);
+  letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+}
+.stat-band__grid b span { color: var(--accent); }
+.stat-band__grid li > span {
+  font-size: .82rem; line-height: 1.4; color: var(--steel);
+  max-width: 22ch;   /* 18ch broke "Years of manufacturing experience" over 3 lines */
+}
+
+/* The two non-numeric claims from Anurag's band. Kept visually distinct so
+   they read as statements, not as stats missing their number. */
+.stat-band__claims {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: .5rem 1.6rem; margin: 1.6rem 0 0;
+}
+.stat-band__claims span {
+  position: relative; font-size: .88rem; font-weight: 600; color: var(--navy);
+  padding-left: 1.15rem;
+}
+.stat-band__claims span::before {
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%;
+  background: var(--accent);
+}
+.stat-band__note {
+  margin: .9rem 0 0; text-align: center;
+  font-size: .74rem; line-height: 1.5; color: var(--steel); opacity: .85;
+}
+
+@media (max-width: 720px) {
+  .stat-band__grid { grid-template-columns: repeat(2, 1fr); gap: 1.4rem .8rem; }
+  .stat-band__claims { flex-direction: column; align-items: center; gap: .45rem; }
+}

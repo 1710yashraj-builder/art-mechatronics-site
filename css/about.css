@@ -20,20 +20,13 @@
 .jstep p { margin:0; font-size:.85rem; color:var(--slate); }
 
 /* founder */
-.founder { display:flex; gap:1.6rem; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:1.8rem; box-shadow:var(--shadow-sm); }
-@media (max-width:560px){ .founder { flex-direction:column; text-align:center; } }
-.founder .mono {
   flex:0 0 auto; width:96px; height:96px; border-radius:50%; display:grid; place-items:center;
   background: linear-gradient(150deg,var(--blue),var(--navy)); color:#fff; font-size:2.2rem; font-weight:900; letter-spacing:1px;
   box-shadow: var(--shadow);
 }
-.founder__photo {
   flex:0 0 auto; width:120px; height:150px; border-radius:var(--r-lg); object-fit:cover; object-position:top center;
   border:3px solid #fff; box-shadow: var(--shadow); background: var(--steel-grad);
 }
-.founder h3 { margin:0 0 .1rem; }
-.founder .title { color:var(--blue); font-weight:700; margin-bottom:.6rem; }
-.founder p { margin:0; color:var(--slate); }
 
 /* presence + values reuse home-ish */
 .ab-pres-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.2rem; }
@@ -53,3 +46,77 @@
 .ab-cta { background: linear-gradient(120deg,var(--blue),var(--blue-bright)); color:#fff; border-radius:var(--r-xl); padding: clamp(2rem,1.5rem+3vw,3.2rem); text-align:center; }
 .ab-cta h2 { color:#fff; } .ab-cta p { color:#eaf2fd; max-width:50ch; margin-inline:auto; }
 .ab-cta .btns { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.4rem; }
+
+/* ============================================================
+   Managing Director's message + team message.
+   Anurag's own words, so they are set as attributed statements:
+   photo, quoted body, signature. Deliberately not styled as a
+   pull-quote — this is a letter, not a slogan.
+   ============================================================ */
+.md-msg {
+  margin: 0;
+  display: grid; gap: 0 2.2rem;
+  grid-template-columns: 132px 1fr;
+  grid-template-areas: "photo body" ".     sig";
+  align-items: start;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(1.6rem, 3vw, 2.6rem); box-shadow: var(--shadow-sm);
+}
+.md-msg__photo {
+  grid-area: photo; width: 132px; height: 165px;
+  object-fit: cover; border-radius: var(--r);
+  border: 1px solid var(--line);
+}
+.md-msg__body {
+  grid-area: body; margin: 0; padding: 0; border: 0;
+  /* base.css may give blockquote a decorative left rule; this is a letter. */
+}
+.md-msg__body p { margin: 0 0 .9rem; color: var(--slate); line-height: 1.75; }
+.md-msg__body p:last-child { margin-bottom: 0; }
+.md-msg__body p:first-child { color: var(--ink); font-size: 1.05rem; }
+.md-msg__body b { color: var(--accent); font-weight: 700; }
+.md-msg__sig {
+  grid-area: sig; margin-top: 1.4rem; padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.md-msg__sig b { display: block; color: var(--ink); font-size: 1.02rem; }
+.md-msg__sig span { display: block; color: var(--steel); font-size: .86rem; margin-top: .1rem; }
+
+@media (max-width: 640px) {
+  .md-msg {
+    grid-template-columns: 1fr;
+    grid-template-areas: "photo" "body" "sig";
+    gap: 1.2rem 0;
+  }
+  .md-msg__photo { width: 108px; height: 135px; }
+}
+
+/* --- team --- */
+.team-msg { display: grid; gap: 1.6rem 2.4rem; grid-template-columns: 1.7fr 1fr; align-items: start; }
+.team-msg__body { margin: 0; padding: 0; border: 0; }
+.team-msg__body p { margin: 0 0 1rem; color: var(--slate); line-height: 1.75; }
+.team-msg__body p:last-child { margin-bottom: 0; }
+.team-msg__body i { font-style: italic; color: var(--navy); }
+
+.team-msg__stats { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+.team-msg__stats li {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: 1.2rem 1.3rem;
+}
+.team-msg__stats b {
+  display: block; font-size: 2.1rem; line-height: 1; font-weight: 700;
+  color: var(--navy); letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+}
+.team-msg__stats b span { color: var(--accent); }
+.team-msg__stats li > span {
+  display: block; margin-top: .4rem;
+  font-size: .84rem; line-height: 1.45; color: var(--steel);
+}
+
+@media (max-width: 820px) {
+  .team-msg { grid-template-columns: 1fr; }
+  .team-msg__stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .team-msg__stats { grid-template-columns: 1fr; }
+}
