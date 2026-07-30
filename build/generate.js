@@ -1137,11 +1137,10 @@ function renderCategory(name, ctx) {
       <div class="cat-grid">${items.map((p) => card(p, "products", "../")).join("")}</div>
     </section>`;
     }).join("")}
-    ${leftovers.length ? `<section class="cg-group" id="more">
+${leftovers.length ? `    <section class="cg-group" id="more">
       <h2 class="cg-group__h">Also in this category <span>${leftovers.length}</span></h2>
       <div class="cat-grid">${leftovers.map((p) => card(p, "products", "../")).join("")}</div>
-    </section>` : ""}
-    <p class="cg-ask">Not finding it? <a href="${wa(`Hi ART Mechatronics, I'm looking for ${heading.toLowerCase()} machinery. Can you help?`)}" target="_blank" rel="noopener">Ask us on WhatsApp →</a></p>
+    </section>\n` : ""}    <p class="cg-ask">Not finding it? <a href="${wa(`Hi ART Mechatronics, I'm looking for ${heading.toLowerCase()} machinery. Can you help?`)}" target="_blank" rel="noopener">Ask us on WhatsApp →</a></p>
   </div></section>
   <section class="section section--tint"><div class="wrap">
     <div class="sec-head"><span class="eyebrow">Other categories</span><h2>Browse the rest of the range</h2></div>
