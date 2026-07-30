@@ -1,0 +1,678 @@
+{
+ "Packaging": [
+  {
+   "name": "Form, fill & seal",
+   "slug": "form-fill-seal",
+   "machines": [
+    "form-fill-seal",
+    "vertical-form-fill-seal",
+    "horizontal-form-fill-seal",
+    "pneumatic",
+    "d-motion",
+    "mechanical",
+    "servo-driven",
+    "collar-type",
+    "rotary",
+    "3-side-seal",
+    "4-side-seal",
+    "center-seal",
+    "pack-fill-seal",
+    "multi-track",
+    "multi-lane"
+   ]
+  },
+  {
+   "name": "Pouch & sachet",
+   "slug": "pouch-sachet",
+   "machines": [
+    "pouch-filling",
+    "pouch-sealing",
+    "strip-collator",
+    "pouch-stacking",
+    "pouch-counting",
+    "band-sealer",
+    "batch-cutter",
+    "retort-pouch",
+    "premade-pouch",
+    "zip-lock-zipper-pouch",
+    "doypack",
+    "standup-pouch",
+    "pillow-pack",
+    "premade-bag",
+    "tea-bag",
+    "oral-pouches",
+    "pouch",
+    "sachet",
+    "stick",
+    "packet",
+    "strip"
+   ]
+  },
+  {
+   "name": "Filling & dosing",
+   "slug": "filling-dosing",
+   "machines": [
+    "multi-head-weigher",
+    "auger-filler",
+    "cup-filler",
+    "dosing-and-flow-wrapping",
+    "lined-carton",
+    "filling",
+    "bagging",
+    "weighing-and-dosing",
+    "bag-packing",
+    "sack-packing",
+    "filling-2",
+    "servo-auger-filling",
+    "can-packing",
+    "tin-box-packing",
+    "jar-packing",
+    "filling-3",
+    "cup-packing",
+    "filling-4",
+    "servo-filling",
+    "piston-filling",
+    "servo-nozzle-tracking-filling",
+    "palletized-drum-filling",
+    "jerry-can-packing",
+    "cannister-packing",
+    "bucket-packing",
+    "jar-jug-packing",
+    "drum-packing",
+    "gallon-packing",
+    "checkweigher-with-printer"
+   ]
+  },
+  {
+   "name": "Sealing & wrapping",
+   "slug": "sealing-wrapping",
+   "machines": [
+    "vacuum",
+    "flow-wrap",
+    "web-sealer",
+    "l-sealer",
+    "heat-shrink-tunnel",
+    "nitrogen-packing",
+    "wrapper",
+    "overwrapping",
+    "stretch-wrapping",
+    "seaming",
+    "sealing",
+    "sealing-2",
+    "map-tray-sealing",
+    "thermoforming-sealing",
+    "tray-packing",
+    "sealing-3",
+    "crimping",
+    "over-wrapping",
+    "l-sealer-with-heat-shrink-tunnel",
+    "wraparound-labelling-2"
+   ]
+  },
+  {
+   "name": "Cartoning & palletising",
+   "slug": "cartoning-palletising",
+   "machines": [
+    "cartoning",
+    "collating-and-cartoning",
+    "load-cartoner",
+    "mono-carton-packing",
+    "unit-carton-packing",
+    "master-carton-packing",
+    "master-case-packing",
+    "palletizer",
+    "count-and-stack"
+   ]
+  },
+  {
+   "name": "Bags & sacks",
+   "slug": "bags-sacks",
+   "machines": [
+    "sewing",
+    "stitching"
+   ]
+  },
+  {
+   "name": "Bottles & containers",
+   "slug": "bottles-containers",
+   "machines": [
+    "rinsing",
+    "cap-lid-pressing",
+    "forming",
+    "rinsing-2",
+    "cleaning",
+    "capping",
+    "collar-fitting",
+    "decapper",
+    "leak-detector",
+    "bottle-packing"
+   ]
+  },
+  {
+   "name": "Coding & inspection",
+   "slug": "coding-inspection",
+   "machines": [
+    "leak-tester",
+    "wraparound-labelling",
+    "rewinder",
+    "printer",
+    "labelling",
+    "batch-coding",
+    "metal-detection",
+    "x-ray-inspection-2"
+   ]
+  }
+ ],
+ "Process Equipment": [
+  {
+   "name": "Cutting & slicing",
+   "slug": "cutting-slicing",
+   "machines": [
+    "blade-cutter",
+    "knife-cutter",
+    "gear-cutter",
+    "roller-cutter",
+    "cube-cutter",
+    "traditional-cutter",
+    "cutter-with-sifter",
+    "slicer",
+    "dicer",
+    "chopper",
+    "splitter",
+    "chipper",
+    "surface-grinder"
+   ]
+  },
+  {
+   "name": "Cooling & freezing",
+   "slug": "cooling-freezing",
+   "machines": [
+    "freeze-dryer",
+    "chiller",
+    "cooling-tower",
+    "blast-freezer",
+    "iqf-freezer",
+    "cold-storage-cold-room",
+    "cooling-conveyor",
+    "cooling-tunnel"
+   ]
+  },
+  {
+   "name": "Air & climate",
+   "slug": "air-climate",
+   "machines": [
+    "air-handling-unit",
+    "dehumidifier",
+    "hvac-system",
+    "blower-fan"
+   ]
+  },
+  {
+   "name": "Hulling & de-stemming",
+   "slug": "hulling-de-stemming",
+   "machines": [
+    "expeller-machine",
+    "reclaimer",
+    "stem-removal",
+    "seed-removal",
+    "skin-removal",
+    "shell-removal",
+    "dehusking"
+   ]
+  },
+  {
+   "name": "Extrusion & pressing",
+   "slug": "extrusion-pressing",
+   "machines": [
+    "extruder-machine",
+    "hydraulic-press-bailing-press"
+   ]
+  },
+  {
+   "name": "Grinding",
+   "slug": "grinding",
+   "machines": [
+    "shredder",
+    "grinder",
+    "crusher"
+   ]
+  },
+  {
+   "name": "Measurement",
+   "slug": "measurement",
+   "machines": [
+    "moisture-analyzer"
+   ]
+  }
+ ],
+ "Conveying & Handling": [
+  {
+   "name": "Belt conveyors",
+   "slug": "belt-conveyors",
+   "machines": [
+    "conveyor-belt",
+    "inclined-conveyor-belt",
+    "roller-conveyor",
+    "cleat-conveyor",
+    "pipe-conveyor",
+    "apron-conveyor",
+    "slat-conveyor"
+   ]
+  },
+  {
+   "name": "Screw conveyors",
+   "slug": "screw-conveyors",
+   "machines": [
+    "screw-conveyor",
+    "inclined-screw-conveyor",
+    "shaftless-screw-conveyor"
+   ]
+  },
+  {
+   "name": "Elevators",
+   "slug": "elevators",
+   "machines": [
+    "bucket-elevator",
+    "z-type-elevator",
+    "single-bucket-elevator",
+    "goods-lift"
+   ]
+  },
+  {
+   "name": "Pneumatic & vacuum",
+   "slug": "pneumatic-vacuum",
+   "machines": [
+    "pneumatic-conveyor",
+    "vacuum-conveyor"
+   ]
+  },
+  {
+   "name": "Chain & drag",
+   "slug": "chain-drag",
+   "machines": [
+    "chain-conveyor",
+    "drag-chain-conveyor"
+   ]
+  },
+  {
+   "name": "Specialist conveyors",
+   "slug": "specialist-conveyors",
+   "machines": [
+    "sack-conveyor",
+    "spiral-conveyor",
+    "vertical-conveyor",
+    "telescopic-conveyor",
+    "loading-and-unloading-conveyor",
+    "disc-conveyor",
+    "vibratory-conveyor",
+    "vibratory-feeder"
+   ]
+  },
+  {
+   "name": "Lifts, feeders & trolleys",
+   "slug": "lifts-feeders-trolleys",
+   "machines": [
+    "scissor-lift",
+    "car-parking-lift",
+    "rotary-collecting-table",
+    "trolley"
+   ]
+  }
+ ],
+ "Heating & Drying": [
+  {
+   "name": "Dryers",
+   "slug": "dryers",
+   "machines": [
+    "batch-type-hot-air-dryer",
+    "fluidized-bed-dryer-fbd",
+    "rotary-dryer-drum-dryer",
+    "tray-dryer-tray-oven",
+    "hot-air-generator",
+    "continuous-conveyor-tunnel-dryer",
+    "spray-dryer",
+    "rotocone-vacuum-dryer-rcvd",
+    "rotary-tube-dryer",
+    "flash-dryer"
+   ]
+  },
+  {
+   "name": "Ovens & roasters",
+   "slug": "ovens-roasters",
+   "machines": [
+    "rotary-rack-oven",
+    "roaster"
+   ]
+  },
+  {
+   "name": "Boilers & heaters",
+   "slug": "boilers-heaters",
+   "machines": [
+    "cooking-kettle-boiling-tank",
+    "boiler",
+    "thermic-fluid-heater",
+    "hot-water-generator",
+    "steam-generator",
+    "air-duct-heater"
+   ]
+  },
+  {
+   "name": "Cooking & frying",
+   "slug": "cooking-frying",
+   "machines": [
+    "fryer",
+    "blancher",
+    "jacketed-tank"
+   ]
+  },
+  {
+   "name": "Sterilising",
+   "slug": "sterilising",
+   "machines": [
+    "pasteurizer",
+    "sterilization"
+   ]
+  },
+  {
+   "name": "Heat recovery & furnaces",
+   "slug": "heat-recovery-furnaces",
+   "machines": [
+    "furnace-burner",
+    "heat-exchanger",
+    "heat-recovery-unit-hru",
+    "incinerator"
+   ]
+  }
+ ],
+ "Cleaning, Sorting & Grading": [
+  {
+   "name": "Sifting & screening",
+   "slug": "sifting-screening",
+   "machines": [
+    "vibro",
+    "siever",
+    "sifter",
+    "screener",
+    "plan-sifter",
+    "air-screen-cleaner"
+   ]
+  },
+  {
+   "name": "Separation",
+   "slug": "separation",
+   "machines": [
+    "separator",
+    "air-classifier",
+    "dust-separator",
+    "cyclone-separator",
+    "gravity-separator",
+    "magnetic-separator",
+    "air-aspirator",
+    "winnower"
+   ]
+  },
+  {
+   "name": "Destoning & washing",
+   "slug": "destoning-washing",
+   "machines": [
+    "pre-cleaner",
+    "de-stoner",
+    "scourer",
+    "washer",
+    "polisher"
+   ]
+  },
+  {
+   "name": "Optical & detection",
+   "slug": "optical-detection",
+   "machines": [
+    "color-sorter",
+    "metal-detector",
+    "x-ray-inspection"
+   ]
+  },
+  {
+   "name": "Grading & peeling",
+   "slug": "grading-peeling",
+   "machines": [
+    "grader",
+    "peeler"
+   ]
+  }
+ ],
+ "Mixing & Blending": [
+  {
+   "name": "Ribbon & paddle",
+   "slug": "ribbon-paddle",
+   "machines": [
+    "ribbon-mixer",
+    "paddle-mixer",
+    "plow-mixer",
+    "plough-shear-mixer"
+   ]
+  },
+  {
+   "name": "Cone, drum & V",
+   "slug": "cone-drum-v",
+   "machines": [
+    "capsule-mixer",
+    "rotary-mixer",
+    "drum-mixer",
+    "double-cone-mixer",
+    "v-mixer"
+   ]
+  },
+  {
+   "name": "High-shear & granulating",
+   "slug": "high-shear-granulating",
+   "machines": [
+    "rapid-mixer-granulator-rmg",
+    "high-shear-mixer",
+    "homogenizer",
+    "granulator"
+   ]
+  },
+  {
+   "name": "Planetary, spiral & sigma",
+   "slug": "planetary-spiral-sigma",
+   "machines": [
+    "conical-screw-mixer",
+    "planetary-mixer",
+    "spiral-mixer",
+    "sigma-mixer"
+   ]
+  },
+  {
+   "name": "Agitators & stirrers",
+   "slug": "agitators-stirrers",
+   "machines": [
+    "agitator",
+    "stirrer",
+    "shaker"
+   ]
+  },
+  {
+   "name": "Coating & automation",
+   "slug": "coating-automation",
+   "machines": [
+    "coating-pan-mixer",
+    "handa-mixer",
+    "mixer-automation-system"
+   ]
+  }
+ ],
+ "Automation & Robotics": [
+  {
+   "name": "Robotic arms",
+   "slug": "robotic-arms",
+   "machines": [
+    "robotic-arm",
+    "pick-and-place-robot",
+    "robotic-pick-and-place",
+    "delta-robot"
+   ]
+  },
+  {
+   "name": "Mobile robots",
+   "slug": "mobile-robots",
+   "machines": [
+    "automated-guided-vehicle-agv",
+    "autonomous-mobile-robot-amr",
+    "agv-amr",
+    "drone"
+   ]
+  },
+  {
+   "name": "Palletising",
+   "slug": "palletising",
+   "machines": [
+    "palletizer-and-de-palletizer-robot"
+   ]
+  },
+  {
+   "name": "Control systems",
+   "slug": "control-systems",
+   "machines": [
+    "plc-automation-control-panel",
+    "centralised-automation-system"
+   ]
+  },
+  {
+   "name": "Packaging automation",
+   "slug": "packaging-automation",
+   "machines": [
+    "packaging-robot",
+    "robotic-case-packer",
+    "secondary-packaging-automation",
+    "complete-packaging-automation"
+   ]
+  },
+  {
+   "name": "Inspection & reject",
+   "slug": "inspection-reject",
+   "machines": [
+    "vision-inspection",
+    "auto-reject-system"
+   ]
+  },
+  {
+   "name": "Sorting & handling",
+   "slug": "sorting-handling",
+   "machines": [
+    "robot-conveyor",
+    "sorting-robot",
+    "material-handling-robot"
+   ]
+  }
+ ],
+ "Size Reduction & Grinding": [
+  {
+   "name": "Pulverisers",
+   "slug": "pulverisers",
+   "machines": [
+    "impact-pulverizer-machine",
+    "micro-pulverizer-machine",
+    "pulverizer-with-dust-collector",
+    "powderizer-machine"
+   ]
+  },
+  {
+   "name": "Mills",
+   "slug": "mills",
+   "machines": [
+    "hammer-mill-machine",
+    "roller-mill-machine",
+    "stone-mill-machine",
+    "grinding-mill-machine",
+    "ball-mill-machine",
+    "pin-mill-machine",
+    "air-classifier-mill-machine",
+    "milling-machine"
+   ]
+  },
+  {
+   "name": "Grinders",
+   "slug": "grinders",
+   "machines": [
+    "grinding-machine",
+    "micronizer-machine"
+   ]
+  },
+  {
+   "name": "Crushers & shredders",
+   "slug": "crushers-shredders",
+   "machines": [
+    "crushing-machine",
+    "disintegrator-machine",
+    "shredder-machine"
+   ]
+  }
+ ],
+ "Pollution Control": [
+  {
+   "name": "Dust collectors",
+   "slug": "dust-collectors",
+   "machines": [
+    "dust-collector-machine",
+    "bag-house-dust-collector-machine",
+    "cyclone-dust-collector-machine",
+    "multiclone-dust-collector-machine",
+    "pulse-jet-dust-collector-machine",
+    "cartridge-dust-collector-machine",
+    "pleated-dust-collector-machine",
+    "flat-bag-dust-collector-machine"
+   ]
+  },
+  {
+   "name": "Extraction systems",
+   "slug": "extraction-systems",
+   "machines": [
+    "de-dusting-system",
+    "centralised-dust-collection-system",
+    "dust-extraction-system",
+    "fume-extraction-system",
+    "air-pollution-control-equipment",
+    "centralised-dust-collection-system-2"
+   ]
+  },
+  {
+   "name": "Scrubbers",
+   "slug": "scrubbers",
+   "machines": [
+    "wet-scrubber"
+   ]
+  }
+ ],
+ "Storage & Elevation": [
+  {
+   "name": "Silos & tanks",
+   "slug": "silos-tanks",
+   "machines": [
+    "storage-tank",
+    "silo"
+   ]
+  },
+  {
+   "name": "Hoppers & bins",
+   "slug": "hoppers-bins",
+   "machines": [
+    "hopper",
+    "day-bin"
+   ]
+  },
+  {
+   "name": "Bag handling",
+   "slug": "bag-handling",
+   "machines": [
+    "bag-dump-station"
+   ]
+  },
+  {
+   "name": "Pits & cold storage",
+   "slug": "pits-cold-storage",
+   "machines": [
+    "storage-pit"
+   ]
+  }
+ ]
+}

@@ -17,10 +17,15 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260730a";
+const CSSV = "?v=20260730b";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
+/* Sub-groups inside each machine category, derived from the machine names and
+   checked to cover every product: 314 of 315 grouped (spares is a parts page,
+   deliberately excluded). Capped at 8 groups so every dropdown stays readable
+   whether the category holds 114 machines or 6. */
+const categoryGroupData = JSON.parse(fs.readFileSync(path.join(DATA, "category-groups.json"), "utf8"));
 const imageManifest = JSON.parse(fs.readFileSync(path.join(ROOT, "assets", "machines", "v2", "manifest.json"), "utf8"));
 const v3ManifestFile = path.join(ROOT, "assets", "machines", "v3", "pilot", "manifest.json");
 const v3Manifest = fs.existsSync(v3ManifestFile)
@@ -1033,6 +1038,35 @@ const CATEGORY_COPY = {
   "Pollution Control": ["Dust collection & pollution control", "Keeping dust in the system and out of the plant air — dust collectors, bag filters, cyclones and scrubbers."],
   "Storage & Elevation": ["Storage & elevation", "Holding and lifting material between stages — silos, hoppers, day bins and storage systems."],
 };
+/* Tile face per category — hand-picked, not prods[0].
+   The tile is 235x176 landscape, so the pick has to read as its category at
+   that size and fill a landscape frame. Chosen by eye against every candidate:
+     automation      AGV read as a flat trolley; a robot arm reads as automation instantly
+     cleaning        pre-cleaner was murky green; the colour sorter has the strongest form
+     conveying       a flat belt is thin and empty in frame; the screw fills it diagonally
+     heating         the FBD is taller, cleaner and unmistakably a dryer
+     packaging       VFFS is tall and crops badly; the weigher's radial form suits landscape
+   The other five were already the best available and are unchanged. */
+const CATEGORY_FACE = {
+  "Automation & Robotics": "robotic-arm",
+  "Cleaning, Sorting & Grading": "color-sorter",
+  "Conveying & Handling": "screw-conveyor",
+  "Heating & Drying": "fluidized-bed-dryer-fbd",
+  "Packaging": "multi-head-weigher",
+  "Mixing & Blending": "ribbon-mixer",
+  "Pollution Control": "dust-collector-machine",
+  "Process Equipment": "extruder-machine",
+  "Size Reduction & Grinding": "impact-pulverizer-machine",
+  "Storage & Elevation": "storage-tank",
+};
+function categoryFace(name, prods) {
+  const want = CATEGORY_FACE[name];
+  // fall back to the first product rather than throwing: a renamed slug should
+  // cost us a nicer photo, not the whole build.
+  return (want && prods.find((p) => p.slug === want)) || prods[0];
+}
+
+const groupsFor = (name) => categoryGroupData[name] || [];
 const categoryList = () =>
   Object.keys(imageManifest.categories).sort((a, b) => a.localeCompare(b));
 const categorySlug = (name) => imageManifest.categories[name].slug;
@@ -1044,14 +1078,29 @@ function categoryGrid(base = "") {
     if (!prods.length) return "";
     const [heading, blurb] = CATEGORY_COPY[name] || [name, ""];
     const c = imageManifest.categories[name];
-    const media = cardMedia(prods[0], "products", base);
-    return `<a class="mc-tile" href="${rel(base, `categories/${categorySlug(name)}.html`)}"
+    const media = cardMedia(categoryFace(name, prods), "products", base);
+    const gs = groupsFor(name);
+    const catHref = rel(base, `categories/${categorySlug(name)}.html`);
+    // Groups link to their own anchored section on the category page, so the
+    // dropdown works without JS and every target is crawlable.
+    const caret = gs.length ? `
+      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-${categorySlug(name)}" aria-label="Show groups under ${attr(heading)}">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mc-drop" id="mcd-${categorySlug(name)}" hidden>
+        <p class="mc-drop__h">${esc(heading)}</p>
+        <ul>${gs.map((g) => `<li><a href="${catHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`).join("")}</ul>
+        <a class="mc-drop__all" href="${catHref}">See all ${prods.length} machines →</a>
+      </div>` : "";
+    return `<div class="mc-tile-wrap${gs.length ? " has-drop" : ""}">
+      <a class="mc-tile" href="${catHref}"
       style="--mc-from:${c.from};--mc-to:${c.to}">
       <span class="mc-tile__media">${media}</span>
       <span class="mc-tile__body">
         <span class="mc-tile__name">${esc(heading)}</span>
         <span class="mc-tile__count">${prods.length} machine${prods.length === 1 ? "" : "s"}</span>
-      </span></a>`;
+      </span></a>${caret}
+    </div>`;
   }).join("\n      ");
   return `<div class="mc-grid">\n      ${tiles}\n      </div>`;
 }
@@ -1060,6 +1109,11 @@ function renderCategory(name, ctx) {
   const prods = productsInCategory(name);
   const slug = categorySlug(name);
   const [heading, blurb] = CATEGORY_COPY[name] || [name, ""];
+  const gs = groupsFor(name);
+  // Anything the grouping does not claim still has to appear, or a machine
+  // silently vanishes from its own category page.
+  const claimed = new Set(gs.flatMap((g) => g.machines));
+  const leftovers = prods.filter((p) => !claimed.has(p.slug));
   const cr = crumbs(
     [{ label: "Home", href: "index.html" }, { label: "Catalogue", href: "catalog.html" }, { label: heading }],
     "../", abs(`categories/${slug}.html`));
@@ -1072,10 +1126,22 @@ function renderCategory(name, ctx) {
     <a class="btn btn--light btn--lg" href="${rel("../", "catalog.html")}">Browse the full catalogue →</a>
   </div></section>
   <section class="section"><div class="wrap">
-    <h2 class="visually-hidden">${esc(heading)} machines</h2>
-    <div class="cat-toolbar"><input type="search" id="catSearch" placeholder="Search ${esc(heading.toLowerCase())}…" aria-label="Search ${esc(heading.toLowerCase())}"></div>
-    <div class="cat-grid" id="catGrid">${prods.map((p) => card(p, "products", "../")).join("")}</div>
-    <p class="cat-empty" id="catEmpty" hidden>No match here? <a href="${wa(`Hi ART Mechatronics, I'm looking for ${heading.toLowerCase()} machinery. Can you help?`)}" target="_blank" rel="noopener">Ask us on WhatsApp →</a></p>
+    <nav class="cg-jump" aria-label="Jump to a group">
+      ${gs.map((g) => `<a href="#${g.slug}">${esc(g.name)} <em>${g.machines.length}</em></a>`).join("")}
+    </nav>
+    ${gs.map((g) => {
+      const items = g.machines.map((sl) => bySlug.get(sl)).filter(Boolean);
+      if (!items.length) return "";
+      return `<section class="cg-group" id="${g.slug}">
+      <h2 class="cg-group__h">${esc(g.name)} <span>${items.length} machine${items.length === 1 ? "" : "s"}</span></h2>
+      <div class="cat-grid">${items.map((p) => card(p, "products", "../")).join("")}</div>
+    </section>`;
+    }).join("")}
+    ${leftovers.length ? `<section class="cg-group" id="more">
+      <h2 class="cg-group__h">Also in this category <span>${leftovers.length}</span></h2>
+      <div class="cat-grid">${leftovers.map((p) => card(p, "products", "../")).join("")}</div>
+    </section>` : ""}
+    <p class="cg-ask">Not finding it? <a href="${wa(`Hi ART Mechatronics, I'm looking for ${heading.toLowerCase()} machinery. Can you help?`)}" target="_blank" rel="noopener">Ask us on WhatsApp →</a></p>
   </div></section>
   <section class="section section--tint"><div class="wrap">
     <div class="sec-head"><span class="eyebrow">Other categories</span><h2>Browse the rest of the range</h2></div>
@@ -1088,7 +1154,7 @@ function renderCategory(name, ctx) {
     canonical: abs(`categories/${slug}.html`),
     main,
     schema: { "@context": "https://schema.org", "@graph": [...listingSchema(abs(`categories/${slug}.html`), heading, blurb)["@graph"], cr.schema] },
-    extraJS: true,
+    extraJS: false,
   });
 }
 

@@ -383,3 +383,66 @@ p { margin: 0 0 1em; }
   .mc-tile { transition: none; }
   .mc-tile:hover, .mc-tile:focus-visible { transform: none; }
 }
+
+/* --- machine-category tile: caret dropdown (mirrors the industry tile) --- */
+.mc-tile-wrap { position: relative; display: block; }
+.mc-caret {
+  position: absolute; top: .5rem; right: .5rem; z-index: 2;
+  width: 30px; height: 30px; border: 0; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  background: rgba(255,255,255,.92); color: var(--navy);
+  box-shadow: 0 2px 8px rgba(11,44,94,.22);
+  transition: transform .18s var(--ease), background .18s var(--ease);
+}
+.mc-caret svg { width: 13px; height: 13px; }
+.mc-caret:hover { background: #fff; }
+.mc-caret[aria-expanded="true"] { transform: rotate(180deg); background: var(--accent); color: #fff; }
+.mc-drop {
+  position: absolute; z-index: 5; left: .5rem; right: .5rem; top: calc(100% - .6rem);
+  background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg, 0 20px 44px rgba(11,44,94,.18));
+  padding: .7rem .55rem .55rem;
+}
+.mc-drop__h { margin: 0 .35rem .45rem; font-size: .72rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--steel); }
+.mc-drop ul { list-style: none; margin: 0; padding: 0; }
+.mc-drop li a {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .38rem .35rem; border-radius: 7px;
+  font-size: .82rem; color: var(--ink); text-decoration: none;
+}
+.mc-drop li a:hover { background: var(--blue-soft); color: var(--blue); }
+.mc-drop li a em { margin-left: auto; font-style: normal; font-size: .72rem; color: var(--steel); }
+.mc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: 0 0 5px; }
+.mc-drop__all {
+  display: block; margin-top: .4rem; padding: .45rem .35rem 0;
+  border-top: 1px solid var(--line);
+  font-size: .78rem; font-weight: 700; color: var(--blue); text-decoration: none;
+}
+.mc-drop__all:hover { text-decoration: underline; }
+
+/* --- category page: jump bar + grouped sections --- */
+.cg-jump { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 2rem; }
+.cg-jump a {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .4rem .75rem; border: 1px solid var(--line); border-radius: 999px;
+  font-size: .82rem; font-weight: 600; color: var(--slate); text-decoration: none;
+  background: var(--white);
+}
+.cg-jump a:hover { border-color: var(--accent); color: var(--blue); background: var(--blue-soft); }
+.cg-jump a em { font-style: normal; font-size: .72rem; color: var(--steel); }
+
+.cg-group { margin-bottom: 2.6rem; scroll-margin-top: 96px; }  /* clear the sticky header on anchor jump */
+.cg-group__h {
+  display: flex; align-items: baseline; gap: .6rem;
+  margin: 0 0 1rem; padding-bottom: .5rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.15rem;
+}
+.cg-group__h span { font-size: .8rem; font-weight: 600; color: var(--steel); }
+.cg-ask { color: var(--steel); font-size: .92rem; }
+
+@media (max-width: 620px) {
+  .mc-drop { left: .35rem; right: .35rem; }
+  .mc-drop li a { padding: .5rem .35rem; font-size: .86rem; }  /* bigger tap target */
+}

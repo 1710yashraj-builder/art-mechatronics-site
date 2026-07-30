@@ -282,11 +282,12 @@
     });
   });
 
-  /* ---------- industry tile grid: caret dropdowns ----------
-     The caret opens the sub-industry list; it must never navigate, so the
-     click is stopped before it reaches the surrounding link. One open at a
-     time, closes on outside click and on Escape. */
-  const carets = document.querySelectorAll(".ig-caret");
+  /* ---------- tile caret dropdowns (industries AND machine categories) ----------
+     The caret opens the sub-list; it must never navigate, so the click is
+     stopped before it reaches the surrounding link. One open at a time, closes
+     on outside click and on Escape. Shared by both grids rather than
+     duplicated — same behaviour, one place to fix it. */
+  const carets = document.querySelectorAll(".ig-caret, .mc-caret");
   if (carets.length) {
     const closeAll = (except) => {
       carets.forEach((btn) => {
@@ -308,7 +309,7 @@
       });
     });
     document.addEventListener("click", (e) => {
-      if (!e.target.closest(".ig-tile")) closeAll(null);
+      if (!e.target.closest(".ig-tile, .mc-tile-wrap")) closeAll(null);
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeAll(null);
