@@ -56,14 +56,14 @@
 .md-msg {
   margin: 0;
   display: grid; gap: 0 2.2rem;
-  grid-template-columns: 132px 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-areas: "photo body" ".     sig";
   align-items: start;
   background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
   padding: clamp(1.6rem, 3vw, 2.6rem); box-shadow: var(--shadow-sm);
 }
 .md-msg__photo {
-  grid-area: photo; width: 132px; height: 165px;
+  grid-area: photo; width: 200px; height: 267px;
   object-fit: cover; border-radius: var(--r);
   border: 1px solid var(--line);
 }
@@ -88,7 +88,7 @@
     grid-template-areas: "photo" "body" "sig";
     gap: 1.2rem 0;
   }
-  .md-msg__photo { width: 108px; height: 135px; }
+  .md-msg__photo { width: 170px; height: 227px; }
 }
 
 /* --- team --- */
