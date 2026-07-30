@@ -17,7 +17,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260728b";
+const CSSV = "?v=20260730a";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -445,12 +445,12 @@ function detailMedia(item, base, kind) {
   </figure>`;
 }
 
-function cardMedia(item, kind) {
+function cardMedia(item, kind, base = "") {
   const isProduct = kind === "products";
   const { mapping, asset } = mediaEntry(item, kind);
   if (isProduct) {
-    const card = localWebp(asset.files && asset.files.card, `${item.slug} card image`);
-    const detail = localWebp(asset.files && asset.files.detail, `${item.slug} card srcset image`);
+    const card = base + localWebp(asset.files && asset.files.card, `${item.slug} card image`);
+    const detail = base + localWebp(asset.files && asset.files.detail, `${item.slug} card srcset image`);
     return responsivePicture({
       src: card,
       srcset: `${card} 640w, ${detail} 1280w`,
@@ -468,7 +468,8 @@ function cardMedia(item, kind) {
   // and orange machine collages with captions baked in — beside the blue tile
   // grid they read as a different website. An industry's material photo is also
   // simply the truer image for an industry card: almonds belong under nuts.
-  const parentCover = groupCoverFor(item.slug);
+  const parentCover0 = groupCoverFor(item.slug);
+  const parentCover = parentCover0 ? base + parentCover0 : parentCover0;
   if (parentCover) {
     return responsivePicture({
       src: parentCover,
@@ -483,7 +484,7 @@ function cardMedia(item, kind) {
     });
   }
 
-  const hero = localWebp(mapping.hero, `${item.slug} industry montage card image`);
+  const hero = base + localWebp(mapping.hero, `${item.slug} industry montage card image`);
   return responsivePicture({
     src: hero,
     srcset: `${hero} 1600w`,
@@ -990,14 +991,14 @@ function industryGrid(base = "") {
 /* ============================================================
    LISTING pages
    ============================================================ */
-function card(item, kind) {
-  const href = pubPath(`${kind}/${item.slug}.html`);
+function card(item, kind, base = "") {
+  const href = rel(base, `${kind}/${item.slug}.html`);
   // Card teasers may ellipsis (that's normal card UI) but must never open with a
   // pasted tick-run, so drop that tail first — same rule metaDescOf applies.
   const teaser = String(firstPara(item.intro) || item.metaDesc || "").replace(/\s*[✔✓].*$/s, "").trim();
   const desc = clip(teaser || item.metaDesc || "", 120);
   const tag = kind === "products" ? item.category : "Industry";
-  const media = cardMedia(item, kind);
+  const media = cardMedia(item, kind, base);
   return `<a class="cat-card cat-card--${kind === "products" ? "product" : "industry"}" href="${href}" data-name="${attr((item.display + " " + item.shortName + " " + item.h1 + " " + (item.aka||[]).join(" ")).toLowerCase())}" data-cat="${attr(item.category)}">
     <div class="cat-card__media">${media}<span class="cat-card__tag">${esc(tag)}</span></div>
     <div class="cat-card__body">
@@ -1005,6 +1006,90 @@ function card(item, kind) {
       <p>${esc(desc)}</p>
       <span class="cat-card__go">View details →</span>
     </div></a>`;
+}
+
+/* ============================================================
+   MACHINE CATEGORIES — the second browse axis.
+   The site was planned on two axes (Granola, "Industry machine
+   classification", 13 Jul): by industry and by machine category. The
+   industry axis shipped as 41 tiles -> 88 pages; the category axis
+   existed only as client-side filter chips on /catalog with no URL, so
+   no category was linkable, shareable or crawlable. These pages close
+   that gap using the categories already carried on all 315 products.
+
+   Copy is descriptive only — it says what a category contains, which is
+   verifiable from the machine list beneath it. No capacities, throughput
+   or performance claims are introduced here.
+   ============================================================ */
+const CATEGORY_COPY = {
+  "Packaging": ["Packaging machinery", "Filling, weighing, sealing and wrapping — from single pouch machines to complete automatic packing lines."],
+  "Process Equipment": ["Process equipment", "The core process machines a line is built around, engineered to suit the product and the plant."],
+  "Conveying & Handling": ["Conveying & material handling", "Moving product between stages — conveyors, elevators, feeders and handling equipment."],
+  "Cleaning, Sorting & Grading": ["Cleaning, sorting & grading", "Removing what should not be there and separating what should — cleaners, destoners, sifters, graders and sorters."],
+  "Heating & Drying": ["Heating & drying", "Controlled heat across the process — dryers, roasters, ovens and thermal equipment."],
+  "Mixing & Blending": ["Mixing & blending", "Uniform blends at batch scale — ribbon blenders, mixers, agitators and granulators."],
+  "Size Reduction & Grinding": ["Size reduction & grinding", "Bringing material to the particle size the process needs — pulverisers, mills, grinders and crushers."],
+  "Automation & Robotics": ["Automation & controls", "The layer that makes a line run as one system — PLC and HMI control panels, automation and robotics."],
+  "Pollution Control": ["Dust collection & pollution control", "Keeping dust in the system and out of the plant air — dust collectors, bag filters, cyclones and scrubbers."],
+  "Storage & Elevation": ["Storage & elevation", "Holding and lifting material between stages — silos, hoppers, day bins and storage systems."],
+};
+const categoryList = () =>
+  Object.keys(imageManifest.categories).sort((a, b) => a.localeCompare(b));
+const categorySlug = (name) => imageManifest.categories[name].slug;
+const productsInCategory = (name) => selProd.filter((p) => categoryForProduct(p) === name);
+
+function categoryGrid(base = "") {
+  const tiles = categoryList().map((name) => {
+    const prods = productsInCategory(name);
+    if (!prods.length) return "";
+    const [heading, blurb] = CATEGORY_COPY[name] || [name, ""];
+    const c = imageManifest.categories[name];
+    const media = cardMedia(prods[0], "products", base);
+    return `<a class="mc-tile" href="${rel(base, `categories/${categorySlug(name)}.html`)}"
+      style="--mc-from:${c.from};--mc-to:${c.to}">
+      <span class="mc-tile__media">${media}</span>
+      <span class="mc-tile__body">
+        <span class="mc-tile__name">${esc(heading)}</span>
+        <span class="mc-tile__count">${prods.length} machine${prods.length === 1 ? "" : "s"}</span>
+      </span></a>`;
+  }).join("\n      ");
+  return `<div class="mc-grid">\n      ${tiles}\n      </div>`;
+}
+
+function renderCategory(name, ctx) {
+  const prods = productsInCategory(name);
+  const slug = categorySlug(name);
+  const [heading, blurb] = CATEGORY_COPY[name] || [name, ""];
+  const cr = crumbs(
+    [{ label: "Home", href: "index.html" }, { label: "Catalogue", href: "catalog.html" }, { label: heading }],
+    "../", abs(`categories/${slug}.html`));
+  const main = `
+  ${cr.html}
+  <section class="mi-hero"><div class="wrap">
+    <span class="eyebrow">Machine category</span>
+    <h1>${esc(heading)}</h1>
+    <p class="lead">${esc(blurb)}</p>
+    <a class="btn btn--light btn--lg" href="${rel("../", "catalog.html")}">Browse the full catalogue →</a>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <h2 class="visually-hidden">${esc(heading)} machines</h2>
+    <div class="cat-toolbar"><input type="search" id="catSearch" placeholder="Search ${esc(heading.toLowerCase())}…" aria-label="Search ${esc(heading.toLowerCase())}"></div>
+    <div class="cat-grid" id="catGrid">${prods.map((p) => card(p, "products", "../")).join("")}</div>
+    <p class="cat-empty" id="catEmpty" hidden>No match here? <a href="${wa(`Hi ART Mechatronics, I'm looking for ${heading.toLowerCase()} machinery. Can you help?`)}" target="_blank" rel="noopener">Ask us on WhatsApp →</a></p>
+  </div></section>
+  <section class="section section--tint"><div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Other categories</span><h2>Browse the rest of the range</h2></div>
+    ${categoryGrid("../")}
+  </div></section>`;
+  return shell({
+    page: "catalog", base: "../",
+    title: `${heading} | ART Mechatronics`,
+    desc: clip(blurb, 155),
+    canonical: abs(`categories/${slug}.html`),
+    main,
+    schema: { "@context": "https://schema.org", "@graph": [...listingSchema(abs(`categories/${slug}.html`), heading, blurb)["@graph"], cr.schema] },
+    extraJS: true,
+  });
 }
 
 function renderIndustriesHub(sel) {
@@ -1096,7 +1181,7 @@ function industriesUsing(product) {
 const ctx = { linkMachine, industriesUsing, selectedProducts: selProd, selectedIndustries: selInd };
 
 // clean output dirs
-for (const d of ["industries", "products"]) {
+for (const d of ["industries", "products", "categories"]) {
   const dir = path.join(ROOT, d);
   fs.mkdirSync(dir, { recursive: true });
   for (const f of fs.readdirSync(dir)) if (f.endsWith(".html")) fs.unlinkSync(path.join(dir, f));
@@ -1105,6 +1190,12 @@ for (const d of ["industries", "products"]) {
 let n = 0;
 for (const ind of selInd) { fs.writeFileSync(path.join(ROOT, "industries", ind.slug + ".html"), renderIndustry(ind, ctx)); n++; }
 for (const p of selProd) { fs.writeFileSync(path.join(ROOT, "products", p.slug + ".html"), renderProduct(p, ctx)); n++; }
+// Machine-category landing pages — the second browse axis, generated from the
+// categories already carried on every product. See CATEGORY_COPY above.
+const CATEGORIES = categoryList().filter((c) => productsInCategory(c).length);
+for (const c of CATEGORIES) {
+  fs.writeFileSync(path.join(ROOT, "categories", categorySlug(c) + ".html"), renderCategory(c, ctx)); n++;
+}
 
 // listing hubs (search JS appended via extraJS in shell)
 fs.writeFileSync(path.join(ROOT, "industries.html"), renderIndustriesHub(selInd));
@@ -1123,6 +1214,16 @@ fs.writeFileSync(path.join(ROOT, "industries.html"), renderIndustriesHub(selInd)
     throw new Error("index.html is missing the industry-grid markers — the homepage grid cannot be injected");
   }
   let next = home.slice(0, from + START.length) + "\n      " + industryGrid("") + "\n      " + home.slice(to);
+
+  // machine-category grid — same marker contract as the industry grid
+  const CS = "<!-- category-grid:start -->";
+  const CE = "<!-- category-grid:end -->";
+  const cf = next.indexOf(CS);
+  const ct = next.indexOf(CE);
+  if (cf < 0 || ct < 0) {
+    throw new Error("index.html is missing the category-grid markers");
+  }
+  next = next.slice(0, cf + CS.length) + "\n      " + categoryGrid("") + "\n      " + next.slice(ct);
 
   // markets band — same marker pattern, generated from the MARKETS list
   const MS = "<!-- markets-band:start -->";
@@ -1143,6 +1244,7 @@ const urls = [
   "", "about.html", "contact.html", "services.html", "machines.html", "system.html", "control-panel.html",
   "industries.html", "catalog.html",
   ...selInd.map((i) => `industries/${i.slug}.html`),
+  ...CATEGORIES.map((c) => `categories/${categorySlug(c)}.html`),
   // Only indexable product pages belong in the sitemap — submitting a noindex
   // URL asks Google to crawl a page we've told it to drop.
   ...selProd.filter((p) => productIndexable(p.slug)).map((p) => `products/${p.slug}.html`),
