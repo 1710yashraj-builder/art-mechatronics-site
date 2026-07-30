@@ -37,8 +37,6 @@
 /products/  /catalog  301
 /project-installations  /system  301
 /project-installations/  /system  301
-/services  /catalog  301
-/services/  /catalog  301
 
 # --- money page ---
 /manufacturing-cat/flash-dryer  /products/flash-dryer  301
@@ -170,7 +168,6 @@
 /manufacturing-cat/*  /catalog  301
 /industry-cat/*  /industries  301
 /industry/*  /industries  301
-/services/*  /catalog  301
 /blog/*  /  301
 /news-media/*  /  301
 
