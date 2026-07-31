@@ -152,3 +152,38 @@
   .inst-grid img { transition: none; }
   .inst-grid figure:hover img { transform: none; }
 }
+
+/* ============================================================
+   Why ART — eight reasons, two columns of four.
+   Editorial list rather than cards: the site already runs card-heavy,
+   and giving all eight equal weight is the point. The DOM order
+   interleaves the columns (01,05,02,06...) so that reading DOWN each
+   column gives 01-04 and 05-08, which is how a grid fills row-first.
+   ============================================================ */
+/* Column-first fill, so the DOM can stay in natural 01-08 order. Interleaving
+   the markup instead would make a screen reader read 01,05,02,06... and the
+   mobile single column show the same wrong sequence. */
+.wy-grid {
+  display: grid; gap: 0 3.2rem; margin-top: 2.2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+}
+.wy-item {
+  padding: 1.4rem 0; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: auto 1fr; gap: 1rem;
+}
+/* column heads in DOM order under column-first flow: items 1 and 5 */
+.wy-item:nth-child(1), .wy-item:nth-child(5) { border-top: 2px solid var(--navy); }
+.wy-num {
+  font-family: var(--font-mono, monospace); font-size: .78rem; font-weight: 700;
+  color: var(--accent); letter-spacing: .1em; padding-top: .22rem;
+}
+.wy-item h3 { margin: 0 0 .35rem; font-size: 1.02rem; color: var(--ink); line-height: 1.3; }
+.wy-item p { margin: 0; color: var(--slate); font-size: .92rem; line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .wy-grid { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 0; }
+  /* one column: only the true first item keeps the heavy rule */
+  .wy-item:nth-child(5) { border-top: 1px solid var(--line); }
+}
