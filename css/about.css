@@ -201,3 +201,18 @@
 .ab-hero__cols h2 { color: #fff; }
 .ab-hero__cols > .ab-lead-cols > div > p { color: #c6d5ea; }
 .ab-hero__cols strong { color: #fff; }
+
+/* ============================================================
+   Manufacturing team — full-bleed band, caption beneath.
+   Sits directly under the navy MD message so owner -> team ->
+   photo reads as one movement.
+   ============================================================ */
+.team-shot { position: relative; background: var(--navy); }
+.team-shot img { display: block; width: 100%; height: auto; }
+.team-shot__cap {
+  background: var(--navy); color: #dfe8f5;
+  padding: clamp(1.4rem, 3vw, 2.2rem) clamp(1.5rem, 6vw, 4rem) clamp(1.8rem, 3.5vw, 2.6rem);
+  text-align: center;
+}
+.team-shot__cap h2 { color: #fff; margin: 0 0 .35rem; font-size: clamp(1.2rem, 2.4vw, 1.7rem); }
+.team-shot__cap p { margin: 0; color: #9fb4d4; font-size: .95rem; }
