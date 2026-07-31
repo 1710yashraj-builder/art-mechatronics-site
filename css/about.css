@@ -155,35 +155,82 @@
 
 /* ============================================================
    Why ART — eight reasons, two columns of four.
-   Editorial list rather than cards: the site already runs card-heavy,
-   and giving all eight equal weight is the point. The DOM order
-   interleaves the columns (01,05,02,06...) so that reading DOWN each
-   column gives 01-04 and 05-08, which is how a grid fills row-first.
+
+   The first pass was a flat list with hairline rules and no feedback at
+   all. The old WordPress section it replaces at least responded to the
+   cursor, so this version has to earn its place: each reason is a real
+   surface that lifts, its number fills with ART blue, and an accent bar
+   wipes in from the left. They also stagger in on scroll via the site's
+   existing .reveal observer rather than a second animation system.
+
+   Deliberately NOT focusable: these are statements, not links. Adding
+   tabindex would put eight dead stops in the keyboard path to promise an
+   action that does not exist.
+
+   Column-first fill keeps the DOM in natural 01-08 order, so a screen
+   reader and the mobile single column both read in sequence.
    ============================================================ */
-/* Column-first fill, so the DOM can stay in natural 01-08 order. Interleaving
-   the markup instead would make a screen reader read 01,05,02,06... and the
-   mobile single column show the same wrong sequence. */
 .wy-grid {
-  display: grid; gap: 0 3.2rem; margin-top: 2.2rem;
+  display: grid; gap: .9rem 1.4rem; margin-top: 2.4rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(4, auto);
   grid-auto-flow: column;
 }
 .wy-item {
-  padding: 1.4rem 0; border-top: 1px solid var(--line);
+  position: relative; overflow: hidden;
   display: grid; grid-template-columns: auto 1fr; gap: 1rem;
+  padding: 1.25rem 1.35rem 1.3rem 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  transition: transform .28s var(--ease), box-shadow .28s var(--ease),
+              border-color .28s var(--ease);
 }
-/* column heads in DOM order under column-first flow: items 1 and 5 */
-.wy-item:nth-child(1), .wy-item:nth-child(5) { border-top: 2px solid var(--navy); }
+/* accent bar wipes down the left edge */
+.wy-item::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--accent); transform: scaleY(0); transform-origin: top;
+  transition: transform .32s var(--ease);
+}
+.wy-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--blue-soft);
+  box-shadow: 0 14px 30px rgba(11, 44, 94, .10);
+}
+.wy-item:hover::before { transform: scaleY(1); }
+
 .wy-num {
-  font-family: var(--font-mono, monospace); font-size: .78rem; font-weight: 700;
-  color: var(--accent); letter-spacing: .1em; padding-top: .22rem;
+  display: grid; place-items: center;
+  width: 34px; height: 34px; flex: 0 0 34px; border-radius: 50%;
+  font-family: var(--font-mono, monospace); font-size: .74rem; font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--blue); background: var(--blue-soft);
+  border: 1px solid transparent;
+  transition: background .28s var(--ease), color .28s var(--ease),
+              transform .28s var(--ease);
 }
-.wy-item h3 { margin: 0 0 .35rem; font-size: 1.02rem; color: var(--ink); line-height: 1.3; }
+.wy-item:hover .wy-num {
+  background: var(--accent); color: #fff; transform: scale(1.06);
+}
+.wy-item h3 {
+  margin: .28rem 0 .35rem; font-size: 1.02rem; color: var(--ink); line-height: 1.3;
+  transition: color .28s var(--ease);
+}
+.wy-item:hover h3 { color: var(--blue); }
 .wy-item p { margin: 0; color: var(--slate); font-size: .92rem; line-height: 1.65; }
 
+/* stagger the reveal down each column so the two columns arrive together */
+.wy-item.reveal { transition-delay: 0s; }
+.wy-item:nth-child(2), .wy-item:nth-child(6) { transition-delay: .07s; }
+.wy-item:nth-child(3), .wy-item:nth-child(7) { transition-delay: .14s; }
+.wy-item:nth-child(4), .wy-item:nth-child(8) { transition-delay: .21s; }
+
 @media (max-width: 900px) {
-  .wy-grid { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 0; }
-  /* one column: only the true first item keeps the heavy rule */
-  .wy-item:nth-child(5) { border-top: 1px solid var(--line); }
+  .wy-grid { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+  .wy-item { padding: 1.1rem 1.1rem 1.15rem 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wy-item, .wy-item::before, .wy-num, .wy-item h3 { transition: none; }
+  .wy-item:hover { transform: none; }
+  .wy-item:hover::before { transform: scaleY(1); }
+  .wy-item.reveal { transition-delay: 0s !important; }
 }

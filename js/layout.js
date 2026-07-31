@@ -323,6 +323,15 @@
       entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
     }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
     reveals.forEach(el => io.observe(el));
+
+    /* Failsafe. .reveal starts at opacity 0, so if the observer never fires —
+       a broken viewport, an embedded/headless renderer, a print context — the
+       content stays invisible for good. Anything still hidden after 1.6s gets
+       revealed outright. Costs nothing when the observer works normally,
+       because every element has already been unobserved by then. */
+    setTimeout(() => {
+      reveals.forEach(el => { if (!el.classList.contains("in")) el.classList.add("in"); });
+    }, 1600);
   } else {
     reveals.forEach(el => el.classList.add("in"));
   }
