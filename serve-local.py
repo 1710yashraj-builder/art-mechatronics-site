@@ -36,6 +36,20 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
         super().__init__(*a, directory=ROOT, **kw)
 
+    # Iteration builds must never be cached. SimpleHTTPRequestHandler sends
+    # Last-Modified and no Cache-Control, so Chrome applies heuristic freshness
+    # (~10% of the file's age) and can serve the PREVIOUS version of a file
+    # without re-requesting it. You then edit, reload, measure no change, and
+    # conclude the edit failed — when the browser never fetched it.
+    def send_header(self, keyword, value):
+        if keyword.lower() in ("last-modified", "etag"):
+            return
+        super().send_header(keyword, value)
+
+    def end_headers(self):
+        super().send_header("Cache-Control", "no-store, must-revalidate")
+        super().end_headers()
+
     def send_head(self):
         parsed = urllib.parse.urlsplit(self.path)
         path = urllib.parse.unquote(parsed.path)

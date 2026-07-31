@@ -46,3 +46,157 @@
 
 .ct-foot { text-align:center; margin-top:2.5rem; color:var(--slate); }
 .ct-foot .btns { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
+
+/* ===== Contact — locations, service network, social =====
+   .sec-head lives only in home.css, so it does nothing here; .ct-sec-head
+   carries the declarations instead. Transitions below are transform, colour
+   and border-colour only — never box-shadow, filter or a layout property. */
+.ct-sec-head { max-width: 62ch; margin: 0 0 2.2rem; }
+.ct-sec-head h2 { margin: 0 0 .5rem; }
+.ct-sec-head .lead { margin-bottom: 0; }
+.ct-sec-head .lead + .lead { margin-top: .7rem; }
+
+/* --- A · Where to find us --- */
+.ct-loc-heads { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 720px) { .ct-loc-heads { grid-template-columns: 1fr; } }
+
+/* Not .card: .card:hover lifts unconditionally, and a lift on a block you
+   cannot click promises an action that does not exist. Radius matches the
+   .ct-card/.ct-form group directly above it on this page. */
+.ct-loc-head {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 1.3rem 1.4rem 1.2rem;
+}
+.ct-loc-head__country { display: block; margin: 0 0 .55rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
+.ct-loc-head__city { margin: 0 0 .2rem; font-size: 1.3rem; color: var(--navy); }
+.ct-loc-head__role { margin: 0 0 .9rem; font-size: .86rem; color: var(--steel); }
+.ct-loc-head__addr { margin: 0 0 1.1rem; padding-top: .9rem; border-top: 1px solid var(--line); font-style: normal; font-size: .95rem; line-height: 1.55; color: var(--slate); }
+.ct-loc-head .chip { margin-top: auto; align-self: flex-start; }
+.ct-loc-head:nth-child(2).reveal { transition-delay: .07s; }
+.ct-loc-head:nth-child(3).reveal { transition-delay: .14s; }
+
+/* The full fourteen. Native <details> so it opens with no JavaScript; the
+   <summary> wears the site's own .btn .btn--ghost so it is a design-system
+   control, not a bare browser widget. */
+.ct-loc-all { margin-top: 1.6rem; }
+.ct-loc-toggle { list-style: none; gap: .6rem; transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease); }
+.ct-loc-toggle::-webkit-details-marker { display: none; }
+.ct-loc-toggle::marker { content: ""; }
+.ct-loc-toggle:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 3px; border-radius: var(--r); }
+/* two selectors, not !important, to beat .btn svg (0,1,1) */
+.ct-loc-toggle .ct-loc-chev { width: 12px; height: 12px; transition: transform .22s var(--ease); }
+.ct-loc-toggle__note { font-weight: 400; font-size: .82rem; color: var(--steel); white-space: nowrap; }
+.ct-loc-toggle__on { display: none; }
+.ct-loc-all[open] .ct-loc-toggle__on { display: inline; }
+.ct-loc-all[open] .ct-loc-toggle__off { display: none; }
+.ct-loc-all[open] .ct-loc-chev { transform: rotate(180deg); }
+
+.ct-loc-panel { margin-top: 1.1rem; padding: 1.4rem 1.4rem 1.3rem; background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.ct-loc-group + .ct-loc-group { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.ct-loc-group__h { margin: 0 0 .9rem; font-size: .82rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--navy); }
+.ct-loc-group__h span { margin-left: .55rem; font-weight: 400; letter-spacing: .02em; text-transform: none; color: var(--steel); }
+/* 320px, so the panel runs three across: nine offices land 3+3+3 and five
+   units land 3+2, instead of the 4+1 orphan rows a 260px track produces.
+   min() guards the 320px floor so nothing overflows below ~360px. */
+.ct-loc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); }
+.ct-loc-list li { padding-left: .85rem; border-left: 2px solid var(--line); }
+.ct-loc-list b { display: block; color: var(--ink); font-size: .92rem; line-height: 1.3; }
+.ct-loc-list address { font-style: normal; font-size: .85rem; line-height: 1.5; color: var(--slate); }
+
+@media (max-width: 620px) {
+  .ct-loc-toggle { flex-wrap: wrap; }
+  .ct-loc-toggle__note { flex-basis: 100%; white-space: normal; padding-left: calc(12px + .6rem); }
+}
+
+/* --- B · Service on the ground --- */
+.ct-net { position: relative; overflow: hidden; }
+/* Faint engineering grid, faded at the edges. Same pattern as .md-hero::after
+   in about.css — keep the two in step if either is touched. */
+.ct-net::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(75% 70% at 62% 28%, #000, transparent 78%);
+          mask-image: radial-gradient(75% 70% at 62% 28%, #000, transparent 78%);
+}
+.ct-net > .wrap { position: relative; z-index: 1; }
+.ct-net__cols { display: grid; grid-template-columns: .9fr 1.1fr; gap: 2.6rem; align-items: start; }
+@media (max-width: 900px) { .ct-net__cols { grid-template-columns: 1fr; gap: 1.8rem; } }
+
+.ct-net-hq { display: flex; align-items: flex-start; gap: 1rem; margin: 0 0 1.4rem; padding: 1.1rem 1.3rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg); }
+.ct-net-hq__ic { flex: 0 0 auto; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(46,134,230,.18); color: #7fb2f2; }
+.ct-net-hq__ic svg { width: 20px; height: 20px; }
+.ct-net-hq__k { margin: 0; font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: #7fb2f2; }
+.ct-net-hq__v { margin: .15rem 0 .2rem; font-size: 1.05rem; font-weight: 700; color: #fff; }
+.ct-net-hq__a { margin: 0; font-style: normal; font-size: .88rem; line-height: 1.5; color: #c2d3ea; }
+
+.ct-net-figs { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 460px) { .ct-net-figs { grid-template-columns: 1fr; } }
+.ct-net-figs li { padding: .9rem 1rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r); }
+.ct-net-figs b { display: block; font-family: var(--font-display); font-size: 1.7rem; line-height: 1; color: #fff; letter-spacing: -.02em; }
+.ct-net-figs span { display: block; margin-top: .3rem; font-size: .74rem; line-height: 1.35; color: #9fb4d4; }
+
+.ct-net-reg { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.3rem; }
+.ct-net-group__h { margin: 0 0 .1rem; font-size: 1.05rem; letter-spacing: -.005em; }
+.ct-net .ct-net-group__h { color: #cfe0f7; }               /* beats .section--navy h3 (0,1,1) */
+.ct-net-group__c { margin: 0 0 .6rem; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #7fb2f2; }
+/* Fixed three across, not auto-fill: the five-city group must break 3+2 at
+   every desktop width. auto-fill gave 4 columns once the band went
+   single-column at 900px, which stranded one city on a row of its own. */
+.ct-net-cities { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* two-up on a phone: one-up would turn fourteen cities into fourteen
+   full-width slabs and the register stops reading as coverage */
+@media (max-width: 620px) { .ct-net-cities { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ct-net-cities li { padding: .55rem .7rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-left: 2px solid rgba(46,134,230,.75); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.ct-net-cities b { display: block; color: #fff; font-size: .92rem; line-height: 1.25; }
+.ct-net-cities span { display: block; color: #9fb4d4; font-size: .73rem; }
+/* outside India: hairline instead of a solid accent, so the step overseas is
+   a property of the group itself and cannot be drawn one rung out of place */
+.ct-net-group--intl .ct-net-cities li { border-left: 2px dashed rgba(127,178,242,.7); }
+
+/* lives in the LEFT column, under the figures: it balances the navy band and
+   it belongs with the argument rather than trailing the city register */
+.ct-net-note { margin: 1.4rem 0 0; max-width: 46ch; font-size: .85rem; line-height: 1.6; color: #9fb4d4; }
+@media (max-width: 900px) { .ct-net-note { max-width: 68ch; } }
+.ct-net-note a { color: #7fb2f2; text-decoration: underline; text-underline-offset: 2px; }
+
+/* --- C · social row --- */
+.ct-social { margin-bottom: .5rem; }
+.ct-social__h { margin: 0 0 .35rem; font-size: 1.6rem; color: var(--navy); }
+.ct-social__note { margin: 0 0 1.2rem; font-size: .86rem; color: var(--steel); }
+.ct-social__row { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 860px) { .ct-social__row { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .ct-social__row { grid-template-columns: 1fr; } }
+.ct-social__link {
+  display: flex; align-items: center; gap: .8rem; height: 100%; padding: .85rem 1rem;
+  background: var(--white); color: var(--ink);
+  border: 1px solid var(--line); border-radius: var(--r);
+  transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+}
+.ct-social__link:hover { transform: translateY(-2px); border-color: var(--blue); background: var(--blue-soft); }
+.ct-social__link:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 3px; border-radius: var(--r); }
+.ct-social__ic { flex: 0 0 auto; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); transition: background .2s var(--ease), color .2s var(--ease); }
+.ct-social__ic svg { width: 19px; height: 19px; }
+.ct-social__link:hover .ct-social__ic { background: var(--blue); color: #fff; }
+.ct-social__t b { display: block; font-size: .95rem; line-height: 1.2; }
+.ct-social__t span { display: block; margin-top: .1rem; font-size: .76rem; line-height: 1.3; color: var(--steel); }
+
+/* clear the 78px sticky header on an anchor jump, matching .cg-group */
+#locations, #service-network { scroll-margin-top: 96px; }
+
+/* base.css hides .reveal until layout.js adds .in; with scripting off nothing
+   ever does. Page-scoped safety net — see build notes for the site-wide lift.
+   Only the three headline cards use .reveal here, and the lead above them
+   already names all three cities in prose, so nothing is lost even where this
+   query is unsupported. */
+@media (scripting: none) { .reveal { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-loc-toggle, .ct-loc-chev, .ct-social__link, .ct-social__ic { transition: none; }
+  .ct-social__link:hover { transform: none; }
+  .ct-loc-head.reveal { transition-delay: 0s; }
+  .ct-loc-all[open] .ct-loc-chev { transform: rotate(180deg); }  /* state, not decoration */
+}

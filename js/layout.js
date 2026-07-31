@@ -28,6 +28,7 @@
     ["catalog",   "Catalogue",  "catalog.html"],
     ["about",     "About",      "about.html"],
     ["services",  "Services",   "services.html"],
+    ["contact",   "Contact",    "contact.html"],
   ];
 
   const navLinks = NAV.map(([id, label, hrefPath]) =>

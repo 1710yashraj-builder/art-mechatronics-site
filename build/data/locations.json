@@ -1,0 +1,75 @@
+{
+  "_source": "ART-CATALOGUE-2026.pdf page 14, supplied by Anurag Tiwari 2026-07-28. Social URLs decoded from the QR codes on page 16 of the same document. Nothing here is invented — every line is transcribed from the client's own catalogue.",
+  "_verified": "2026-07-31",
+
+  "manufacturingUnits": [
+    { "unit": "Unit 1", "line1": "A-1/10, Site 1", "line2": "Panki Industrial Area", "city": "Kanpur", "country": "India" },
+    { "unit": "Unit 2", "line1": "A-1/11, Site 1", "line2": "Panki Industrial Area", "city": "Kanpur", "country": "India" },
+    { "unit": "Unit 3", "line1": "A-1/12, Site 1", "line2": "Panki Industrial Area", "city": "Kanpur", "country": "India" },
+    { "unit": "Unit 4", "line1": "C-2/1, Site 1",  "line2": "Panki Industrial Area", "city": "Kanpur", "country": "India" },
+    { "unit": "Unit 5", "line1": "F-40, Site 5",   "line2": "Udyog Kunj",            "city": "Kanpur", "country": "India" }
+  ],
+
+  "offices": [
+    { "name": "UAE Head Office",                 "line1": "Level 3, G-D wing",        "line2": "Al Hamra Golf Building",  "city": "Ras Al Khaimah", "country": "UAE" },
+    { "name": "UAE Branch Office",               "line1": "Al Suwaidi Building",      "line2": "Al Baraha Road, Deira",   "city": "Dubai",          "country": "UAE" },
+    { "name": "Thailand Marketing Office",       "line1": "Level G",                  "line2": "Laguna Beach Resort",     "city": "Pattaya City",   "country": "Thailand" },
+    { "name": "India Corporate Office",          "line1": "Level 1, A-1/10, Site 1",  "line2": "Panki Industrial Area",   "city": "Kanpur",         "country": "India" },
+    { "name": "India Head Office",               "line1": "Level G, C-2/1, Site 1",   "line2": "Panki Industrial Area",   "city": "Kanpur",         "country": "India" },
+    { "name": "India Marketing Office",          "line1": "Level G, A-1/10, Site 1",  "line2": "Panki Industrial Area",   "city": "Kanpur",         "country": "India" },
+    { "name": "India Branch Office 1",           "line1": "Unit 1, Level B1",         "line2": "Emerald Garden, Swaroop Nagar", "city": "Kanpur",    "country": "India" },
+    { "name": "India Branch Office 2",           "line1": "Level G, A-1/12, Site 1",  "line2": "Panki Industrial Area",   "city": "Kanpur",         "country": "India" },
+    { "name": "International Service Headquarters", "line1": "G-1/37-38",             "line2": "Uttam Nagar West",        "city": "New Delhi",      "country": "India" }
+  ],
+
+  "headline": [
+    {
+      "country": "India",
+      "city": "Kanpur",
+      "role": "Design, manufacturing and head office",
+      "line1": "Level G, C-2/1, Site 1",
+      "line2": "Panki Industrial Area, Kanpur",
+      "counts": "5 manufacturing units · 6 offices"
+    },
+    {
+      "country": "UAE",
+      "city": "Ras Al Khaimah",
+      "role": "Head office for the Gulf",
+      "line1": "Level 3, G-D wing",
+      "line2": "Al Hamra Golf Building, Ras Al Khaimah",
+      "counts": "Head office · Dubai branch"
+    },
+    {
+      "country": "Thailand",
+      "city": "Pattaya City",
+      "role": "Marketing office for South-East Asia",
+      "line1": "Level G",
+      "line2": "Laguna Beach Resort, Pattaya City",
+      "counts": "Marketing office · Chonburi service team"
+    }
+  ],
+
+  "serviceTeams": [
+    { "city": "New Delhi",      "region": "Delhi NCR",     "country": "India" },
+    { "city": "Ghaziabad",      "region": "Uttar Pradesh", "country": "India" },
+    { "city": "Faridabad",      "region": "Haryana",       "country": "India" },
+    { "city": "Kanpur",         "region": "Uttar Pradesh", "country": "India" },
+    { "city": "Lucknow",        "region": "Uttar Pradesh", "country": "India" },
+    { "city": "Bhopal",         "region": "Madhya Pradesh","country": "India" },
+    { "city": "Bilaspur",       "region": "Chhattisgarh",  "country": "India" },
+    { "city": "Sambalpur",      "region": "Odisha",        "country": "India" },
+    { "city": "Guwahati",       "region": "Assam",         "country": "India" },
+    { "city": "Kolhapur",       "region": "Maharashtra",   "country": "India" },
+    { "city": "Hubli",          "region": "Karnataka",     "country": "India" },
+    { "city": "Hyderabad",      "region": "Telangana",     "country": "India" },
+    { "city": "Ras Al Khaimah", "region": "",              "country": "UAE" },
+    { "city": "Chonburi",       "region": "",              "country": "Thailand" }
+  ],
+
+  "social": [
+    { "name": "LinkedIn",  "url": "https://th.linkedin.com/in/anurag-tiwari-4a731a192",        "note": "Managing Director's profile — the catalogue's own LinkedIn QR" },
+    { "name": "Instagram", "url": "https://www.instagram.com/art_mechatronics_/",              "note": "Company account, machine posts by category" },
+    { "name": "Facebook",  "url": "https://www.facebook.com/p/Art-Mechatronics-61590532739976/","note": "Profile named Art Mechatronics" },
+    { "name": "LINE",      "url": "https://line.me/ti/p/W5CxmQgXQ4",                            "note": "Add-friend link, used in Thailand" }
+  ]
+}

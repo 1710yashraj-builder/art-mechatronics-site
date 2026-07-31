@@ -69,3 +69,6 @@
   .sv-card { transition: none; }
   .sv-card:hover { transform: none; }
 }
+
+/* pointer to the full register on the Contact page — one copy of the fact */
+.sv-locations__more { margin: 1.4rem 0 0; font-size: .9rem; color: var(--slate); }

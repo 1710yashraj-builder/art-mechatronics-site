@@ -27,7 +27,7 @@ per order — confirm capacities and materials with the company directly.
 - [Flagship line](https://artmechatronics.com/machines): The integrated powder processing line
 - [Live system demo](https://artmechatronics.com/system): Stage-by-stage walkthrough of an automatic powder line
 - [Virtual PLC control panel](https://artmechatronics.com/control-panel): Interactive simulation of the centralised control panel
-- [Contact](https://artmechatronics.com/contact): Enquiry form, WhatsApp and regional phone numbers
+- [Contact](https://artmechatronics.com/contact): Enquiry form, WhatsApp and regional phone numbers. Also lists all 14 company locations — 5 manufacturing units and 9 offices across Kanpur (India), Ras Al Khaimah and Dubai (UAE) and Pattaya City (Thailand) — and the 14 cities with an on-site service team: New Delhi, Ghaziabad, Faridabad, Kanpur, Lucknow, Bhopal, Bilaspur, Sambalpur, Guwahati, Kolhapur, Hubli, Hyderabad, Ras Al Khaimah and Chonburi.
 
 ## Machines
 
