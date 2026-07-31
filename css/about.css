@@ -137,8 +137,11 @@
    ============================================================ */
 .md-hero {
   display: grid; grid-template-columns: 40% 60%;
+  /* generated plate behind the gradients — defocused hall, right 60% held
+     under 7% luma so white body text keeps 8.7:1 against it */
   background:
-    radial-gradient(120% 90% at 18% 8%, rgba(46,134,230,.20), transparent 60%),
+    linear-gradient(160deg, rgba(11,44,94,.55) 0%, rgba(7,26,56,.72) 62%, rgba(5,18,42,.88) 100%),
+    url("../assets/founder/md-backdrop.webp") center/cover no-repeat,
     linear-gradient(160deg, var(--navy) 0%, #071A38 62%, #05122A 100%);
   color: #dfe8f5;
   position: relative; overflow: hidden;
@@ -186,3 +189,15 @@
   .md-hero__figure::after { background: linear-gradient(to top, #06152F 0%, transparent 38%); }
   .md-hero__inner { padding: 2rem clamp(1.2rem,6vw,2.5rem) 3rem; max-width: none; }
 }
+
+/* The hero now carries what was a separate "Who we are" section. That block
+   was written for a white background, so on the dark hero its heading and body
+   inherited --ink and --slate and rendered navy-on-navy — invisible. Everything
+   in this column is recoloured for the dark ground; the aside keeps its own
+   light card, so it is left alone. */
+.ab-hero__cols { margin-top: clamp(2.2rem, 4vw, 3.2rem); }
+.ab-hero__cols .ab-lead-cols { margin-top: 0; }
+.ab-hero__cols .eyebrow { color: var(--blue-bright); }
+.ab-hero__cols h2 { color: #fff; }
+.ab-hero__cols > .ab-lead-cols > div > p { color: #c6d5ea; }
+.ab-hero__cols strong { color: #fff; }

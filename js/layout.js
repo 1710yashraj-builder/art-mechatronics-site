@@ -17,14 +17,17 @@
   const pub = (f) => String(f).replace(/(^|\/)index\.html$/, "$1").replace(/\.html$/, "");
   const href = (f) => { const s = pub(f); return s ? BASE + s : (BASE || "./"); };
 
+  /* Order confirmed with Anurag (Granola, "Website design feedback session",
+     25 Jul): Home > Industries > About > Services > Contact. Catalogue is kept
+     in the bar because it is how a buyer finds a machine — burying 315 product
+     pages would cost enquiries. Flagship Line and Live System are demos and
+     moved to the footer. Contact stays as the Get a Quote button on the right. */
   const NAV = [
-    ["home",      "Home",          "index.html"],
-    ["industries","Industries",    "industries.html"],
-    ["catalog",   "Catalogue",     "catalog.html"],
-    ["machines",  "Flagship Line", "machines.html"],
-    ["system",    "Live System",   "system.html"],
-    ["about",     "About",         "about.html"],
-    ["services",  "Services",      "services.html"],
+    ["home",      "Home",       "index.html"],
+    ["industries","Industries", "industries.html"],
+    ["catalog",   "Catalogue",  "catalog.html"],
+    ["about",     "About",      "about.html"],
+    ["services",  "Services",   "services.html"],
   ];
 
   const navLinks = NAV.map(([id, label, hrefPath]) =>
@@ -73,6 +76,7 @@
           <ul>
             <li><a href="${href('industries.html')}">Industries we serve</a></li>
             <li><a href="${href('catalog.html')}">Machine catalogue</a></li>
+            <li><a href="${href('machines.html')}">Flagship Line</a></li>
             <li><a href="${href('system.html')}">Live System Demo</a></li>
             <li><a href="${href('control-panel.html')}">Virtual Control Panel</a></li>
             <li><a href="${href('about.html')}">About ART</a></li>
