@@ -21,9 +21,9 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://artmechatronics.com/#organization","name":"ART Mechatronics","url":"https://artmechatronics.com/","logo":"https://artmechatronics.com/assets/logo.svg","image":"https://artmechatronics.com/assets/video/hero-poster.jpg","description":"Manufacturer of industrial processing, packaging, material-handling and dust-collection machinery, from single machines to complete PLC-controlled turnkey lines.","email":"info@artmechatronics.com","areaServed":[{"@type":"Country","name":"India"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Thailand"}],"founder":{"@type":"Person","name":"Anurag Tiwari"},"parentOrganization":{"@type":"Organization","name":"Thermocare Industries Limited","url":"https://thermocaregroup.com/","foundingDate":"1997"},"contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+91-80903-15151","areaServed":"IN","availableLanguage":["en","hi"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+971-50-216-7151","areaServed":"AE","availableLanguage":["en"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+66-838291089","areaServed":"TH","availableLanguage":["en","th"]}]},{"@type":"AboutPage","@id":"https://artmechatronics.com/about#page","url":"https://artmechatronics.com/about","name":"About ART Mechatronics | Industrial Automation","description":"ART Mechatronics combines next-generation industrial automation with Thermocare manufacturing experience since 1997. Discover our approach to turnkey machinery and controls.","isPartOf":{"@id":"https://artmechatronics.com/#website"},"about":{"@id":"https://artmechatronics.com/#organization"},"primaryImageOfPage":"https://artmechatronics.com/assets/video/hero-poster.jpg"},{"@type":"WebSite","@id":"https://artmechatronics.com/#website","url":"https://artmechatronics.com/","name":"ART Mechatronics"}]}</script>
   <!-- core-seo:end -->
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/tokens.css?v=20260731c">
-  <link rel="stylesheet" href="css/base.css?v=20260731c">
-  <link rel="stylesheet" href="css/about.css?v=20260731c">
+  <link rel="stylesheet" href="css/tokens.css?v=20260731e">
+  <link rel="stylesheet" href="css/base.css?v=20260731e">
+  <link rel="stylesheet" href="css/about.css?v=20260731e">
 </head>
 <body data-page="about">
   <div data-header></div>
@@ -84,26 +84,33 @@
        They are published as signed, attributed statements rather than as
        unattributed site copy — which is what lets his figures stand as his
        own claims. Do not paraphrase them without asking him. -->
-  <section class="section" id="md-message">
-    <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">Managing Director</span><h2>A message from Anurag Tiwari</h2></div>
-
-      <figure class="md-msg">
-        <img class="md-msg__photo" src="assets/founder/anurag-art-shirt.jpg" width="446" height="595"
-             alt="Anurag Tiwari, Managing Director of ART Mechatronics, in an ART Mechatronics shirt" loading="lazy">
-        <blockquote class="md-msg__body">
+  <!-- MD MESSAGE — full-bleed navy, portrait 40% / message 60%.
+       Text stays real HTML rather than baked into an image: it is Anurag's own
+       words, it needs to rank, and it has to reflow on a phone. The backdrop is
+       the only generated part. -->
+  <section class="md-hero" id="md-message" aria-labelledby="md-title">
+    <div class="md-hero__figure">
+      <img src="assets/founder/anurag-hero.webp" width="860" height="1290"
+           alt="Anurag Tiwari, Managing Director of ART Mechatronics" loading="lazy" decoding="async">
+    </div>
+    <div class="md-hero__panel">
+      <div class="md-hero__inner">
+        <span class="eyebrow">Managing Director</span>
+        <h2 id="md-title">A message from Anurag Tiwari</h2>
+        <blockquote class="md-hero__body">
           <p>At ART Mechatronics, we believe industrial automation should be reliable, intelligent, efficient, and built to last. ART stands for <b>A</b>nurag <b>R</b>ajeev <b>T</b>iwari, representing the shared vision of my father and me. The word &ldquo;Art&rdquo; itself symbolises skill, craftsmanship and mastery &mdash; qualities that are essential in engineering and technology.</p>
           <p>We founded ART Mechatronics with a mission to bring the world&rsquo;s latest and most advanced industrial machinery and automation solutions to manufacturers, enabling them to achieve higher productivity, better quality and greater efficiency.</p>
           <p>My personal commitment to every customer is simple: whenever someone invests in an ART machine or solution, they should receive far more value than they expected. We constantly strive to deliver superior quality, cutting-edge technology and dependable performance that not only meets expectations but consistently exceeds them.</p>
           <p>For us, every project is more than a business transaction &mdash; it is the beginning of a long-term partnership built on trust, innovation and customer success.</p>
         </blockquote>
-        <figcaption class="md-msg__sig">
+        <div class="md-hero__sig">
           <b>Anurag Tiwari</b>
           <span>Managing Director, ART Mechatronics</span>
-        </figcaption>
-      </figure>
+        </div>
+      </div>
     </div>
   </section>
+
 
   <section class="section section--tint" id="team-message">
     <div class="wrap">
@@ -240,7 +247,7 @@
 
   <div data-footer></div>
 
-  <script src="js/data.js?v=20260731c"></script>
-  <script src="js/layout.js?v=20260731c"></script>
+  <script src="js/data.js?v=20260731e"></script>
+  <script src="js/layout.js?v=20260731e"></script>
 </body>
 </html>
