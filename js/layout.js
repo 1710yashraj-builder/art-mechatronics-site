@@ -316,56 +316,78 @@
     });
   }
 
-  /* ---------- customer testimonials ----------
-     Crossfade between slides that share one grid cell. Auto-advances on a 6s
-     timer that matches the dot animation, pauses on hover, on keyboard focus
-     and whenever the tab is hidden, and steps with the arrow keys. */
-  const tsSec = document.querySelector("[data-testimonials]");
-  if (tsSec) {
-    const slides = [...tsSec.querySelectorAll(".ts-slide")];
-    const dots = [...tsSec.querySelectorAll(".ts-dot")];
-    if (slides.length > 1) {
-      let at = 0, timer = null;
-      const show = (n) => {
-        const to = (n + slides.length) % slides.length;
-        if (to === at) return;
-        slides[at].classList.add("is-out");
-        slides[at].classList.remove("is-on");
-        slides[at].setAttribute("aria-hidden", "true");
-        const prev = at; at = to;
-        setTimeout(() => slides[prev].classList.remove("is-out"), 600);
-        slides[at].classList.add("is-on");
-        slides[at].removeAttribute("aria-hidden");
-        dots.forEach((d, i) => d.classList.toggle("is-on", i === at));
-        // restart the dot timer animation
-        const bar = dots[at].firstElementChild;
-        if (bar) { bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = ""; }
-      };
-      const play = () => { stop(); if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setInterval(() => show(at + 1), 6000); tsSec.classList.remove("is-paused"); };
-      const stop = () => { clearInterval(timer); timer = null; tsSec.classList.add("is-paused"); };
-      tsSec.querySelector('[data-ts="next"]').addEventListener("click", () => { show(at + 1); play(); });
-      tsSec.querySelector('[data-ts="prev"]').addEventListener("click", () => { show(at - 1); play(); });
-      dots.forEach((d) => d.addEventListener("click", () => { show(+d.dataset.i); play(); }));
-      tsSec.addEventListener("mouseenter", stop);
-      tsSec.addEventListener("mouseleave", play);
-      tsSec.addEventListener("focusin", stop);
-      tsSec.addEventListener("focusout", play);
-      tsSec.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") { show(at + 1); play(); }
-        if (e.key === "ArrowLeft") { show(at - 1); play(); }
-      });
-      let sx = 0;
-      tsSec.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; stop(); }, { passive: true });
-      tsSec.addEventListener("touchend", (e) => {
-        const d = sx - e.changedTouches[0].clientX;
-        if (Math.abs(d) > 40) show(at + (d > 0 ? 1 : -1));
-        play();
-      }, { passive: true });
-      // a carousel ticking in a background tab is wasted work
-      document.addEventListener("visibilitychange", () => document.hidden ? stop() : play());
-      play();
-    }
-  }
+  /* ---------- seamless ticker (lab marquee pattern) ----------
+     rAF-driven translate rather than a CSS animation, so scroll velocity can
+     modulate it. The track already contains one visible set plus an
+     aria-hidden duplicate; if one duplicate is not wide enough to cover the
+     rail we clone more, and only ever clone the hidden set. --live is added
+     last: until then the track wraps as a normal list, which is what keeps it
+     readable with no JS or a dead animation. */
+  document.querySelectorAll("[data-marquee]").forEach((rail) => {
+    const track = rail.querySelector(".pk-marquee__track");
+    if (!track) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const real = [...track.children].filter((c) => c.getAttribute("aria-hidden") !== "true");
+    const speed = parseFloat(rail.dataset.marqueeSpeed) || 40;   // px per second
+    let period = 0, x = 0, last = 0, raf = null, paused = false, boost = 0;
+
+    const measure = () => {
+      const g = parseFloat(getComputedStyle(track).columnGap) || 0;
+      period = real.reduce((sum, el) => sum + el.getBoundingClientRect().width + g, 0);
+      // enough copies to cover the rail plus one, so the seam is never on screen
+      const need = Math.ceil(rail.clientWidth / Math.max(period, 1)) + 1;
+      const have = Math.round((track.children.length - real.length) / real.length);
+      for (let c = have; c < need; c++) {
+        real.forEach((el) => {
+          const d = el.cloneNode(true);
+          d.setAttribute("aria-hidden", "true");
+          track.appendChild(d);
+        });
+      }
+    };
+
+    const frame = (now) => {
+      if (!last) last = now;
+      const dt = Math.min((now - last) / 1000, 0.05);   // clamp after a tab switch
+      last = now;
+      if (!paused && period > 0) {
+        x -= (speed + boost) * dt;
+        if (x <= -period) x += period;                  // modulo wrap, no jump frame
+        track.style.transform = `translate3d(${x}px,0,0)`;
+      }
+      boost *= 0.92;
+      raf = requestAnimationFrame(frame);
+    };
+
+    // scroll velocity feeds a boost, capped so it never outruns readability
+    let prevY = scrollY;
+    addEventListener("scroll", () => {
+      const dy = Math.abs(scrollY - prevY); prevY = scrollY;
+      boost = Math.min(boost + dy * 2.2, speed * 4);
+    }, { passive: true });
+
+    rail.addEventListener("mouseenter", () => { paused = true; });
+    rail.addEventListener("mouseleave", () => { paused = false; });
+    rail.addEventListener("focusin", () => { paused = true; });
+    rail.addEventListener("focusout", () => { paused = false; });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) { cancelAnimationFrame(raf); raf = null; }
+      else if (!raf) { last = 0; raf = requestAnimationFrame(frame); }
+    });
+
+    const startRail = () => {
+      measure();
+      rail.classList.add("pk-marquee--live");
+      last = 0;
+      raf = requestAnimationFrame(frame);
+    };
+    // measure after images settle, or the widths are wrong and the seam shows
+    if (document.readyState === "complete") startRail();
+    else addEventListener("load", startRail, { once: true });
+    let rt = null;
+    addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { x = 0; measure(); }, 200); });
+  });
 
   /* ---------- reveal on scroll ---------- */
   const reveals = document.querySelectorAll(".reveal");

@@ -17,7 +17,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260731b";
+const CSSV = "?v=20260731c";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1089,30 +1089,30 @@ function categoryFace(name, prods) {
 
 function testimonialSection(base = "") {
   if (!testimonialData.length) return "";
-  const slides = testimonialData.map((t, i) => `
-        <article class="ts-slide${i ? "" : " is-on"}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${testimonialData.length}"${i ? ' aria-hidden="true"' : ""}>
-          <div class="ts-portrait"><img src="${base}${t.photo}" alt="" width="560" height="560" loading="lazy" decoding="async"></div>
-          <div class="ts-body">
-            <svg class="ts-mark" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true"><path d="M0 24V12C0 5.4 4.6.6 11 0v4.8C7.6 5.6 5.6 8 5.4 11.4H11V24H0zm21 0V12c0-6.6 4.6-11.4 11-12v4.8c-3.4.8-5.4 3.2-5.6 6.6H32V24H21z"/></svg>
-            <p class="ts-quote">${esc(t.quote)}</p>
-            <div class="ts-by"><b>${esc(t.name)}</b><span>${esc(t.role)} &middot; ${esc(t.sector)}</span></div>
-          </div>
-        </article>`).join("");
-  const dots = testimonialData.map((t, i) =>
-    `<button class="ts-dot${i ? "" : " is-on"}" data-i="${i}" aria-label="Review ${i + 1}: ${attr(t.name)}"><span></span></button>`).join("");
+  // Ticker, built on the lab's marquee pattern: the track wraps normally until
+  // JS adds --live, so with no JS or a dead animation the reviews are still a
+  // readable list rather than a frozen strip.
+  const card = (t, dup) => `<li class="pk-marquee__item ts-card"${dup ? ' aria-hidden="true"' : ""}>
+            <div class="ts-card__top">
+              <img class="ts-card__face" src="${base}${t.photo}" alt="" width="560" height="560" loading="lazy" decoding="async">
+              <div class="ts-card__who"><b>${esc(t.name)}</b><span>${esc(t.role)}</span></div>
+            </div>
+            <p class="ts-card__quote">${esc(t.quote)}</p>
+            <p class="ts-card__sector">${esc(t.sector)}</p>
+          </li>`;
+  const once = testimonialData.map((t) => card(t, false)).join("\n          ");
+  const copy = testimonialData.map((t) => card(t, true)).join("\n          ");
   return `
   <section class="section ts-sec" aria-labelledby="ts-title" data-testimonials>
-    <div class="wrap">
-      <div class="ts-head">
-        <div><span class="eyebrow">Customers</span><h2 id="ts-title">What our customers say</h2></div>
-        <div class="ts-nav">
-          <button class="ts-arrow" data-ts="prev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <button class="ts-arrow" data-ts="next" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="ts-stage" aria-live="polite">${slides}
-      </div>
-      <div class="ts-dots">${dots}</div>
+    <div class="wrap ts-head">
+      <span class="eyebrow">Customers</span>
+      <h2 id="ts-title">What our customers say</h2>
+    </div>
+    <div class="pk-marquee pk-marquee--fade ts-rail" data-marquee data-marquee-speed="34">
+      <ul class="pk-marquee__track">
+          ${once}
+          ${copy}
+      </ul>
     </div>
   </section>`;
 }
