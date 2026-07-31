@@ -32,6 +32,9 @@
         </div>
       </article>`;
     }).join("");
+    // These cards are injected AFTER layout.js captured its .reveal list,
+    // so they must be handed to the observer explicitly or they never appear.
+    if (ART.revealScan) ART.revealScan(grid);
   }
 
   // cta whatsapp
@@ -42,12 +45,21 @@
   const hv = document.getElementById("heroVideo");
   const hp = document.getElementById("heroPlay");
   if (hv && hp) {
-    const shell = hv.closest(".hero-visual--video");
+    // The designed control owns playback once JS is alive. `controls` in the
+    // HTML is the no-JS fallback only, and the button ships hidden so a no-JS
+    // visitor never sees a dead circle sitting on top of the native chrome.
+    hv.removeAttribute("controls");
+    hp.hidden = false;
+    // Guarded. Unguarded, a null here threw inside syncControl(), which is
+    // called unconditionally at load. The throw aborted the rest of this IIFE,
+    // so the four machine cards injected into #homeMgrid stayed at opacity:0
+    // forever with no console-visible cause.
+    const shell = hv.closest(".hero-visual--video") || hv.parentElement;
     const playIcon = '<path d="M8 5l11 7-11 7z"/>';
     const pauseIcon = '<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
     const syncControl = () => {
       const playing = !hv.paused;
-      shell.classList.toggle("playing", playing);
+      if (shell) shell.classList.toggle("playing", playing);
       hp.setAttribute("aria-pressed", String(playing));
       hp.setAttribute("aria-label", playing ? "Pause the line running" : "Play the line running");
       hp.querySelector("svg").innerHTML = playing ? pauseIcon : playIcon;

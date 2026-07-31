@@ -8,6 +8,20 @@
    ============================================================ */
 (function () {
   const B = ART.brand;
+
+  /* ---------- M4 kill switch ----------
+     Weak devices, and anyone who asks for it, get `.lite`: no scroll parallax,
+     no hero light pass, no backdrop-filter on the sticky header. Runs before
+     the header is injected so the blur never paints once and then vanishes.
+     It deliberately does NOT touch the hero's one-shot entrance — that has
+     already started by the time this file executes, and cancelling it mid-flight
+     would produce a visible snap on exactly the phones this protects. */
+  const ROOT = document.documentElement;
+  let litePref = null;
+  try { litePref = localStorage.getItem("art-lite"); } catch (e) {}
+  const weakDevice = (navigator.deviceMemory && navigator.deviceMemory <= 4) ||
+                     (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+  if (litePref === "1" || (litePref === null && weakDevice)) ROOT.classList.add("lite");
   const page = document.body.dataset.page || "";
   const BASE = document.body.dataset.base || "";        // "" at root, "../" in subfolders
   const wa = ART.helper.wa();
@@ -98,6 +112,7 @@
       </div>
       <div class="footer-bottom">
         <span>© <span data-year></span> ${B.name}. All rights reserved.</span>
+        <button class="lite-toggle" type="button" data-lite aria-pressed="false">Reduce motion &amp; effects</button>
         <span>${B.disciplines.join(" · ")}</span>
       </div>
     </div>
@@ -108,6 +123,21 @@
   const fSlot = document.querySelector("[data-footer]");
   if (hSlot) hSlot.outerHTML = headerHTML;
   if (fSlot) fSlot.outerHTML = footerHTML;
+
+  const liteBtn = document.querySelector("[data-lite]");
+  if (liteBtn) {
+    const paintLite = () => {
+      const on = ROOT.classList.contains("lite");
+      liteBtn.setAttribute("aria-pressed", String(on));
+      liteBtn.textContent = on ? "Motion & effects: reduced" : "Reduce motion & effects";
+    };
+    liteBtn.addEventListener("click", () => {
+      const on = ROOT.classList.toggle("lite");
+      try { localStorage.setItem("art-lite", on ? "1" : "0"); } catch (e) {}
+      paintLite();
+    });
+    paintLite();
+  }
 
   const yr = document.querySelector("[data-year]");
   if (yr) yr.textContent = new Date().getFullYear();
@@ -394,23 +424,40 @@
     addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { x = 0; measure(); }, 200); });
   });
 
-  /* ---------- reveal on scroll ---------- */
-  const reveals = document.querySelectorAll(".reveal");
-  if (reveals.length && "IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-    reveals.forEach(el => io.observe(el));
+  /* ---------- reveal on scroll ----------
+     querySelectorAll returns a STATIC NodeList. This file runs before the
+     per-page scripts, so anything a page injects afterwards — the four featured
+     machine cards home.js writes into #homeMgrid, for one — was never in that
+     list: never observed, and not reachable by the failsafe either, because the
+     failsafe iterated the same stale list. Those cards sat at opacity:0 forever,
+     on the live site, with nothing in the console to say why.
+     So: the scan is a function, it is exposed for late-injected content, and the
+     failsafe re-queries the live DOM instead of trusting a snapshot. */
+  const REVEAL_IO = "IntersectionObserver" in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) { en.target.classList.add("in"); REVEAL_IO.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" })
+    : null;
 
-    /* Failsafe. .reveal starts at opacity 0, so if the observer never fires —
-       a broken viewport, an embedded/headless renderer, a print context — the
-       content stays invisible for good. Anything still hidden after 1.6s gets
-       revealed outright. Costs nothing when the observer works normally,
-       because every element has already been unobserved by then. */
+  /* Call after injecting markup that contains .reveal elements. Safe to call
+     repeatedly — :not(.in) means already-revealed nodes are skipped, and
+     re-observing an observed element is a no-op. */
+  ART.revealScan = (root) => {
+    const els = (root || document).querySelectorAll(".reveal:not(.in)");
+    if (REVEAL_IO) els.forEach(el => REVEAL_IO.observe(el));
+    else els.forEach(el => el.classList.add("in"));
+  };
+  ART.revealScan(document);
+
+  /* Failsafe. .reveal starts at opacity 0, so if the observer never fires — a
+     broken viewport, an embedded/headless renderer, a print context — the
+     content stays invisible for good. Re-queried, not snapshotted, so it also
+     catches anything injected between load and now. */
+  if (REVEAL_IO) {
     setTimeout(() => {
-      reveals.forEach(el => { if (!el.classList.contains("in")) el.classList.add("in"); });
+      document.querySelectorAll(".reveal:not(.in)").forEach(el => el.classList.add("in"));
     }, 1600);
-  } else {
-    reveals.forEach(el => el.classList.add("in"));
   }
 })();

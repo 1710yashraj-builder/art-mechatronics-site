@@ -1,183 +1,459 @@
 /* ===== Home ===== */
 
-/* Hero */
-.home-hero {
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
-  color:#e7eefb;
-  background:#081b3a;
-  padding:clamp(3.5rem, 2.75rem + 2.5vw, 5rem) 0 clamp(2.5rem, 2rem + 3vw, 4.5rem);
-}
-.home-hero::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-2;
-  background:
-    linear-gradient(rgba(123,170,224,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(123,170,224,.07) 1px, transparent 1px),
-    radial-gradient(circle at 82% 20%, rgba(46,134,230,.3), transparent 30rem);
-  background-size:56px 56px, 56px 56px, auto;
-  mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);
-}
-.home-hero::after {
-  content:"";
-  position:absolute;
-  z-index:-1;
-  width:42rem;
-  height:1px;
-  right:-7rem;
-  top:18%;
-  background:linear-gradient(90deg,transparent,#63a8f2,transparent);
-  transform:rotate(-31deg);
-  box-shadow:0 0 34px rgba(99,168,242,.75);
-}
-.home-hero__grid {
-  display:grid;
-  grid-template-columns:minmax(0,1.06fr) minmax(420px,.94fr);
-  gap:clamp(2.5rem,5vw,5rem);
-  align-items:center;
-}
-.home-hero h1 {
-  color:#fff;
-  font-size:clamp(2.55rem,1.65rem + 3vw,3.65rem);
-  line-height:.98;
-  max-width:15ch;
-  margin-bottom:1.35rem;
-}
-.home-hero h1 .grad { color:#87bfff; }
-.home-hero .eyebrow { color:#8fc0ff; }
-.home-hero .lead { color:#c5d4e9; max-width:57ch; }
-.home-hero__heritage {
-  display:grid;
-  gap:.12rem;
-  max-width:37rem;
-  margin:1.45rem 0 0;
-  padding:.25rem 0 .25rem 1rem;
-  border-left:2px solid #4f98eb;
-}
-.home-hero__heritage span {
-  color:#86a9d4;
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.home-hero__heritage strong { color:#fff; font-size:.96rem; font-weight:650; }
-.home-hero__disc { display:flex; gap:.5rem; flex-wrap:wrap; margin:1.25rem 0 .4rem; }
-.home-hero__disc .chip {
-  background:rgba(255,255,255,.07);
-  color:#d9e7f8;
-  border-color:rgba(255,255,255,.16);
-  border-radius:var(--r-sm);
-}
-.home-hero__cta { display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1.65rem; }
-.home-hero__presence {
-  margin-top:1.45rem;
-  font-size:.84rem;
-  color:#8fb0dd;
-  letter-spacing:.04em;
-  display:flex;
-  align-items:center;
-  gap:.55rem;
-}
-.home-hero__presence b { color:#fff; font-weight:700; }
+/* ============================================================
+   HERO — full-bleed plant photograph.
+   The old flat-navy decoration is gone: ::before's 56px grid + radial glow and
+   ::after's 34px-glow light streak are deleted, because a photograph replaces
+   what they were faking. That also removes the site's only stray glow.
 
-/* Hero video */
-.hero-visual {
-  position:relative;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.23);
-  border-radius:var(--r-xl);
-  padding:.65rem;
-  box-shadow:0 34px 90px rgba(1,8,22,.45);
+   Structure, and why:
+     .home-hero          — the view-timeline owner. NO overflow here, or the
+                           stage would become the scrollport and the parallax
+                           would read its own box instead of the page.
+     .home-hero__stage   — the clipped frame (overflow: clip).
+       __media/__parallax/__photo   layer 0, the photograph
+       __bloom                      layer 1, the one light pass
+       __wash                       layer 1, static grade + weld to the plinth
+       .wrap > .home-hero__copy     layer 2, real HTML on the image
+     .home-proof         — capability strip, on flat navy BELOW the photograph.
+   ============================================================ */
+.home-hero {
+  position: relative;
+  color: #e7eefb;
+  background: #081b3a;
+  padding: 0 0 clamp(2.25rem, 1.75rem + 2.5vw, 3.75rem);
 }
-.hero-visual::before {
-  content:"LIVE PROCESS VIEW";
-  position:absolute;
-  z-index:2;
-  right:1.35rem;
-  top:1.2rem;
-  color:#eaf3ff;
-  font-size:.62rem;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-shadow:0 1px 8px #061226;
+
+.home-hero__stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;              /* Safari < 16 */
+  overflow: clip;                /* not a scroll container — see note above */
+  display: grid;
+  align-content: center;
+  min-height: clamp(34rem, 86vh, 54rem);
+  padding: clamp(3rem, 2.25rem + 2.5vw, 5rem) 0 clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+/* ---- layer 0: the photograph ---- */
+.home-hero__media { position: absolute; inset: 0; z-index: 0; overflow: hidden; overflow: clip; }
+/* A gradient plate graded to the master's own palette sits under the image, so
+   the hero is never flat black and the photo's arrival reads as the room
+   lighting up rather than as an image loading. No fade-in, no LQIP, 0 bytes. */
+.home-hero__media::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(80% 70% at 78% 42%, #123561 0%, #0c2851 38%, transparent 72%),
+    linear-gradient(115deg, #061226 0%, #081b3a 46%, #0b2c5e 100%);
+}
+/* Oversized so the scroll translate can never expose an edge:
+   6% of a 116%-tall layer = 6.96% of the stage, against 8% of overhang. */
+.home-hero__parallax { position: absolute; left: 0; right: 0; top: -8%; height: 116%; }
+.home-hero__photo {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover;
+  /* y 35% keeps the overhead ducting and the hall's height, which the
+     commission paid for, and spends the crop on empty floor instead.
+     x 32% biases any pillarbox crop into the lit right side; the left-55%
+     guarantee survives either way (a centre-or-left-biased crop maps the
+     frame's 55% mark to image position <= 55%). */
+  object-position: 32% 35%;
+  transform-origin: 64% 46%;
+  animation: hero-settle 2.2s var(--ease) both;
+}
+
+/* ---- layer 1a: the one light pass ---- */
+.home-hero__bloom {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(58% 46% at 74% 44%,
+    rgba(150,196,255,.13) 0%, rgba(150,196,255,.05) 42%, transparent 70%);
+  opacity: 0;
+  animation: hero-bloom 1.9s var(--ease) .45s both;
+}
+
+/* ---- layer 1b: static grade. No animation, no blur, no backdrop-filter. ----
+   Left gradient is insurance only — the text colours below are computed to pass
+   AA against the master's worst permitted pixel with this layer removed.
+   Bottom gradient ENDS on #081b3a, the exact colour of the plinth beneath, so
+   the photograph and the capability strip weld with no visible seam. */
+.home-hero__wash {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6,18,42,.34) 0%, rgba(6,18,42,.16) 34%, rgba(6,18,42,0) 62%),
+    linear-gradient(to top, #081b3a 0%, rgba(8,27,58,.72) 9%, rgba(8,27,58,0) 32%);
+}
+
+/* ---- layer 2: the copy ---- */
+.home-hero .wrap { position: relative; z-index: 2; }
+/* 48% of the wrap, capped at 40rem. MEASURED clearance from the right edge of
+   the copy to the photograph's guaranteed-dark 55% line:
+     1051 -> 73px    1280 -> 89px    1440 -> 98px    1920 -> 122px    2560 -> 154px
+   Minimum is 73px, at 1051, the width where the composition switches. */
+.home-hero__copy { max-width: min(48%, 40rem); }
+
+.home-hero h1 {
+  color: #fff;
+  /* Tracks the copy column, not the viewport. The old 3.65rem cap was chosen
+     for a half-width column beside a video; against a full-bleed photograph it
+     read as a caption. 4.2rem is the largest size that still sets both
+     sentences in two lines each inside a 614px column — measured, not guessed.
+     The shallower slope keeps it from outgrowing the 486px column at 1051. */
+  font-size: clamp(2.4rem, 0.9rem + 3.3vw, 4.2rem);
+  line-height: .96;
+  letter-spacing: -.03em;
+  margin: 0 0 1.3rem;
+}
+.home-hero h1 > span { display: block; text-wrap: balance; }
+.home-hero h1 .grad { color: #87bfff; }
+
+/* Text colours recomputed against the photo brief's worst permitted pixel in
+   the copy zone (white at 7:1 => background relative luminance <= 0.10). The
+   inherited hero palette failed there: #8fc0ff 3.7:1, #86a9d4 2.9:1,
+   #8fb0dd 3.1:1. These pass AA with the wash removed. */
+.home-hero .eyebrow { color: #c9e0ff; }              /* 5.2:1 */
+.home-hero .lead    { color: #dce7f7; max-width: 46ch; }   /* 5.6:1 */
+.home-hero__cta     { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+/* On a photograph .btn--outline-light is the only control with no ground of its
+   own. It gets one, so it is legible wherever the layout puts it — including
+   below the guaranteed-dark band on a small phone. */
+.home-hero .btn--outline-light,
+.line-band .btn--outline-light { background: rgba(8,27,58,.62); border-color: rgba(255,255,255,.55); }
+.home-hero .btn--outline-light:hover,
+.line-band .btn--outline-light:hover { background: rgba(8,27,58,.86); border-color: #fff; }
+/* base.css L43 transitions box-shadow on every .btn and L54 adds one on
+   .btn--light:hover — an M2 repaint. Cancelled here rather than inherited. */
+.home-hero .btn--light:hover,
+.line-band .btn--light:hover { box-shadow: none; }
+
+/* ---- the evidence rail: three sentences, each one click from its source ----
+   Deliberately NOT a numeral display. The credentials band 200px below already
+   carries 30+/20K+/40+/30+; a second numeral row here would put six numbers on
+   one screen and lose to the band's own larger type. These are set as the
+   hero's voice, and the numbers are spelled the way the destination pages
+   spell them ("Five manufacturing units...", "Service teams in fourteen
+   cities") so the claim and its evidence read as the same sentence. */
+.home-hero__rail {
+  list-style: none; margin: 1.6rem 0 0; padding: 0;
+  max-width: 34rem;
+  border-top: 1px solid rgba(255,255,255,.2);
+}
+.home-hero__rail li { border-bottom: 1px solid rgba(255,255,255,.16); }
+.home-hero__rail a {
+  display: flex; align-items: center; gap: .7rem;
+  min-height: 44px; padding: .62rem .7rem .62rem 0;
+  color: #e7eefb; font-size: .92rem; font-weight: 650; line-height: 1.35;
+  border-radius: var(--r-sm);
+  transition: background .2s var(--ease), color .2s var(--ease);
+}
+.home-hero__rail a::after {
+  content: "\2192";
+  margin-left: auto; padding-left: .6rem;
+  color: #9ec4f2; font-weight: 700;
+  transition: color .2s var(--ease), transform .2s var(--ease);
+}
+.home-hero__rail a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.home-hero__rail a:hover::after { color: #fff; transform: translateX(3px); }
+
+/* ---- one footnote row: heritage + presence, a single hairline, no border-left
+   rule, no second slash treatment. Four rule treatments became one. ---- */
+.home-hero__foot {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 2rem;
+  margin-top: 1.5rem; padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.home-hero__heritage { display: grid; gap: .16rem; max-width: 34rem; }
+.home-hero__heritage span {
+  color: #c4d8f2; font-size: .7rem; font-weight: 700;      /* 4.8:1 */
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.home-hero__heritage strong { color: #fff; font-size: .92rem; font-weight: 650; }
+.home-hero__heritage a { color: #fff; text-decoration: underline; text-underline-offset: .18em; }
+.home-hero__heritage a:hover { color: #c9e0ff; }
+.home-hero__presence {
+  margin: 0; font-size: .8rem; color: #c4d8f2; letter-spacing: .04em;
+  display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+}
+.home-hero__presence b { color: #fff; font-weight: 700; }
+
+/* ---- capability strip: flat navy, below the photograph ---- */
+.home-proof {
+  list-style: none; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  margin: clamp(2.2rem, 3.5vw, 3rem) 0 0;
+  border-top: 1px solid rgba(255,255,255,.17);
+  border-bottom: 1px solid rgba(255,255,255,.17);
+}
+.home-proof > li { display: grid; gap: .35rem; padding: 1.3rem 1.4rem; border-right: 1px solid rgba(255,255,255,.14); }
+.home-proof > li:first-child { padding-left: 0; }
+.home-proof > li:last-child  { border-right: 0; }
+.home-proof span   { color: #69a9ef; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; }
+.home-proof strong { color: #e7eefb; font-size: .88rem; line-height: 1.35; }
+
+/* A 90%-white sticky bar with a 10px backdrop blur, composited every frame over
+   a full-bleed photograph that is itself transforming on scroll, is the single
+   most expensive thing on this page. Solid white costs nothing, looks identical
+   on the white pages below the fold, and reads as a masthead over a plate.
+   Homepage only — the other 402 pages keep the blur. */
+body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
+
+/* ============================================================
+   VIDEO BAND — the proof floor. Continues the hero's dark chapter; the mist
+   credentials band below breaks it.
+   ============================================================ */
+.line-band {
+  background: linear-gradient(180deg, #081b3a 0%, #0a2148 100%);
+  color: #dfe9f7;
+  padding: clamp(2.75rem, 4.5vw, 4rem) 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.line-band__head { max-width: 62ch; margin-bottom: clamp(1.4rem, 2.5vw, 2rem); }
+.line-band .eyebrow { color: #c9e0ff; }
+.line-band h2 { color: #fff; margin: .2rem 0 .7rem; }
+.line-band .lead { color: #dce7f7; }
+/* NOTE: the pulsing green `.live` dot that used to sit on .hero-visual__tag is
+   deliberately NOT carried over, and @keyframes pulse is deleted with it.
+   assets/video/hero.mp4 is a rendered process animation of the powder line —
+   labelled vessels, a flow legend and a PLC readout — not camera footage. A
+   blinking green "live" light next to it asserts a plant webcam, which is the
+   one claim on this page an engineer could catch us out on. Removing it also
+   leaves the whole top of the document with nothing that loops. */
+
+/* The shell. The old .hero-visual__tag overlay is gone — its link is now a real
+   .btn below the frame, which removes the site's only backdrop-filter that had
+   no kill switch, and stops an overlay covering the native control bar that the
+   no-JS path depends on. */
+.hero-visual {
+  position: relative;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.23);
+  border-radius: var(--r-xl);
+  padding: .65rem;
+  box-shadow: 0 34px 90px rgba(1,8,22,.45);
 }
 .hero-visual--video video {
-  border-radius:var(--r-lg);
-  width:100%;
-  aspect-ratio:16/10;
-  object-fit:cover;
-  display:block;
-  background:#070c15;
-  cursor:pointer;
+  border-radius: var(--r-lg);
+  width: 100%;
+  aspect-ratio: 16/9;          /* source is 1920x1080; 16/10 was cropping it */
+  object-fit: cover; display: block;
+  background: #070c15; cursor: pointer;
 }
 .hero-play {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.42);
-  cursor:pointer;
-  background:rgba(8,27,58,.9);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  box-shadow:0 12px 34px rgba(5,10,20,.5),0 0 0 8px rgba(255,255,255,.1);
-  transition:transform .25s var(--ease),background .25s var(--ease),opacity .25s var(--ease);
+  position: absolute; top: 50%; left: 50%;
+  width: 76px; height: 76px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.42);
+  cursor: pointer; background: rgba(8,27,58,.9); color: #fff;
+  display: grid; place-items: center;
+  box-shadow: 0 12px 34px rgba(5,10,20,.5), 0 0 0 8px rgba(255,255,255,.1);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform .25s var(--ease), background .25s var(--ease), opacity .25s var(--ease);
 }
-.hero-play svg { width:30px; height:30px; margin-left:4px; }
-.hero-play:hover { transform:translate(-50%,-50%) scale(1.06); background:var(--blue); }
-.hero-play[aria-pressed="true"] { top:2rem; left:2rem; width:48px; height:48px; opacity:.82; }
-.hero-play[aria-pressed="true"] svg { width:21px; height:21px; margin-left:0; }
-.hero-visual__tag {
-  position:absolute;
-  left:1.25rem;
-  right:1.25rem;
-  bottom:1.25rem;
-  min-height:44px;
-  background:rgba(8,27,58,.91);
-  color:#fff;
-  padding:.58rem .85rem;
-  border-radius:var(--r);
-  font-weight:750;
-  font-size:.82rem;
-  backdrop-filter:blur(6px);
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  transition:background .2s var(--ease);
-}
-.hero-visual__tag:hover { background:rgba(22,87,176,.96); }
-.hero-visual__tag .live {
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#35e477;
-  box-shadow:0 0 8px #28e06a;
-  animation:pulse 1.6s infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+.hero-play svg { width: 30px; height: 30px; margin-left: 4px; }
+.hero-play:hover { transform: translate(-50%, -50%) scale(1.06); background: var(--blue); }
+/* While playing the control recedes IN PLACE. The rule this replaces animated
+   top/left/width/height — four layout properties, an M2 breach in the code
+   being deleted — and teleported the pause target away from the cursor that
+   pressed play. 76 x .62 = 47.1px, still above the 44px minimum. */
+.hero-play[aria-pressed="true"] { transform: translate(-50%, -50%) scale(.62); opacity: .34; }
+.hero-visual--video:hover .hero-play[aria-pressed="true"],
+.hero-play[aria-pressed="true"]:focus-visible { opacity: 1; transform: translate(-50%, -50%) scale(.78); }
 
-/* Capability proof strip */
-.home-proof {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:0;
-  margin-top:clamp(3rem,6vw,5.5rem);
-  border-top:1px solid rgba(255,255,255,.17);
-  border-bottom:1px solid rgba(255,255,255,.17);
+.line-band__actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.line-band__note {
+  margin: 1.2rem 0 0; max-width: 68ch;
+  font-size: .8rem; line-height: 1.6; color: #c4d8f2;
 }
-.home-proof > div { display:grid; gap:.35rem; padding:1.3rem 1.4rem; border-right:1px solid rgba(255,255,255,.14); }
-.home-proof > div:first-child { padding-left:0; }
-.home-proof > div:last-child { border-right:0; }
-.home-proof span { color:#69a9ef; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; }
-.home-proof strong { color:#e7eefb; font-size:.88rem; line-height:1.35; }
+.line-band__note a { color: #fff; text-decoration: underline; text-underline-offset: .18em; }
+.line-band__note a:hover { color: #c9e0ff; }
+
+/* ============================================================
+   M3 — focus. base.css L184's global ring is #2E86E6, tuned for white pages and
+   about 3.2:1 against a dark photograph. Both dark sections take a white ring
+   instead, which the master's own luma ceiling makes safe. Outline only, never
+   box-shadow: .btn already transitions box-shadow, so a shadow ring would
+   animate on focus.
+   ============================================================ */
+.home-hero a:focus-visible,
+.home-hero button:focus-visible,
+.line-band a:focus-visible,
+.line-band button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  border-radius: var(--r);
+}
+.home-hero .btn--light:focus-visible,
+.line-band .btn--light:focus-visible { outline-offset: 4px; }
+.hero-play:focus-visible { border-radius: 50%; }
+
+/* ============================================================
+   MOTION — every keyframe animates transform and/or opacity. Nothing else.
+   Nothing in the hero loops. Everything is still at 2.35s.
+   ============================================================ */
+@keyframes hero-settle { from { transform: scale(1.05); } to { transform: scale(1); } }
+@keyframes hero-bloom  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes hero-in     { from { opacity: 0; transform: translate3d(0, 12px, 0); } to { opacity: 1; transform: none; } }
+@keyframes hero-drift  { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, 6%, 0); } }
+@keyframes hero-lift   { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -6%, 0); } }
+
+/* Entrance. Pure CSS at parse time, so it runs with JS disabled and cannot
+   flash. NOT .reveal — .reveal starts at opacity:0 and waits for an observer,
+   which above the fold means an invisible headline and a wrecked LCP.
+   The h1's two sentences are the stagger decision 3 asked for; the first has
+   ZERO delay because it is the text-LCP candidate until the photo lands.
+   EVERY delay selector below is qualified with .home-hero__copy > so it
+   outranks the shorthand's implicit animation-delay: 0s. Written as
+   `.home-hero__cta { animation-delay: .26s }` the rule LOSES on specificity
+   (0,1,0 against 0,1,1) and the whole stagger silently collapses into three
+   simultaneous blocks — verified in the browser before this was fixed. */
+.home-hero__copy > *:not(h1) { animation: hero-in .55s var(--ease) both; }
+.home-hero h1 > span         { animation: hero-in .55s var(--ease) both; }
+.home-hero__copy > .eyebrow          { animation-delay: 0s; }
+.home-hero h1 > .hl                  { animation-delay: 0s; }
+.home-hero h1 > .grad                { animation-delay: .09s; }
+.home-hero__copy > .lead             { animation-delay: .18s; }
+.home-hero__copy > .home-hero__cta   { animation-delay: .26s; }
+.home-hero__copy > .home-hero__rail  { animation-delay: .34s; }
+.home-hero__copy > .home-hero__foot  { animation-delay: .42s; }
+
+/* Parallax. Off unless the browser can run it on the compositor, off the main
+   thread — zero JS, zero scroll listeners. The timeline is declared on
+   .home-hero (which has no overflow) and NOT on the stage, which is clipped and
+   would otherwise be read as its own scrollport.
+   The range is `exit`, not `cover`. On an element at the top of the document a
+   `cover` range is already ~56% complete at scroll 0, which would load the page
+   with the copy pre-shifted. `exit 0%` is exactly scroll 0 here, so at rest the
+   copy has moved zero pixels — and the copy does not begin to move until the
+   hero is 22% of the way out, so nothing shifts under a reader.
+   LONGHANDS ONLY — no `animation` shorthand anywhere in this block. The
+   shorthand resets animation-timeline to `auto` AND animation-duration to `0s`,
+   and either one silently kills the effect with no error. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero { view-timeline-name: --hero; view-timeline-axis: block; }
+    .home-hero__parallax,
+    .home-hero__copy {
+      animation-duration: auto;          /* required: a scroll-driven animation is progress-based */
+      animation-timing-function: linear; /* a parallax must be linear or it desyncs from the finger */
+      animation-fill-mode: both;
+      animation-timeline: --hero;
+    }
+    .home-hero__parallax { animation-name: hero-drift; animation-range: exit 0% exit 100%; }
+    .home-hero__copy     { animation-name: hero-lift;  animation-range: exit 22% exit 100%; }
+  }
+}
+
+/* M4 kill switch. `.lite` is set by js/layout.js from deviceMemory /
+   hardwareConcurrency, or by the visitor's own footer toggle, and persists in
+   localStorage. It removes exactly what M4 names — continuous animation and
+   backdrop-filter — and deliberately leaves the one-shot entrance alone: that
+   is a single composited opacity+transform per layer, it is finished before the
+   class could even arrive (scripts load at the end of the body), and killing it
+   would produce a visible snap on the very devices we are protecting. */
+.lite .home-hero__parallax,
+.lite .home-hero__copy { animation: none !important; transform: none !important; }
+.lite .home-hero__bloom { display: none; }
+
+/* ============================================================
+   RESPONSIVE — 1050 / 860 / 640. The hero's existing ladder, no new breakpoint.
+   At and below 1050 the composition rotates: tall master, copy across the top.
+   ============================================================ */
+@media (max-width: 1050px) {
+  /* THE RULE THIS LAYOUT IS BUILT ON: no text block anywhere may depend on a
+     pixel the photograph does not guarantee. On a 390x844 phone the stage is
+     811px and the master takes no vertical crop, so the guaranteed-dark top 55%
+     is the top 446px. Measured in the browser against that line:
+       eyebrow 113-153, h1 165-285, lead 301-383  -> inside the guarantee
+       the two CTAs      402-513                  -> inside the guarantee
+       rail 533-710, footnote 730-858             -> on a solid #081b3a panel
+     Nothing is left resting on an unguaranteed pixel, and the wash is doing no
+     structural work anywhere.
+     svh, so a retracting URL bar does not resize the hero mid-scroll. The 30rem
+     floor is what keeps a landscape phone usable with no fourth breakpoint. */
+  .home-hero__stage {
+    min-height: clamp(30rem, 88vh, 46rem);
+    min-height: clamp(30rem, 88svh, 46rem);
+    align-content: start;
+    padding-top: clamp(2.25rem, 5vw, 3.25rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  .home-hero__copy { max-width: none; }
+  /* The evidence panel: full-bleed solid navy under the small type, welded to
+     the photograph by a short gradient at its top edge rather than a hard line.
+     This is the phone composition — a plate carrying the promise, dissolving
+     into brand navy that carries the proof. */
+  .home-hero__rail,
+  .home-hero__foot {
+    margin-inline: calc(50% - 50vw);
+    padding-inline: calc(50vw - 50%);
+    background: #081b3a;
+  }
+  .home-hero__rail {
+    background: linear-gradient(to bottom, rgba(8,27,58,0) 0%, #081b3a 14%);
+    border-top: 0;
+    padding-top: .9rem;
+    max-width: none;
+  }
+  .home-hero__foot { margin-top: 0; padding-top: 1rem; padding-bottom: .5rem; }
+  .home-hero__photo { object-position: 50% 14%; }
+  .home-hero__media::before { background: linear-gradient(168deg, #0b2c5e 0%, #081b3a 52%, #061226 100%); }
+  /* Even veil across the text region — the small type is at the TOP here, so
+     weighting the alpha at the bottom (where the two contrast-proof buttons
+     are) would spend it in the wrong place. Ends on #081b3a, the exact colour
+     of the ground beneath, so the plate's bottom edge is a weld, not a seam. */
+  .home-hero__wash {
+    background: linear-gradient(to bottom,
+      rgba(6,18,42,.30) 0%, rgba(6,18,42,.22) 46%,
+      rgba(6,18,42,.34) 74%, rgba(8,27,58,.88) 93%, #081b3a 100%);
+  }
+  .home-hero__bloom { display: none; }   /* nowhere to run that is not behind text */
+  .home-hero .lead { max-width: 58ch; }
+}
+@media (max-width: 860px) {
+  .home-proof { grid-template-columns: 1fr 1fr; }
+  .home-proof > li:nth-child(2) { border-right: 0; }
+  .home-proof > li:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.14); }
+  .home-proof > li:nth-child(3) { padding-left: 0; }
+  .home-hero__foot { gap: .9rem; }
+  .line-band__actions .btn { flex: 1 1 auto; justify-content: center; }
+}
+@media (max-width: 640px) {
+  /* The h1 is the whole phone budget. At the desktop clamp it ran to seven
+     lines and pushed everything below it out of the guaranteed-dark top 55%. */
+  .home-hero h1 { font-size: clamp(1.9rem, 1.35rem + 2.2vw, 2.35rem); line-height: .99; margin-bottom: 1rem; }
+  .home-hero__stage { padding-top: 2.1rem; }
+  .home-hero__cta { margin-top: 1.15rem; }
+  .home-hero__cta .btn { width: 100%; justify-content: center; padding: .95rem 1.4rem; font-size: 1rem; }
+  .home-hero__rail { margin-top: 1.25rem; }
+  .home-hero__rail a { font-size: .88rem; padding-right: .4rem; }
+  .home-hero__foot { margin-top: 1.25rem; }
+  .home-proof { margin-top: 2rem; }
+  .home-proof > li { padding: 1rem .75rem; }
+  .line-band__actions .btn { width: 100%; }
+}
+
+/* M4 — reduced motion. base.css L149 already zeroes every animation-duration
+   with !important, but scroll-driven animations ignore animation-duration
+   entirely, so the parallax would survive that nuke. It is killed here twice:
+   the @supports block above is nested inside prefers-reduced-motion:
+   no-preference so the timelines are never created, and this block pins the end
+   state outright. A reduced-motion visitor sees the finished frame instantly
+   and permanently — photo at scale(1), all copy at full opacity in its final
+   position, bloom held at its resting value, nothing that can move. */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__photo,
+  .home-hero__parallax,
+  .home-hero__copy,
+  .home-hero__copy > *,
+  .home-hero h1 > span {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .home-hero__bloom { animation: none !important; opacity: 1; }
+  .hero-play { transition: none; }
+  .hero-play[aria-pressed="true"] { opacity: 1; transform: translate(-50%, -50%) scale(.78); }
+}
 
 /* Buyer router */
 .need-router { padding:clamp(3.5rem,6vw,5.5rem) 0; border-bottom:1px solid var(--line); }
@@ -322,7 +598,6 @@
 .home-cta .btns { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem; position:relative; }
 
 @media (max-width:1050px) {
-  .home-hero__grid { grid-template-columns:1fr 1fr; gap:2.5rem; }
   .need-grid { grid-template-columns:1fr 1fr; }
   .need-card:nth-child(2) { border-right:0; }
   .need-card:nth-child(-n+2) { border-bottom:1px solid var(--line); }
@@ -333,13 +608,7 @@
   .industry-grid { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:860px) {
-  .home-hero__grid,.flagship__grid,.project-brief__grid { grid-template-columns:1fr; }
-  .home-hero h1 { max-width:17ch; }
-  .hero-visual { max-width:680px; }
-  .home-proof { grid-template-columns:1fr 1fr; }
-  .home-proof > div:nth-child(2) { border-right:0; }
-  .home-proof > div:nth-child(-n+2) { border-bottom:1px solid rgba(255,255,255,.14); }
-  .home-proof > div:nth-child(3) { padding-left:0; }
+  .flagship__grid,.project-brief__grid { grid-template-columns:1fr; }
   .need-router__head { grid-template-columns:1fr; gap:.5rem; }
   .cap-grid { grid-template-columns:1fr 1fr; }
   .cap:nth-child(2n) { border-right:0; }
@@ -347,12 +616,6 @@
   .cap:nth-child(n+3) { margin-top:1.5rem; border-top:1px solid var(--line); }
 }
 @media (max-width:640px) {
-  .home-hero { padding-top:3.5rem; }
-  .home-hero__grid { gap:2rem; }
-  .home-hero__cta .btn { width:100%; justify-content:center; }
-  .home-hero__presence { align-items:flex-start; flex-wrap:wrap; }
-  .home-proof { margin-top:3rem; }
-  .home-proof > div { padding:1rem .75rem; }
   .need-grid,.home-mgrid,.cap-grid,.industry-grid,.pres-grid { grid-template-columns:1fr; }
   .need-card { min-height:210px; border-right:0; border-bottom:1px solid var(--line); }
   .need-card:nth-child(3) { border-bottom:1px solid var(--line); }
@@ -365,11 +628,6 @@
   .cap__num { margin-bottom:.8rem; }
   .industry-grid a { min-height:76px; }
   .section-actions .btn { width:100%; justify-content:center; }
-  .hero-visual::before { display:none; }
-}
-
-@media (prefers-reduced-motion:reduce) {
-  .hero-visual__tag .live { animation:none; }
 }
 
 /* ============================================================

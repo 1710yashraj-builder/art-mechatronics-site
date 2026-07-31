@@ -445,3 +445,19 @@ p { margin: 0 0 1em; }
   .mc-drop { left: .35rem; right: .35rem; }
   .mc-drop li a { padding: .5rem .35rem; font-size: .86rem; }  /* bigger tap target */
 }
+
+/* M4 kill switch, global half. Set by js/layout.js before the header is
+   injected. Removes the sticky bar's per-frame backdrop blur — the one
+   backdrop-filter that runs on every page — and swaps the translucent ground
+   for a solid one, so nothing loses contrast. */
+.lite .site-header { background: #fff; backdrop-filter: none; }
+
+/* The manual half of M4: a labelled toggle the visitor can throw themselves. */
+.lite-toggle {
+  font: inherit; font-size: .78rem; font-weight: 700; color: #cfe0f7;
+  background: none; border: 1px solid rgba(255,255,255,.28);
+  border-radius: var(--r-sm); padding: .35rem .7rem; min-height: 34px;
+  cursor: pointer; transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.lite-toggle:hover { color: #fff; border-color: rgba(255,255,255,.6); }
+.lite-toggle[aria-pressed="true"] { color: #fff; border-color: #fff; }
