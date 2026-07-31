@@ -52,17 +52,17 @@
         <div class="home-hero__parallax">
           <picture>
             <source media="(max-width: 1050px)" type="image/webp"
-                    srcset="assets/hero/plant-tall-800.webp 800w,
-                            assets/hero/plant-tall-1200.webp 1200w"
+                    srcset="assets/hero/plant-tall-800.webp?v=20260731m 800w,
+                            assets/hero/plant-tall-1200.webp?v=20260731m 1200w"
                     sizes="100vw" width="1600" height="2400">
             <source type="image/webp"
-                    srcset="assets/hero/plant-wide-1280.webp 1280w,
-                            assets/hero/plant-wide-1920.webp 1920w,
-                            assets/hero/plant-wide-2560.webp 2560w"
+                    srcset="assets/hero/plant-wide-1280.webp?v=20260731m 1280w,
+                            assets/hero/plant-wide-1920.webp?v=20260731m 1920w,
+                            assets/hero/plant-wide-2560.webp?v=20260731m 2560w"
                     sizes="100vw" width="3840" height="2160">
             <!-- no `decoding`: this is the LCP element and async decoding can
                  defer its paint. no `loading`: never lazy an LCP candidate. -->
-            <img class="home-hero__photo" src="assets/hero/plant-wide-1920.webp" alt=""
+            <img class="home-hero__photo" src="assets/hero/plant-wide-1920.webp?v=20260731m" alt=""
                  width="3840" height="2160" fetchpriority="high">
           </picture>
         </div>
@@ -144,7 +144,7 @@
              in the delivered experience). The button ships `hidden` for the
              mirror-image reason: with JS off it would be a dead 76px circle
              sitting on top of the native chrome, which is what ships today. -->
-        <video id="heroVideo" poster="assets/video/hero-poster.webp" muted loop playsinline preload="none" controls
+        <video id="heroVideo" poster="assets/video/hero-poster.webp?v=20260731m" muted loop playsinline preload="none" controls
                aria-label="The ART automatic powder line running with silos, buffer tank, ribbon mixer, sifter and dust collector">
           <source src="assets/video/hero.mp4" type="video/mp4">
         </video>
