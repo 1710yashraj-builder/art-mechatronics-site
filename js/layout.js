@@ -316,6 +316,57 @@
     });
   }
 
+  /* ---------- customer testimonials ----------
+     Crossfade between slides that share one grid cell. Auto-advances on a 6s
+     timer that matches the dot animation, pauses on hover, on keyboard focus
+     and whenever the tab is hidden, and steps with the arrow keys. */
+  const tsSec = document.querySelector("[data-testimonials]");
+  if (tsSec) {
+    const slides = [...tsSec.querySelectorAll(".ts-slide")];
+    const dots = [...tsSec.querySelectorAll(".ts-dot")];
+    if (slides.length > 1) {
+      let at = 0, timer = null;
+      const show = (n) => {
+        const to = (n + slides.length) % slides.length;
+        if (to === at) return;
+        slides[at].classList.add("is-out");
+        slides[at].classList.remove("is-on");
+        slides[at].setAttribute("aria-hidden", "true");
+        const prev = at; at = to;
+        setTimeout(() => slides[prev].classList.remove("is-out"), 600);
+        slides[at].classList.add("is-on");
+        slides[at].removeAttribute("aria-hidden");
+        dots.forEach((d, i) => d.classList.toggle("is-on", i === at));
+        // restart the dot timer animation
+        const bar = dots[at].firstElementChild;
+        if (bar) { bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = ""; }
+      };
+      const play = () => { stop(); if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setInterval(() => show(at + 1), 6000); tsSec.classList.remove("is-paused"); };
+      const stop = () => { clearInterval(timer); timer = null; tsSec.classList.add("is-paused"); };
+      tsSec.querySelector('[data-ts="next"]').addEventListener("click", () => { show(at + 1); play(); });
+      tsSec.querySelector('[data-ts="prev"]').addEventListener("click", () => { show(at - 1); play(); });
+      dots.forEach((d) => d.addEventListener("click", () => { show(+d.dataset.i); play(); }));
+      tsSec.addEventListener("mouseenter", stop);
+      tsSec.addEventListener("mouseleave", play);
+      tsSec.addEventListener("focusin", stop);
+      tsSec.addEventListener("focusout", play);
+      tsSec.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") { show(at + 1); play(); }
+        if (e.key === "ArrowLeft") { show(at - 1); play(); }
+      });
+      let sx = 0;
+      tsSec.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; stop(); }, { passive: true });
+      tsSec.addEventListener("touchend", (e) => {
+        const d = sx - e.changedTouches[0].clientX;
+        if (Math.abs(d) > 40) show(at + (d > 0 ? 1 : -1));
+        play();
+      }, { passive: true });
+      // a carousel ticking in a background tab is wasted work
+      document.addEventListener("visibilitychange", () => document.hidden ? stop() : play());
+      play();
+    }
+  }
+
   /* ---------- reveal on scroll ---------- */
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length && "IntersectionObserver" in window) {

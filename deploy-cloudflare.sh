@@ -24,6 +24,24 @@ if [ ! -d "$DIST" ]; then
   exit 1
 fi
 
+
+# --- sample-content gate -------------------------------------------------
+# Placeholder testimonials exist so Anurag can review the design in place.
+# They must never reach the production branch, which is what becomes
+# artmechatronics.com. Preview deploys are allowed; production is refused.
+SAMPLES=$(python3 -c "import json;d=json.load(open('build/data/testimonials.json'));print(sum(1 for t in d.get('testimonials',[]) if t.get('sample')))" 2>/dev/null || echo 0)
+if [ "$SAMPLES" != "0" ] && [ "$BRANCH" = "production" ]; then
+  echo "REFUSED: $SAMPLES placeholder testimonial(s) still in build/data/testimonials.json."
+  echo "These are sample copy for client review and cannot go to the production branch."
+  echo "Replace them with real quotes (and permission), remove the \"sample\": true flag,"
+  echo "then deploy again. To show Anurag now, deploy to preview instead:"
+  echo "    ./deploy-cloudflare.sh preview"
+  exit 1
+fi
+if [ "$SAMPLES" != "0" ]; then
+  echo "NOTE: $SAMPLES placeholder testimonial(s) included — preview only."
+fi
+
 echo "==> Re-running validators before shipping anything"
 node build/validate_image_system.js --require-complete
 node build/validate_site.js

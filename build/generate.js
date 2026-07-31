@@ -17,7 +17,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260730g";
+const CSSV = "?v=20260731b";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -26,6 +26,11 @@ const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "u
    deliberately excluded). Capped at 8 groups so every dropdown stays readable
    whether the category holds 114 machines or 6. */
 const categoryGroupData = JSON.parse(fs.readFileSync(path.join(DATA, "category-groups.json"), "utf8"));
+/* Customer testimonials. Renders only when the array has entries, so an empty
+   file removes the section rather than leaving an empty shell. Entries carrying
+   sample:true are placeholder copy for client review — deploy-cloudflare.sh
+   blocks a production deploy while any are present. */
+const testimonialData = JSON.parse(fs.readFileSync(path.join(DATA, "testimonials.json"), "utf8")).testimonials || [];
 const imageManifest = JSON.parse(fs.readFileSync(path.join(ROOT, "assets", "machines", "v2", "manifest.json"), "utf8"));
 const v3ManifestFile = path.join(ROOT, "assets", "machines", "v3", "pilot", "manifest.json");
 const v3Manifest = fs.existsSync(v3ManifestFile)
@@ -1081,6 +1086,37 @@ function categoryFace(name, prods) {
   return (want && prods.find((p) => p.slug === want)) || prods[0];
 }
 
+
+function testimonialSection(base = "") {
+  if (!testimonialData.length) return "";
+  const slides = testimonialData.map((t, i) => `
+        <article class="ts-slide${i ? "" : " is-on"}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${testimonialData.length}"${i ? ' aria-hidden="true"' : ""}>
+          <div class="ts-portrait"><img src="${base}${t.photo}" alt="" width="560" height="560" loading="lazy" decoding="async"></div>
+          <div class="ts-body">
+            <svg class="ts-mark" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true"><path d="M0 24V12C0 5.4 4.6.6 11 0v4.8C7.6 5.6 5.6 8 5.4 11.4H11V24H0zm21 0V12c0-6.6 4.6-11.4 11-12v4.8c-3.4.8-5.4 3.2-5.6 6.6H32V24H21z"/></svg>
+            <p class="ts-quote">${esc(t.quote)}</p>
+            <div class="ts-by"><b>${esc(t.name)}</b><span>${esc(t.role)} &middot; ${esc(t.sector)}</span></div>
+          </div>
+        </article>`).join("");
+  const dots = testimonialData.map((t, i) =>
+    `<button class="ts-dot${i ? "" : " is-on"}" data-i="${i}" aria-label="Review ${i + 1}: ${attr(t.name)}"><span></span></button>`).join("");
+  return `
+  <section class="section ts-sec" aria-labelledby="ts-title" data-testimonials>
+    <div class="wrap">
+      <div class="ts-head">
+        <div><span class="eyebrow">Customers</span><h2 id="ts-title">What our customers say</h2></div>
+        <div class="ts-nav">
+          <button class="ts-arrow" data-ts="prev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="ts-arrow" data-ts="next" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="ts-stage" aria-live="polite">${slides}
+      </div>
+      <div class="ts-dots">${dots}</div>
+    </div>
+  </section>`;
+}
+
 const groupsFor = (name) => categoryGroupData[name] || [];
 const categoryList = () =>
   Object.keys(imageManifest.categories).sort((a, b) => a.localeCompare(b));
@@ -1307,6 +1343,16 @@ fs.writeFileSync(path.join(ROOT, "industries.html"), renderIndustriesHub(selInd)
     throw new Error("index.html is missing the category-grid markers");
   }
   next = next.slice(0, cf + CS.length) + "\n      " + categoryGrid("") + "\n      " + next.slice(ct);
+
+  // testimonials — same marker contract; empty data removes the section
+  const TS = "<!-- testimonials:start -->";
+  const TE = "<!-- testimonials:end -->";
+  const tf = next.indexOf(TS);
+  const tt = next.indexOf(TE);
+  if (tf < 0 || tt < 0) {
+    throw new Error("index.html is missing the testimonials markers");
+  }
+  next = next.slice(0, tf + TS.length) + "\n" + testimonialSection("") + "\n  " + next.slice(tt);
 
   // markets band — same marker pattern, generated from the MARKETS list
   const MS = "<!-- markets-band:start -->";
