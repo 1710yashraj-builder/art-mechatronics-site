@@ -17,7 +17,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260730b";
+const CSSV = "?v=20260730c";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1038,6 +1038,21 @@ const CATEGORY_COPY = {
   "Pollution Control": ["Dust collection & pollution control", "Keeping dust in the system and out of the plant air — dust collectors, bag filters, cyclones and scrubbers."],
   "Storage & Elevation": ["Storage & elevation", "Holding and lifting material between stages — silos, hoppers, day bins and storage systems."],
 };
+/* Generated category covers — the real ART machine composited into a navy scene
+   with its material in action. Only listed here once a cover has been judged
+   BETTER than the product photograph it replaces, side by side at 235x176.
+   All ten are listed: eight passed first time, two passed after a corrective
+   re-run. Removing a slug here reverts that tile to its product photograph. */
+const CATEGORY_COVER = new Set([
+  "mixing-blending", "cleaning-sorting-grading", "conveying-handling",
+  "heating-drying", "packaging", "size-reduction-grinding",
+  "storage-elevation", "automation-robotics",
+  // added after a corrective re-run: v1 of each failed at tile size —
+  // the extruder showed no product coming out, and the collector's loose
+  // dust cloud plus stack plume read as emission rather than capture.
+  "process-equipment", "pollution-control",
+]);
+
 /* Tile face per category — hand-picked, not prods[0].
    The tile is 235x176 landscape, so the pick has to read as its category at
    that size and fill a landscape frame. Chosen by eye against every candidate:
@@ -1078,16 +1093,19 @@ function categoryGrid(base = "") {
     if (!prods.length) return "";
     const [heading, blurb] = CATEGORY_COPY[name] || [name, ""];
     const c = imageManifest.categories[name];
-    const media = cardMedia(categoryFace(name, prods), "products", base);
+    const cslug = categorySlug(name);
+    const media = CATEGORY_COVER.has(cslug)
+      ? `<img src="${base}assets/categories/${cslug}/cover.webp" alt="${attr(heading)} machinery by ART Mechatronics" width="1600" height="1200" loading="lazy" decoding="async">`
+      : cardMedia(categoryFace(name, prods), "products", base);
     const gs = groupsFor(name);
-    const catHref = rel(base, `categories/${categorySlug(name)}.html`);
+    const catHref = rel(base, `categories/${cslug}.html`);
     // Groups link to their own anchored section on the category page, so the
     // dropdown works without JS and every target is crawlable.
     const caret = gs.length ? `
-      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-${categorySlug(name)}" aria-label="Show groups under ${attr(heading)}">
+      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-${cslug}" aria-label="Show groups under ${attr(heading)}">
         <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <div class="mc-drop" id="mcd-${categorySlug(name)}" hidden>
+      <div class="mc-drop" id="mcd-${cslug}" hidden>
         <p class="mc-drop__h">${esc(heading)}</p>
         <ul>${gs.map((g) => `<li><a href="${catHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`).join("")}</ul>
         <a class="mc-drop__all" href="${catHref}">See all ${prods.length} machines →</a>

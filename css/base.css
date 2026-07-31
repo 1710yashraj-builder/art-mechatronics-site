@@ -366,12 +366,11 @@ p { margin: 0 0 1em; }
 .mc-tile__media { display: block; position: relative; aspect-ratio: 4 / 3; overflow: hidden;
   background: linear-gradient(150deg, var(--mc-from, var(--navy)), var(--mc-to, var(--blue))); }
 .mc-tile__media img, .mc-tile__media picture { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* the category gradient tints the photo so ten different shots still read as one set */
-.mc-tile__media::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(150deg, var(--mc-from, var(--navy)), var(--mc-to, var(--blue)));
-  mix-blend-mode: multiply; opacity: .55;
-}
+/* No tint overlay. It existed to unify ten product photos shot on different
+   grounds; the covers are already composed on one ART navy, so multiplying a
+   category gradient over them re-introduced exactly the rainbow the single-navy
+   decision removed — heating read sepia, cleaning read green. The gradient
+   stays only as the placeholder BEHIND a loading image. */
 .mc-tile__body { display: block; padding: .85rem .9rem 1rem; }
 .mc-tile__name { display: block; font-weight: 700; font-size: .92rem; line-height: 1.3; color: var(--ink); }
 .mc-tile__count { display: block; margin-top: .25rem; font-size: .76rem; color: var(--steel); }
