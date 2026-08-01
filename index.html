@@ -23,7 +23,7 @@
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/tokens.css?v=20260731m">
   <link rel="stylesheet" href="css/base.css?v=20260731m">
-  <link rel="stylesheet" href="css/home.css?v=20260731m">
+  <link rel="stylesheet" href="css/home.css?v=20260801a">
 </head>
 <body data-page="home">
   <div data-header></div>
@@ -31,8 +31,17 @@
   <main id="main">
 
   <!-- HERO — full-bleed plant photograph, 2026-07-31.
-       assets/hero/plant-wide-*.webp   16:9,  guaranteed-dark LEFT 55%   -> above 1050px
-       assets/hero/plant-tall-*.webp   2:3,   guaranteed-dark TOP  55%   -> 1050px and below
+       Masters live in assets/hero/ :
+         plant-wide-*.webp   16:9,  guaranteed-dark LEFT 55%   -> above 1050px
+         plant-tall-*.webp   2:3,   guaranteed-dark TOP  55%   -> 1050px and below
+       (Filenames are written WITHOUT their directory prefix on purpose.
+        build/package_static.js L44 scrapes every asset-relative path out of
+        the raw HTML — comments included, exactly like the image-tag trap below
+        — and then fails the build when the path does not resolve on disk. A
+        wildcard never resolves. A bare directory does, so naming the folder
+        once and the files separately keeps the comment informative and the
+        packaging step green. This cost two silent build failures before it was
+        found; do not put a literal asset path inside a comment again.)
        1050px is the hero's own existing breakpoint and the width at which the
        copy column can no longer sit inside the left 55% without cramping the
        headline, so the composition rotates to top-copy — which is exactly what
@@ -52,8 +61,8 @@
         <div class="home-hero__parallax">
           <picture>
             <source media="(max-width: 1050px)" type="image/webp"
-                    srcset="assets/hero/plant-tall-800.webp?v=20260731m 800w,
-                            assets/hero/plant-tall-1200.webp?v=20260731m 1200w"
+                    srcset="assets/hero/plant-tall-800.webp?v=20260801a 800w,
+                            assets/hero/plant-tall-1200.webp?v=20260801a 1200w"
                     sizes="100vw" width="1600" height="2400">
             <source type="image/webp"
                     srcset="assets/hero/plant-wide-1280.webp?v=20260731m 1280w,
@@ -121,46 +130,6 @@
     </div>
   </section>
 
-  <!-- LIVE PROCESS VIEW — the video, moved out of the hero 2026-07-31.
-       The frame KEEPS the class hero-visual--video. js/home.js L45 does
-       hv.closest(".hero-visual--video") with no null guard and L50 dereferences
-       it inside syncControl(), which is called unconditionally at L63 on page
-       load. A null there throws, the throw aborts the rest of the IIFE, and
-       L66-L72 — the ONLY thing that reveals the four machine cards injected into
-       #homeMgrid — never runs. The result is four permanently invisible cards
-       and no error a non-technical reviewer would ever see. The class is also
-       guarded in home.js now, but do not rename it. -->
-  <section class="line-band" aria-labelledby="line-band-title">
-    <div class="wrap">
-      <div class="line-band__head">
-        <span class="eyebrow">Live process view</span>
-        <h2 id="line-band-title">Watch a complete line run</h2>
-        <p class="lead">An animation of ART&rsquo;s automatic powder line &mdash; silos, buffer tank, ribbon mixer, sifter and dust collector, working as one PLC-controlled system.</p>
-      </div>
-
-      <div class="hero-visual hero-visual--video">
-        <!-- `controls` is the no-JS fallback and is removed by home.js the
-             instant the designed button takes over (A2: no bare native controls
-             in the delivered experience). The button ships `hidden` for the
-             mirror-image reason: with JS off it would be a dead 76px circle
-             sitting on top of the native chrome, which is what ships today. -->
-        <video id="heroVideo" poster="assets/video/hero-poster.webp?v=20260731m" muted loop playsinline preload="none" controls
-               aria-label="The ART automatic powder line running with silos, buffer tank, ribbon mixer, sifter and dust collector">
-          <source src="assets/video/hero.mp4" type="video/mp4">
-        </video>
-        <button class="hero-play" id="heroPlay" aria-label="Play the line running" hidden>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
-        </button>
-      </div>
-
-      <div class="line-band__actions">
-        <a class="btn btn--light" href="system">See the flagship powder line <span aria-hidden="true">&rarr;</span></a>
-      </div>
-
-      <p class="line-band__note">Two disclosures, because a machinery buyer deserves them: the photograph at the top of this page is an illustrative plant interior, and the film above is a process animation, not camera footage. The real ART lines are the <a href="about#installations">six photographs from customer plants</a> on the About page.</p>
-    </div>
-  </section>
-
   <!-- CREDENTIALS BAND — six facts confirmed by Anurag Tiwari, 2026-07-29.
        The "30+ years" figure covers the group's manufacturing history, not
        ART's own age (Thermocare, est. 1997) — hence the footnote, which is
@@ -169,16 +138,42 @@
     <div class="wrap">
       <h2 id="stat-band-title" class="sr-only">ART Mechatronics at a glance</h2>
       <ul class="stat-band__grid">
-        <li><b>30<span>+</span></b><span>Years of manufacturing experience</span></li>
-        <li><b>20K<span>+</span></b><span>Equipment installations</span></li>
-        <li><b>40<span>+</span></b><span>Industries served</span></li>
-        <li><b>30<span>+</span></b><span>Countries reached</span></li>
+        <li><b data-count>30<span>+</span></b><span>Years of manufacturing experience</span></li>
+        <li><b data-count>20K<span>+</span></b><span>Equipment installations</span></li>
+        <li><b data-count>40<span>+</span></b><span>Industries served</span></li>
+        <li><b data-count>30<span>+</span></b><span>Countries reached</span></li>
       </ul>
       <p class="stat-band__claims">
         <span>End-to-end turnkey solutions</span>
         <span>Custom-built to your process</span>
       </p>
       <p class="stat-band__note">Manufacturing experience includes ART's parent company, Thermocare Industries, established 1997.</p>
+      <!-- IMAGE DISCLOSURE — carried here from the video band deleted 2026-08-01,
+           where it was index.html L160. CLAUDE.md, non-negotiable:
+           "Representative or reconstructed imagery must retain its disclosure."
+           Verified before rewriting it: a grep for the video element across
+           every non-dist HTML file returned ONE hit, and the mp4 inside
+           assets/video/ was referenced exactly once — both of them here.
+           Deleting that band removed the film from the whole site, not from
+           one page, so the original sentence "the film above is a process
+           animation" now describes nothing. (Its two files are now orphaned on
+           disk. Do NOT delete that folder: the poster still ships. And do not
+           name the mp4 in a comment — build/package_static.js would find the
+           string and copy 1.8 MB of dead weight into every deploy.)
+           What it does NOT remove is the rendered frame of that film — the
+           hero-poster.jpg inside assets/video/ — which is still this page's
+           og:image, twitter:image and schema primaryImageOfPage (head, L15/L20/
+           L21) and the share card on 19 pages. So the second clause follows
+           the image rather than the film. Sibling of the Thermocare note, not
+           appended to it: two different claims about two different things, and
+           one run-on sentence would read as hedging.
+           Placement is argued in the handoff: this is the first section under
+           the photograph, it is already the page's home for a qualified claim,
+           it is footnote type rather than an apology in the hero, and it is
+           anchored to the one band the client just chose to invest in — which
+           is what stops the next restructure losing it the way this one
+           nearly did. -->
+      <p class="stat-band__note stat-band__note--image">The photograph at the top of this page is an illustrative plant interior, not an ART installation. The powder-line images this site uses to explain the process &mdash; including the preview shown when this page is shared &mdash; are schematics and renders, not camera footage; the real ART lines are the <a href="about#installations">six photographs from customer plants</a> on the About page.</p>
     </div>
   </section>
 
@@ -198,95 +193,199 @@
     </div>
   </section>
 
-  <!-- FLAGSHIP -->
-  <section class="section">
-    <div class="wrap">
-      <div class="flagship__grid">
-        <div>
-          <span class="eyebrow">The flagship line</span>
-          <h2>See a complete powder line work as one system</h2>
-          <p class="lead">Follow raw material through conveying, storage, weighing, dosing, mixing, sieving and centralised dust collection under PLC control.</p>
-          <div class="flagship__badges" id="flagBadges"></div>
-          <div class="seqline" id="seqLine"></div>
-          <div style="margin-top:1.6rem;display:flex;gap:.8rem;flex-wrap:wrap">
-            <a class="btn btn--primary btn--lg" href="system">Explore This Line</a>
-            <a class="btn btn--ghost btn--lg" href="control-panel">View the Control Panel</a>
-          </div>
-          <p class="flagship__note">The configuration shown is one example. Each line is engineered around the product, capacity and operating environment.</p>
-        </div>
-        <div class="flagship__media">
-          <img src="assets/machines/v2/masters/control-panel/detail-1280.webp" width="1280" height="960" alt="ART centralised automatic PLC control panel with direct A.R.T. branding" fetchpriority="high" decoding="async">
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- DELIVERY PIPELINE — the five .cap cards became one scroll-drawn diagram
+       2026-08-01. Five rules the next editor must not soften.
 
-  <!-- QUICK PROJECT BRIEF -->
-  <section class="section project-brief" id="project-brief" aria-labelledby="project-brief-title">
-    <div class="wrap project-brief__grid">
-      <div class="project-brief__intro">
-        <span class="eyebrow">A useful first conversation</span>
-        <h2 id="project-brief-title">Turn your requirement into an engineering brief.</h2>
-        <p>Share the material, target capacity, plant location and current bottleneck. Your answers open as a ready-to-send WhatsApp message with the technical context already organised.</p>
-        <div class="project-brief__promise">
-          <span>01</span><b>Process review</b>
-          <span>02</span><b>Layout direction</b>
-          <span>03</span><b>Scope and proposal</b>
-        </div>
-      </div>
-      <form class="project-form" data-quote data-machine="automatic powder processing line">
-        <label>Name *
-          <input name="name" required autocomplete="name" placeholder="Your name">
-        </label>
-        <label>Company
-          <input name="company" autocomplete="organization" placeholder="Company name">
-        </label>
-        <label>Product or material *
-          <input name="material" required placeholder="Example: spice powder">
-        </label>
-        <label>Target capacity
-          <input name="capacity" placeholder="Example: 1 tonne/hour">
-        </label>
-        <label>Plant location
-          <input name="location" autocomplete="country-name" placeholder="City and country">
-        </label>
-        <label class="project-form__wide">Current process, available space or bottleneck *
-          <textarea name="req" rows="4" required placeholder="Example: manual dosing is slowing production; 12 m × 8 m floor area available"></textarea>
-        </label>
-        <button class="btn btn--light btn--lg" type="submit">Send Project Brief</button>
-        <small class="project-form__wide">Nothing is uploaded. This opens WhatsApp with your answers pre-filled.</small>
-      </form>
-    </div>
-  </section>
+       1. NO stroke-dasharray AND NO stroke-dashoffset IN css/home.css. Not one,
+          not scoped, not inside .lite, not inside a reduced-motion query. The
+          from-state is written by js/drawline.js at arm time and nowhere else.
+          Script off, broken, blocked, CSP-refused, 404 -> the finished diagram,
+          because the authored state IS the finished state. A dash value in the
+          stylesheet inverts that silently and no validator catches it.
+       2. NO viewBox, deliberately. Without one the SVG user unit IS the CSS
+          pixel, so a label set at 13px renders at 13px from a 267px phone
+          column to a 1280px desktop one, and the node coordinates can be
+          percentages that stretch with the box. With a viewBox the labels
+          scale with the container instead: measured, a single 1000-unit
+          viewBox put the descriptors at 12.1px on a 1051px laptop and 15.9px
+          at 1440px - smaller than the 13.9px cards it replaces at exactly the
+          width where legibility matters most. The cost of no viewBox is that
+          the geometry must be re-measured whenever the box width changes;
+          drawline.js does that on a debounced resize and refuses to trust a
+          stale length.
+       3. THREE figures, one per layout, and CSS shows exactly one. viewBox is
+          an attribute, not a CSS property, and SVG text does not wrap, so a
+          media query cannot re-flow one figure. The switches are 1050 and 640
+          - both existing steps in this file's ladder, no new number. The five
+          .cap cards needed FOUR layouts (5/3/2/1 at 1050/860/640); this needs
+          three. All three carry the same five names and the same five
+          descriptors, differing only in where the line breaks fall: if you
+          edit the copy, edit it in all three or they will drift.
+       4. Labels are ordinary text elements with NO stroke. That is what keeps
+          them readable before the draw, during it, after it, and on a page
+          where drawline.js never ran - and it is also the mechanism that keeps
+          drawline.js off them, because text computes stroke:none and the arm
+          pass skips anything with no stroke. The static hairline rules between
+          rows are excluded a second way, by not carrying data-draw.
+       5. NO .reveal anywhere in here. .reveal is opacity:0 in base.css L147 and
+          only JS ever adds .in - putting it on this block would make the
+          finished diagram invisible with JS off, the exact opposite of rule 1.
+          These five cards were the ONLY .reveal elements in the hand-authored
+          index.html; after this edit there are none, which is fine -
+          ART.revealScan (layout.js L452) and its 1600ms failsafe are both
+          null-safe over an empty NodeList.
 
-  <!-- MACHINES PREVIEW -->
-  <section class="section section--tint">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Featured equipment</span>
-        <h2>Four systems that show the line thinking</h2>
-        <p class="lead">Storage, mixing, central control and dust collection demonstrate how individual machines become a coordinated production system.</p>
-      </div>
-      <div class="home-mgrid" id="homeMgrid"></div>
-      <div class="section-actions"><a class="btn btn--primary btn--lg" href="machines">See Line Components</a><a class="btn btn--ghost btn--lg" href="catalog">Browse Complete Catalogue</a></div>
-    </div>
-  </section>
-
-  <!-- CAPABILITIES -->
-
-  <section class="section">
+       Draw order is document order, so each figure is authored ring, riser,
+       rail, ring, riser, rail ... and the cascade cannot drift from the
+       artwork. The aria-label is the accessible equivalent of the whole
+       diagram; the three copies are identical and only one is ever in the
+       accessibility tree, because the other two are display:none. -->
+  <section class="section" aria-labelledby="pipe-title">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">One accountable project partner</span>
-        <h2>From requirement to production</h2>
+        <h2 id="pipe-title">From requirement to production</h2>
         <p class="lead">The project moves through five clear stages with machinery and controls planned together.</p>
       </div>
-      <div class="cap-grid">
-        <article class="cap reveal"><span class="cap__num">01</span><h3>Share the requirement</h3><p>Product, capacity, current process and location define the starting point.</p></article>
-        <article class="cap reveal"><span class="cap__num">02</span><h3>Evaluate the process</h3><p>Material behaviour, hygiene needs, utilities and space are reviewed.</p></article>
-        <article class="cap reveal"><span class="cap__num">03</span><h3>Engineer the scope</h3><p>Equipment, layout, controls and safety become one proposal.</p></article>
-        <article class="cap reveal"><span class="cap__num">04</span><h3>Build and test</h3><p>Machinery and PLC logic are assembled and validated together.</p></article>
-        <article class="cap reveal"><span class="cap__num">05</span><h3>Install and start up</h3><p>Commissioning and operator training carry the system into production.</p></article>
+
+      <div class="pipeline">
+        <!-- WIDE - five across, 1051px and up. -->
+        <svg class="pl-svg pl-svg--wide" width="100%" height="146" role="img" data-drawline
+             aria-label="How an ART project runs, in five stages. One, share the requirement: product, capacity and location. Two, evaluate the process: material, hygiene and utilities. Three, engineer the scope: equipment, layout and controls. Four, build and test: machinery and controls, tested. Five, install and start up: commissioning and training.">
+          <circle class="pl-ring" data-draw cx="10%" cy="25" r="16"/>
+          <line class="pl-riser" data-draw x1="10%" y1="41" x2="10%" y2="62"/>
+          <line class="pl-rail" data-draw x1="10%" y1="62" x2="30%" y2="62"/>
+          <circle class="pl-ring" data-draw cx="30%" cy="25" r="16"/>
+          <line class="pl-riser" data-draw x1="30%" y1="41" x2="30%" y2="62"/>
+          <line class="pl-rail" data-draw x1="30%" y1="62" x2="50%" y2="62"/>
+          <circle class="pl-ring" data-draw cx="50%" cy="25" r="16"/>
+          <line class="pl-riser" data-draw x1="50%" y1="41" x2="50%" y2="62"/>
+          <line class="pl-rail" data-draw x1="50%" y1="62" x2="70%" y2="62"/>
+          <circle class="pl-ring" data-draw cx="70%" cy="25" r="16"/>
+          <line class="pl-riser" data-draw x1="70%" y1="41" x2="70%" y2="62"/>
+          <line class="pl-rail" data-draw x1="70%" y1="62" x2="90%" y2="62"/>
+          <circle class="pl-ring" data-draw cx="90%" cy="25" r="16"/>
+          <line class="pl-riser" data-draw x1="90%" y1="41" x2="90%" y2="62"/>
+
+          <text class="pl-num" x="10%" y="29.7">01</text>
+          <text class="pl-title" x="10%" y="92">Share the requirement</text>
+          <text class="pl-desc" x="10%" y="116"><tspan x="10%">Product, capacity</tspan><tspan x="10%" dy="17">and location.</tspan></text>
+
+          <text class="pl-num" x="30%" y="29.7">02</text>
+          <text class="pl-title" x="30%" y="92">Evaluate the process</text>
+          <text class="pl-desc" x="30%" y="116"><tspan x="30%">Material, hygiene</tspan><tspan x="30%" dy="17">and utilities.</tspan></text>
+
+          <text class="pl-num" x="50%" y="29.7">03</text>
+          <text class="pl-title" x="50%" y="92">Engineer the scope</text>
+          <text class="pl-desc" x="50%" y="116"><tspan x="50%">Equipment, layout</tspan><tspan x="50%" dy="17">and controls.</tspan></text>
+
+          <text class="pl-num" x="70%" y="29.7">04</text>
+          <text class="pl-title" x="70%" y="92">Build and test</text>
+          <text class="pl-desc" x="70%" y="116"><tspan x="70%">Machinery and</tspan><tspan x="70%" dy="17">controls, tested.</tspan></text>
+
+          <text class="pl-num" x="90%" y="29.7">05</text>
+          <text class="pl-title" x="90%" y="92">Install and start up</text>
+          <text class="pl-desc" x="90%" y="116"><tspan x="90%">Commissioning</tspan><tspan x="90%" dy="17">and training.</tspan></text>
+        </svg>
+
+        <!-- MID - five full-width rows, 641px to 1050px. The descriptor moves
+             into a second column at 55% so the row fills the measure instead
+             of leaving a narrow strip of text in a wide field. -->
+        <svg class="pl-svg pl-svg--mid" width="100%" height="356" role="img" data-drawline
+             aria-label="How an ART project runs, in five stages. One, share the requirement: product, capacity and location. Two, evaluate the process: material, hygiene and utilities. Three, engineer the scope: equipment, layout and controls. Four, build and test: machinery and controls, tested. Five, install and start up: commissioning and training.">
+          <circle class="pl-ring" data-draw cx="20" cy="22" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="36" x2="20" y2="86"/>
+          <circle class="pl-ring" data-draw cx="20" cy="100" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="114" x2="20" y2="164"/>
+          <circle class="pl-ring" data-draw cx="20" cy="178" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="192" x2="20" y2="242"/>
+          <circle class="pl-ring" data-draw cx="20" cy="256" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="270" x2="20" y2="320"/>
+          <circle class="pl-ring" data-draw cx="20" cy="334" r="14"/>
+
+          <line class="pl-rule" x1="48" y1="61" x2="100%" y2="61"/>
+          <line class="pl-rule" x1="48" y1="139" x2="100%" y2="139"/>
+          <line class="pl-rule" x1="48" y1="217" x2="100%" y2="217"/>
+          <line class="pl-rule" x1="48" y1="295" x2="100%" y2="295"/>
+
+          <text class="pl-num" x="20" y="26.5">01</text>
+          <text class="pl-title" x="48" y="26.7">Share the requirement</text>
+          <text class="pl-desc" x="55%" y="26.7">Product, capacity and location.</text>
+
+          <text class="pl-num" x="20" y="104.5">02</text>
+          <text class="pl-title" x="48" y="104.7">Evaluate the process</text>
+          <text class="pl-desc" x="55%" y="104.7">Material, hygiene and utilities.</text>
+
+          <text class="pl-num" x="20" y="182.5">03</text>
+          <text class="pl-title" x="48" y="182.7">Engineer the scope</text>
+          <text class="pl-desc" x="55%" y="182.7">Equipment, layout and controls.</text>
+
+          <text class="pl-num" x="20" y="260.5">04</text>
+          <text class="pl-title" x="48" y="260.7">Build and test</text>
+          <text class="pl-desc" x="55%" y="260.7">Machinery and controls, tested.</text>
+
+          <text class="pl-num" x="20" y="338.5">05</text>
+          <text class="pl-title" x="48" y="338.7">Install and start up</text>
+          <text class="pl-desc" x="55%" y="338.7">Commissioning and training.</text>
+        </svg>
+
+        <!-- NARROW - five rows, 640px and below. The descriptor drops under the
+             stage name because the widest one measures 198px and the text
+             column on a 320px phone is 220px. -->
+        <svg class="pl-svg pl-svg--rows" width="100%" height="390" role="img" data-drawline
+             aria-label="How an ART project runs, in five stages. One, share the requirement: product, capacity and location. Two, evaluate the process: material, hygiene and utilities. Three, engineer the scope: equipment, layout and controls. Four, build and test: machinery and controls, tested. Five, install and start up: commissioning and training.">
+          <circle class="pl-ring" data-draw cx="20" cy="22" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="36" x2="20" y2="92"/>
+          <circle class="pl-ring" data-draw cx="20" cy="106" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="120" x2="20" y2="176"/>
+          <circle class="pl-ring" data-draw cx="20" cy="190" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="204" x2="20" y2="260"/>
+          <circle class="pl-ring" data-draw cx="20" cy="274" r="14"/>
+          <line class="pl-riser" data-draw x1="20" y1="288" x2="20" y2="344"/>
+          <circle class="pl-ring" data-draw cx="20" cy="358" r="14"/>
+
+          <line class="pl-rule" x1="48" y1="66" x2="100%" y2="66"/>
+          <line class="pl-rule" x1="48" y1="150" x2="100%" y2="150"/>
+          <line class="pl-rule" x1="48" y1="234" x2="100%" y2="234"/>
+          <line class="pl-rule" x1="48" y1="318" x2="100%" y2="318"/>
+
+          <text class="pl-num" x="20" y="26.5">01</text>
+          <text class="pl-title" x="48" y="19">Share the requirement</text>
+          <text class="pl-desc" x="48" y="41">Product, capacity and location.</text>
+
+          <text class="pl-num" x="20" y="110.5">02</text>
+          <text class="pl-title" x="48" y="103">Evaluate the process</text>
+          <text class="pl-desc" x="48" y="125">Material, hygiene and utilities.</text>
+
+          <text class="pl-num" x="20" y="194.5">03</text>
+          <text class="pl-title" x="48" y="187">Engineer the scope</text>
+          <text class="pl-desc" x="48" y="209">Equipment, layout and controls.</text>
+
+          <text class="pl-num" x="20" y="278.5">04</text>
+          <text class="pl-title" x="48" y="271">Build and test</text>
+          <text class="pl-desc" x="48" y="293">Machinery and controls, tested.</text>
+
+          <text class="pl-num" x="20" y="362.5">05</text>
+          <text class="pl-title" x="48" y="355">Install and start up</text>
+          <text class="pl-desc" x="48" y="377">Commissioning and training.</text>
+        </svg>
+      </div>
+
+      <!-- RESTORES TWO PATHS THE CUTS REMOVED. With sections 2, 5 and 7 gone the
+           homepage has ZERO body links left to `system` (was L157 and L212) and
+           ZERO to `machines` (was L271), and neither is in the header nav -
+           js/layout.js L34-38 records the decision: "Flagship Line and Live
+           System are demos and moved to the footer". Footer-only is a real loss
+           of discovery for the site's two best demos, so this row puts them
+           back at the moment a buyer has just read how a project is delivered.
+           Reuses .section-actions (home.css) rather than inventing a class;
+           after the cuts this row is the only thing keeping that rule alive.
+           FLAGGED IN THE HANDOFF: it adds two links the locked decisions did
+           not name. Delete this div and the two .section-actions rules together
+           if the owner says no. -->
+      <div class="section-actions">
+        <a class="btn btn--primary btn--lg" href="system">See a complete line run</a>
+        <a class="btn btn--ghost btn--lg" href="machines">Explore the flagship line</a>
       </div>
     </div>
   </section>
@@ -1312,7 +1411,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <!-- CUSTOMER TESTIMONIALS — generated between the markers from
        build/data/testimonials.json. Renders nothing when that file is empty. -->
   <!-- testimonials:start -->
@@ -1489,13 +1587,71 @@
   </section>
   <!-- testimonials:end -->
 
+  <!-- QUICK PROJECT BRIEF — moved here 2026-08-01 from its old slot between the
+       flagship and the machines preview, both of which are gone. It now sits
+       one scroll above the closing CTA, so the page ends on the form rather
+       than on a button that jumps back up the page.
+       Position-independent by construction, verified before the move:
+         - #project-brief is the target of two remaining same-page links (hero
+           and need-card 01). validate_site.js L115-120 only requires the id to
+           exist in the target file, so both still resolve. No other file on
+           the site links to this fragment.
+         - the form is wired by js/layout.js L298 on the ATTRIBUTE
+           form[data-quote], never on position.
+         - every rule in css/home.css is class-based. Zero positional or
+           sibling selectors. scroll-margin-top:90px already lives on
+           .project-brief and clears the 78px sticky header (base.css L88) with
+           12px to spare — do NOT re-add it. -->
+  <section class="section project-brief" id="project-brief" aria-labelledby="project-brief-title">
+    <div class="wrap project-brief__grid">
+      <div class="project-brief__intro">
+        <span class="eyebrow">A useful first conversation</span>
+        <h2 id="project-brief-title">Turn your requirement into an engineering brief.</h2>
+        <p>Share the material, target capacity, plant location and current bottleneck. Your answers open as a ready-to-send WhatsApp message with the technical context already organised.</p>
+        <div class="project-brief__promise">
+          <span>01</span><b>Process review</b>
+          <span>02</span><b>Layout direction</b>
+          <span>03</span><b>Scope and proposal</b>
+        </div>
+      </div>
+      <form class="project-form" data-quote data-machine="automatic powder processing line">
+        <label>Name *
+          <input name="name" required autocomplete="name" placeholder="Your name">
+        </label>
+        <label>Company
+          <input name="company" autocomplete="organization" placeholder="Company name">
+        </label>
+        <label>Product or material *
+          <input name="material" required placeholder="Example: spice powder">
+        </label>
+        <label>Target capacity
+          <input name="capacity" placeholder="Example: 1 tonne/hour">
+        </label>
+        <label>Plant location
+          <input name="location" autocomplete="country-name" placeholder="City and country">
+        </label>
+        <label class="project-form__wide">Current process, available space or bottleneck *
+          <textarea name="req" rows="4" required placeholder="Example: manual dosing is slowing production; 12 m × 8 m floor area available"></textarea>
+        </label>
+        <button class="btn btn--light btn--lg" type="submit">Send Project Brief</button>
+        <small class="project-form__wide">Nothing is uploaded. This opens WhatsApp with your answers pre-filled.</small>
+      </form>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
       <div class="home-cta">
         <h2>Tell us what you need to produce.</h2>
         <p>Share the product, capacity, current process, plant location and available space. We will use those details to discuss the right machine or line configuration.</p>
         <div class="btns">
-          <a class="btn btn--light btn--lg" href="#project-brief">Send Your Requirement</a>
+          <!-- The "Send Your Requirement" button that used to sit here pointed
+               at #project-brief. With that section moved directly above this
+               one it scrolled the visitor BACKWARDS into a form they could
+               still see, so it was removed 2026-08-01 rather than left as a
+               button that undoes the reader's own progress. #project-brief is
+               still the target of the hero CTA and need-card 01, so the id is
+               still load-bearing and validate_site.js still resolves both. -->
           <a class="btn btn--wa btn--lg" id="ctaWa" href="#" target="_blank" rel="noopener">WhatsApp a Requirement</a>
         </div>
       </div>
@@ -1508,6 +1664,13 @@
 
   <script src="js/data.js?v=20260731m"></script>
   <script src="js/layout.js?v=20260731m"></script>
-  <script src="js/home.js?v=20260731m"></script>
+  <script src="js/home.js?v=20260801a"></script>
+  <!-- Both new effects load AFTER home.js. Neither depends on it; the order is
+       the house convention (data.js defines ART, layout.js extends it, page
+       scripts last) and both read window.ART defensively anyway. Each is its
+       own tag on purpose: a throw in one cannot abort the other, which is the
+       whole reason the deleted video band's comment existed. -->
+  <script src="js/count.js?v=20260801a"></script>
+  <script src="js/drawline.js?v=20260801a"></script>
 </body>
 </html>

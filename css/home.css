@@ -118,14 +118,11 @@
 /* On a photograph .btn--outline-light is the only control with no ground of its
    own. It gets one, so it is legible wherever the layout puts it — including
    below the guaranteed-dark band on a small phone. */
-.home-hero .btn--outline-light,
-.line-band .btn--outline-light { background: rgba(8,27,58,.62); border-color: rgba(255,255,255,.55); }
-.home-hero .btn--outline-light:hover,
-.line-band .btn--outline-light:hover { background: rgba(8,27,58,.86); border-color: #fff; }
+.home-hero .btn--outline-light { background: rgba(8,27,58,.62); border-color: rgba(255,255,255,.55); }
+.home-hero .btn--outline-light:hover { background: rgba(8,27,58,.86); border-color: #fff; }
 /* base.css L43 transitions box-shadow on every .btn and L54 adds one on
    .btn--light:hover — an M2 repaint. Cancelled here rather than inherited. */
-.home-hero .btn--light:hover,
-.line-band .btn--light:hover { box-shadow: none; }
+.home-hero .btn--light:hover { box-shadow: none; }
 
 /* ---- the evidence rail: three sentences, each one click from its source ----
    Deliberately NOT a numeral display. The credentials band 200px below already
@@ -199,92 +196,20 @@
 body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 
 /* ============================================================
-   VIDEO BAND — the proof floor. Continues the hero's dark chapter; the mist
-   credentials band below breaks it.
-   ============================================================ */
-.line-band {
-  background: linear-gradient(180deg, #081b3a 0%, #0a2148 100%);
-  color: #dfe9f7;
-  padding: clamp(2.75rem, 4.5vw, 4rem) 0;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-}
-.line-band__head { max-width: 62ch; margin-bottom: clamp(1.4rem, 2.5vw, 2rem); }
-.line-band .eyebrow { color: #c9e0ff; }
-.line-band h2 { color: #fff; margin: .2rem 0 .7rem; }
-.line-band .lead { color: #dce7f7; }
-/* NOTE: the pulsing green `.live` dot that used to sit on .hero-visual__tag is
-   deliberately NOT carried over, and @keyframes pulse is deleted with it.
-   assets/video/hero.mp4 is a rendered process animation of the powder line —
-   labelled vessels, a flow legend and a PLC readout — not camera footage. A
-   blinking green "live" light next to it asserts a plant webcam, which is the
-   one claim on this page an engineer could catch us out on. Removing it also
-   leaves the whole top of the document with nothing that loops. */
-
-/* The shell. The old .hero-visual__tag overlay is gone — its link is now a real
-   .btn below the frame, which removes the site's only backdrop-filter that had
-   no kill switch, and stops an overlay covering the native control bar that the
-   no-JS path depends on. */
-.hero-visual {
-  position: relative;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.23);
-  border-radius: var(--r-xl);
-  padding: .65rem;
-  box-shadow: 0 34px 90px rgba(1,8,22,.45);
-}
-.hero-visual--video video {
-  border-radius: var(--r-lg);
-  width: 100%;
-  aspect-ratio: 16/9;          /* source is 1920x1080; 16/10 was cropping it */
-  object-fit: cover; display: block;
-  background: #070c15; cursor: pointer;
-}
-.hero-play {
-  position: absolute; top: 50%; left: 50%;
-  width: 76px; height: 76px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.42);
-  cursor: pointer; background: rgba(8,27,58,.9); color: #fff;
-  display: grid; place-items: center;
-  box-shadow: 0 12px 34px rgba(5,10,20,.5), 0 0 0 8px rgba(255,255,255,.1);
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform .25s var(--ease), background .25s var(--ease), opacity .25s var(--ease);
-}
-.hero-play svg { width: 30px; height: 30px; margin-left: 4px; }
-.hero-play:hover { transform: translate(-50%, -50%) scale(1.06); background: var(--blue); }
-/* While playing the control recedes IN PLACE. The rule this replaces animated
-   top/left/width/height — four layout properties, an M2 breach in the code
-   being deleted — and teleported the pause target away from the cursor that
-   pressed play. 76 x .62 = 47.1px, still above the 44px minimum. */
-.hero-play[aria-pressed="true"] { transform: translate(-50%, -50%) scale(.62); opacity: .34; }
-.hero-visual--video:hover .hero-play[aria-pressed="true"],
-.hero-play[aria-pressed="true"]:focus-visible { opacity: 1; transform: translate(-50%, -50%) scale(.78); }
-
-.line-band__actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }
-.line-band__note {
-  margin: 1.2rem 0 0; max-width: 68ch;
-  font-size: .8rem; line-height: 1.6; color: #c4d8f2;
-}
-.line-band__note a { color: #fff; text-decoration: underline; text-underline-offset: .18em; }
-.line-band__note a:hover { color: #c9e0ff; }
-
-/* ============================================================
    M3 — focus. base.css L184's global ring is #2E86E6, tuned for white pages and
-   about 3.2:1 against a dark photograph. Both dark sections take a white ring
-   instead, which the master's own luma ceiling makes safe. Outline only, never
+   about 3.2:1 against a dark photograph. The hero takes a white ring instead,
+   which the master's own luma ceiling makes safe. Outline only, never
    box-shadow: .btn already transitions box-shadow, so a shadow ring would
-   animate on focus.
+   animate on focus. (This block used to cover the video band as well; that
+   section was deleted 2026-08-01 and its half of each selector went with it.)
    ============================================================ */
 .home-hero a:focus-visible,
-.home-hero button:focus-visible,
-.line-band a:focus-visible,
-.line-band button:focus-visible {
+.home-hero button:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 3px;
   border-radius: var(--r);
 }
-.home-hero .btn--light:focus-visible,
-.line-band .btn--light:focus-visible { outline-offset: 4px; }
-.hero-play:focus-visible { border-radius: 50%; }
+.home-hero .btn--light:focus-visible { outline-offset: 4px; }
 
 /* ============================================================
    MOTION — every keyframe animates transform and/or opacity. Nothing else.
@@ -415,7 +340,6 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   .home-proof > li:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.14); }
   .home-proof > li:nth-child(3) { padding-left: 0; }
   .home-hero__foot { gap: .9rem; }
-  .line-band__actions .btn { flex: 1 1 auto; justify-content: center; }
 }
 @media (max-width: 640px) {
   /* The h1 is the whole phone budget. At the desktop clamp it ran to seven
@@ -429,7 +353,6 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   .home-hero__foot { margin-top: 1.25rem; }
   .home-proof { margin-top: 2rem; }
   .home-proof > li { padding: 1rem .75rem; }
-  .line-band__actions .btn { width: 100%; }
 }
 
 /* M4 — reduced motion. base.css L149 already zeroes every animation-duration
@@ -451,8 +374,6 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
     opacity: 1 !important;
   }
   .home-hero__bloom { animation: none !important; opacity: 1; }
-  .hero-play { transition: none; }
-  .hero-play[aria-pressed="true"] { opacity: 1; transform: translate(-50%, -50%) scale(.78); }
 }
 
 /* Buyer router */
@@ -478,16 +399,6 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .need-card p { color:var(--slate); font-size:.9rem; }
 .need-card b { margin-top:auto; color:var(--blue); font-size:.86rem; }
 .need-card i { font-style:normal; }
-
-/* Flagship */
-.flagship__grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2.5rem,5vw,5rem); align-items:center; }
-.flagship__badges { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.2rem 0; }
-.seqline { display:flex; align-items:center; gap:.3rem; flex-wrap:wrap; margin-top:1rem; }
-.seqline .s { background:#fff; border:1px solid var(--line); border-radius:var(--r-sm); padding:.4rem .6rem; font-size:.76rem; font-weight:700; color:var(--navy); }
-.seqline .arw { color:var(--blue-bright); font-weight:800; }
-.flagship__media { border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--line); background:var(--mist); }
-.flagship__media img { width:100%; display:block; aspect-ratio:5/4; object-fit:cover; }
-.flagship__note { max-width:58ch; margin:1.2rem 0 0; color:var(--steel); font-size:.82rem; }
 
 /* Project brief */
 .project-brief { scroll-margin-top:90px; color:#dfe9f7; background:#0a2148; }
@@ -528,29 +439,6 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .sec-head { max-width:60ch; margin-bottom:2rem; }
 .sec-head.center { margin-inline:auto; text-align:center; }
 .section-actions { margin-top:2rem; display:flex; gap:.8rem; flex-wrap:wrap; }
-
-/* Machines */
-.home-mgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.15rem; }
-.hmcard { display:flex; flex-direction:column; }
-.hmcard__img { aspect-ratio:4/3; overflow:hidden; background:var(--mist); }
-.hmcard__img img { width:100%; height:100%; object-fit:cover; transition:transform .45s var(--ease); }
-.hmcard:hover .hmcard__img img { transform:scale(1.035); }
-.hmcard__b { padding:1rem 1.1rem 1.2rem; display:flex; flex-direction:column; flex:1; }
-.hmcard__b h3 { font-size:1.05rem; margin:0 0 .2rem; }
-.hmcard__b p { font-size:.8rem; color:var(--blue); font-weight:650; margin:0 0 .8rem; }
-.hmcard__b .row { margin-top:auto; display:flex; justify-content:space-between; align-items:center; gap:.5rem; }
-.hmcard__b .row a { min-height:44px; display:inline-flex; align-items:center; }
-.hmcard__b .row a.view { font-weight:750; font-size:.88rem; }
-.hmcard__b .row a.wa { font-size:.82rem; color:#0f7635; font-weight:750; }
-
-/* Delivery process */
-.cap-grid { display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--line); }
-.cap { padding:1.45rem 1.15rem 0 0; border-right:1px solid var(--line); min-height:210px; }
-.cap + .cap { padding-left:1.15rem; }
-.cap:last-child { border-right:0; }
-.cap__num { display:block; color:var(--blue); font-family:var(--font-mono); font-size:.78rem; margin-bottom:2rem; }
-.cap h3 { font-size:1.08rem; margin:0 0 .55rem; }
-.cap p { margin:0; color:var(--slate); font-size:.87rem; }
 
 /* Industries */
 .industry-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; }
@@ -601,31 +489,20 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   .need-grid { grid-template-columns:1fr 1fr; }
   .need-card:nth-child(2) { border-right:0; }
   .need-card:nth-child(-n+2) { border-bottom:1px solid var(--line); }
-  .home-mgrid { grid-template-columns:1fr 1fr; }
-  .cap-grid { grid-template-columns:repeat(3,1fr); }
-  .cap:nth-child(3) { border-right:0; }
-  .cap:nth-child(n+4) { margin-top:1.5rem; border-top:1px solid var(--line); }
   .industry-grid { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:860px) {
-  .flagship__grid,.project-brief__grid { grid-template-columns:1fr; }
+  .project-brief__grid { grid-template-columns:1fr; }
   .need-router__head { grid-template-columns:1fr; gap:.5rem; }
-  .cap-grid { grid-template-columns:1fr 1fr; }
-  .cap:nth-child(2n) { border-right:0; }
-  .cap:nth-child(3) { border-right:1px solid var(--line); }
-  .cap:nth-child(n+3) { margin-top:1.5rem; border-top:1px solid var(--line); }
 }
 @media (max-width:640px) {
-  .need-grid,.home-mgrid,.cap-grid,.industry-grid,.pres-grid { grid-template-columns:1fr; }
+  .need-grid,.industry-grid,.pres-grid { grid-template-columns:1fr; }
   .need-card { min-height:210px; border-right:0; border-bottom:1px solid var(--line); }
   .need-card:nth-child(3) { border-bottom:1px solid var(--line); }
   .need-card:last-child { border-bottom:0; }
   .project-form { grid-template-columns:1fr; }
   .project-form label,.project-form__wide,.project-form .btn,.project-form small { grid-column:1; }
   .project-form .btn { width:100%; }
-  .cap,.cap + .cap { min-height:0; padding:1.25rem 0; border-right:0; border-top:1px solid var(--line); margin:0; }
-  .cap:first-child { border-top:0; }
-  .cap__num { margin-bottom:.8rem; }
   .industry-grid a { min-height:76px; }
   .section-actions .btn { width:100%; justify-content:center; }
 }
@@ -649,11 +526,25 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   display: flex; flex-direction: column; align-items: center; gap: .3rem;
   padding-inline: .4rem;
 }
-/* Not a heading, so it must not inherit heading weight from base.css. */
+/* Not a heading, so it must not inherit heading weight from base.css.
+   The last two declarations are the counting contract (js/count.js), and both
+   are REST-STATE rules: measured in a real browser, adding them moves nothing —
+   the four <b> boxes keep identical x/y/width/height with and without them.
+   nowrap stops a number that gains a digit from rewrapping mid-count.
+   tabular + lining figures give every digit the same advance so the number
+   cannot shimmy as it climbs — honest insurance rather than the load-bearing
+   part, because Monda's digits already share one advance; the feature earns
+   its keep only on the fallback faces during the font-swap window.
+   display:inline-block is deliberately NOT set. The <b> is a flex item of
+   .stat-band__grid li (see the rule above), so its display is blockified by
+   spec and the declaration would compute to block and buy nothing. The width
+   lock is a plain px width written by count.js from the finished string. */
 .stat-band__grid b {
   font-size: clamp(2rem, 3.6vw, 2.9rem);
   line-height: 1; font-weight: 700; color: var(--navy);
-  letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
 }
 .stat-band__grid b span { color: var(--accent); }
 .stat-band__grid li > span {
@@ -680,6 +571,28 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   margin: .9rem 0 0; text-align: center;
   font-size: .74rem; line-height: 1.5; color: var(--steel); opacity: .85;
 }
+/* The imagery disclosure, re-homed here when the video band was deleted
+   (2026-08-01). A sibling of the Thermocare footnote, not a second sentence of
+   it: two different claims need two different qualifications.
+   It deliberately does NOT inherit .stat-band__note's opacity:.85 — var(--blue)
+   at 85% over var(--mist) lands the link near 4.6:1 at 11.8px, which is on the
+   wrong side of the 4.5:1 floor for small text once antialiasing is counted.
+   Full strength instead, and the link is underlined so it is never
+   colour-only. */
+.stat-band__note--image { margin-top: .45rem; opacity: 1; max-width: 78ch; margin-inline: auto; }
+.stat-band__note--image a {
+  color: var(--blue); text-decoration: underline; text-underline-offset: .16em;
+}
+.stat-band__note--image a:hover { color: var(--navy); }
+
+/* There is deliberately no .lite rule and no prefers-reduced-motion rule for
+   the counting numbers, and the absence is the answer rather than an omission.
+   Both switches are enforced inside js/count.js, because the animated property
+   is a text node's data — CSS can neither drive it nor stop it, and a
+   decorative empty rule here would only look like a kill switch. The house
+   pattern is to pin the finished state in CSS; here the finished state IS the
+   authored markup, so "no JS", "reduced motion" and ".lite" already resolve to
+   the same thing, and it is the thing that ships. */
 
 @media (max-width: 720px) {
   .stat-band__grid { grid-template-columns: repeat(2, 1fr); gap: 1.4rem .8rem; }
@@ -747,4 +660,129 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   }
   .pk-marquee--live.pk-marquee--fade { mask-image: none; }
   .pk-marquee--live [aria-hidden="true"] { display: none; }
+}
+
+/* ============================================================
+   DELIVERY PIPELINE — the scroll-drawn diagram that replaced the five .cap
+   cards, 2026-08-01. Self-contained at the END of this file on purpose: the
+   global responsive ladder lives at ~L470-500 above, so a base rule written up
+   where .cap-grid used to sit would be silently overridden by those later
+   media queries at equal specificity. One component, one place, after
+   everything that could outrank it — the same shape .stat-band already uses
+   with its own 720px query.
+
+   THE RULE THIS BLOCK IS BUILT ON, and it is absolute:
+   there is NO stroke-dasharray and NO stroke-dashoffset anywhere in this file,
+   and there never may be — not inside .lite, not inside a reduced-motion
+   block, where it would look most like a safety net. The from-state is written
+   by js/drawline.js at arm time and by nothing else. With JS off, broken,
+   blocked or still loading, what is on screen is the finished diagram. A dash
+   property here would make the from-state the page's RESTING state, which is
+   an empty band, and no validator on this project catches it.
+
+   That is also why neither kill switch is handled here: a stylesheet cannot
+   un-write an inline style, and the inline dash IS the effect. .lite and
+   prefers-reduced-motion are enforced in drawline.js, which never arms under
+   either and stands down if either arrives mid-page.
+   ============================================================ */
+.pipeline { margin-top: clamp(1.8rem, 3vw, 2.4rem); }
+
+/* NO viewBox on any of the three figures, and that decision is what the rest
+   of this block depends on. Without a viewBox the SVG user unit IS the CSS
+   pixel: a 13px label renders at 13px in a 267px phone column and at 13px in a
+   1280px desktop one, stroke-width never scales, and the node coordinates can
+   be percentages that stretch with the box. With a viewBox the labels scale
+   with the container instead — measured, a single 1000-unit viewBox rendered
+   the descriptors at 12.1px on a 1051px laptop and 15.9px at 1440px, i.e.
+   smaller than the 13.9px .cap p it replaces at exactly the width where
+   legibility is tightest, and larger than the 17.3px .cap h3 at the other end.
+   The price is that every measured length is only true for one box width, so
+   drawline.js re-measures on a debounced resize rather than trusting a stale
+   number.
+   base.css L14 already sets svg { max-width:100%; display:block }.
+   overflow:visible so a later stroke-width bump cannot start shaving strokes at
+   the viewport edge; nothing currently reaches it — the closest geometry is
+   4.6px inside — and every label is measured to fit at 320-1920px. */
+.pl-svg { display: block; width: 100%; overflow: visible; }
+.pl-svg--wide { height: 146px; }
+.pl-svg--mid  { height: 356px; }
+.pl-svg--rows { height: 390px; }
+
+/* ---- the drawn geometry ----
+   Stroke colour and width live here on purpose. A stylesheet may own
+   everything about a stroke except its dash, and drawline.js reads these back
+   through getComputedStyle to decide what it is allowed to touch.
+   var(--blue) is 6.94:1 on white; var(--blue-bright) is 3.7:1, which
+   tokens.css L33 restricts to large text and UI. A 2.2px rail is a graphical
+   object under WCAG 1.4.11 and needs 3:1, so it qualifies — and the small
+   <text> below deliberately does not use it. The reserved --flow-* tokens are
+   off limits: --flow-powder green means "powder is moving through this
+   diagram" on the system poster, which is not true of a project-stage
+   pipeline. */
+.pl-ring  { fill: none; stroke: var(--blue); stroke-width: 2.8; }
+.pl-riser { fill: none; stroke: var(--blue); stroke-width: 2.2; }
+.pl-rail  { fill: none; stroke: var(--blue-bright); stroke-width: 2.2; }
+
+/* butt caps, not round. At the from-state the visible dash is zero units long,
+   and every engine renders a zero-length round-capped dash as a DOT — five
+   stray dots floating on the page before the first scroll. A butt cap renders
+   nothing, which is what a from-state is supposed to look like. */
+.pl-ring, .pl-riser, .pl-rail { stroke-linecap: butt; }
+
+/* The row separators. Static by two independent mechanisms: they carry no
+   data-draw attribute, and they are the width of the whole column, which is
+   what stops the mid and narrow figures reading as a thin strip of text
+   floating in a wide empty field. --line #DDE3EC is ~1.3:1 on white — correct
+   for a hairline nobody has to perceive individually, and exactly why it is
+   NOT used for the rails. */
+.pl-rule { fill: none; stroke: var(--line); stroke-width: 1; }
+
+/* ---- labels ----
+   No stroke, ever. That is what keeps them readable before the draw, during
+   it, after it, and on a page where drawline.js never ran — and it is also the
+   mechanism that keeps drawline.js off them, because <text> computes
+   stroke:none and the arm pass skips anything with no stroke. The skip is a
+   property of the artwork, not a selector anyone has to remember.
+   Sizes are px, which inside an SVG with no viewBox is a real CSS pixel.
+   NEVER a --fs-* token here: those are clamp() with vw units, which resolve
+   against the VIEWPORT rather than the figure. */
+.pl-num, .pl-title, .pl-desc { stroke: none; }
+.pl-num {
+  fill: var(--blue); font-family: var(--font-mono);
+  font-size: 13px; letter-spacing: .02em; text-anchor: middle;
+}
+/* 16px against the 17.3px (1.08rem) .cap h3 this replaces — close enough to
+   keep the section's optical weight, and small enough that the longest name,
+   "Share the requirement" at 168px, clears its 199px column at the tightest
+   width the wide figure ever runs at. Monda ships 400 and 700 only
+   (tokens.css L7-20), so nothing here is left to a synthetic face. */
+.pl-title {
+  fill: var(--ink); font-family: var(--font-display);
+  font-weight: 700; font-size: 16px; letter-spacing: -.01em;
+}
+/* var(--slate), matching the .cap p this replaces: same job, same place, same
+   colour. 13px against its 13.9px. */
+.pl-desc { fill: var(--slate); font-family: var(--font); font-size: 13px; }
+
+.pl-svg--wide .pl-title,
+.pl-svg--wide .pl-desc { text-anchor: middle; }
+.pl-svg--mid .pl-num,
+.pl-svg--rows .pl-num { font-size: 12px; }
+
+/* ---- two breakpoints, both already in this file's ladder ----
+   1050 and 640. The five .cap cards needed FOUR layouts (5 / 3 / 2 / 1 at
+   1050 / 860 / 640); this needs three, because the figure stretches
+   continuously between the switches instead of re-flowing.
+   1050 is where the five-across columns stop being wide enough for a
+   21-character stage name: measured, the widest title is 168px and the column
+   is 199px at a 1051px viewport, which is the last width that still clears.
+   640 is where the second text column stops fitting beside the first. */
+.pl-svg--mid, .pl-svg--rows { display: none; }
+@media (max-width: 1050px) {
+  .pl-svg--wide { display: none; }
+  .pl-svg--mid  { display: block; }
+}
+@media (max-width: 640px) {
+  .pl-svg--mid  { display: none; }
+  .pl-svg--rows { display: block; }
 }

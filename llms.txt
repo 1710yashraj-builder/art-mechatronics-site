@@ -20,7 +20,7 @@ per order — confirm capacities and materials with the company directly.
 
 ## Core pages
 
-- [Home](https://artmechatronics.com/): Company overview and flagship automation line
+- [Home](https://artmechatronics.com/): Company overview, manufacturing credentials, and the five stages of an ART project from requirement to production
 - [About ART Mechatronics](https://artmechatronics.com/about): Company background and manufacturing heritage
 - [Machine catalogue](https://artmechatronics.com/catalog): Full searchable catalogue of machines
 - [Industries served](https://artmechatronics.com/industries): Industry-by-industry equipment guides
