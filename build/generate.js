@@ -17,7 +17,28 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(__dirname, "data");
 const ALL = process.argv.includes("--all");
-const CSSV = "?v=20260731i";
+/* THE CACHE TOKEN. This is the single source of truth for the whole site, and
+   it must be bumped to a NEW, NEVER-USED value on any deploy that changes a
+   .css or .js file. Two failures, both shipped, both fixed here:
+
+   1. THIS CONSTANT SILENTLY OUTRANKED EVERY MANUAL BUMP. A `sed` across *.html
+      updated the 9 hand-authored pages, then the very next `generate.js --all`
+      stamped the 415 generated pages straight back to the value on this line.
+      The site ran for days with index/about/contact/services asking for one
+      layout.js and industries/catalog/products/categories asking for an older
+      one. Because /js/* carries max-age=604800, anyone who had visited before
+      the nav gained its Contact link kept getting the pre-Contact nav on 415
+      pages for a week — the server had the right file the whole time, and no
+      validator, no gate and no local test could see it, because every one of
+      them reads the source tree rather than a real browser's disk cache.
+      validate_site.js now fails the build if more than one token exists.
+   2. A TOKEN MUST NEVER BE REUSED across two different file contents. "j" was
+      spent on one deploy and reused on the next; Cloudflare's edge already had
+      js/layout.js?v=...j cached from the first, so the second deploy's fix
+      never reached production while passing every local check.
+
+   Bump it here, then `node build/generate.js --all`, and everything follows. */
+const CSSV = "?v=20260801b";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));

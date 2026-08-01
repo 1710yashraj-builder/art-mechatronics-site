@@ -171,6 +171,37 @@ notes.push(`${industryCount} industry pages`);
 notes.push(`${cssFiles.length} stylesheets`);
 notes.push(`${jsFiles.length} JavaScript files`);
 
+/* ONE CACHE TOKEN, SITE-WIDE. This shipped broken and nothing caught it: the
+   9 hand-authored pages were bumped by hand while build/generate.js kept
+   stamping the other 415 with the value hardcoded in its own CSSV constant.
+   Because /js/* is served with max-age=604800, every returning visitor got a
+   week-old layout.js on those 415 pages — a nav missing its Contact link —
+   while the server held the correct file and every local check passed. The
+   defect is invisible from the source tree, so the only thing that can catch
+   it is this: the whole site must ask for exactly ONE version of its assets. */
+{
+  const tokens = new Map();
+  for (const file of htmlFiles) {
+    const html = fs.readFileSync(file, "utf8");
+    for (const m of html.matchAll(/\?v=([0-9a-z]+)/g)) {
+      if (!tokens.has(m[1])) tokens.set(m[1], []);
+      const seen = tokens.get(m[1]);
+      if (seen.length < 4) seen.push(path.relative(ROOT, file));
+    }
+  }
+  if (tokens.size > 1) {
+    const parts = [...tokens.entries()]
+      .map(([t, files]) => `?v=${t} (e.g. ${files.join(", ")})`)
+      .join("  |  ");
+    errors.push(
+      `cache token drift: ${tokens.size} different tokens are live across the site — ${parts}. ` +
+      `Bump CSSV in build/generate.js and re-run --all so every page agrees.`
+    );
+  } else if (tokens.size === 1) {
+    notes.push(`1 cache token (?v=${[...tokens.keys()][0]})`);
+  }
+}
+
 console.log("ART whole-site validation");
 console.log(`  Checked: ${notes.join(", ")}`);
 if (errors.length) {
