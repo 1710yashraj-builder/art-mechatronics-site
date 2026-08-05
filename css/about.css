@@ -154,7 +154,14 @@
   background-size: 64px 64px;
   mask-image: radial-gradient(80% 70% at 70% 40%, #000, transparent 75%);
 }
-.md-hero__figure { position: relative; align-self: end; min-height: 520px; }
+/* `align-self: end` here left the portrait 92px short of the row at 1440px, so
+   it sat at the bottom with a strip of bare navy above it and a hard horizontal
+   line where the photograph began. The ::after top-fade below could not soften
+   that, because the fade is inset to this box — it started at the very edge it
+   was meant to dissolve. Stretching makes the image fill the full row height,
+   which is what gives the fade something to work on. object-position keeps the
+   head anchored while cover takes the extra crop off the sides. */
+.md-hero__figure { position: relative; align-self: stretch; min-height: 520px; }
 .md-hero__figure img {
   display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center;
 }
@@ -170,7 +177,24 @@
     linear-gradient(to bottom, #0B2C5E 0%, rgba(11,44,94,.72) 6%, transparent 26%);
 }
 .md-hero__panel { display: grid; align-items: center; position: relative; z-index: 1; }
-.md-hero__inner { max-width: 62ch; padding: clamp(3rem,5vw,5.5rem) clamp(1.5rem,5vw,5rem) clamp(3rem,5vw,5.5rem) 0; }
+/* MEASURED, and the fix for a real complaint. This rule used to be
+   `max-width: 62ch` with `padding-left: 0`, which at 1440px put a 533px block
+   of text inside an 864px grid cell, hard against the photograph's edge, and
+   dumped all 331px of the slack on the right — a dead zone the client saw
+   immediately and described as "empty space on the right side of the page".
+
+   Two changes. The measure widens to 68ch, because 62ch is a book column and
+   this is a 60% panel on a wide screen. And `margin-inline: auto` with
+   symmetric padding centres what remains inside the cell, so the leftover space
+   splits evenly and reads as a gutter on both sides rather than a hole on one.
+   The left gutter also stops the first word butting against the portrait.
+
+   Keep the padding symmetric. Setting the left to 0 again is what caused this. */
+.md-hero__inner {
+  max-width: 68ch;
+  margin-inline: auto;
+  padding: clamp(3rem,5vw,5.5rem) clamp(1.5rem,3.5vw,3.25rem) clamp(3rem,5vw,5.5rem);
+}
 .md-hero__inner .eyebrow { color: var(--blue-bright); }
 .md-hero__inner h2 { color: #fff; margin: .35rem 0 1.6rem; }
 .md-hero__body { margin: 0; padding: 0; border: 0; }
