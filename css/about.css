@@ -286,3 +286,44 @@
 }
 .team-shot__cap h2 { color: #fff; margin: 0 0 .35rem; font-size: clamp(1.2rem, 2.4vw, 1.7rem); }
 .team-shot__cap p { margin: 0; color: #9fb4d4; font-size: .95rem; }
+
+/* ============================================================
+   MOBILE PASS — 2026-08-01. Three defects, each measured at 375px and 320px
+   before and after, not eyeballed.
+
+   1. BODY TEXT BELOW THE READABLE FLOOR. Two rules set body copy in rem values
+      tuned for desktop: `.jstep p` at .85rem (13.6px) and `.wy-item p` at
+      .92rem (14.72px) — 13 paragraphs in total, both under the 16px that is the
+      practical minimum for sustained reading on a phone held at arm's length.
+      They are raised only at the phone breakpoint, so the desktop composition
+      the client already signed off is untouched.
+
+      NOT raised, deliberately: `.eyebrow` at 12.48px and `.wy-num` at 11.84px.
+      Those are a tracked-out uppercase label and a decorative numeral in a
+      circle — neither is read as prose, and enlarging them would break the
+      typographic hierarchy they exist to create.
+
+   2. THE TEAM PHOTOGRAPH WAS A SLIVER. manufacturing-team.webp is 2.29:1, so at
+      375px it rendered 163px tall and at 320px only 140px — roughly 150 people
+      in a band the height of two lines of text, where no face is resolvable.
+      A phone crop trades width for height: the aspect ratio is forced taller and
+      object-position holds the centre, so fewer people are in frame but the ones
+      who are can actually be seen. The desktop band keeps the full 2.29:1.
+
+   3. CONTENT EDGES DID NOT LINE UP. `.wrap` gives 19px of side padding, but the
+      two full-bleed sections set their own inner padding — 23px in the MD
+      message, 24px in the team caption. Scrolling the page, the left edge of the
+      text stepped 19 → 23 → 24 → 19. All three now resolve to the same value.
+   ============================================================ */
+@media (max-width: 620px) {
+  .jstep p { font-size: 1rem; line-height: 1.6; }
+  .wy-item p { font-size: 1rem; line-height: 1.62; }
+  .wy-item h3 { font-size: 1.08rem; }
+
+  /* 3:2 instead of 2.29:1 — the group fills 250px instead of 163px */
+  .team-shot img { aspect-ratio: 3 / 2; height: auto; object-fit: cover; object-position: center; }
+
+  /* one padding value for every section, full-bleed or not */
+  .md-hero__inner { padding-inline: 19px; }
+  .team-shot__cap { padding-inline: 19px; }
+}
