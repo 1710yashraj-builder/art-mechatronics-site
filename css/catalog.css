@@ -134,3 +134,24 @@
   .cat-card, .cat-card__picture img { transition: none; }
   .cat-card:hover, .cat-card:hover .cat-card__picture img { transform: none; }
 }
+
+/* ============================================================
+   MOBILE — 2026-08-01 whole-site audit at 375px.
+   The card description was .9rem (14.4px) and it repeats on EVERY one of the
+   315 catalogue cards, so it is the single most-read piece of small text on the
+   site. Raised to 1rem on phones only.
+   .fbtn (the filter chips) measured 41px tall — close, but a filter row is
+   exactly where a thumb misses. Both it and .tag get the 44px minimum.
+   ============================================================ */
+@media (max-width: 620px) {
+  .cat-card__body p { font-size: 1rem; line-height: 1.5; }
+  .cat-card__go { font-size: .95rem; }
+  .fbtn, .tag { min-height: 44px; display: inline-flex; align-items: center; }
+  /* Breadcrumb links measured 22px on every product, industry and category
+     page. Padding rather than min-height, so the row does not double in
+     height — the links grow into the space the bar already has. */
+  .crumbs .wrap { padding: .35rem 0; }
+  .crumbs a, .crumbs span[aria-current] {
+    display: inline-flex; align-items: center; min-height: 44px;
+  }
+}

@@ -786,3 +786,9 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   .pl-svg--mid  { display: none; }
   .pl-svg--rows { display: block; }
 }
+
+/* Router card copy was .9rem — 14.4px, under the 16px floor for phone reading.
+   Desktop is untouched. Found in the 2026-08-01 whole-site mobile audit. */
+@media (max-width: 620px) {
+  .need-card p { font-size: 1rem; line-height: 1.55; }
+}

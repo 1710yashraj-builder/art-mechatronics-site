@@ -461,3 +461,31 @@ p { margin: 0 0 1em; }
 }
 .lite-toggle:hover { color: #fff; border-color: rgba(255,255,255,.6); }
 .lite-toggle[aria-pressed="true"] { color: #fff; border-color: #fff; }
+
+/* ============================================================
+   MOBILE TAP TARGETS — 2026-08-01, from a whole-site audit at 375px.
+
+   .ig-caret is a 26x26 button and .mc-caret 30x30. On the homepage alone that
+   is 44 controls a thumb has to hit, all well under the 44px minimum. Both are
+   real buttons that open a dropdown, so this is a usability defect, not a
+   cosmetic one.
+
+   The fix extends the HIT AREA without touching how they look: a transparent
+   pseudo-element centred on the button, sized 44x44. The visual caret stays
+   26/30px, so the design is unchanged and nothing reflows.
+
+   It must be ::after on the pseudo-element rather than padding or min-height on
+   the button, because .ig-caret[aria-expanded="true"] animates the BUTTON with
+   transform: rotate(180deg) — growing the button box would move the rotation
+   centre and make the caret wobble as it flips.
+   ============================================================ */
+@media (max-width: 900px) {
+  .ig-caret, .mc-caret { position: relative; }
+  .ig-caret { position: absolute; }        /* keep its own positioning context */
+  .ig-caret::after, .mc-caret::after {
+    content: "";
+    position: absolute; top: 50%; left: 50%;
+    width: 44px; height: 44px;
+    transform: translate(-50%, -50%);
+  }
+}
