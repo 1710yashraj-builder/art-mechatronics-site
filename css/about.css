@@ -327,3 +327,22 @@
   .md-hero__inner { padding-inline: 19px; }
   .team-shot__cap { padding-inline: 19px; }
 }
+
+/* ============================================================
+   Team message — .team-msg, .team-msg__body and .team-msg__stats were in
+   about.html with NO CSS anywhere on the site, so the two paragraphs ran the
+   full 1280px container: 150 characters per line at 1440px, where comfortable
+   reading tops out around 75. Same class of miss as .inst-grid.
+   ============================================================ */
+.team-msg { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2.6rem; align-items: start; }
+.team-msg__body { margin: 0; padding: 0; border: 0; max-width: 68ch; }
+.team-msg__body p { margin: 0 0 1rem; color: var(--slate); line-height: 1.75; }
+.team-msg__body p:last-child { margin-bottom: 0; }
+.team-msg__stats { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+.team-msg__stats li {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 1.1rem 1.25rem;
+}
+.team-msg__stats b { display: block; font-family: var(--font-display); font-size: 1.7rem; line-height: 1; color: var(--navy); }
+.team-msg__stats li > span { display: block; margin-top: .3rem; font-size: .88rem; color: var(--steel); line-height: 1.45; }
+@media (max-width: 900px) { .team-msg { grid-template-columns: 1fr; gap: 1.8rem; } }

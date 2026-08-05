@@ -71,7 +71,7 @@
 }
 
 /* pointer to the full register on the Contact page — one copy of the fact */
-.sv-locations__more { margin: 1.4rem 0 0; font-size: .9rem; color: var(--slate); }
+.sv-locations__more { margin: 1.4rem 0 0; font-size: .9rem; color: var(--slate); max-width: 76ch; }
 
 /* The pointer to the full service register was .9rem (14.4px) — under the
    readable floor on a phone. Phones only; desktop keeps its quieter size. */

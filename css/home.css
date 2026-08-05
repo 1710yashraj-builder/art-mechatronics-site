@@ -580,6 +580,12 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
    Full strength instead, and the link is underlined so it is never
    colour-only. */
 .stat-band__note--image { margin-top: .45rem; opacity: 1; max-width: 78ch; margin-inline: auto; }
+/* The BASE note never got the cap its own modifier has. Measured at 1440px it
+   ran the full 1280px of the container — 216 characters per line at 11.84px,
+   centred. Past roughly 85 characters the eye loses the start of the next line;
+   216 is three times that. Same 78ch as the disclosure beneath it, so the two
+   lines of small print now share an edge instead of one spanning the band. */
+.stat-band__note { max-width: 78ch; margin-inline: auto; }
 .stat-band__note--image a {
   color: var(--blue); text-decoration: underline; text-underline-offset: .16em;
 }
