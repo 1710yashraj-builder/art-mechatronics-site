@@ -155,3 +155,33 @@
     display: inline-flex; align-items: center; min-height: 44px;
   }
 }
+
+/* ============================================================
+   THE SEARCH BAR STICKS ON A PHONE — 2026-08-01.
+
+   The catalogue renders all 315 machines in one column on mobile: 147,462px,
+   about 180 phone screens. Search and the category filters are the intended way
+   through it and they work well — typing "ribbon" takes it to 2,951px. But the
+   toolbar was position: static, so measured at 5,000px down the page the input
+   sat at -4,334px. A buyer partway through the list had no way to search
+   without scrolling all the way back to the top.
+
+   ONLY the search bar sticks, not the filter row. The filters are 11 buttons
+   that wrap to 356px on a 375px screen; with the 79px site header that would
+   have left 320px of an 812px screen for actual content. The input alone is
+   57px, so header + search = 136px and the catalogue keeps 676px.
+
+   `top: 78px` matches the sticky site header exactly — see .site-header__inner
+   in base.css. If that height ever changes, this must change with it.
+   ============================================================ */
+@media (max-width: 900px) {
+  .cat-toolbar {
+    position: sticky; top: 78px; z-index: 20;
+    margin-bottom: 0; padding: .7rem 0;
+    /* opaque, or 315 cards scroll visibly underneath the input */
+    background: var(--white);
+    box-shadow: 0 6px 14px -10px rgba(16,35,63,.5);
+  }
+  /* the shadow would otherwise clip against the filter row directly below */
+  .cat-filters { margin-top: 1rem; }
+}
