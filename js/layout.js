@@ -19,8 +19,25 @@
   const ROOT = document.documentElement;
   let litePref = null;
   try { litePref = localStorage.getItem("art-lite"); } catch (e) {}
-  const weakDevice = (navigator.deviceMemory && navigator.deviceMemory <= 4) ||
-                     (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+  /* THRESHOLDS — corrected 2026-08-01 after the client reported "the animations
+     are not working on mobile". They were working exactly as written; the
+     detection was wrong.
+
+     It previously read `<= 4` on both signals. Safari on iPhone reports
+     navigator.hardwareConcurrency as 4, so EVERY iPhone matched, got `.lite`,
+     and lost the hero entrance, the counting stats and the drawn pipeline —
+     on the device most of this client's buyers will use.
+
+     `<= 2` is what "too weak to composite a transform" actually looks like in
+     2026: a dual-core budget Android, not a flagship phone. deviceMemory is
+     undefined in Safari entirely, so on iOS the core count is the only signal
+     and it must not be trigger-happy.
+
+     The manual footer toggle is unchanged and still authoritative — anyone who
+     wants motion reduced can say so, and prefers-reduced-motion is honoured
+     separately and independently of this. */
+  const weakDevice = (navigator.deviceMemory && navigator.deviceMemory <= 2) ||
+                     (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2);
   if (litePref === "1" || (litePref === null && weakDevice)) ROOT.classList.add("lite");
   const page = document.body.dataset.page || "";
   const BASE = document.body.dataset.base || "";        // "" at root, "../" in subfolders

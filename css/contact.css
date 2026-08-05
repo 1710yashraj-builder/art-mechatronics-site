@@ -200,3 +200,31 @@
   .ct-loc-head.reveal { transition-delay: 0s; }
   .ct-loc-all[open] .ct-loc-chev { transform: rotate(180deg); }  /* state, not decoration */
 }
+
+/* ============================================================
+   MOBILE — 2026-08-01 audit at 375px. No overflow anywhere; two real defects.
+
+   1. THE THREE PHONE NUMBERS WERE 26px TALL. On a contact page, a tel: link is
+      the single most important thing a thumb has to hit, and these are the
+      regional numbers for India, the UAE and Thailand. Now 44px.
+
+   2. THE FOURTEEN ADDRESSES WERE 13.6px. Someone reads these to find a plant or
+      copies one into Maps — the smallest text on the page should not be the
+      part with the street numbers in it. Raised, with the supporting labels
+      around them brought up to match.
+
+   Left alone: .ct-net-hq__k (11.2px) and .ct-net-group__c (11.52px, "5 cities").
+   Both are tracked-out uppercase labels, not prose.
+   ============================================================ */
+@media (max-width: 620px) {
+  .ct-presence a[href^="tel:"] {
+    min-height: 44px; display: inline-flex; align-items: center;
+    font-size: 1rem;
+  }
+  .ct-loc-list address { font-size: .95rem; line-height: 1.55; }
+  .ct-loc-list b { font-size: 1rem; }
+  .ct-loc-head__role { font-size: .95rem; }
+  .ct-net-hq__a { font-size: .95rem; line-height: 1.55; }
+  .ct-net-note { font-size: .95rem; line-height: 1.6; }
+  .ct-social__note { font-size: .95rem; }
+}
