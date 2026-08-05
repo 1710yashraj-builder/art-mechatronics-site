@@ -489,3 +489,35 @@ p { margin: 0 0 1em; }
     transform: translate(-50%, -50%);
   }
 }
+
+/* ============================================================
+   INDUSTRY DROPDOWN ON A PHONE — 2026-08-01.
+
+   Opened on a 375px screen the panel was trapped inside one 164px grid column:
+   ten navigation links at .78rem in rows 26px tall, and long names like
+   "Silver Coated Flavoured Cardomom" wrapping to three lines. Those are real
+   destinations — 88 industries each carry one — so they need thumb-sized rows
+   and room to sit on one line.
+
+   The panel now spans BOTH grid columns on a phone. `right: auto` with an
+   explicit width is what does it: the base rule pins left:0/right:0 to the
+   tile, so simply widening would be clipped to the tile's column.
+   ============================================================ */
+@media (max-width: 620px) {
+  .ig-drop {
+    right: auto;
+    width: calc(200% + 0.9rem);       /* two columns plus the grid gap */
+    max-height: 60vh;
+    padding: .7rem;
+  }
+  /* The right-hand tiles must open LEFTWARDS or the panel runs off-screen.
+     The grid class is .ig-grid — an earlier attempt used .industry-grid, which
+     matched zero elements and let the right column overflow by 159px. */
+  .ig-grid > .ig-tile:nth-child(even) .ig-drop { left: auto; right: 0; }
+
+  .ig-drop a, .ig-drop__plain {
+    min-height: 44px; padding: .4rem .5rem;
+    font-size: .95rem; line-height: 1.35;
+  }
+  .ig-drop__h { font-size: .72rem; margin-bottom: .5rem; }
+}

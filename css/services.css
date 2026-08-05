@@ -72,3 +72,9 @@
 
 /* pointer to the full register on the Contact page — one copy of the fact */
 .sv-locations__more { margin: 1.4rem 0 0; font-size: .9rem; color: var(--slate); }
+
+/* The pointer to the full service register was .9rem (14.4px) — under the
+   readable floor on a phone. Phones only; desktop keeps its quieter size. */
+@media (max-width: 620px) {
+  .sv-locations__more { font-size: 1rem; line-height: 1.55; }
+}
