@@ -6,7 +6,8 @@
 const ART = {
   brand: {
     name: "ART Mechatronics",
-    tagline: "Shaping the Future of the Industrial World",
+    // Exact wording from the catalogue cover and page 14 — no second "the".
+    tagline: "Shaping the Future of Industrial World",
     disciplines: ["Designing", "Manufacturing", "Automation"],
     presence: ["India", "UAE", "Thailand"],
     web: "www.artmechatronics.com",
@@ -20,6 +21,39 @@ const ART = {
     // Primary = India HQ: the no-JS fallback for WhatsApp links and the default tel:.
     phoneDisplay: "+91 80903 15151",
     phoneDial: "918090315151",     // for tel: and wa.me fallback
+
+    /* Physical network — transcribed from ART-CATALOGUE-2026 p14, the single
+       source for these lists. The footer renders them; the contact page and
+       the homepage network band carry the same lists as static HTML. If a
+       unit or office changes, change it here AND on those two pages — the
+       counts (5 units / 9 offices / 3 countries / 14 service cities) appear
+       on the homepage, the contact page and in count animations, and must
+       always agree (vault D1). */
+    network: {
+      units: [
+        "Unit 1 — Panki, Kanpur",
+        "Unit 2 — Panki, Kanpur",
+        "Unit 3 — Panki, Kanpur",
+        "Unit 4 — Panki, Kanpur",
+        "Unit 5 — Udyog Kunj, Kanpur",
+      ],
+      offices: [
+        "UAE Head Office — Ras Al Khaimah",
+        "UAE Branch — Deira, Dubai",
+        "Thailand Marketing — Pattaya City",
+        "India Corporate — Kanpur",
+        "India Head Office — Kanpur",
+        "India Marketing — Kanpur",
+        "India Branch 1 — Kanpur",
+        "India Branch 2 — Kanpur",
+        "Service HQ — New Delhi",
+      ],
+      serviceCities: [
+        "New Delhi", "Kanpur", "Lucknow", "Ghaziabad", "Sambalpur", "Bhopal",
+        "Faridabad", "Hyderabad", "Hubli", "Guwahati", "Kolhapur", "Bilaspur",
+        "Ras Al Khaimah", "Chonburi",
+      ],
+    },
   },
 
   /* ---- The flagship integrated line (hero + live demo) ---- */

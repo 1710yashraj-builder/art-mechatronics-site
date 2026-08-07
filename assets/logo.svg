@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 78" role="img" aria-label="ART Mechatronics">
   <defs>
     <linearGradient id="artBlue" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2E86E6"/>
-      <stop offset="0.5" stop-color="#1657B0"/>
-      <stop offset="1" stop-color="#0B2C5E"/>
+      <stop offset="0" stop-color="#0E3A76"/>
+      <stop offset="0.45" stop-color="#1D5FB4"/>
+      <stop offset="1" stop-color="#2F86E0"/>
     </linearGradient>
   </defs>
   <text x="0" y="50" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="56" letter-spacing="-1" fill="url(#artBlue)">ÄRT</text>
-  <rect x="2" y="58" width="150" height="3" rx="1.5" fill="url(#artBlue)"/>
-  <text x="3" y="74" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="600" font-size="15.5" letter-spacing="5.5" fill="#1657B0">mechatronics</text>
+  <rect x="0" y="57" width="152" height="4.6" rx="2.3" fill="url(#artBlue)"/>
+  <rect x="4" y="64.4" width="144" height="1.4" rx="0.7" fill="#9AA1AB"/>
+  <text x="76" y="75.5" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="11.5" letter-spacing="2.4" fill="#7D838C">mechatronics</text>
 </svg>

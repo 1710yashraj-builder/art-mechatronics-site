@@ -21,9 +21,9 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://artmechatronics.com/#organization","name":"ART Mechatronics","url":"https://artmechatronics.com/","logo":"https://artmechatronics.com/assets/logo.svg","image":"https://artmechatronics.com/assets/video/hero-poster.jpg","description":"Manufacturer of industrial processing, packaging, material-handling and dust-collection machinery, from single machines to complete PLC-controlled turnkey lines.","email":"info@artmechatronics.com","areaServed":[{"@type":"Country","name":"India"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Thailand"}],"founder":{"@type":"Person","name":"Anurag Tiwari"},"parentOrganization":{"@type":"Organization","name":"Thermocare Industries Limited","url":"https://thermocaregroup.com/","foundingDate":"1997"},"contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+91-80903-15151","areaServed":"IN","availableLanguage":["en","hi"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+971-50-216-7151","areaServed":"AE","availableLanguage":["en"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+66-838291089","areaServed":"TH","availableLanguage":["en","th"]}]},{"@type":"AboutPage","@id":"https://artmechatronics.com/about#page","url":"https://artmechatronics.com/about","name":"About ART Mechatronics | Industrial Automation","description":"ART Mechatronics combines next-generation industrial automation with Thermocare manufacturing experience since 1997. Discover our approach to turnkey machinery and controls.","isPartOf":{"@id":"https://artmechatronics.com/#website"},"about":{"@id":"https://artmechatronics.com/#organization"},"primaryImageOfPage":"https://artmechatronics.com/assets/video/hero-poster.jpg"},{"@type":"WebSite","@id":"https://artmechatronics.com/#website","url":"https://artmechatronics.com/","name":"ART Mechatronics"}]}</script>
   <!-- core-seo:end -->
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/tokens.css?v=20260801m">
-  <link rel="stylesheet" href="css/base.css?v=20260801m">
-  <link rel="stylesheet" href="css/about.css?v=20260801m">
+  <link rel="stylesheet" href="css/tokens.css?v=20260807b">
+  <link rel="stylesheet" href="css/base.css?v=20260807b">
+  <link rel="stylesheet" href="css/about.css?v=20260807b">
 </head>
 <body data-page="about">
   <div data-header></div>
@@ -132,14 +132,15 @@
        URLs appear in page source and are indexed; the real mapping stays in
        client-assets and must never enter site/assets. No captions, no alt text
        and no metadata may identify a plant. -->
-  <!-- TEAM PHOTO — the third sub-section Granola locked (owner / team / photos).
-       Every ART machine is built by these people; there is no separate ART
-       factory, manufacturing happens at the Thermocare plant in Kanpur. The
-       parent's chest branding was removed and the backdrop banner cropped out;
-       faces, hands and body outlines are pixel-identical to the source. -->
+  <!-- TEAM PHOTO — the REAL group photograph, extracted at print resolution
+       from page 14 of ART-CATALOGUE-2026 (Anurag: "यही लगा दो, authentic लग
+       रही है", 2026-08-07). Used exactly as the catalogue prints it — no
+       AI edits, no headcount changes, no branding repair. The earlier
+       upscaled composite (manufacturing-team.webp) is retired but kept on
+       disk for the record. -->
   <section class="team-shot" aria-labelledby="team-shot-title">
-    <img src="assets/team/manufacturing-team.webp" width="1920" height="837"
-         alt="The ART Mechatronics manufacturing team at the Kanpur plant" loading="lazy" decoding="async">
+    <img src="assets/team/team-real.webp?v=20260807b" width="1438" height="613"
+         alt="The ART Mechatronics manufacturing and service team at the Kanpur plant" loading="lazy" decoding="async">
     <div class="team-shot__cap">
       <h2 id="team-shot-title">Our manufacturing team, Kanpur</h2>
       <p>Every ART machine is built by these people.</p>
@@ -158,55 +159,38 @@
         <figure><img src="assets/installations/line-02.webp" width="1600" height="1200" alt="A stainless ART line installed in a customer plant" loading="lazy" decoding="async"></figure>
         <figure><img src="assets/installations/line-03.webp" width="1600" height="1200" alt="A complete ART processing line on a customer's factory floor" loading="lazy" decoding="async"></figure>
         <figure><img src="assets/installations/line-04.webp" width="1600" height="924" alt="An ART line with hoppers and elevators installed in a customer plant" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/installations/line-05.webp" width="1600" height="924" alt="An ART processing line in production at a customer plant" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/installations/line-06.webp" width="1600" height="1200" alt="An installed ART line running on a customer's production floor" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/installations/line-05.webp" width="1600" height="832" alt="An ART processing line in production at a customer plant" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/installations/line-06.webp" width="1600" height="1397" alt="An installed ART line running on a customer's production floor" loading="lazy" decoding="async"></figure>
       </div>
     </div>
   </section>
 
-  <!-- WHY ART — rebuilt from the old WordPress site's twelve-item version, which
-       contradicted itself (30+ years in one column, "over 25 years" in the other),
-       understated Anurag's own confirmed reach (20+ nations vs the 30+ countries he
-       confirmed 2026-07-29), numbered both columns 01-06 so it read as one broken
-       list, and repeated four claims twice.
-
-       Deliberately carries NO figures that the homepage stat band already states.
-       Every claim below is verifiable from the catalogue or the site's own schema —
-       EXCEPT the 2,00,000+ sq ft in item 02, which came from the old site and Anurag
-       has never confirmed. It is on the list to put to him; square footage is exactly
-       the kind of number a buyer checks. -->
+  <!-- WHY ART — the same fourteen catalogue points and card layout as the
+       homepage (Anurag: "सेम ही डाल दो"). One source of truth for the copy:
+       if a point changes, change it on BOTH pages. 25+ nations became 30+
+       (his confirmed figure; the catalogue cover agrees). -->
   <section class="section" id="why-art">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head center">
         <span class="eyebrow">Why ART Mechatronics</span>
-        <h2>Why manufacturers choose us</h2>
+        <h2>Why customers build with ART</h2>
       </div>
-      <div class="wy-grid">
-        <div class="wy-item reveal"><span class="wy-num">01</span><div>
-          <h3>One team, from design to start-up</h3>
-          <p>Process design, fabrication, controls, installation and commissioning under one roof &mdash; you deal with the people who built the machine.</p></div></div>
-        <div class="wy-item reveal"><span class="wy-num">02</span><div>
-          <h3>Built in our own plant</h3>
-          <p>2,00,000+ sq ft of working area with complete in-house production, so quality and timelines stay with us.</p></div></div>
-        <div class="wy-item reveal"><span class="wy-num">03</span><div>
-          <h3>Mechanical, electrical and controls as one discipline</h3>
-          <p>That is what mechatronics means, and it is how every line is engineered &mdash; not three trades bolted together.</p></div></div>
-        <div class="wy-item reveal"><span class="wy-num">04</span><div>
-          <h3>Custom-built to your process</h3>
-          <p>Engineered around your product, capacity and hygiene requirements rather than adapted from a catalogue.</p></div></div>
-        <div class="wy-item reveal"><span class="wy-num">05</span><div>
-          <h3>Service teams close to your plant</h3>
-          <p>Fourteen service locations across India, the UAE and Thailand, offering both on-site and remote support.</p></div></div>
-        <div class="wy-item reveal"><span class="wy-num">06</span><div>
-          <h3>Spares for any make</h3>
-          <p>We supply spares for all kinds of industrial machinery, not only the equipment we sold you.</p></div></div>
-        <div class="wy-item reveal"><span class="wy-num">07</span><div>
-          <h3>A manufacturing lineage, not a start-up</h3>
-          <p>Backed by Thermocare Industries, manufacturing since 1997.</p></div></div>
-        <div class="wy-item reveal"><span class="wy-num">08</span><div>
-          <h3>Proven across industries</h3>
-          <p>Food, chemical, pharmaceutical and packaging plants, supplied in India and for export.</p></div></div>
-      </div>
+      <ol class="wa-cards">
+        <li><span aria-hidden="true">01</span><p><b>30+ years</b> of experience, expertise and excellence in the industry.</p></li>
+        <li><span aria-hidden="true">02</span><p><b>20,000+ successful equipment installations</b> worldwide.</p></li>
+        <li><span aria-hidden="true">03</span><p><b>150+ employees</b> sincerely dedicated towards customer satisfaction.</p></li>
+        <li><span aria-hidden="true">04</span><p><b>200,000+ sq ft</b> of manufacturing and production area, with complete in-house production of equipment.</p></li>
+        <li><span aria-hidden="true">05</span><p><b>Served 30+ nations globally</b> &mdash; operating successfully in multiple industries across the globe.</p></li>
+        <li><span aria-hidden="true">06</span><p><b>Customization &amp; flexibility</b> &mdash; tailor-made solutions built to each customer's specific operational requirements.</p></li>
+        <li><span aria-hidden="true">07</span><p><b>Sustainability &amp; energy efficiency</b> &mdash; machines designed to reduce operating costs and environmental impact.</p></li>
+        <li><span aria-hidden="true">08</span><p><b>One-stop solution provider</b> &mdash; design, manufacturing, installation and maintenance under one roof.</p></li>
+        <li><span aria-hidden="true">09</span><p><b>Competitive pricing</b> &mdash; high-quality machines at cost-effective prices, making automation accessible.</p></li>
+        <li><span aria-hidden="true">10</span><p><b>Continuous innovation</b> &mdash; our R&amp;D team keeps improving product efficiency, durability and automation.</p></li>
+        <li><span aria-hidden="true">11</span><p><b>Trusted by leading industries</b> &mdash; food processing, chemical, pharmaceutical and packaging businesses run ART machines daily.</p></li>
+        <li><span aria-hidden="true">12</span><p><b>Industry leadership &amp; legacy</b> &mdash; over 30 years in the industrial machinery sector as a trusted name.</p></li>
+        <li><span aria-hidden="true">13</span><p><b>Cutting-edge technology</b> &mdash; state-of-the-art design for superior efficiency, durability and precision.</p></li>
+        <li><span aria-hidden="true">14</span><p><b>Robust after-sales support</b> &mdash; a dedicated service team across multiple locations, on-site and remote.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -229,7 +213,7 @@
 
   <div data-footer></div>
 
-  <script src="js/data.js?v=20260801m"></script>
-  <script src="js/layout.js?v=20260801m"></script>
+  <script src="js/data.js?v=20260807b"></script>
+  <script src="js/layout.js?v=20260807b"></script>
 </body>
 </html>

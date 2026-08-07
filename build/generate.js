@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260801m";
+const CSSV = "?v=20260807b";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1067,16 +1067,23 @@ const CATEGORY_COPY = {
 /* Generated category covers — the real ART machine composited into a navy scene
    with its material in action. Only listed here once a cover has been judged
    BETTER than the product photograph it replaces, side by side at 235x176.
-   All ten are listed: eight passed first time, two passed after a corrective
-   re-run. Removing a slug here reverts that tile to its product photograph. */
+   Removing a slug here reverts that tile to its product photograph.
+
+   FIVE COVERS PULLED on Anurag's review call (2026-08-07). His rule: a
+   machine must never be shown doing something it would not do in a plant —
+   "ये सब एक्चुअल फोटो लगा के छोड़ दो". The pulled five and why:
+     pollution-control        dust spraying OUT of the inlet — reads as emission
+     mixing-blending          lid wide open, filled to the brim (real fill ~70%,
+                              lid closed), powder falling from mid-air
+     heating-drying           steam billowing from the dryer top
+     storage-elevation        product pouring from nowhere into an overfull mouth
+     size-reduction-grinding  rocks falling from mid-air, loose dust plume
+   The five that stay show CONTAINED, plausible operation (product in chutes,
+   on a screw, dropping into a bag, extruding through a die, a wired panel).
+   Do not re-add a pulled slug without a new cover that passes Anurag's rule. */
 const CATEGORY_COVER = new Set([
-  "mixing-blending", "cleaning-sorting-grading", "conveying-handling",
-  "heating-drying", "packaging", "size-reduction-grinding",
-  "storage-elevation", "automation-robotics",
-  // added after a corrective re-run: v1 of each failed at tile size —
-  // the extruder showed no product coming out, and the collector's loose
-  // dust cloud plus stack plume read as emission rather than capture.
-  "process-equipment", "pollution-control",
+  "cleaning-sorting-grading", "conveying-handling",
+  "packaging", "automation-robotics", "process-equipment",
 ]);
 
 /* Tile face per category — hand-picked, not prods[0].
@@ -1144,36 +1151,89 @@ const categoryList = () =>
 const categorySlug = (name) => imageManifest.categories[name].slug;
 const productsInCategory = (name) => selProd.filter((p) => categoryForProduct(p) === name);
 
+/* HOMEPAGE PRODUCT RANGE — Anurag's call, 2026-08-07: the homepage shows the
+   NINE categories printed on the ART-CATALOGUE-2026 cover, in the cover's
+   order, under the heading "Manufacturing Solutions". The site's own ten-way
+   taxonomy (all ten category PAGES) is untouched — this list only decides
+   which tiles the homepage shows and what they are called.
+   Two cover chips ("Cutting", "Cooling") live inside the Process Equipment
+   page, so those tiles deep-link to its anchored sections and count ONLY the
+   groups they list — a tile's count must always equal what its click shows
+   (vault D1). Automation & Storage lost their top-level tiles; both pages
+   stay one click away inside tile 1's dropdown. */
+const HOME_RANGE = [
+  /* tile: the nine uniform navy studio images generated 2026-08-07 (Codex run,
+     brief: codex-briefs/SOLUTIONS-TILES-UNIFORM-BG.md) — one shared background
+     across the whole grid, machines idle and clean, verified against the brief
+     before wiring. Sources: client-assets/2026-08-07-solutions-tiles/. */
+  { cat: "Conveying & Handling", display: "Material Handling Equipment & Industrial Automation",
+    tile: "assets/categories/solutions/tile-1.webp",
+    sisters: [["Automation & Robotics", "Automation & controls"], ["Storage & Elevation", "Storage & elevation"]] },
+  { cat: "Mixing & Blending", display: "Mixing & Blending", tile: "assets/categories/solutions/tile-2.webp" },
+  { cat: "Pollution Control", display: "Dust Collection & Pollution Control Equipment", tile: "assets/categories/solutions/tile-3.webp" },
+  { cat: "Heating & Drying", display: "Heating & Drying", tile: "assets/categories/solutions/tile-4.webp" },
+  { cat: "Cleaning, Sorting & Grading", display: "Cleaning & Sorting", tile: "assets/categories/solutions/tile-5.webp" },
+  { cat: "Size Reduction & Grinding", display: "Crushing & Grinding", tile: "assets/categories/solutions/tile-6.webp" },
+  { cat: "Process Equipment", display: "Cutting", groupsOnly: ["cutting-slicing", "hulling-de-stemming"], tile: "assets/categories/solutions/tile-7.webp" },
+  { cat: "Process Equipment", display: "Cooling", groupsOnly: ["cooling-freezing", "air-climate"], tile: "assets/categories/solutions/tile-8.webp" },
+  { cat: "Packaging", display: "Packaging & Much More", tile: "assets/categories/solutions/tile-9.webp" },
+];
+
 function categoryGrid(base = "") {
-  const tiles = categoryList().map((name) => {
+  const tiles = HOME_RANGE.map((spec) => {
+    const name = spec.cat;
     const prods = productsInCategory(name);
     if (!prods.length) return "";
-    const [heading, blurb] = CATEGORY_COPY[name] || [name, ""];
+    const heading = spec.display;
     const c = imageManifest.categories[name];
     const cslug = categorySlug(name);
-    const media = CATEGORY_COVER.has(cslug)
-      ? `<img src="${base}assets/categories/${cslug}/cover.webp" alt="${attr(heading)} machinery by ART Mechatronics" width="1600" height="1200" loading="lazy" decoding="async">`
-      : cardMedia(categoryFace(name, prods), "products", base);
-    const gs = groupsFor(name);
-    const catHref = rel(base, `categories/${cslug}.html`);
-    // Groups link to their own anchored section on the category page, so the
-    // dropdown works without JS and every target is crawlable.
+    const allGroups = groupsFor(name);
+    const gs = spec.groupsOnly
+      ? allGroups.filter((g) => spec.groupsOnly.includes(g.slug))
+      : allGroups;
+    // Anchored tiles count only the machines in the groups they show; whole
+    // tiles count the whole page. Either way the number matches the click.
+    const shown = spec.groupsOnly
+      ? gs.reduce((n, g) => n + g.machines.length, 0)
+      : prods.length;
+    const domSlug = spec.groupsOnly ? `${cslug}-${spec.groupsOnly[0]}` : cslug;
+    const pageHref = rel(base, `categories/${cslug}.html`);
+    const tileHref = spec.groupsOnly ? `${pageHref}#${spec.groupsOnly[0]}` : pageHref;
+    // Anchored tiles keep the product photograph of their first group's first
+    // machine, so "Cutting" shows a cutter rather than the whole-page cover.
+    let media;
+    if (spec.tile) {
+      media = `<img src="${base}${spec.tile}" alt="${attr(heading)} machinery by ART Mechatronics" width="1600" height="1200" loading="lazy" decoding="async">`;
+    } else if (spec.groupsOnly) {
+      const first = gs[0] && gs[0].machines[0];
+      const face = (first && prods.find((p) => p.slug === first || p.slug === (first && first.slug))) || categoryFace(name, prods);
+      media = cardMedia(face, "products", base);
+    } else {
+      media = CATEGORY_COVER.has(cslug)
+        ? `<img src="${base}assets/categories/${cslug}/cover.webp" alt="${attr(heading)} machinery by ART Mechatronics" width="1600" height="1200" loading="lazy" decoding="async">`
+        : cardMedia(categoryFace(name, prods), "products", base);
+    }
+    const sisterLis = (spec.sisters || []).map(([sname, slabel]) => {
+      const sprods = productsInCategory(sname);
+      const shref = rel(base, `categories/${categorySlug(sname)}.html`);
+      return `<li><a href="${shref}"><span class="mc-dot" aria-hidden="true"></span>${esc(slabel)}<em>${sprods.length}</em></a></li>`;
+    }).join("");
     const caret = gs.length ? `
-      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-${cslug}" aria-label="Show groups under ${attr(heading)}">
+      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-${domSlug}" aria-label="Show groups under ${attr(heading)}">
         <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <div class="mc-drop" id="mcd-${cslug}" hidden>
+      <div class="mc-drop" id="mcd-${domSlug}" hidden>
         <p class="mc-drop__h">${esc(heading)}</p>
-        <ul>${gs.map((g) => `<li><a href="${catHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`).join("")}</ul>
-        <a class="mc-drop__all" href="${catHref}">See all ${prods.length} machines →</a>
+        <ul>${gs.map((g) => `<li><a href="${pageHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`).join("")}${sisterLis}</ul>
+        <a class="mc-drop__all" href="${tileHref}">See all ${shown} machines →</a>
       </div>` : "";
     return `<div class="mc-tile-wrap${gs.length ? " has-drop" : ""}">
-      <a class="mc-tile" href="${catHref}"
+      <a class="mc-tile" href="${tileHref}"
       style="--mc-from:${c.from};--mc-to:${c.to}">
       <span class="mc-tile__media">${media}</span>
       <span class="mc-tile__body">
         <span class="mc-tile__name">${esc(heading)}</span>
-        <span class="mc-tile__count">${prods.length} machine${prods.length === 1 ? "" : "s"}</span>
+        <span class="mc-tile__count">${shown} machine${shown === 1 ? "" : "s"}</span>
       </span></a>${caret}
     </div>`;
   }).join("\n      ");
