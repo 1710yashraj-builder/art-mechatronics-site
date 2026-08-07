@@ -63,7 +63,16 @@ for (const file of scanFiles) {
 const missing = [];
 for (const reference of [...assetReferences].sort()) {
   const source = path.join(ROOT, reference);
-  if (fs.existsSync(source) && fs.statSync(source).isDirectory()) continue;
+  if (fs.existsSync(source) && fs.statSync(source).isDirectory()) {
+    // A directory reference means runtime code BUILDS filenames inside it by
+    // concatenation (js/rotate.js: "assets/hero/rotator/" + name). Skipping it
+    // silently shipped a hero with eight of nine slides missing (2026-08-07):
+    // the scraper matched the folder, nothing copied, nothing failed. Copy the
+    // whole tree instead — runtime-composed assets can never be scraped file
+    // by file, so the folder IS the reference.
+    copyTree(source, path.join(CLIENT, reference));
+    continue;
+  }
   if (!fs.existsSync(source) || !fs.statSync(source).isFile()) {
     missing.push(reference);
     continue;
