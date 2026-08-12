@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260807b";
+const CSSV = "?v=20260807c";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -183,7 +183,7 @@ const rel = (base, p) => {
    parent company, so they are modelled there rather than on ART itself. */
 const ORG_NODE = {
   "@type": "Organization", "@id": `${BRAND.site}/#organization`,
-  name: BRAND.name, url: `${BRAND.site}/`, logo: `${BRAND.site}/assets/logo.svg`,
+  name: BRAND.name, url: `${BRAND.site}/`, logo: `${BRAND.site}/assets/logo.png`,
   email: BRAND.email,
   areaServed: BRAND.presence.map((c) => ({ "@type": "Country", name: c === "UAE" ? "United Arab Emirates" : c })),
   parentOrganization: { "@type": "Organization", name: "Thermocare Industries Limited", url: "https://thermocaregroup.com/", foundingDate: "1997" },
@@ -620,7 +620,7 @@ function shell({ page, base, title, desc, canonical, schema, main, ogType, extra
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${attr(title)}">
   <meta name="twitter:description" content="${attr(desc)}">
-  <link rel="icon" href="${base}assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="${base}assets/logo.png" type="image/png">
   <link rel="stylesheet" href="${base}css/tokens.css${CSSV}">
   <link rel="stylesheet" href="${base}css/base.css${CSSV}">
   <link rel="stylesheet" href="${base}css/machine.css${CSSV}">

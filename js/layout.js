@@ -72,7 +72,7 @@
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="brand" href="${href('index.html')}" aria-label="${B.name} home">
-        <img src="${BASE}assets/logo.svg" alt="${B.name}" width="150" height="51">
+        <img src="${BASE}assets/logo.png" alt="${B.name}" width="460" height="204">
       </a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
@@ -97,7 +97,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-col">
-          <img src="${BASE}assets/logo-white.svg" alt="${B.name}">
+          <img src="${BASE}assets/logo-white.png" alt="${B.name}" width="460" height="204">
           <p style="color:#9fb4d4;max-width:34ch">Turnkey industrial process and packaging automation, backed by Thermocare manufacturing experience since 1997.</p>
           <div class="footer-flags">${B.presence.map(c => `<span>${c}</span>`).join('<span aria-hidden="true">·</span>')}</div>
         </div>
