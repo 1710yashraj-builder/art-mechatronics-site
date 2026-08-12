@@ -20,7 +20,7 @@
 .stack i.red.on    { background:#ff4d4d; box-shadow:0 0 14px 2px #ff4d4d; }
 .stack i.amber.on  { background:#ffb020; box-shadow:0 0 14px 2px #ffb020; }
 .stack i.green.on  { background:#28e06a; box-shadow:0 0 14px 2px #28e06a; }
-.cabinet__brand { margin-left:auto; height:34px; opacity:.9; }
+.cabinet__brand { margin-left:auto; height:42px; opacity:.9; }
 .cabinet__id { font-size:.72rem; color:#5b6675; letter-spacing:.1em; font-weight:700; }
 
 /* ---- HMI screen ---- */
