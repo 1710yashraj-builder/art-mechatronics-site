@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260816g";
+const CSSV = "?v=20260816h";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1176,11 +1176,46 @@ const HOME_RANGE = [
   { cat: "Size Reduction & Grinding", display: "Crushing & Grinding", tile: "assets/categories/solutions/tile-6.webp" },
   { cat: "Process Equipment", display: "Cutting", groupsOnly: ["cutting-slicing", "hulling-de-stemming"], tile: "assets/categories/solutions/tile-7.webp" },
   { cat: "Process Equipment", display: "Cooling", groupsOnly: ["cooling-freezing", "air-climate"], tile: "assets/categories/solutions/tile-8.webp" },
-  { cat: "Packaging", display: "Packaging & Much More", tile: "assets/categories/solutions/tile-9.webp" },
+  { cat: "Packaging", display: "Packaging", tile: "assets/categories/solutions/tile-9.webp" },
+  /* Tenth tile, client 2026-08-16: "Much More" was taken off the Packaging
+     label and given a tile of its own so the range is complete — this one
+     opens onto EVERY machine family, including the automation, storage and
+     process groups that had no face of their own on this grid. It is not a
+     category page: it lists all ten families and its button goes to the full
+     product range. */
+  { cat: "__ALL__", display: "Much More", tile: "assets/categories/solutions/tile-10.webp" },
 ];
 
 function categoryGrid(base = "") {
   const tiles = HOME_RANGE.map((spec) => {
+    // the "everything else" tile: every family in one dropdown, linking to
+    // the full product range rather than to a single category page.
+    if (spec.cat === "__ALL__") {
+      const all = categoryList().filter((n) => productsInCategory(n).length);
+      const total = selProd.length;
+      const href = rel(base, "catalog.html");
+      const lis = all.map((n) => {
+        const [h2] = CATEGORY_COPY[n] || [n, ""];
+        const cnt = productsInCategory(n).length;
+        return `<li><a href="${rel(base, `categories/${categorySlug(n)}.html`)}"><span class="mc-dot" aria-hidden="true"></span>${esc(h2)}<em>${cnt}</em></a></li>`;
+      }).join("");
+      return `<div class="mc-tile-wrap has-drop">
+      <a class="mc-tile" href="${href}" style="--mc-from:#0F3E7C;--mc-to:#1657B0">
+      <span class="mc-tile__media"><img src="${base}${spec.tile}" alt="The rest of the ART machine range" width="1600" height="1200" loading="lazy" decoding="async"></span>
+      <span class="mc-tile__body">
+        <span class="mc-tile__name">${esc(spec.display)}</span>
+        <span class="mc-tile__count">${total} machines in all</span>
+      </span></a>
+      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-much-more" aria-label="Show every machine family">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mc-drop" id="mcd-much-more" hidden>
+        <p class="mc-drop__h">Every machine family</p>
+        <ul>${lis}</ul>
+        <a class="mc-drop__all" href="${href}">See all ${total} machines →</a>
+      </div>
+    </div>`;
+    }
     const name = spec.cat;
     const prods = productsInCategory(name);
     if (!prods.length) return "";
