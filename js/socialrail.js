@@ -2,8 +2,8 @@
    Client, 2026-08-16: a link tree of the social handles plus WhatsApp, pinned
    to the left of every page, vertically centred, expanding on hover.
 
-   SAMPLE MODE. `ONLY_PAGE` limits it to one page so it can be judged before
-   it appears on all 428. Set to null to run everywhere.
+   Live on every page since 2026-08-16, after the homepage sample was
+   approved. Set ONLY_PAGE to a page id to isolate it again for testing.
 
    Behaviour, and why:
    - Desktop: icons always visible; hovering the rail slides each label out.
@@ -17,7 +17,7 @@
      buyer is not dropped onto the Kanpur number.
    - Every entry is a real <a href>: script dead, links still work. ===== */
 (function () {
-  var ONLY_PAGE = "home";              // <- null to run on every page
+  var ONLY_PAGE = null;                // rolled out to every page 2026-08-16
 
   if (!window.ART || !ART.brand || !ART.brand.social) return;
   var page = document.body.dataset.page || "";

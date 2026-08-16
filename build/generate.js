@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260816s";
+const CSSV = "?v=20260816t";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -633,6 +633,7 @@ function shell({ page, base, title, desc, canonical, schema, main, ogType, extra
   <div data-footer></div>
   <script src="${base}js/data.js${CSSV}"></script>
   <script src="${base}js/layout.js${CSSV}"></script>
+  <script src="${base}js/socialrail.js${CSSV}"></script>
 ${extra}</body>
 </html>`;
 }
