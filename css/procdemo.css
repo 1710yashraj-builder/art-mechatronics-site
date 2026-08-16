@@ -1,0 +1,94 @@
+/* ===== Process stepper demo — shared by all four variants =====
+   Layout: one horizontal track of 12 panels; only transform moves.
+   The no-JS / reduced-motion state is a plain wrapped list, so the twelve
+   steps are always readable even if nothing here runs. ===== */
+.pd {
+  background: linear-gradient(180deg, var(--blue) 0%, var(--navy-2) 100%);
+  color: #dfe9f7;
+}
+.pd__head { text-align: center; padding: clamp(2.6rem,5vw,4rem) 0 1.4rem; }
+.pd__title { color: #fff; font-size: clamp(2rem,1.3rem+2.4vw,3.2rem); margin: 0 0 .6rem; }
+.pd__title span { color: #bdd7f6; }
+.pd__sub { margin: 0 auto; max-width: 52ch; color: #c8d6e9; line-height: 1.6; }
+
+/* --- the numbered rail --- */
+.pd__railwrap { border-block: 1px solid rgba(255,255,255,.16); background: rgba(8,27,58,.30); }
+.pd__rail { display: flex; gap: .15rem; overflow-x: auto; scrollbar-width: none; }
+.pd__rail::-webkit-scrollbar { display: none; }
+.pd-tab {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: .45rem;
+  padding: .85rem .95rem; min-height: 48px;
+  background: none; border: 0; border-bottom: 3px solid transparent;
+  color: #c8d6e9; font: inherit; font-size: .76rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; cursor: pointer;
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.pd-tab i { font-style: normal; color: #bdd7f6; font-family: var(--font-mono); font-size: .7rem; }
+.pd-tab:hover { color: #fff; }
+.pd-tab.is-on { color: #fff; border-bottom-color: #fff; }
+.pd-tab:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+
+/* --- progress --- */
+.pd__meter { display: flex; align-items: center; gap: 1rem; padding: 1rem 0 0; }
+.pd__meterbar { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,.22); overflow: hidden; }
+.pd__meterbar i { display: block; height: 100%; background: #fff; transform-origin: left center;
+  transform: scaleX(.08); transition: transform .45s var(--ease); }
+.pd__count { font-family: var(--font-mono); font-size: .8rem; color: #fff; letter-spacing: .06em; }
+.pd__phase { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: #bdd7f6; }
+
+/* --- the track --- */
+.pd__clip { overflow: hidden; }
+/* The track is one wrap wide per panel, but .pd__clip is full-bleed — so the
+   NEXT panel was visible in the margin beside the active one. Clip at the
+   wrap, which is where a panel actually ends. */
+.pd__clip > .wrap { overflow: hidden; }
+.pd__track { display: grid; gap: 1.4rem; padding: 2rem 0 2.6rem; }
+.pd-panel { display: grid; grid-template-columns: 1.35fr .8fr; gap: 2.4rem; align-items: center; }
+.pd-panel__no { color: #bdd7f6; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+.pd-panel h3 { color: #fff; font-size: clamp(1.5rem,1.1rem+1.5vw,2.2rem); margin: .45rem 0 .7rem; }
+.pd-panel p { margin: 0 0 1rem; max-width: 54ch; color: #d5e2f3; line-height: 1.65; }
+.pd-chips { list-style: none; margin: 0; padding: 0; display: flex; gap: .5rem; flex-wrap: wrap; }
+.pd-chips li { padding: .38rem .8rem; border: 1px solid rgba(255,255,255,.42); border-radius: 99px; font-size: .78rem; color: #eaf2fd; }
+.pd-panel__side { position: relative; display: grid; gap: .7rem; justify-items: start; align-content: center; min-height: 170px; }
+.pd-ghost { position: absolute; right: 0; top: 50%; transform: translateY(-52%);
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(6rem,11vw,12rem);
+  line-height: 1; color: rgba(255,255,255,.07); pointer-events: none; user-select: none; }
+.pd-tagline { display: inline-block; padding: .42rem .85rem; border: 1px solid rgba(255,255,255,.5);
+  border-radius: var(--r); color: #fff; font-size: .8rem; font-weight: 700; }
+
+/* --- LIVE: one horizontal track, transform-only --- */
+.pd--live .pd__track {
+  display: flex; flex-wrap: nowrap; gap: 0;
+  width: 1200%;                       /* 12 panels */
+  transition: transform .62s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+.pd--live .pd-panel { flex: 0 0 calc(100% / 12); opacity: .25; transition: opacity .45s var(--ease); }
+.pd--live .pd-panel.is-on { opacity: 1; }
+
+/* --- scroll variants: the stage sticks while the page scrolls past --- */
+.pd[data-motion="scroll"] { position: relative; }
+.pd[data-motion="scroll"] .pd__stage { position: sticky; top: 78px; }
+.pd[data-motion="scroll"][data-len="phases"]  { min-height: 320vh; }
+.pd[data-motion="scroll"][data-len="compact"] { min-height: 150vh; }
+
+@media (max-width: 900px) {
+  .pd-panel { grid-template-columns: 1fr; gap: 1.1rem; }
+  .pd-panel__side { min-height: 90px; }
+  .pd[data-motion="scroll"][data-len="phases"]  { min-height: 280vh; }
+  .pd[data-motion="scroll"][data-len="compact"] { min-height: 140vh; }
+}
+/* Reduced motion / no JS: a plain readable list, every step present. */
+@media (prefers-reduced-motion: reduce) {
+  .pd[data-motion="scroll"] { min-height: 0 !important; }
+  .pd[data-motion="scroll"] .pd__stage { position: static; }
+  .pd__track { display: grid !important; width: auto !important; transform: none !important; }
+  .pd-panel { opacity: 1 !important; }
+}
+.pd:not(.pd--live) .pd__track { display: grid; width: auto; }
+.pd:not(.pd--live) .pd-panel { opacity: 1; }
+
+/* the demo banner (demo pages only, never the live site) */
+.pd-note { background: #0d3568; color: #eaf2fd; padding: .9rem 0; font-size: .9rem; }
+.pd-note b { color: #fff; }
+.pd-note .wrap { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
