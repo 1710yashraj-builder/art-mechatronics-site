@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260807e";
+const CSSV = "?v=20260816a";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1133,8 +1133,8 @@ function testimonialSection(base = "") {
   return `
   <section class="section ts-sec" aria-labelledby="ts-title" data-testimonials>
     <div class="wrap ts-head">
-      <span class="eyebrow">Customers</span>
-      <h2 id="ts-title">What our customers say</h2>
+      <h2 id="ts-title">Customers</h2>
+      <p class="sec-head__sub">What our customers say.</p>
     </div>
     <div class="pk-marquee pk-marquee--fade ts-rail" data-marquee data-marquee-speed="34">
       <ul class="pk-marquee__track">
@@ -1250,7 +1250,7 @@ function renderCategory(name, ctx) {
   const claimed = new Set(gs.flatMap((g) => g.machines));
   const leftovers = prods.filter((p) => !claimed.has(p.slug));
   const cr = crumbs(
-    [{ label: "Home", href: "index.html" }, { label: "Catalogue", href: "catalog.html" }, { label: heading }],
+    [{ label: "Home", href: "index.html" }, { label: "Products", href: "catalog.html" }, { label: heading }],
     "../", abs(`categories/${slug}.html`));
   const main = `
   ${cr.html}
@@ -1258,7 +1258,7 @@ function renderCategory(name, ctx) {
     <span class="eyebrow">Machine category</span>
     <h1>${esc(heading)}</h1>
     <p class="lead">${esc(blurb)}</p>
-    <a class="btn btn--light btn--lg" href="${rel("../", "catalog.html")}">Browse the full catalogue →</a>
+    <a class="btn btn--light btn--lg" href="${rel("../", "catalog.html")}">Browse all products →</a>
   </div></section>
   <section class="section"><div class="wrap">
     <nav class="cg-jump" aria-label="Jump to a group">
@@ -1298,7 +1298,7 @@ function renderIndustriesHub(sel) {
     <span class="eyebrow">Industries we serve</span>
     <h1>Turnkey plants &amp; machinery for every industry</h1>
     <p class="lead">Explore innovative, end-to-end customised engineering solutions designed to optimise performance, efficiency and scalability across industries.</p>
-    <a class="btn btn--light btn--lg" href="catalog">Browse the machine catalogue →</a>
+    <a class="btn btn--light btn--lg" href="catalog">Browse all products →</a>
   </div></section>
   <section class="section section--tint"><div class="wrap">
     <h2 class="ig-head">Industries We Serve</h2>
@@ -1326,7 +1326,7 @@ function renderCatalog(sel) {
     .concat(cats.map((c) => `<button class="fbtn" data-cat="${attr(c)}">${esc(c)}</button>`)).join("");
   const main = `
   <section class="mi-hero"><div class="wrap">
-    <span class="eyebrow">Machine catalogue</span>
+    <span class="eyebrow">Products</span>
     <h1>Industrial process &amp; packaging machinery</h1>
     <p class="lead">From dust collectors and pulverizers to mixers, dryers, conveyors and packaging lines. Every machine is custom-engineered and turnkey-supplied by ART Mechatronics.</p>
   </div></section>
@@ -1337,14 +1337,14 @@ function renderCatalog(sel) {
     </div>
     <div class="cat-filters" id="catFilters">${filters}</div>
     <div class="cat-grid" id="catGrid">${sel.map((p) => card(p, "products")).join("")}</div>
-    <p class="cat-empty" id="catEmpty" hidden>No direct match? Tell us the function you need. <a href="${wa("Hi ART Mechatronics, I couldn't find a machine in your catalogue. Can you help?")}" target="_blank" rel="noopener">Ask us on WhatsApp →</a></p>
+    <p class="cat-empty" id="catEmpty" hidden>No direct match? Tell us the function you need. <a href="${wa("Hi ART Mechatronics, I couldn't find a machine in your product range. Can you help?")}" target="_blank" rel="noopener">Ask us on WhatsApp →</a></p>
   </div></section>
   ${moreBand(sel.length, products.length, "machines")}`;
   return shell({
-    page: "catalog", base: "", title: "Machine Catalogue | ART Mechatronics",
+    page: "catalog", base: "", title: "Products | ART Mechatronics",
     desc: "Browse ART Mechatronics' machinery: dust collectors, pulverizers, mixers, dryers, sifters, conveyors & packaging machines. Turnkey supply.",
     canonical: abs("catalog.html"), main, extraJS: true,
-    schema: listingSchema(abs("catalog.html"), "Machine Catalogue", "Full catalogue of processing, packaging and material-handling machines by ART Mechatronics."),
+    schema: listingSchema(abs("catalog.html"), "Products", "Full range of processing, packaging and material-handling machines by ART Mechatronics."),
   });
 }
 function moreBand(shown, total, what) {

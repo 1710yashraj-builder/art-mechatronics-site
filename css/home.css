@@ -115,6 +115,8 @@
 }
 .home-hero__countries i { color: #6aaaf1; font-style: normal; }
 .home-hero__cta { display: flex; gap: .8rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
+/* three buttons: the two browse routes sit together, enquiry leads */
+.home-hero__cta .btn { flex: 0 1 auto; }
 
 /* On a photograph the outline button has no ground of its own — it gets one. */
 .home-hero .btn--outline-light { background: rgba(8,27,58,.62); border-color: rgba(255,255,255,.55); }
@@ -337,7 +339,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
    frozen strip. That fallback is the point of the pattern.
    ============================================================ */
 .ts-sec { background: var(--mist); overflow: hidden; }
-.ts-head { margin-bottom: 2.2rem; }
+.ts-head { text-align: center; margin-bottom: 2.2rem; }
 .ts-head h2 { margin: .3rem 0 0; }
 
 .pk-marquee { position: relative; }
@@ -508,18 +510,18 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   color: #dfe9f7;
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
-.proc__head { margin-bottom: 2.2rem; }
+.proc__head { margin-bottom: 2.2rem; text-align: center; }
 .proc__pill {
   display: inline-block; padding: .42rem .95rem; border: 1px solid rgba(255,255,255,.35);
   border-radius: 99px; color: #9ec4f2; font-size: .72rem; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
 }
-.proc__title { color: #fff; font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem); margin: .9rem 0 .7rem; }
+.proc__title { color: #fff; font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem); margin: 0 0 .7rem; }
 .proc__title span { color: #6aaaf1; }
-.proc__sub { margin: 0; max-width: 46ch; color: #b9cbe3; font-size: 1.02rem; line-height: 1.6; }
+.proc__sub { margin: 0 auto; max-width: 46ch; color: #b9cbe3; font-size: 1.02rem; line-height: 1.6; }
 .proc__railwrap { border-block: 1px solid rgba(255,255,255,.16); background: rgba(8,27,58,.4); }
 .proc__rail {
-  display: flex; gap: .2rem; flex-wrap: wrap;
+  display: flex; gap: .2rem; flex-wrap: wrap; justify-content: center;
   scrollbar-width: none;
 }
 .proc__rail::-webkit-scrollbar { display: none; }
@@ -574,7 +576,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 @media (max-width: 700px) {
   /* back to a one-line scroller: twelve wrapped tabs would push the step
      content off a phone screen entirely */
-  .proc__rail { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .proc__rail { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .proc__panel { grid-template-columns: 1fr; gap: 1.4rem; }
   .proc__side { min-height: 150px; padding-left: 0; }
   .proc__panel .btn { width: 100%; justify-content: center; }
@@ -584,7 +586,8 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
    RECENT PROJECTS — case-studies carousel. Native scroll-snap track;
    arrows + counter appear only when js/process.js runs (.rp--live).
    ============================================================ */
-.rp-head { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.8rem; }
+.rp-head { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.8rem; text-align: center; }
+.rp-head > div:first-child { margin-inline: auto; }
 .rp-head h2 { margin: 0; }
 .rp-ctrl { display: none; align-items: center; gap: .6rem; }
 .rp--live .rp-ctrl { display: flex; }

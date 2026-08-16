@@ -48,17 +48,17 @@
   const pub = (f) => String(f).replace(/(^|\/)index\.html$/, "$1").replace(/\.html$/, "");
   const href = (f) => { const s = pub(f); return s ? BASE + s : (BASE || "./"); };
 
-  /* Order confirmed with Anurag (Granola, "Website design feedback session",
-     25 Jul): Home > Industries > About > Services > Contact. Catalogue is kept
-     in the bar because it is how a buyer finds a machine — burying 315 product
-     pages would cost enquiries. Flagship Line and Live System are demos and
-     moved to the footer. Contact stays as the Get a Quote button on the right. */
+  /* Order reset on the client's word (2026-08-16): Services sits beside
+     Products because both are "what you can buy", About sits beside Contact
+     because both are "who you're buying from". Catalogue is now labelled
+     Products everywhere; the FILE stays catalog.html and the URL stays
+     /catalog so links already shared or indexed keep resolving. */
   const NAV = [
     ["home",      "Home",       "index.html"],
     ["industries","Industries", "industries.html"],
-    ["catalog",   "Catalogue",  "catalog.html"],
-    ["about",     "About",      "about.html"],
+    ["catalog",   "Products",   "catalog.html"],
     ["services",  "Services",   "services.html"],
+    ["about",     "About",      "about.html"],
     ["contact",   "Contact",    "contact.html"],
   ];
 
@@ -74,6 +74,7 @@
       <a class="brand" href="${href('index.html')}" aria-label="${B.name} home">
         <img src="${BASE}assets/logo.png" alt="${B.name}" width="460" height="204">
       </a>
+      <p class="brand-tag" aria-hidden="true">${B.tagline}</p>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
           <line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>
@@ -122,7 +123,7 @@
           <h2>Explore</h2>
           <ul>
             <li><a href="${href('industries.html')}">Industries we serve</a></li>
-            <li><a href="${href('catalog.html')}">Machine catalogue</a></li>
+            <li><a href="${href('catalog.html')}">All products</a></li>
             <li><a href="${href('machines.html')}">Flagship Line</a></li>
             <li><a href="${href('system.html')}">Live System Demo</a></li>
             <li><a href="${href('control-panel.html')}">Virtual Control Panel</a></li>
