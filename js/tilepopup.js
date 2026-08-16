@@ -2,9 +2,9 @@
    Client, 2026-08-16: clicking a tile should open its sub-category list in a
    popup instead of navigating, with the full page still reachable from inside.
 
-   SAMPLE MODE. `ONLY` below limits this to one tile (Mouth Freshener) so it
-   can be judged before it touches the other 42. Set ONLY = null to enable
-   every tile in both grids — that is the whole rollout, one line.
+   Rolled out to every tile in both grids on 2026-08-16 after the Mouth
+   Freshener sample was approved. `ONLY` can be set back to a drop id to
+   isolate one tile again for testing.
 
    Fail-open, the house rule: every tile stays a real <a href> and this file
    only ever calls preventDefault AFTER the dialog has been built and shown.
@@ -16,7 +16,7 @@
    behind and the backdrop all come from the platform rather than from code
    we would have to maintain and get wrong. ===== */
 (function () {
-  var ONLY = "igd-mouth-freshener";        // <- null to enable every tile
+  var ONLY = null;                          // sample mode over: every tile, both grids
 
   var dlg = document.getElementById("tileModal");
   if (!dlg || typeof dlg.showModal !== "function") return;   // no dialog: links stay links
@@ -32,6 +32,21 @@
 
     titleEl.textContent = name;
     body.innerHTML = "";
+
+    /* Sub-label under the heading. The industry dropdowns already carry the
+       right words ("Related categories"); the product ones repeat the
+       category name, which would just echo the title, so those get a label
+       that describes what the list actually is. */
+    var srcLabel = drop.querySelector(".ig-drop__h, .mc-drop__h");
+    var label = srcLabel ? srcLabel.textContent.trim() : "";
+    if (!label || label.toLowerCase() === name.toLowerCase()) {
+      label = drop.classList.contains("mc-drop") ? "Machine groups" : "Related categories";
+    }
+    var lead = document.createElement("p");
+    lead.className = "tile-modal__lead";
+    lead.textContent = label;
+    body.appendChild(lead);
+
     body.appendChild(list.cloneNode(true));        // the dropdown's own list, verbatim
     moreEl.href = href;
     moreEl.textContent = "View the full " + name + " page";
