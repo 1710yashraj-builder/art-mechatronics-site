@@ -696,8 +696,11 @@ p { margin: 0 0 1em; }
    Only transform/opacity animate; the rail is fixed, so nothing ever reflows.
    ============================================================ */
 .srail {
-  position: fixed; left: 18px; top: 50%; transform: translateY(-50%);
-  z-index: 60; display: flex; flex-direction: column; align-items: center;
+  /* FLUSH to the viewport edge (client, 2026-08-16): inset 18px it sat on top
+     of the copy whenever the window was too narrow to leave a gutter. At 0 it
+     lives in the page margin instead. */
+  position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+  z-index: 60; display: flex; flex-direction: column; align-items: flex-start;
 }
 /* The panel is ABSOLUTE, anchored above the tab. It must not sit in the
    rail's flow: transformed-away circles still occupy layout, which made the
@@ -706,12 +709,12 @@ p { margin: 0 0 1em; }
    and the circles fly up from it, as in the client's reference. */
 .srail__panel {
   position: absolute; bottom: calc(100% + 10px); left: 0;
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
 }
 
 /* the circles */
 .srail__row, .srail__tab {
-  width: 48px; height: 48px; border-radius: 50%;
+  width: 48px; height: 48px; border-radius: 0 50% 50% 0;
   display: grid; place-items: center;
   border: 0; cursor: pointer; position: relative;
   box-shadow: 0 8px 20px -8px rgba(8,27,58,.55);
@@ -755,7 +758,25 @@ p { margin: 0 0 1em; }
 .srail__row:hover .srail__tip, .srail__row:focus-visible .srail__tip { opacity: 1; transform: translate(0, -50%); }
 
 /* the tab */
-.srail__tab { background: var(--blue); }
+.srail__tab {
+  /* Slim and flat against the edge while closed — 30px sits inside the page
+     padding, so nothing is covered until the visitor opens it themselves. */
+  width: 30px; height: 62px; border-radius: 0 var(--r-lg) var(--r-lg) 0;
+  background: var(--blue);
+  transition: width .22s var(--ease), background .2s var(--ease);
+}
+.srail:hover .srail__tab, .srail--open .srail__tab { width: 48px; }
+/* Below ~1380px the content fills the window and there is no gutter to sit
+   in, so the closed handle shrinks to a sliver that fits inside the page
+   padding. It still grows to 48px the moment you hover or open it — covering
+   content then is the visitor's own doing, not a permanent obstruction. */
+@media (max-width: 1379px) {
+  .srail__tab { width: 18px; height: 58px; }
+  .srail__tabic, .srail__closeic { width: 14px; height: 14px; }
+  .srail:hover .srail__tab, .srail--open .srail__tab { width: 48px; }
+  .srail:hover .srail__tabic, .srail:hover .srail__closeic,
+  .srail--open .srail__tabic, .srail--open .srail__closeic { width: 21px; height: 21px; }
+}
 .srail__tab:hover { background: var(--blue-bright); }
 .srail__tab:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .srail__closeic { position: absolute; opacity: 0; transform: rotate(-90deg); transition: opacity .2s var(--ease), transform .2s var(--ease); }
@@ -768,8 +789,10 @@ p { margin: 0 0 1em; }
 }
 /* Touch: hover means nothing, so only the tap toggle opens it. */
 @media (max-width: 900px) {
-  .srail { left: 12px; gap: 8px; }
-  .srail__row, .srail__tab { width: 46px; height: 46px; }
+  .srail { left: 0; }
+  .srail__row { width: 46px; height: 46px; }
+  .srail__tab { width: 26px; height: 56px; }
+  .srail--open .srail__tab { width: 46px; }
   .srail:hover .srail__row { transform: scale(.4) translateY(28px); opacity: 0; pointer-events: none; }
   .srail--open .srail__row { transform: none; opacity: 1; pointer-events: auto; }
   .srail:hover .srail__tabic { opacity: 1; transform: none; }
