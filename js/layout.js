@@ -99,24 +99,15 @@
       <div class="footer-grid">
         <div class="footer-col">
           <img src="${BASE}assets/logo-white.png" alt="${B.name}" width="460" height="204">
-          <p style="color:#9fb4d4;max-width:34ch">Turnkey industrial process and packaging automation, backed by Thermocare manufacturing experience since 1997.</p>
+          <p class="footer-blurb">Backed by Thermocare Group experience since 1997.</p>
           <div class="footer-flags">${B.presence.map(c => `<span>${c}</span>`).join('<span aria-hidden="true">·</span>')}</div>
         </div>
         <div class="footer-col">
           <h2>Explore our complete company portfolio</h2>
-          <p class="footer-cat__lead">Every solution family, the full machine range, and the manufacturing and service network &mdash; in one PDF you can save or forward.</p>
-          <div class="footer-cat__row">
-            <span class="dl-badge" aria-hidden="true">
-              <svg class="dl-badge__ring" viewBox="0 0 100 100">
-                <defs><path id="dlArcF" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
-                <text><textPath href="#dlArcF">MANUFACTURED WITH 100% QUALITY &#183; CERTIFIED EXCELLENCE &#183;&#160;</textPath></text>
-              </svg>
-              <svg class="dl-badge__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.2"/><path d="M12 6.6l.95 1.9 2.1.3-1.52 1.5.36 2.1L12 11.4l-1.89 1 .36-2.1-1.52-1.5 2.1-.3z" fill="currentColor" stroke="none"/><path d="M9.2 13.5 7.6 21l4.4-2.4L16.4 21l-1.6-7.5"/></svg>
-            </span>
-            <div class="footer-cat__act">
-              <a class="btn btn--light" href="${BASE}assets/catalogue/ART-Mechatronics-Catalogue-2026.pdf" target="_blank" rel="noopener">Download the catalogue (PDF)</a>
-              <small>Opens in a new tab &middot; 20 MB</small>
-            </div>
+          <p class="footer-cat__lead">The full machine range and manufacturing and service network in one PDF, you can save and forward.</p>
+          <div class="footer-cat__act">
+            <a class="btn btn--light" href="${BASE}assets/catalogue/ART-Mechatronics-Catalogue-2026.pdf" target="_blank" rel="noopener">Download the catalogue (PDF)</a>
+            <small>Opens in a new tab &middot; 20 MB</small>
           </div>
         </div>
         <div class="footer-col">
@@ -126,9 +117,8 @@
             <li><a href="${href('catalog.html')}">All products</a></li>
             <li><a href="${href('machines.html')}">Flagship Line</a></li>
             <li><a href="${href('system.html')}">Live System Demo</a></li>
-            <li><a href="${href('control-panel.html')}">Virtual Control Panel</a></li>
-            <li><a href="${href('about.html')}">About ART</a></li>
             <li><a href="${href('services.html')}">Services &amp; support</a></li>
+            <li><a href="${href('about.html')}">About ART</a></li>
             <li><a href="${href('contact.html')}">Contact</a></li>
           </ul>
         </div>

@@ -687,3 +687,63 @@ p { margin: 0 0 1em; }
   margin: -.35rem 0 .85rem; font-size: .78rem; font-weight: 700;
   letter-spacing: .13em; text-transform: uppercase; color: var(--steel);
 }
+
+/* ============================================================
+   SOCIAL LINK TREE — fixed rail, left edge, vertically centred.
+   Collapsed it is a column of icon buttons; hover (or keyboard focus, or the
+   toggle on touch) slides the names out. Every row is a real link, so the
+   rail degrades to five working links if the script never runs.
+   ============================================================ */
+.srail {
+  position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+  z-index: 60; display: grid; gap: 2px;
+}
+.srail__toggle { display: none; }
+.srail__row {
+  display: flex; align-items: center; gap: 0;
+  width: 48px; height: 48px; overflow: hidden;
+  border-radius: 0 var(--r) var(--r) 0;
+  background: var(--navy); color: #fff;
+  box-shadow: 0 6px 18px -8px rgba(8,27,58,.6);
+  /* width is the only property that can animate here without reflowing the
+     page, because the rail is fixed and out of flow */
+  transition: width .26s var(--ease), background .2s var(--ease);
+}
+.srail__ic { flex: 0 0 48px; display: grid; place-items: center; }
+.srail__ic svg { width: 21px; height: 21px; }
+.srail__tx { display: grid; gap: .05rem; padding-right: 1rem; white-space: nowrap; opacity: 0; transition: opacity .2s var(--ease); }
+.srail__tx b { font-size: .86rem; font-weight: 700; line-height: 1.1; }
+.srail__tx i { font-style: normal; font-size: .72rem; color: #c8d6e9; }
+.srail:hover .srail__row,
+.srail.srail--open .srail__row { width: 208px; }
+.srail:hover .srail__tx,
+.srail.srail--open .srail__tx { opacity: 1; }
+.srail__row:hover { background: var(--blue); }
+.srail__row:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+.srail__row--whatsapp { background: #1FA855; }
+.srail__row--whatsapp:hover { background: #25D366; color: #06331a; }
+
+@media (prefers-reduced-motion: reduce) {
+  .srail__row, .srail__tx { transition: none; }
+}
+
+/* Touch: no hover, so a real toggle button drives it (client's choice).
+   Smaller icons, and the rail sits clear of the sticky header and footer. */
+@media (max-width: 900px) {
+  .srail { gap: 1px; }
+  .srail__row { width: 44px; height: 44px; border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+  .srail__ic { flex-basis: 44px; }
+  .srail__ic svg { width: 18px; height: 18px; }
+  .srail:hover .srail__row { width: 44px; }        /* hover means nothing here */
+  .srail:hover .srail__tx { opacity: 0; }
+  .srail.srail--open .srail__row { width: 190px; }
+  .srail.srail--open .srail__tx { opacity: 1; }
+  .srail__toggle {
+    display: grid; place-items: center;
+    width: 44px; height: 44px; margin-bottom: 4px;
+    border: 0; border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    background: var(--blue); color: #fff; cursor: pointer;
+  }
+  .srail__toggle svg { width: 18px; height: 18px; transition: transform .22s var(--ease); }
+  .srail.srail--open .srail__toggle svg { transform: rotate(180deg); }
+}

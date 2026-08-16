@@ -54,6 +54,16 @@ const ART = {
         "Ras Al Khaimah", "Chonburi",
       ],
     },
+
+    /* Social handles — one source for the left rail and the contact page.
+       WhatsApp is deliberately NOT listed here: it is not a profile, and it
+       routes through the region picker in js/layout.js. */
+    social: [
+      { id: "linkedin",  name: "LinkedIn",  note: "Anurag Tiwari, MD", url: "https://th.linkedin.com/in/anurag-tiwari-4a731a192" },
+      { id: "instagram", name: "Instagram", note: "@art_mechatronics_", url: "https://www.instagram.com/art_mechatronics_/" },
+      { id: "facebook",  name: "Facebook",  note: "ART Mechatronics",  url: "https://www.facebook.com/p/Art-Mechatronics-61590532739976/" },
+      { id: "line",      name: "LINE",      note: "Thailand",          url: "https://line.me/ti/p/W5CxmQgXQ4" },
+    ],
   },
 
   /* ---- The flagship integrated line (hero + live demo) ---- */
