@@ -398,6 +398,10 @@
 
     const real = [...track.children].filter((c) => c.getAttribute("aria-hidden") !== "true");
     const speed = parseFloat(rail.dataset.marqueeSpeed) || 40;   // px per second
+    // data-marquee-dir="right" runs the rail the other way. Two stacked rails
+    // drifting in opposite directions read as design; in lockstep they read as
+    // one conveyor belt.
+    const dir = rail.dataset.marqueeDir === "right" ? 1 : -1;
     let period = 0, x = 0, last = 0, raf = null, paused = false, boost = 0;
 
     const measure = () => {
@@ -420,8 +424,10 @@
       const dt = Math.min((now - last) / 1000, 0.05);   // clamp after a tab switch
       last = now;
       if (!paused && period > 0) {
-        x -= (speed + boost) * dt;
-        if (x <= -period) x += period;                  // modulo wrap, no jump frame
+        x += dir * (speed + boost) * dt;
+        // modulo wrap in whichever direction we are travelling, no jump frame
+        if (x <= -period) x += period;
+        else if (x >= 0) x -= period;
         track.style.transform = `translate3d(${x}px,0,0)`;
       }
       boost *= 0.92;

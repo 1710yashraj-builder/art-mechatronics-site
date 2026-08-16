@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260816f";
+const CSSV = "?v=20260816g";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1136,7 +1136,7 @@ function testimonialSection(base = "") {
       <h2 id="ts-title">Customers</h2>
       <p class="sec-head__sub">What our customers say.</p>
     </div>
-    <div class="pk-marquee pk-marquee--fade ts-rail" data-marquee data-marquee-speed="34">
+    <div class="pk-marquee pk-marquee--fade ts-rail" data-marquee data-marquee-speed="34" data-marquee-dir="right">
       <ul class="pk-marquee__track">
           ${once}
           ${copy}

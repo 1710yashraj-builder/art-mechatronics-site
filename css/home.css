@@ -590,52 +590,37 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 }
 
 /* ============================================================
-   RECENT PROJECTS — case-studies carousel. Native scroll-snap track;
-   arrows + counter appear only when js/process.js runs (.rp--live).
+   RECENT PROJECTS — the same rail as Customers (client, 2026-08-16): same
+   380px card, same white surface and border, same marquee. Only the contents
+   differ (photograph + caption instead of quote), and the direction: this one
+   runs left while the testimonials run right.
    ============================================================ */
-.rp-head { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.8rem; text-align: center; }
-.rp-head > div:first-child { margin-inline: auto; }
+.rp-sec { overflow: hidden; }
+.rp-head { text-align: center; margin-bottom: 2.2rem; }
 .rp-head h2 { margin: 0; }
-.rp-ctrl { display: none; align-items: center; gap: .6rem; }
-.rp--live .rp-ctrl { display: flex; }
-.rp-count { display: flex; align-items: baseline; gap: .3rem; margin-right: .6rem; }
-.rp-count b { font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; color: var(--navy); line-height: 1; font-variant-numeric: tabular-nums; }
-.rp-count i { font-style: normal; color: var(--steel); font-size: .95rem; }
-.rp-btn {
-  width: 48px; height: 48px; border-radius: 50%;
-  border: 1px solid var(--line); background: var(--white); color: var(--navy);
-  display: grid; place-items: center; cursor: pointer;
-  transition: background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease);
-}
-.rp-btn svg { width: 21px; height: 21px; }
-.rp-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
-.rp-btn:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 2px; }
-.rp-clip { overflow: hidden; }
-.rp-track {
-  list-style: none; margin: 0; padding: 0 0 .6rem;
-  display: flex; gap: 1.1rem;
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-.rp-track::-webkit-scrollbar { display: none; }
+.rp-rail { --pk-marquee-gap: 1.1rem; }
 .rp-card {
-  flex: 0 0 calc((100% - 2.2rem) / 3);
-  scroll-snap-align: start;
-  background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg);
-  overflow: hidden;
+  width: 380px; background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--r-lg); overflow: hidden;
+  display: flex; flex-direction: column;
 }
 .rp-card figure { margin: 0; }
-.rp-card img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.rp-card__tx { padding: 1rem 1.15rem 1.2rem; display: grid; gap: .45rem; }
-.rp-card__cat { display: flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 700; color: var(--steel); letter-spacing: .04em; }
-.rp-card__cat i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.rp-card h3 { margin: 0; font-size: 1.22rem; line-height: 1.25; }
-.rp-note { margin: 1.1rem 0 0; font-size: .8rem; color: var(--steel); }
-@media (max-width: 1000px) { .rp-card { flex-basis: calc((100% - 1.1rem) / 2); } }
-@media (max-width: 640px) {
-  .rp-head { flex-direction: column; align-items: flex-start; }
-  .rp-card { flex-basis: 86%; }
-  .rp-card h3 { font-size: 1.05rem; }
-  .rp-card__tx { padding: .85rem .95rem 1rem; }
+.rp-card img {
+  display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  /* height:auto is load-bearing, not tidying. The markup carries
+     height="720" for layout stability, and that attribute is a
+     presentational hint the browser applies as a real height — which makes
+     the box definite and aspect-ratio a no-op. Without this line the card
+     rendered 809px tall against the Customers card's 267px. */
+  height: auto;
 }
+.rp-card__tx { padding: 1.1rem 1.3rem 1.3rem; display: grid; gap: .4rem; }
+.rp-card__cat {
+  display: flex; align-items: center; gap: .45rem;
+  font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--steel);
+}
+.rp-card__cat i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.rp-card h3 { margin: 0; font-size: 1.12rem; line-height: 1.3; }
+.rp-note { margin: 1.4rem 0 0; font-size: .8rem; color: var(--steel); text-align: center; }
+@media (max-width: 620px) { .rp-card { width: 300px; } }

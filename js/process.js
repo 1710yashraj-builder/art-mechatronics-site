@@ -40,36 +40,7 @@
     }
   }
 
-  /* ---------- recent projects carousel ---------- */
-  var sec = document.getElementById("recent-projects");
-  if (!sec) return;
-  var track = sec.querySelector("[data-rp-track]");
-  var ctrl = sec.querySelector("[data-rp-ctrl]");
-  if (!track || !ctrl) return;
-  var cards = [].slice.call(track.children);
-  if (cards.length < 2) return;
-  sec.classList.add("rp--live");
-
-  var now = sec.querySelector("[data-rp-now]");
-  var step = function () {
-    var r = cards[1].getBoundingClientRect();
-    return r.left - cards[0].getBoundingClientRect().left; // card width + gap
-  };
-  sec.querySelector("[data-rp-prev]").addEventListener("click", function () {
-    track.scrollBy({ left: -step(), behavior: "smooth" });
-  });
-  sec.querySelector("[data-rp-next]").addEventListener("click", function () {
-    track.scrollBy({ left: step(), behavior: "smooth" });
-  });
-  var update = function () {
-    var i = Math.round(track.scrollLeft / step());
-    i = Math.max(0, Math.min(cards.length - 1, i));
-    now.textContent = (i + 1 < 10 ? "0" : "") + (i + 1);
-  };
-  var raf = 0;
-  track.addEventListener("scroll", function () {
-    if (raf) return;
-    raf = requestAnimationFrame(function () { raf = 0; update(); });
-  }, { passive: true });
-  update();
+  /* The recent-projects carousel that lived here was removed 2026-08-16: that
+     rail is now the shared marquee in js/layout.js, driven by [data-marquee],
+     so the arrows, counter and scroll maths no longer exist to wire up. */
 })();
