@@ -689,72 +689,84 @@ p { margin: 0 0 1em; }
 }
 
 /* ============================================================
-   SOCIAL LINK TREE — ONE tab on the left edge, vertically centred.
-   Collapsed: a single handle. Hover (desktop), tap (touch) or keyboard focus
-   slides the five links out from behind it. The panel is always in the DOM
-   and moves by TRANSFORM only, so nothing reflows and screen readers can
-   always reach the links.
+   SOCIAL RAIL — one round button on the left edge that unfolds into a
+   vertical stack of circles, one per platform (client reference, 2026-08-16).
+   Collapsed: a single share circle. Open: the circles rise above it, each in
+   its own brand colour, the tab flipping to a close X.
+   Only transform/opacity animate; the rail is fixed, so nothing ever reflows.
    ============================================================ */
 .srail {
-  position: fixed; left: 0; top: 50%; transform: translateY(-50%);
-  z-index: 60; display: flex; align-items: center;
+  position: fixed; left: 18px; top: 50%; transform: translateY(-50%);
+  z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
-/* the single tab */
-.srail__tab {
-  position: relative; z-index: 2;
-  display: grid; gap: .3rem; place-items: center;
-  width: 46px; min-height: 112px; padding: .9rem .2rem;
-  border: 0; border-radius: 0 var(--r) var(--r) 0;
-  background: var(--blue); color: #fff; cursor: pointer;
-  box-shadow: 0 8px 22px -10px rgba(8,27,58,.7);
-  transition: background .2s var(--ease);
+.srail__panel { display: flex; flex-direction: column; gap: 10px; }
+
+/* the circles */
+.srail__row, .srail__tab {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 0; cursor: pointer; position: relative;
+  box-shadow: 0 8px 20px -8px rgba(8,27,58,.55);
+  color: #fff;
 }
-.srail__tab:hover { background: var(--blue-bright); }
-.srail__tab:focus-visible { outline: 3px solid #fff; outline-offset: -4px; }
-.srail__tabic svg { width: 20px; height: 20px; display: block; }
-.srail__tabtx {
-  writing-mode: vertical-rl; text-orientation: mixed;
-  font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-}
-/* the panel: parked behind the tab, slides right when open */
-.srail__panel {
-  position: absolute; left: 0; top: 50%;
-  display: grid; gap: 2px;
-  transform: translate(-100%, -50%);
-  opacity: 0; pointer-events: none;
-  transition: transform .3s var(--ease), opacity .22s var(--ease);
-}
-.srail:hover .srail__panel,
-.srail.srail--open .srail__panel {
-  transform: translate(46px, -50%);      /* clears the tab */
-  opacity: 1; pointer-events: auto;
-}
+.srail__ic { display: grid; place-items: center; }
+.srail__ic svg, .srail__tabic, .srail__closeic { width: 21px; height: 21px; }
+
+/* collapsed: circles tucked behind the tab, invisible and untouchable */
 .srail__row {
-  display: flex; align-items: center;
-  width: 208px; min-height: 46px;
-  border-radius: 0 var(--r) var(--r) 0;
-  background: var(--navy); color: #fff;
-  box-shadow: 0 6px 18px -8px rgba(8,27,58,.6);
-  transition: background .18s var(--ease);
+  transform: scale(.4) translateY(28px); opacity: 0; pointer-events: none;
+  transition: transform .3s var(--ease), opacity .22s var(--ease), filter .18s var(--ease);
 }
-.srail__ic { flex: 0 0 46px; display: grid; place-items: center; }
-.srail__ic svg { width: 20px; height: 20px; }
-.srail__tx { display: grid; gap: .05rem; padding-right: 1rem; white-space: nowrap; }
-.srail__tx b { font-size: .86rem; font-weight: 700; line-height: 1.1; }
-.srail__tx i { font-style: normal; font-size: .72rem; color: #c8d6e9; }
-.srail__row:hover { background: var(--blue); }
-.srail__row:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
-.srail__row--whatsapp { background: #1FA855; }
-.srail__row--whatsapp:hover { background: #25D366; color: #06331a; }
+.srail:hover .srail__row,
+.srail.srail--open .srail__row { transform: none; opacity: 1; pointer-events: auto; }
+/* a short stagger so they unfold rather than appear all at once */
+.srail:hover .srail__row:nth-child(1), .srail--open .srail__row:nth-child(1) { transition-delay: .00s; }
+.srail:hover .srail__row:nth-child(2), .srail--open .srail__row:nth-child(2) { transition-delay: .04s; }
+.srail:hover .srail__row:nth-child(3), .srail--open .srail__row:nth-child(3) { transition-delay: .08s; }
+.srail:hover .srail__row:nth-child(4), .srail--open .srail__row:nth-child(4) { transition-delay: .12s; }
+.srail:hover .srail__row:nth-child(5), .srail--open .srail__row:nth-child(5) { transition-delay: .16s; }
+
+/* brand colours */
+.srail__row--linkedin  { background: #0A66C2; }
+.srail__row--instagram { background: linear-gradient(45deg,#F58529,#DD2A7B 50%,#8134AF); }
+.srail__row--facebook  { background: #1877F2; }
+.srail__row--line      { background: #06C755; }
+.srail__row--whatsapp  { background: #25D366; }
+.srail__row:hover, .srail__row:focus-visible { filter: brightness(1.12); }
+.srail__row:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+/* name appears beside the circle on hover — never the only way to know */
+.srail__tip {
+  position: absolute; left: calc(100% + 10px); top: 50%;
+  transform: translate(-6px, -50%); white-space: nowrap;
+  padding: .3rem .6rem; border-radius: var(--r-sm);
+  background: var(--navy); color: #fff; font-size: .76rem; font-weight: 700;
+  opacity: 0; pointer-events: none;
+  transition: opacity .16s var(--ease), transform .16s var(--ease);
+}
+.srail__row:hover .srail__tip, .srail__row:focus-visible .srail__tip { opacity: 1; transform: translate(0, -50%); }
+
+/* the tab */
+.srail__tab { background: var(--blue); }
+.srail__tab:hover { background: var(--blue-bright); }
+.srail__tab:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.srail__closeic { position: absolute; opacity: 0; transform: rotate(-90deg); transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.srail__tabic { transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.srail:hover .srail__tabic, .srail--open .srail__tabic { opacity: 0; transform: rotate(90deg); }
+.srail:hover .srail__closeic, .srail--open .srail__closeic { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .srail__panel { transition: none; }
+  .srail__row, .srail__tip, .srail__tabic, .srail__closeic { transition: none; }
 }
 /* Touch: hover means nothing, so only the tap toggle opens it. */
 @media (max-width: 900px) {
-  .srail__tab { width: 44px; min-height: 96px; }
-  .srail__row { width: 190px; min-height: 44px; }
-  .srail__ic { flex-basis: 44px; }
-  .srail:hover .srail__panel { transform: translate(-100%, -50%); opacity: 0; pointer-events: none; }
-  .srail.srail--open .srail__panel { transform: translate(44px, -50%); opacity: 1; pointer-events: auto; }
+  .srail { left: 12px; gap: 8px; }
+  .srail__row, .srail__tab { width: 46px; height: 46px; }
+  .srail:hover .srail__row { transform: scale(.4) translateY(28px); opacity: 0; pointer-events: none; }
+  .srail--open .srail__row { transform: none; opacity: 1; pointer-events: auto; }
+  .srail:hover .srail__tabic { opacity: 1; transform: none; }
+  .srail:hover .srail__closeic { opacity: 0; }
+  .srail--open .srail__tabic { opacity: 0; transform: rotate(90deg); }
+  .srail--open .srail__closeic { opacity: 1; transform: none; }
+  .srail__tip { display: none; }
 }

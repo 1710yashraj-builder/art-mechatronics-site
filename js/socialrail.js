@@ -42,7 +42,7 @@
            (s.ext ? ' target="_blank" rel="noopener"' : "") +
            ' aria-label="' + s.name + (s.note ? " \u2014 " + s.note : "") + '">' +
              '<span class="srail__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor">' + ICON[s.id] + '</svg></span>' +
-             '<span class="srail__tx"><b>' + s.name + '</b><i>' + (s.note || "") + '</i></span>' +
+             '<span class="srail__tip" aria-hidden="true">' + s.name + '</span>' +
            '</a>';
   }).join("");
 
@@ -57,12 +57,10 @@
   el.innerHTML =
     '<div class="srail__panel" id="srailPanel">' + rows + '</div>' +
     '<button class="srail__tab" type="button" aria-expanded="false" aria-controls="srailPanel" aria-label="Social links">' +
-      '<span class="srail__tabic" aria-hidden="true">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' +
+      '<svg class="srail__tabic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
         '<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/>' +
         '<path d="M8.4 10.8 15.6 6.6M8.4 13.2l7.2 4.2"/></svg>' +
-      '</span>' +
-      '<span class="srail__tabtx">Follow</span>' +
+      '<svg class="srail__closeic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
     '</button>';
   document.body.appendChild(el);
 
