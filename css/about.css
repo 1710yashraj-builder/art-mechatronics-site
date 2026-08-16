@@ -172,9 +172,9 @@
      the portrait's grey studio ground dissolves into the navy instead of
      meeting it on a hard horizontal line. */
   background:
-    linear-gradient(90deg, transparent 52%, #06152F 100%),
+    linear-gradient(90deg, transparent 52%, #0b3060 100%),
     linear-gradient(to top, rgba(6,21,47,.55) 0%, transparent 20%),
-    linear-gradient(to bottom, #0B2C5E 0%, rgba(11,44,94,.72) 6%, transparent 26%);
+    linear-gradient(to bottom, #14509f 0%, rgba(11,44,94,.72) 6%, transparent 26%);
 }
 /* ============================================================
    Installed lines — the six customer-plant photographs.
@@ -242,7 +242,7 @@
   margin-inline: auto;
   padding: clamp(3rem,5vw,5.5rem) clamp(1.5rem,3.5vw,3.25rem) clamp(3rem,5vw,5.5rem);
 }
-.md-hero__inner .eyebrow { color: var(--blue-bright); }
+.md-hero__inner .eyebrow { color: #bdd7f6; }
 .md-hero__inner h2 { color: #fff; margin: .35rem 0 1.6rem; }
 .md-hero__body { margin: 0; padding: 0; border: 0; }
 .md-hero__body p { margin: 0 0 1rem; line-height: 1.78; color: #c6d5ea; }
@@ -251,12 +251,12 @@
 .md-hero__body b { color: var(--blue-bright); font-weight: 700; }
 .md-hero__sig { margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.16); }
 .md-hero__sig b { display: block; color: #fff; font-size: 1.05rem; }
-.md-hero__sig span { display: block; color: #9fb4d4; font-size: .87rem; margin-top: .12rem; }
+.md-hero__sig span { display: block; color: #c9d5e7; font-size: .87rem; margin-top: .12rem; }
 
 @media (max-width: 900px) {
   .md-hero { grid-template-columns: 1fr; }
   .md-hero__figure { min-height: 0; max-height: 62vh; }
-  .md-hero__figure::after { background: linear-gradient(to top, #06152F 0%, transparent 38%); }
+  .md-hero__figure::after { background: linear-gradient(to top, #0b3060 0%, transparent 38%); }
   .md-hero__inner { padding: 2rem clamp(1.2rem,6vw,2.5rem) 3rem; max-width: none; }
 }
 
@@ -267,7 +267,7 @@
    light card, so it is left alone. */
 .ab-hero__cols { margin-top: clamp(2.2rem, 4vw, 3.2rem); }
 .ab-hero__cols .ab-lead-cols { margin-top: 0; }
-.ab-hero__cols .eyebrow { color: var(--blue-bright); }
+.ab-hero__cols .eyebrow { color: #bdd7f6; }
 .ab-hero__cols h2 { color: #fff; }
 .ab-hero__cols > .ab-lead-cols > div > p { color: #c6d5ea; }
 .ab-hero__cols strong { color: #fff; }
@@ -285,7 +285,7 @@
   text-align: center;
 }
 .team-shot__cap h2 { color: #fff; margin: 0 0 .35rem; font-size: clamp(1.2rem, 2.4vw, 1.7rem); }
-.team-shot__cap p { margin: 0; color: #9fb4d4; font-size: .95rem; }
+.team-shot__cap p { margin: 0; color: #c9d5e7; font-size: .95rem; }
 
 /* ============================================================
    MOBILE PASS — 2026-08-01. Three defects, each measured at 375px and 320px

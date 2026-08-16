@@ -5,7 +5,7 @@
 
 /* ---- listing hero (mirrors machines.css .mi-hero) ---- */
 .mi-hero { background: linear-gradient(160deg,var(--navy),var(--navy-2)); color:#dbe7f7; padding: var(--s-8) 0; }
-.mi-hero .eyebrow { color:#7fb2f2; }
+.mi-hero .eyebrow { color: #bdd7f6; }
 .mi-hero h1 { color:#fff; font-size: var(--fs-hero); max-width: 20ch; }
 .mi-hero .lead { color:#c8d8ee; max-width: 66ch; margin-bottom: 1.6rem; }
 

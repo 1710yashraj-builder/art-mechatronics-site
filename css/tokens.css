@@ -21,14 +21,14 @@
 
 :root {
   /* Brand blues — taken from the ÄRT logo itself (assets/logo.png is the catalogue artwork,
-     #1657b0 / #2e86e6 / #0b2c5e). Decided 2026-07-27: the orange on the old
+     #1657b0 / #2e86e6 / #14509f). Decided 2026-07-27: the orange on the old
      WordPress site came from "Machino", the off-the-shelf theme it was built on,
      and was inherited rather than chosen — the same way that theme's logo and
      "People Says About Machino" heading are still sitting on the live homepage.
      Blue is also the more accessible choice: #1657B0 is 6.94:1 on white and
      passes AA for body text, where the orange managed only 3.97:1. */
-  --navy:        #0B2C5E;   /* deep header/hero ground */
-  --navy-2:      #0A2148;   /* darker ground for gradients */
+  --navy:        #14509f;   /* deep header/hero ground */
+  --navy-2:      #0f3e7c;   /* darker ground for gradients */
   --blue:        #1657B0;   /* PRIMARY ACCENT — buttons, rules, badges */
   --blue-bright: #2E86E6;   /* hover / highlight (3.7:1 — large text & UI only) */
   --blue-soft:   #EAF2FD;   /* tinted panel background */

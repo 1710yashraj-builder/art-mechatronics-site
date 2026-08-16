@@ -3,7 +3,7 @@
 .md-hero__grid { display:grid; grid-template-columns: 1.05fr 1fr; gap: 2.5rem; align-items:center; }
 .md-hero__grid > *, .md-cols > *, .md-line-band > * { min-width:0; }
 @media (max-width: 900px){ .md-hero__grid { grid-template-columns:1fr; gap:1.6rem; } }
-.md-hero .eyebrow { color:#7fb2f2; }
+.md-hero .eyebrow { color: #bdd7f6; }
 .md-hero h1 { color:#fff; font-size: var(--fs-h2); margin-bottom:.3rem; }
 .md-hero__tag { color:#8fc0ff; font-weight:700; font-size:1.05rem; margin-bottom:1rem; }
 .md-hero .lead { color:#c8d8ee; }

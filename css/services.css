@@ -11,7 +11,7 @@
 }
 /* base.css sets headings to --ink, which is invisible on the navy hero. */
 .sv-hero h1 { margin: .4rem 0 1rem; max-width: 20ch; color: var(--white); }
-.sv-hero .eyebrow { color: var(--blue-bright); }
+.sv-hero .eyebrow { color: #bdd7f6; }
 .sv-hero .lead { color: #c9d6ea; max-width: 62ch; }
 .sv-hero__cta { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.8rem; }
 

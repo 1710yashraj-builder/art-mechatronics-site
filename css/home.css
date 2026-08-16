@@ -15,12 +15,12 @@
      so the scrim is load-bearing: white copy needs the radial centre at .62
      over the worst (brightest) slide to clear AA at display sizes. Do not
      thin it by eye on a dark slide.
-   - The stage welds into the flat #081b3a plinth below, same as the old hero.
+   - The stage welds into the flat #0d3568 plinth below, same as the old hero.
    ============================================================ */
 .home-hero {
   position: relative;
   color: #e7eefb;
-  background: #081b3a;
+  background: #0d3568;
   padding: 0;
 }
 
@@ -45,8 +45,8 @@
   content: "";
   position: absolute; inset: 0;
   background:
-    radial-gradient(80% 70% at 50% 42%, #123561 0%, #0c2851 38%, transparent 72%),
-    linear-gradient(115deg, #061226 0%, #081b3a 46%, #0b2c5e 100%);
+    radial-gradient(80% 70% at 50% 42%, #1657b0 0%, #12468c 38%, transparent 72%),
+    linear-gradient(115deg, #0a2a52 0%, #0d3568 46%, #14509f 100%);
 }
 /* Every slide fills the stage; only .is-on is visible. The 1.15s opacity
    transition IS the rotator's whole animation (M2: opacity only). */
@@ -61,13 +61,13 @@
 .home-hero__photo.is-on { opacity: 1; }
 
 /* ---- layer 1: the scrim (static, no animation, no blur) ----
-   Radial centre carries the headline zone; the bottom ramp ends ON #081b3a so
+   Radial centre carries the headline zone; the bottom ramp ends ON #0d3568 so
    the photograph welds into the plinth with no seam. */
 .home-hero__scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
     radial-gradient(95% 82% at 50% 44%, rgba(5,15,33,.62) 0%, rgba(5,15,33,.42) 58%, rgba(5,15,33,.24) 100%),
-    linear-gradient(to top, #081b3a 0%, rgba(8,27,58,.72) 9%, rgba(8,27,58,0) 30%);
+    linear-gradient(to top, #0d3568 0%, rgba(8,27,58,.72) 9%, rgba(8,27,58,0) 30%);
 }
 
 /* ---- layer 2: the copy, centred ---- */
@@ -179,10 +179,10 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 
 
 /* Project brief */
-.project-brief { scroll-margin-top:90px; color:#dfe9f7; background:#0a2148; }
+.project-brief { scroll-margin-top:90px; color:#dfe9f7; background:linear-gradient(160deg,var(--blue),var(--navy-2)); }
 .project-brief__grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(2.5rem,6vw,6rem); align-items:start; }
 .project-brief h2 { color:#fff; max-width:15ch; }
-.project-brief__intro > p { color:#b9cbe3; max-width:52ch; }
+.project-brief__intro > p { color:#c8d6e9; max-width:52ch; }
 .project-brief__promise { display:grid; grid-template-columns:auto 1fr; gap:.7rem 1rem; margin-top:2rem; }
 .project-brief__promise span { color:#6aaaf1; font-family:var(--font-mono); font-size:.76rem; }
 .project-brief__promise b { color:#edf4fc; font-size:.88rem; }
@@ -211,7 +211,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .project-form input::placeholder,.project-form textarea::placeholder { color:#718097; }
 .project-form__wide,.project-form .btn,.project-form small { grid-column:1/-1; }
 .project-form .btn { justify-content:center; width:fit-content; min-width:210px; }
-.project-form small { color:#9fb4d4; }
+.project-form small { color:#c9d5e7; }
 
 /* Section heads and actions */
 .sec-head { max-width:60ch; margin-bottom:2rem; }
@@ -282,8 +282,8 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
    ============================================================ */
 .stat-band { padding: 0 0 1.4rem; }
 .stat-strip {
-  background: linear-gradient(180deg, #1B5AB2 0%, #12417F 100%);
-  border-block: 1px solid #0D2F5E;
+  background: linear-gradient(180deg, #1657b0 0%, #0f3e7c 100%);
+  border-block: 1px solid #12468c;
 }
 .stat-strip__grid {
   list-style: none; margin: 0; padding: 0;
@@ -297,7 +297,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .stat-strip__grid li:last-child { border-right: 0; }
 .stat-strip__ic {
   flex: 0 0 auto; width: 50px; height: 50px; border-radius: 50%;
-  background: #fff; color: #12417F;
+  background: #fff; color: #0f3e7c;
   display: grid; place-items: center;
 }
 .stat-strip__ic svg { width: 27px; height: 27px; }
@@ -404,7 +404,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 /* ============================================================
    NETWORK — 5 / 9 / 3 / 14 on navy, then the three lists.
    ============================================================ */
-.net-band .sec-head .eyebrow { color: #9ec4f2; }
+.net-band .sec-head .eyebrow { color: #bdd7f6; }
 .net-band h2, .net-band h3 { color: #fff; }
 .net-counts {
   list-style: none; margin: 0 0 2.2rem; padding: 0;
@@ -416,7 +416,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; font-weight: 700; color: #fff;
   white-space: nowrap; font-variant-numeric: tabular-nums lining-nums;
 }
-.net-counts span { font-size: .84rem; color: #b9cbe3; }
+.net-counts span { font-size: .84rem; color: #c8d6e9; }
 /* ---- levels tree: root -> countries -> counted groups ---- */
 .net-tree { margin-top: .6rem; }
 .net-tree__root {
@@ -468,7 +468,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   background: rgba(8,27,58,.6);
   color: #fff; font-weight: 800; font-size: 1.15rem; letter-spacing: .03em;
 }
-.net-tree__country span { font-weight: 500; font-size: .72rem; letter-spacing: .06em; color: #9ec4f2; text-transform: uppercase; }
+.net-tree__country span { font-weight: 500; font-size: .72rem; letter-spacing: .06em; color: #bdd7f6; text-transform: uppercase; }
 .net-tree__groups { display: grid; gap: .8rem; margin-top: .9rem; }
 .net-tree__g {
   position: relative; padding: .85rem 1rem .9rem 1.15rem;
@@ -504,21 +504,24 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
    the LAST block in the file.)
    ============================================================ */
 .proc {
+  /* gradient built on the button blue (client, 2026-08-16): #1657B0 at the
+     top easing into a deeper shade of the same hue, so a full-screen section
+     reads as the brand blue without glaring. */
   background:
-    radial-gradient(70% 55% at 82% 10%, rgba(31,90,178,.35) 0%, transparent 60%),
-    linear-gradient(180deg, #081b3a 0%, #0a2148 100%);
+    radial-gradient(70% 55% at 82% 10%, rgba(46,134,230,.30) 0%, transparent 60%),
+    linear-gradient(180deg, #1657b0 0%, #0f3e7c 100%);
   color: #dfe9f7;
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 .proc__head { margin-bottom: 2.2rem; text-align: center; }
 .proc__pill {
   display: inline-block; padding: .42rem .95rem; border: 1px solid rgba(255,255,255,.35);
-  border-radius: 99px; color: #9ec4f2; font-size: .72rem; font-weight: 700;
+  border-radius: 99px; color: #bdd7f6; font-size: .72rem; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
 }
 .proc__title { color: #fff; font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem); margin: 0 0 .7rem; }
 .proc__title span { color: #6aaaf1; }
-.proc__sub { margin: 0 auto; max-width: 46ch; color: #b9cbe3; font-size: 1.02rem; line-height: 1.6; }
+.proc__sub { margin: 0 auto; max-width: 46ch; color: #c8d6e9; font-size: 1.02rem; line-height: 1.6; }
 .proc__railwrap { border-block: 1px solid rgba(255,255,255,.16); background: rgba(8,27,58,.4); }
 .proc__rail {
   display: flex; gap: .2rem; flex-wrap: wrap; justify-content: center;
@@ -530,7 +533,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .95rem 1.05rem; min-height: 48px;
   background: none; border: 0; border-bottom: 3px solid transparent;
-  color: #b9cbe3; font: inherit; font-size: .8rem; font-weight: 700;
+  color: #c8d6e9; font: inherit; font-size: .8rem; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
   cursor: pointer;
   transition: color .18s var(--ease), border-color .18s var(--ease);
@@ -543,13 +546,13 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .proc__panel { display: grid; grid-template-columns: 1.35fr .8fr; gap: 2.5rem; align-items: center; }
 .proc--tabs .proc__panel { display: none; }
 .proc--tabs .proc__panel.is-on { display: grid; }
-.proc__stepno { color: #6aaaf1; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+.proc__stepno { color: #b9d7f8; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
 .proc__panel h3 { color: #fff; font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.3rem); margin: .5rem 0 .8rem; }
 .proc__panel p { margin: 0 0 1.1rem; max-width: 54ch; color: #cfdcf0; line-height: 1.65; }
 .proc__chips { list-style: none; margin: 0 0 1.4rem; padding: 0; display: flex; gap: .5rem; flex-wrap: wrap; }
 .proc__chips li {
   padding: .4rem .85rem; border: 1px solid rgba(106,170,241,.5); border-radius: 99px;
-  color: #9ec4f2; font-size: .78rem; font-weight: 650;
+  color: #bdd7f6; font-size: .78rem; font-weight: 650;
 }
 .proc__side { position: relative; display: grid; gap: .8rem; justify-items: start; align-content: center; min-height: 200px; padding-left: 1.4rem; }
 .proc__ghost {
@@ -564,11 +567,11 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .06em;
 }
 .proc__prog { display: grid; gap: .4rem; }
-.proc__prog-k { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: #9ec4f2; }
+.proc__prog-k { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: #bdd7f6; }
 .proc__dots { display: flex; gap: .3rem; }
 .proc__dots span { width: 14px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.18); }
 .proc__dots span.done { background: #6aaaf1; }
-.proc__prog-v { font-size: .78rem; color: #b9cbe3; }
+.proc__prog-v { font-size: .78rem; color: #c8d6e9; }
 .proc .section-actions { margin-top: 2.4rem; }
 @media (max-width: 1050px) {
   .proc__head { grid-template-columns: 1fr; gap: 1.6rem; }
