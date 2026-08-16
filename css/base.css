@@ -721,7 +721,8 @@ p { margin: 0 0 1em; }
   color: #fff;
 }
 .srail__ic { display: grid; place-items: center; }
-.srail__ic svg, .srail__tabic, .srail__closeic { width: 21px; height: 21px; }
+.srail__ic svg { width: 21px; height: 21px; }
+.srail__tab .srail__tabic, .srail__tab .srail__closeic { width: 22px; height: 22px; flex: 0 0 auto; }
 
 /* collapsed: circles tucked behind the tab, invisible and untouchable */
 .srail__row {
@@ -760,9 +761,11 @@ p { margin: 0 0 1em; }
 /* the tab */
 .srail__tab {
   /* Slim and flat against the edge while closed — 30px sits inside the page
-     padding, so nothing is covered until the visitor opens it themselves. */
+     padding, so nothing is covered until the visitor opens it themselves.
+     padding:0 is load-bearing: the shared circle rule's side padding left a
+     6px content column and squashed the glyph to 6px wide. */
   width: 30px; height: 62px; border-radius: 0 var(--r-lg) var(--r-lg) 0;
-  background: var(--blue);
+  padding: 0; background: var(--blue);
   transition: width .22s var(--ease), background .2s var(--ease);
 }
 .srail:hover .srail__tab, .srail--open .srail__tab { width: 48px; }
@@ -772,14 +775,14 @@ p { margin: 0 0 1em; }
    content then is the visitor's own doing, not a permanent obstruction. */
 @media (max-width: 1379px) {
   .srail__tab { width: 18px; height: 58px; }
-  .srail__tabic, .srail__closeic { width: 14px; height: 14px; }
+  .srail__tab .srail__tabic, .srail__tab .srail__closeic { width: 17px; height: 17px; }
   .srail:hover .srail__tab, .srail--open .srail__tab { width: 48px; }
-  .srail:hover .srail__tabic, .srail:hover .srail__closeic,
-  .srail--open .srail__tabic, .srail--open .srail__closeic { width: 21px; height: 21px; }
+  .srail:hover .srail__tab .srail__tabic, .srail:hover .srail__tab .srail__closeic,
+  .srail--open .srail__tab .srail__tabic, .srail--open .srail__tab .srail__closeic { width: 22px; height: 22px; }
 }
 .srail__tab:hover { background: var(--blue-bright); }
 .srail__tab:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-.srail__closeic { position: absolute; opacity: 0; transform: rotate(-90deg); transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.srail__closeic { position: absolute; inset: auto; opacity: 0; transform: rotate(-90deg); transition: opacity .2s var(--ease), transform .2s var(--ease); }
 .srail__tabic { transition: opacity .2s var(--ease), transform .2s var(--ease); }
 .srail:hover .srail__tabic, .srail--open .srail__tabic { opacity: 0; transform: rotate(90deg); }
 .srail:hover .srail__closeic, .srail--open .srail__closeic { opacity: 1; transform: none; }

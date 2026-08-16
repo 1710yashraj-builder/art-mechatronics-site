@@ -57,10 +57,10 @@
   el.innerHTML =
     '<div class="srail__panel" id="srailPanel">' + rows + '</div>' +
     '<button class="srail__tab" type="button" aria-expanded="false" aria-controls="srailPanel" aria-label="Social links">' +
-      '<svg class="srail__tabic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<svg class="srail__tabic" viewBox="3 2 18 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
         '<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/>' +
         '<path d="M8.4 10.8 15.6 6.6M8.4 13.2l7.2 4.2"/></svg>' +
-      '<svg class="srail__closeic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+      '<svg class="srail__closeic" viewBox="4 4 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
     '</button>';
   document.body.appendChild(el);
 
