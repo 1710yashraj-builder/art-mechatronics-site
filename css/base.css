@@ -689,61 +689,72 @@ p { margin: 0 0 1em; }
 }
 
 /* ============================================================
-   SOCIAL LINK TREE — fixed rail, left edge, vertically centred.
-   Collapsed it is a column of icon buttons; hover (or keyboard focus, or the
-   toggle on touch) slides the names out. Every row is a real link, so the
-   rail degrades to five working links if the script never runs.
+   SOCIAL LINK TREE — ONE tab on the left edge, vertically centred.
+   Collapsed: a single handle. Hover (desktop), tap (touch) or keyboard focus
+   slides the five links out from behind it. The panel is always in the DOM
+   and moves by TRANSFORM only, so nothing reflows and screen readers can
+   always reach the links.
    ============================================================ */
 .srail {
   position: fixed; left: 0; top: 50%; transform: translateY(-50%);
-  z-index: 60; display: grid; gap: 2px;
+  z-index: 60; display: flex; align-items: center;
 }
-.srail__toggle { display: none; }
+/* the single tab */
+.srail__tab {
+  position: relative; z-index: 2;
+  display: grid; gap: .3rem; place-items: center;
+  width: 46px; min-height: 112px; padding: .9rem .2rem;
+  border: 0; border-radius: 0 var(--r) var(--r) 0;
+  background: var(--blue); color: #fff; cursor: pointer;
+  box-shadow: 0 8px 22px -10px rgba(8,27,58,.7);
+  transition: background .2s var(--ease);
+}
+.srail__tab:hover { background: var(--blue-bright); }
+.srail__tab:focus-visible { outline: 3px solid #fff; outline-offset: -4px; }
+.srail__tabic svg { width: 20px; height: 20px; display: block; }
+.srail__tabtx {
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+}
+/* the panel: parked behind the tab, slides right when open */
+.srail__panel {
+  position: absolute; left: 0; top: 50%;
+  display: grid; gap: 2px;
+  transform: translate(-100%, -50%);
+  opacity: 0; pointer-events: none;
+  transition: transform .3s var(--ease), opacity .22s var(--ease);
+}
+.srail:hover .srail__panel,
+.srail.srail--open .srail__panel {
+  transform: translate(46px, -50%);      /* clears the tab */
+  opacity: 1; pointer-events: auto;
+}
 .srail__row {
-  display: flex; align-items: center; gap: 0;
-  width: 48px; height: 48px; overflow: hidden;
+  display: flex; align-items: center;
+  width: 208px; min-height: 46px;
   border-radius: 0 var(--r) var(--r) 0;
   background: var(--navy); color: #fff;
   box-shadow: 0 6px 18px -8px rgba(8,27,58,.6);
-  /* width is the only property that can animate here without reflowing the
-     page, because the rail is fixed and out of flow */
-  transition: width .26s var(--ease), background .2s var(--ease);
+  transition: background .18s var(--ease);
 }
-.srail__ic { flex: 0 0 48px; display: grid; place-items: center; }
-.srail__ic svg { width: 21px; height: 21px; }
-.srail__tx { display: grid; gap: .05rem; padding-right: 1rem; white-space: nowrap; opacity: 0; transition: opacity .2s var(--ease); }
+.srail__ic { flex: 0 0 46px; display: grid; place-items: center; }
+.srail__ic svg { width: 20px; height: 20px; }
+.srail__tx { display: grid; gap: .05rem; padding-right: 1rem; white-space: nowrap; }
 .srail__tx b { font-size: .86rem; font-weight: 700; line-height: 1.1; }
 .srail__tx i { font-style: normal; font-size: .72rem; color: #c8d6e9; }
-.srail:hover .srail__row,
-.srail.srail--open .srail__row { width: 208px; }
-.srail:hover .srail__tx,
-.srail.srail--open .srail__tx { opacity: 1; }
 .srail__row:hover { background: var(--blue); }
 .srail__row:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
 .srail__row--whatsapp { background: #1FA855; }
 .srail__row--whatsapp:hover { background: #25D366; color: #06331a; }
 
 @media (prefers-reduced-motion: reduce) {
-  .srail__row, .srail__tx { transition: none; }
+  .srail__panel { transition: none; }
 }
-
-/* Touch: no hover, so a real toggle button drives it (client's choice).
-   Smaller icons, and the rail sits clear of the sticky header and footer. */
+/* Touch: hover means nothing, so only the tap toggle opens it. */
 @media (max-width: 900px) {
-  .srail { gap: 1px; }
-  .srail__row { width: 44px; height: 44px; border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+  .srail__tab { width: 44px; min-height: 96px; }
+  .srail__row { width: 190px; min-height: 44px; }
   .srail__ic { flex-basis: 44px; }
-  .srail__ic svg { width: 18px; height: 18px; }
-  .srail:hover .srail__row { width: 44px; }        /* hover means nothing here */
-  .srail:hover .srail__tx { opacity: 0; }
-  .srail.srail--open .srail__row { width: 190px; }
-  .srail.srail--open .srail__tx { opacity: 1; }
-  .srail__toggle {
-    display: grid; place-items: center;
-    width: 44px; height: 44px; margin-bottom: 4px;
-    border: 0; border-radius: 0 var(--r-sm) var(--r-sm) 0;
-    background: var(--blue); color: #fff; cursor: pointer;
-  }
-  .srail__toggle svg { width: 18px; height: 18px; transition: transform .22s var(--ease); }
-  .srail.srail--open .srail__toggle svg { transform: rotate(180deg); }
+  .srail:hover .srail__panel { transform: translate(-100%, -50%); opacity: 0; pointer-events: none; }
+  .srail.srail--open .srail__panel { transform: translate(44px, -50%); opacity: 1; pointer-events: auto; }
 }

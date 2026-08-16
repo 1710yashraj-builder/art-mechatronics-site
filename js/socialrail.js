@@ -40,30 +40,45 @@
   var rows = items.map(function (s) {
     return '<a class="srail__row srail__row--' + s.id + '" href="' + s.url + '"' +
            (s.ext ? ' target="_blank" rel="noopener"' : "") +
-           ' aria-label="' + s.name + (s.note ? " — " + s.note : "") + '">' +
+           ' aria-label="' + s.name + (s.note ? " \u2014 " + s.note : "") + '">' +
              '<span class="srail__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor">' + ICON[s.id] + '</svg></span>' +
              '<span class="srail__tx"><b>' + s.name + '</b><i>' + (s.note || "") + '</i></span>' +
            '</a>';
   }).join("");
 
+  /* ONE tab (client, 2026-08-16). Collapsed the rail is a single handle; the
+     five links live in a panel that sits hidden BEHIND it and slides out on
+     hover / tap / keyboard focus. The panel is always in the DOM and moved
+     with transform only — nothing resizes, so the page never reflows and the
+     links stay reachable by assistive tech. */
   var el = document.createElement("aside");
   el.className = "srail";
   el.setAttribute("aria-label", "ART Mechatronics social links");
   el.innerHTML =
-    '<button class="srail__toggle" type="button" aria-expanded="false" aria-label="Show social links">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>' +
-    '</button>' + rows;
+    '<div class="srail__panel" id="srailPanel">' + rows + '</div>' +
+    '<button class="srail__tab" type="button" aria-expanded="false" aria-controls="srailPanel" aria-label="Social links">' +
+      '<span class="srail__tabic" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' +
+        '<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/>' +
+        '<path d="M8.4 10.8 15.6 6.6M8.4 13.2l7.2 4.2"/></svg>' +
+      '</span>' +
+      '<span class="srail__tabtx">Follow</span>' +
+    '</button>';
   document.body.appendChild(el);
 
-  var toggle = el.querySelector(".srail__toggle");
-  toggle.addEventListener("click", function () {
-    var open = el.classList.toggle("srail--open");
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.setAttribute("aria-label", open ? "Hide social links" : "Show social links");
+  var tab = el.querySelector(".srail__tab");
+  function setOpen(open) {
+    el.classList.toggle("srail--open", open);
+    tab.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  tab.addEventListener("click", function () { setOpen(!el.classList.contains("srail--open")); });
+  // tapping anywhere else closes it again on touch
+  document.addEventListener("click", function (e) {
+    if (!el.contains(e.target)) setOpen(false);
   });
   // keyboard users get the same expansion hover gives a mouse user
-  el.addEventListener("focusin", function () { el.classList.add("srail--open"); });
+  el.addEventListener("focusin", function () { setOpen(true); });
   el.addEventListener("focusout", function (e) {
-    if (!el.contains(e.relatedTarget)) el.classList.remove("srail--open");
+    if (!el.contains(e.relatedTarget)) setOpen(false);
   });
 })();
