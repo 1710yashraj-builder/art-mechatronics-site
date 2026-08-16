@@ -508,7 +508,7 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   color: #dfe9f7;
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
-.proc__head { display: grid; grid-template-columns: 1.4fr .9fr; gap: 2.5rem; align-items: center; margin-bottom: 2.2rem; }
+.proc__head { margin-bottom: 2.2rem; }
 .proc__pill {
   display: inline-block; padding: .42rem .95rem; border: 1px solid rgba(255,255,255,.35);
   border-radius: 99px; color: #9ec4f2; font-size: .72rem; font-weight: 700;
@@ -517,19 +517,9 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .proc__title { color: #fff; font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem); margin: .9rem 0 .7rem; }
 .proc__title span { color: #6aaaf1; }
 .proc__sub { margin: 0; max-width: 46ch; color: #b9cbe3; font-size: 1.02rem; line-height: 1.6; }
-.proc__stats {
-  list-style: none; margin: 0; padding: .4rem;
-  display: grid; grid-template-columns: 1fr 1fr; gap: .4rem;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg);
-}
-.proc__stats li { display: grid; gap: .2rem; justify-items: center; padding: 1rem .6rem; border-radius: var(--r); background: rgba(8,27,58,.55); }
-.proc__stats b { font-size: clamp(1.5rem, 2vw, 2rem); line-height: 1; color: #6aaaf1; font-weight: 700; font-variant-numeric: tabular-nums lining-nums; }
-.proc__stats span { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #b9cbe3; }
 .proc__railwrap { border-block: 1px solid rgba(255,255,255,.16); background: rgba(8,27,58,.4); }
 .proc__rail {
-  display: flex; gap: .2rem;
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  display: flex; gap: .2rem; flex-wrap: wrap;
   scrollbar-width: none;
 }
 .proc__rail::-webkit-scrollbar { display: none; }
@@ -580,10 +570,11 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .proc .section-actions { margin-top: 2.4rem; }
 @media (max-width: 1050px) {
   .proc__head { grid-template-columns: 1fr; gap: 1.6rem; }
-  .proc__stats { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 700px) {
-  .proc__stats { grid-template-columns: 1fr 1fr; }
+  /* back to a one-line scroller: twelve wrapped tabs would push the step
+     content off a phone screen entirely */
+  .proc__rail { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .proc__panel { grid-template-columns: 1fr; gap: 1.4rem; }
   .proc__side { min-height: 150px; padding-left: 0; }
   .proc__panel .btn { width: 100%; justify-content: center; }
