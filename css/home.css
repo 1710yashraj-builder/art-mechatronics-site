@@ -210,6 +210,10 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .project-form textarea { min-height:112px; resize:vertical; }
 .project-form input::placeholder,.project-form textarea::placeholder { color:#718097; }
 .project-form__wide,.project-form .btn,.project-form small { grid-column:1/-1; }
+/* the two send routes share a row and wrap together on narrow screens */
+.project-form__actions { display:flex; gap:.8rem; flex-wrap:wrap; }
+.project-form__actions .btn { width:auto; min-width:0; justify-content:center; }
+@media (max-width:620px){ .project-form__actions .btn { width:100%; } }
 .project-form .btn { justify-content:center; width:fit-content; min-width:210px; }
 .project-form small { color:#c9d5e7; }
 

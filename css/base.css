@@ -36,7 +36,8 @@ p { margin: 0 0 1em; }
    made "CONTACT" invisible. #bdd7f6 clears AA (4.7) on the lightest of them. */
 .ct-hero .eyebrow, .mi-hero .eyebrow, .ab-hero .eyebrow,
 .md-hero .eyebrow, .sv-hero .eyebrow,
-.ab-hero__cols .eyebrow, .md-hero__inner .eyebrow { color: #bdd7f6; }
+.ab-hero__cols .eyebrow, .md-hero__inner .eyebrow,
+.project-brief .eyebrow, .proc .eyebrow, .net-band .eyebrow { color: #bdd7f6; }
 .lead { font-size: var(--fs-lead); color: var(--slate); max-width: 62ch; }
 .section--navy .lead { color: #c2d3ea; }
 .center { text-align: center; }
