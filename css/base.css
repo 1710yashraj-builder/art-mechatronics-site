@@ -697,9 +697,17 @@ p { margin: 0 0 1em; }
    ============================================================ */
 .srail {
   position: fixed; left: 18px; top: 50%; transform: translateY(-50%);
-  z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  z-index: 60; display: flex; flex-direction: column; align-items: center;
 }
-.srail__panel { display: flex; flex-direction: column; gap: 10px; }
+/* The panel is ABSOLUTE, anchored above the tab. It must not sit in the
+   rail's flow: transformed-away circles still occupy layout, which made the
+   collapsed rail 338px tall and left the visible tab 145px BELOW centre.
+   Out of flow, the rail is exactly the tab, so the tab is what gets centred —
+   and the circles fly up from it, as in the client's reference. */
+.srail__panel {
+  position: absolute; bottom: calc(100% + 10px); left: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
 
 /* the circles */
 .srail__row, .srail__tab {
