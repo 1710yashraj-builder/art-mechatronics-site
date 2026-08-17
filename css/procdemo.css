@@ -5,6 +5,10 @@
 .pd {
   background: linear-gradient(180deg, var(--blue) 0%, var(--navy-2) 100%);
   color: #dfe9f7;
+  /* #process is a link target (the client gets sent straight to it), and the
+     header is sticky — without this the heading lands underneath it. Same
+     treatment the other anchor targets on the site already get. */
+  scroll-margin-top: 90px;
 }
 .pd__head { text-align: center; padding: clamp(2.6rem,5vw,4rem) 0 1.4rem; }
 .pd__title { color: #fff; font-size: clamp(2rem,1.3rem+2.4vw,3.2rem); margin: 0 0 .6rem; }
