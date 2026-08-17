@@ -117,9 +117,27 @@
 .pd .sec-head h2 { color: #fff; }
 .pd .sec-head__sub { color: #bdd7f6; }
 
+/* --- vertical rhythm (ui-ux-pro-max: content-priority, whitespace-balance) ---
+   Measured at 1560px before this: the header text ran 289px before the first
+   step, against a step panel of 291px — the introduction outweighed the thing
+   it introduces, and the first step opened below the fold. Everything here is
+   on the 8pt scale (8 / 16 / 24 / 40 / 48), so the section has a rhythm instead
+   of a pile of one-off margins. Net effect ~100px reclaimed, with the heading
+   left at the site-wide section size so this section still matches the others. */
+.pd.section { padding-block: 40px 48px; }
+.pd .sec-head { margin-bottom: 16px; }
+.pd .sec-head h2 { margin-bottom: 8px; }
+.pd .sec-head__sub { margin-top: 0; }
+.pd .pd__meter { padding-top: 8px; }
+.pd .pd__track { padding-block: 24px 32px; }
+
 .pd-intro {
-  margin: 1rem auto 0; max-width: 78ch;
-  color: #cfdcf0; font-size: 1.02rem; line-height: 1.7;
+  /* Its own measure, not .sec-head's 60ch — see the note in index.html.
+     ~90 characters a line rather than the 65–75 the guideline prefers for
+     long-form: a deliberate trade to keep this a 4-line lead instead of a
+     5-line block, with 1.6 line-height to keep the longer lines trackable. */
+  margin: 0 auto; max-width: 72ch;
+  color: #cfdcf0; font-size: .97rem; line-height: 1.6; text-align: center;
 }
 
 /* prev / next sit with the counter so all the controls are in one place */
@@ -135,7 +153,9 @@
 .pd-nav__btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 
 /* the closing chain — his "Understand -> Engineer -> Test -> ..." line */
-.pd-commit { margin-top: 2.4rem; padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,.18); text-align: center; }
+/* The closing statement is a separate thought, so it keeps a clear gap — but on
+   the same 8pt scale as the rest of the section rather than 2.4rem/1.6rem. */
+.pd-commit { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.18); text-align: center; }
 .pd-commit__h {
   display: block; margin-bottom: .8rem;
   color: #bdd7f6; font-size: .74rem; font-weight: 700;
@@ -155,6 +175,11 @@
 .pd-commit__note { margin: 0 auto; max-width: 70ch; color: #cfdcf0; font-size: .95rem; line-height: 1.65; }
 
 @media (max-width: 700px) {
-  .pd-intro { font-size: .98rem; }
+  /* 16px floor for body copy on phones (ui-ux-pro-max: readable-font-size).
+     The narrow measure gives short lines here anyway, so the desktop
+     trade-off does not apply — only the spacing needs to come in. */
+  .pd-intro { font-size: 1rem; }
+  .pd.section { padding-block: 32px 40px; }
+  .pd .pd__track { padding-block: 20px 26px; }
   .pd-commit__chain li { font-size: .86rem; }
 }
