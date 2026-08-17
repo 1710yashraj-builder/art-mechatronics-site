@@ -1,11 +1,13 @@
-/* ===== Process stepper — 12 steps on one horizontal track =====
+/* ===== Process stepper — the 16-step process on one horizontal track =====
    Four demo variants for the client to choose between, driven by two data
    attributes on the section, so all four share ONE implementation:
 
      data-motion="scroll"  steps advance with the page scroll (visitor-paced)
      data-motion="auto"    steps advance on a timer
-     data-len="phases"     ~3 screens, grouped into 4 named phases
      data-len="compact"    one screen, steps move inside a fixed frame
+
+   Live on the homepage since 2026-08-16 with Anurag's real 16 steps and the
+   Option 4 he chose (auto + compact). The three unchosen demo pages are gone.
 
    Design rules this obeys (ui-ux-pro-max):
    - transform/opacity only; never animates width/height/left (perf, no CLS)
@@ -36,12 +38,19 @@
   var N = panels.length;
   var i = 0, taken = false, timer = null;
 
+  // The track is N panels wide and each panel is 1/N of it. Publish the real
+  // count to CSS instead of hard-coding it there, so adding or removing a step
+  // in the markup can never leave the track mis-sized.
+  sec.style.setProperty("--pd-n", N);
+
   // Script is alive and the browser can animate: switch the CSS from
   // "readable list" to "one horizontal track".
   if (!reduced) sec.classList.add("pd--live");
 
-  var PHASES = ["Pre-sales", "Engineering", "Production", "After-sales"];
-  function phaseOf(n) { return PHASES[Math.min(PHASES.length - 1, Math.floor(n / (N / PHASES.length)))]; }
+  /* No phase labels any more: Anurag's document does not group the steps, so
+     inventing four phase names would have put words on screen he never wrote.
+     phaseEl is absent from the markup; the guard below keeps this safe if a
+     future layout adds one back. */
 
   function show(n) {
     n = Math.max(0, Math.min(N - 1, n));
@@ -56,8 +65,23 @@
     });
     if (fill) fill.style.transform = "scaleX(" + ((i + 1) / N) + ")";
     if (nowEl) nowEl.textContent = (i + 1 < 10 ? "0" : "") + (i + 1);
-    if (phaseEl) phaseEl.textContent = phaseOf(i);
-    tabs[i] && tabs[i].scrollIntoView({ block: "nearest", inline: "center", behavior: reduced ? "auto" : "smooth" });
+    revealTab(tabs[i]);
+  }
+
+  /* Sixteen tabs do not fit one screen, so the rail scrolls to follow the
+     active step. This scrolls the RAIL, not the document: scrollIntoView with
+     block:"nearest" also nudges the page vertically when the rail is partly
+     out of view, and with a step landing every 3 seconds that reads as the
+     page twitching under whoever is reading. Rects, not offsetLeft, so it does
+     not depend on which ancestor happens to be positioned. */
+  var rail = sec.querySelector(".pd__rail");
+  function revealTab(t) {
+    if (!rail || !t || rail.scrollWidth <= rail.clientWidth) return;
+    var rr = rail.getBoundingClientRect(), tr = t.getBoundingClientRect();
+    var want = rail.scrollLeft + (tr.left + tr.width / 2) - (rr.left + rr.width / 2);
+    var left = Math.max(0, Math.min(rail.scrollWidth - rail.clientWidth, want));
+    if (rail.scrollTo) rail.scrollTo({ left: left, behavior: reduced ? "auto" : "smooth" });
+    else rail.scrollLeft = left;
   }
 
   // ---- tabs: always available, in every variant ----
@@ -93,11 +117,23 @@
   // ---- motion: auto ----
   function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
   if (motion === "auto" && !reduced) {
-    var onScreen = true;
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (es) { onScreen = !!(es[0] && es[0].isIntersecting); },
-        { threshold: 0.3 }).observe(sec);
-    }
+    /* "Is the visitor actually looking at this?" measured against the VIEWPORT,
+       not against the section's own height.
+
+       This was an IntersectionObserver at threshold 0.3, and it never fired:
+       the section is taller than one screen, so the visible fraction OF THE
+       SECTION peaks around 0.4 on a laptop and lower on a phone — on a short
+       screen it can never reach 0.3, and the rail would sit frozen on step 01
+       forever with nothing in the console to say why. A ratio threshold is the
+       wrong instrument for an element bigger than the window.
+
+       The timer already wakes every 3s, so measuring here costs one rect read
+       per tick — far too cheap to need an observer, and it cannot latch. */
+    var inView = function () {
+      var r = sec.getBoundingClientRect();
+      var visible = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+      return visible >= Math.min(240, innerHeight * 0.4);
+    };
     // Two different things, which the first cut wrongly conflated:
     //   HOVER = temporary pause. Resume when the pointer leaves. Otherwise a
     //           pointer resting anywhere over the section kills the rail for
@@ -106,14 +142,24 @@
     //           nothing should move under someone who is driving it.
     var hovering = false;
     timer = setInterval(function () {
-      if (document.hidden || !onScreen || hovering || taken) return;
+      if (document.hidden || hovering || taken || !inView()) return;
       show((i + 1) % N);
-    }, 3800);
+    }, 3000);   // 3s — client's choice, 2026-08-16
     sec.addEventListener("mouseenter", function () { hovering = true; });
     sec.addEventListener("mouseleave", function () { hovering = false; });
     sec.addEventListener("touchstart", function () { taken = true; stopAuto(); }, { passive: true });
     sec.addEventListener("focusin", function () { taken = true; stopAuto(); });
   }
+
+  /* Prev / next, added at the client's request 2026-08-16. Same contract as a
+     tab click: stepping by hand means the visitor has taken over, so the timer
+     stops rather than yanking the panel away mid-read. Wraps at both ends so
+     neither button is ever a dead control. */
+  var prev = sec.querySelector("[data-proc-prev]");
+  var next = sec.querySelector("[data-proc-next]");
+  function step(d) { taken = true; stopAuto(); show((i + d + N) % N); }
+  if (prev) prev.addEventListener("click", function () { step(-1); });
+  if (next) next.addEventListener("click", function () { step(1); });
 
   show(0);
 })();

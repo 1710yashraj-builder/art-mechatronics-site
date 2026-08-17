@@ -21,9 +21,10 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://artmechatronics.com/#organization","name":"ART Mechatronics","url":"https://artmechatronics.com/","logo":"https://artmechatronics.com/assets/logo.png","image":"https://artmechatronics.com/assets/hero/rotator/og-hero.jpg","description":"Manufacturer of industrial processing, packaging, material-handling and dust-collection machinery, from single machines to complete PLC-controlled turnkey lines.","email":"info@artmechatronics.com","areaServed":[{"@type":"Country","name":"India"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Thailand"}],"founder":{"@type":"Person","name":"Anurag Tiwari"},"parentOrganization":{"@type":"Organization","name":"Thermocare Industries Limited","url":"https://thermocaregroup.com/","foundingDate":"1997"},"contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+91-80903-15151","areaServed":"IN","availableLanguage":["en","hi"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+971-50-216-7151","areaServed":"AE","availableLanguage":["en"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+66-838291089","areaServed":"TH","availableLanguage":["en","th"]}]},{"@type":"WebPage","@id":"https://artmechatronics.com/#page","url":"https://artmechatronics.com/","name":"Industrial Processing \u0026 Automation Systems | ART Mechatronics","description":"ART Mechatronics designs and integrates industrial processing, packaging, material handling and automation systems, backed by Thermocare manufacturing experience since 1997.","isPartOf":{"@id":"https://artmechatronics.com/#website"},"about":{"@id":"https://artmechatronics.com/#organization"},"primaryImageOfPage":"https://artmechatronics.com/assets/hero/rotator/og-hero.jpg"},{"@type":"WebSite","@id":"https://artmechatronics.com/#website","url":"https://artmechatronics.com/","name":"ART Mechatronics","publisher":{"@id":"https://artmechatronics.com/#organization"},"inLanguage":"en"}]}</script>
   <!-- core-seo:end -->
   <link rel="icon" href="assets/logo.png" type="image/png">
-  <link rel="stylesheet" href="css/tokens.css?v=20260816t">
-  <link rel="stylesheet" href="css/base.css?v=20260816t">
-  <link rel="stylesheet" href="css/home.css?v=20260816t">
+  <link rel="stylesheet" href="css/tokens.css?v=20260816u">
+  <link rel="stylesheet" href="css/base.css?v=20260816u">
+  <link rel="stylesheet" href="css/home.css?v=20260816u">
+  <link rel="stylesheet" href="css/procdemo.css?v=20260816u">
 </head>
 <body data-page="home">
   <div data-header></div>
@@ -45,9 +46,9 @@
   <section class="home-hero" data-rotator>
     <div class="home-hero__stage">
       <div class="home-hero__media" aria-hidden="true">
-        <img class="home-hero__photo is-on" src="assets/hero/rotator/inst-04-1920.webp?v=20260816t" alt=""
+        <img class="home-hero__photo is-on" src="assets/hero/rotator/inst-04-1920.webp?v=20260816u" alt=""
              width="1920" height="1440" fetchpriority="high"
-             srcset="assets/hero/rotator/inst-04-960.webp?v=20260816t 960w, assets/hero/rotator/inst-04-1920.webp?v=20260816t 1920w"
+             srcset="assets/hero/rotator/inst-04-960.webp?v=20260816u 960w, assets/hero/rotator/inst-04-1920.webp?v=20260816u 1920w"
              sizes="100vw">
       </div>
       <div class="home-hero__scrim" aria-hidden="true"></div>
@@ -801,213 +802,244 @@
     </div>
   </section>
 
-  <!-- MANUFACTURING PROCESSES — the 12-step section from the client's live
-       WordPress homepage, rebuilt to this site's stack at Yash's instruction
-       (2026-08-07): that section only, our design tokens, and OUR confirmed
-       numbers in the stats card (the live page's 50+/10k contradicts the
-       catalogue; 30+/20K+ is what the cover and the stat strip say — vault D1).
-       Behaviour contract: with no JS every step is a stacked, readable
-       article. js/process.js adds .proc--tabs and the rail then behaves as a
-       real tablist. One consistent CTA per step, to the enquiry form. -->
-  <section class="section proc" id="process" aria-labelledby="proc-title">
-    <div class="wrap">
-      <div class="proc__head">
-        <div class="proc__intro">
-          <h2 id="proc-title" class="proc__title">Manufacturing <span>Processes</span></h2>
-          <p class="proc__sub">From quotation to long-term partnership &mdash; every step engineered for precision, reliability, and your success.</p>
-        </div>
-      </div>
-    </div>
-    <div class="proc__railwrap">
+  <!-- HOW WE WORK — Anurag's own 16-step process, received 2026-08-16, replacing
+       the 12 placeholder steps that came from the old WordPress theme. Every
+       word on screen is his: title, the one-line tagline, the paragraph, the
+       intro and the closing chain. Nothing is invented — no chips, no phase
+       labels, because his document has none.
+       Motion is the Option 4 he chose: auto-advance inside a fixed frame,
+       3s per step, driven by js/procdemo.js via data-motion/data-len. Prev and
+       next controls added at his request. FAIL-OPEN: with no JS the track is a
+       readable list of all sixteen steps. -->
+  <!-- HOW WE WORK: Anurag's real 16-step process, with the Option 4 motion he
+       chose (auto-advance + one screen). Class names are the .pd__* ones
+       css/procdemo.css defines -- the stepper geometry (flex track, clipping,
+       transform) hangs off those exact names, so renaming them silently turns
+       the section back into a 4000px stack of all 16 steps. -->
+  <section class="section pd" id="process" data-proc data-motion="auto" data-len="compact" aria-labelledby="hw-title">
+    <div class="pd__stage" data-proc-stage>
       <div class="wrap">
-        <div class="proc__rail" role="tablist" aria-label="The twelve steps of an ART project">
-          <button class="proc__tab is-on" type="button" role="tab" id="prt-1" aria-controls="prc-1" aria-selected="true"><i>01</i>Request Quotation</button><button class="proc__tab" type="button" role="tab" id="prt-2" aria-controls="prc-2" aria-selected="false"><i>02</i>Planning Stage</button><button class="proc__tab" type="button" role="tab" id="prt-3" aria-controls="prc-3" aria-selected="false"><i>03</i>Product Development</button><button class="proc__tab" type="button" role="tab" id="prt-4" aria-controls="prc-4" aria-selected="false"><i>04</i>Production / Evaluation</button><button class="proc__tab" type="button" role="tab" id="prt-5" aria-controls="prc-5" aria-selected="false"><i>05</i>Inspection &amp; Testing</button><button class="proc__tab" type="button" role="tab" id="prt-6" aria-controls="prc-6" aria-selected="false"><i>06</i>Client Approval</button><button class="proc__tab" type="button" role="tab" id="prt-7" aria-controls="prc-7" aria-selected="false"><i>07</i>Packaging</button><button class="proc__tab" type="button" role="tab" id="prt-8" aria-controls="prc-8" aria-selected="false"><i>08</i>Dispatch &amp; Shipping</button><button class="proc__tab" type="button" role="tab" id="prt-9" aria-controls="prc-9" aria-selected="false"><i>09</i>On-site Installation</button><button class="proc__tab" type="button" role="tab" id="prt-10" aria-controls="prc-10" aria-selected="false"><i>10</i>Training &amp; Handover</button><button class="proc__tab" type="button" role="tab" id="prt-11" aria-controls="prc-11" aria-selected="false"><i>11</i>After-Sales Support</button><button class="proc__tab" type="button" role="tab" id="prt-12" aria-controls="prc-12" aria-selected="false"><i>12</i>Long-term Partnership</button>
+        <div class="sec-head center">
+          <h2 id="hw-title">How We Work</h2>
+          <p class="sec-head__sub">From Understanding Your Requirement to Long-Term Partnership</p>
+          <p class="pd-intro">At ART Mechatronics, every project follows a structured engineering and execution process designed to deliver the right technical solution, consistent quality, reliable performance and long-term value. From the first technical discussion to commissioning and ongoing support, our teams work closely with the client at every stage.</p>
+        </div>
+      </div>
+
+      <div class="pd__railwrap">
+        <div class="wrap">
+          <div class="pd__rail" role="tablist" aria-label="The sixteen steps of an ART project"><button class="pd-tab is-on" type="button" role="tab" id="hw-t1" aria-controls="hw-p1" aria-selected="true" tabindex="0"><i>01</i>Understand the Requirement</button><button class="pd-tab" type="button" role="tab" id="hw-t2" aria-controls="hw-p2" aria-selected="false" tabindex="-1"><i>02</i>Technical Evaluation & Planning</button><button class="pd-tab" type="button" role="tab" id="hw-t3" aria-controls="hw-p3" aria-selected="false" tabindex="-1"><i>03</i>R&amp;D &amp; Material Testing</button><button class="pd-tab" type="button" role="tab" id="hw-t4" aria-controls="hw-p4" aria-selected="false" tabindex="-1"><i>04</i>Customisation &amp; Solution Configuration</button><button class="pd-tab" type="button" role="tab" id="hw-t5" aria-controls="hw-p5" aria-selected="false" tabindex="-1"><i>05</i>Techno-Commercial Proposal</button><button class="pd-tab" type="button" role="tab" id="hw-t6" aria-controls="hw-p6" aria-selected="false" tabindex="-1"><i>06</i>Technical Finalisation &amp; Approval</button><button class="pd-tab" type="button" role="tab" id="hw-t7" aria-controls="hw-p7" aria-selected="false" tabindex="-1"><i>07</i>3D Engineering &amp; Site Layout</button><button class="pd-tab" type="button" role="tab" id="hw-t8" aria-controls="hw-p8" aria-selected="false" tabindex="-1"><i>08</i>In-House Manufacturing</button><button class="pd-tab" type="button" role="tab" id="hw-t9" aria-controls="hw-p9" aria-selected="false" tabindex="-1"><i>09</i>Quality Control &amp; Inspection</button><button class="pd-tab" type="button" role="tab" id="hw-t10" aria-controls="hw-p10" aria-selected="false" tabindex="-1"><i>10</i>Factory Testing &amp; Material Trials</button><button class="pd-tab" type="button" role="tab" id="hw-t11" aria-controls="hw-p11" aria-selected="false" tabindex="-1"><i>11</i>Final Approval, Packaging &amp; Dispatch</button><button class="pd-tab" type="button" role="tab" id="hw-t12" aria-controls="hw-p12" aria-selected="false" tabindex="-1"><i>12</i>Site Installation &amp; Commissioning</button><button class="pd-tab" type="button" role="tab" id="hw-t13" aria-controls="hw-p13" aria-selected="false" tabindex="-1"><i>13</i>Production Trial &amp; Client Handover</button><button class="pd-tab" type="button" role="tab" id="hw-t14" aria-controls="hw-p14" aria-selected="false" tabindex="-1"><i>14</i>Operator Training &amp; Technical Support</button><button class="pd-tab" type="button" role="tab" id="hw-t15" aria-controls="hw-p15" aria-selected="false" tabindex="-1"><i>15</i>Spares, Service &amp; Maintenance</button><button class="pd-tab" type="button" role="tab" id="hw-t16" aria-controls="hw-p16" aria-selected="false" tabindex="-1"><i>16</i>Continuous Support &amp; Long-Term Partnership</button></div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="pd__meter">
+          <span class="pd__count"><b data-proc-now>01</b> / 16</span>
+          <span class="pd__meterbar"><i data-proc-fill></i></span>
+          <span class="pd-nav">
+            <button class="pd-nav__btn" type="button" data-proc-prev aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="pd-nav__btn" type="button" data-proc-next aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </span>
+        </div>
+      </div>
+
+      <div class="pd__clip">
+        <div class="wrap">
+          <div class="pd__track" data-proc-track>
+          <article class="pd-panel is-on" id="hw-p1" role="tabpanel" aria-labelledby="hw-t1" aria-hidden="false">
+            <div>
+              <span class="pd-panel__no">Step 01</span>
+              <h3>Understand the Requirement</h3>
+              <p>We begin by understanding your process, production requirements, challenges, material characteristics, capacity, site conditions and desired outcome. Our objective is to identify the actual technical requirement and develop the right solution for your application.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">01</span>
+              <span class="pd-tagline">We Listen Before We Engineer.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p2" role="tabpanel" aria-labelledby="hw-t2" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 02</span>
+              <h3>Technical Evaluation & Planning</h3>
+              <p>Our experienced engineers and technical team study the requirement in detail and evaluate process parameters, equipment configuration, capacity, material flow, utilities, automation and site constraints. Different engineering approaches are considered before finalising the most suitable direction.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">02</span>
+              <span class="pd-tagline">Engineering the Right Approach.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p3" role="tabpanel" aria-labelledby="hw-t3" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 03</span>
+              <h3>R&amp;D &amp; Material Testing</h3>
+              <p>Where required, our R&amp;D team conducts practical material trials in our in-house laboratory using small-scale test equipment and models. Different machine configurations and process parameters can be tested to validate the most effective solution for the specific material and application.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">03</span>
+              <span class="pd-tagline">Test. Analyse. Optimise. Deliver with Confidence.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p4" role="tabpanel" aria-labelledby="hw-t4" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 04</span>
+              <h3>Customisation &amp; Solution Configuration</h3>
+              <p>Our equipment can be customised to meet specific process and plant requirements. From complete SS construction and SS contact parts to customised dimensions, preferred component brands, automation, instrumentation, controls and other special requirements, we engineer the equipment around your needs.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">04</span>
+              <span class="pd-tagline">Built Around Your Requirement &mdash; Not the Other Way Around.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p5" role="tabpanel" aria-labelledby="hw-t5" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 05</span>
+              <h3>Techno-Commercial Proposal</h3>
+              <p>Once the technical approach is established, we prepare a detailed techno-commercial proposal covering equipment specifications, configuration, scope of supply, utilities, commercial terms, delivery requirements and other relevant project parameters.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">05</span>
+              <span class="pd-tagline">A Clear Solution with a Clear Scope.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p6" role="tabpanel" aria-labelledby="hw-t6" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 06</span>
+              <h3>Technical Finalisation &amp; Approval</h3>
+              <p>Our technical and commercial teams work closely with the client to review specifications, capacities, materials, automation, accessories and other requirements. Necessary amendments are incorporated until the final solution is mutually agreed and approved.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">06</span>
+              <span class="pd-tagline">Every Detail Aligned Before Production Begins.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p7" role="tabpanel" aria-labelledby="hw-t7" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 07</span>
+              <h3>3D Engineering &amp; Site Layout</h3>
+              <p>Detailed engineering drawings, 3D models and equipment layouts are prepared for approval. Where required, our team also studies the client&rsquo;s site, available space, material flow, existing equipment and utility connections to integrate the solution accurately into the plant layout.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">07</span>
+              <span class="pd-tagline">Visualise It. Fit It. Approve It.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p8" role="tabpanel" aria-labelledby="hw-t8" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 08</span>
+              <h3>In-House Manufacturing</h3>
+              <p>Once the design is approved, the equipment moves into production through our in-house manufacturing process. Skilled fabricators, technicians, engineers and assembly teams work together to maintain dimensional accuracy, workmanship and equipment reliability.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">08</span>
+              <span class="pd-tagline">Engineered. Fabricated. Assembled Under Our Control.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p9" role="tabpanel" aria-labelledby="hw-t9" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 09</span>
+              <h3>Quality Control &amp; Inspection</h3>
+              <p>Materials, components and major assemblies are checked against approved specifications. Our engineering and quality teams inspect fabrication, dimensions, assembly, electrical systems, safety provisions and other critical parameters before the equipment proceeds to final testing.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">09</span>
+              <span class="pd-tagline">Quality Checked at Every Critical Stage.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p10" role="tabpanel" aria-labelledby="hw-t10" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 10</span>
+              <h3>Factory Testing &amp; Material Trials</h3>
+              <p>Where applicable, the completed equipment undergoes functional testing and material trials at our facility. Actual material is tested through the equipment where practical to verify process flow, operating parameters and performance before shipment.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">10</span>
+              <span class="pd-tagline">Performance Is Proven Before Dispatch.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p11" role="tabpanel" aria-labelledby="hw-t11" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 11</span>
+              <h3>Final Approval, Packaging &amp; Dispatch</h3>
+              <p>Following final inspection and approval, clients can review the completed equipment where applicable before dispatch. Equipment and critical components are professionally prepared for transportation with appropriate transit protection, documentation, logistics arrangements and insurance as required.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">11</span>
+              <span class="pd-tagline">Protected, Documented &amp; Ready for Delivery.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p12" role="tabpanel" aria-labelledby="hw-t12" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 12</span>
+              <h3>Site Installation &amp; Commissioning</h3>
+              <p>Our service engineers support the installation, assembly and commissioning of the equipment at the customer&rsquo;s facility. Connections, positioning, integration and operating parameters are checked to ensure proper functioning within the production environment.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">12</span>
+              <span class="pd-tagline">From Our Factory to Your Production Floor.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p13" role="tabpanel" aria-labelledby="hw-t13" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 13</span>
+              <h3>Production Trial &amp; Client Handover</h3>
+              <p>Multiple trial runs are conducted using the client&rsquo;s material to verify equipment performance under actual production conditions. Once satisfactory performance is achieved and approved, the equipment is formally handed over along with relevant technical documentation.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">13</span>
+              <span class="pd-tagline">Proven Under Actual Operating Conditions.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p14" role="tabpanel" aria-labelledby="hw-t14" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 14</span>
+              <h3>Operator Training &amp; Technical Support</h3>
+              <p>Our engineers provide practical training to operators and maintenance personnel covering operation, controls, safety, cleaning, routine maintenance and basic troubleshooting. Our technical support team remains available for operational assistance whenever required.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">14</span>
+              <span class="pd-tagline">Empowering Your Team for Confident Operation.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p15" role="tabpanel" aria-labelledby="hw-t15" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 15</span>
+              <h3>Spares, Service &amp; Maintenance</h3>
+              <p>We provide support through genuine or approved spare parts, wear components, consumables, servicing, preventive maintenance and AMC solutions. Our objective is to help customers maintain reliable equipment performance and minimise unnecessary downtime.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">15</span>
+              <span class="pd-tagline">Keeping Your Equipment Performing for the Long Run.</span>
+            </div>
+          </article>
+          <article class="pd-panel" id="hw-p16" role="tabpanel" aria-labelledby="hw-t16" aria-hidden="true">
+            <div>
+              <span class="pd-panel__no">Step 16</span>
+              <h3>Continuous Support &amp; Long-Term Partnership</h3>
+              <p>Our relationship does not end with delivery. We continue supporting customers with optimisation, upgrades, automation, capacity expansion, new equipment and future engineering requirements &mdash; building a dependable partnership for the long term.</p>
+            </div>
+            <div class="pd-panel__side">
+              <span class="pd-ghost" aria-hidden="true">16</span>
+              <span class="pd-tagline">We Build Relationships, Not Just Machines.</span>
+            </div>
+          </article>
+          </div>
         </div>
       </div>
     </div>
-    <div class="wrap proc__panels">
-      <article class="proc__panel is-on" id="prc-1" role="tabpanel" aria-labelledby="prt-1" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 01</span>
-          <h3>Request Quotation</h3>
-          <p>Share your requirements with our team. We analyze your industrial needs and prepare a detailed, customized quote tailored to your specific machinery and processing goals. Fast response guaranteed.</p>
-          <ul class="proc__chips"><li>Free Consultation</li><li>Fast Response</li><li>Custom Quote</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">01</span>
-          <span class="proc__phase">Pre-Sales Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 1 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-2" role="tabpanel" aria-labelledby="prt-2" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 02</span>
-          <h3>Planning Stage</h3>
-          <p>Our engineers collaborate with you to define project scope, timelines, and technical specifications. Every detail is mapped out before production begins to ensure zero surprises.</p>
-          <ul class="proc__chips"><li>Scope Definition</li><li>Timeline</li><li>Tech Specs</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">02</span>
-          <span class="proc__phase">Engineering Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 2 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-3" role="tabpanel" aria-labelledby="prt-3" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 03</span>
-          <h3>Product Development</h3>
-          <p>R&amp;D and design teams translate your blueprint into detailed engineering drawings, 3D models, and material selection for optimal machine performance and longevity.</p>
-          <ul class="proc__chips"><li>3D Modelling</li><li>Material Selection</li><li>Design Review</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">03</span>
-          <span class="proc__phase">R&amp;D Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 3 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-4" role="tabpanel" aria-labelledby="prt-4" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 04</span>
-          <h3>Production / Evaluation</h3>
-          <p>Skilled technicians fabricate each component with precision. Intermediate quality checks ensure every part meets our ISO standards before final assembly begins.</p>
-          <ul class="proc__chips"><li>ISO Standards</li><li>CNC Machining</li><li>Quality Checks</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">04</span>
-          <span class="proc__phase">Production Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 4 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-5" role="tabpanel" aria-labelledby="prt-5" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 05</span>
-          <h3>Inspection &amp; Testing</h3>
-          <p>Every machine undergoes rigorous performance testing under real operational conditions. Electrical, mechanical, and safety checks are completed and documented thoroughly.</p>
-          <ul class="proc__chips"><li>Load Testing</li><li>Safety Check</li><li>Certification</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">05</span>
-          <span class="proc__phase">Quality Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 5 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-6" role="tabpanel" aria-labelledby="prt-6" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 06</span>
-          <h3>Client Approval</h3>
-          <p>A complete demonstration is arranged &mdash; live or virtual. Your team reviews machine output, and formal sign-off is obtained with full documentation before dispatch.</p>
-          <ul class="proc__chips"><li>Live Demo</li><li>Sign-off</li><li>Documentation</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">06</span>
-          <span class="proc__phase">Approval Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 6 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-7" role="tabpanel" aria-labelledby="prt-7" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 07</span>
-          <h3>Packaging</h3>
-          <p>Machines are disassembled where needed, packed in export-grade material with anti-corrosion treatment and shock protection for safe international shipping worldwide.</p>
-          <ul class="proc__chips"><li>Export Grade</li><li>Anti-corrosion</li><li>Safe Packing</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">07</span>
-          <span class="proc__phase">Logistics Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 7 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-8" role="tabpanel" aria-labelledby="prt-8" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 08</span>
-          <h3>Dispatch &amp; Shipping</h3>
-          <p>We coordinate with global freight partners to manage end-to-end logistics &mdash; including customs documentation, insurance, and real-time shipment tracking to your doorstep.</p>
-          <ul class="proc__chips"><li>Global Freight</li><li>Insurance</li><li>Live Tracking</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">08</span>
-          <span class="proc__phase">Shipping Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 8 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-9" role="tabpanel" aria-labelledby="prt-9" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 09</span>
-          <h3>On-site Installation</h3>
-          <p>Our trained engineers travel to your facility for machine erection, alignment, and commissioning. We ensure seamless integration with your existing production line.</p>
-          <ul class="proc__chips"><li>Site Visit</li><li>Erection</li><li>Commissioning</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">09</span>
-          <span class="proc__phase">Installation Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 9 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-10" role="tabpanel" aria-labelledby="prt-10" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 10</span>
-          <h3>Training &amp; Handover</h3>
-          <p>Operators and maintenance staff receive hands-on training. Comprehensive manuals and troubleshooting guides are provided for confident, independent machine operation.</p>
-          <ul class="proc__chips"><li>Operator Training</li><li>Manuals</li><li>Handover</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">10</span>
-          <span class="proc__phase">Training Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span><span class=""></span></div><span class="proc__prog-v">Step 10 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-11" role="tabpanel" aria-labelledby="prt-11" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 11</span>
-          <h3>After-Sales Support</h3>
-          <p>Our dedicated support team remains available post-installation &mdash; resolving technical queries, supplying spare parts, and ensuring maximum uptime for your operations.</p>
-          <ul class="proc__chips"><li>Spare Parts</li><li>Helpdesk</li><li>Remote Support</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">11</span>
-          <span class="proc__phase">Support Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class=""></span></div><span class="proc__prog-v">Step 11 of 12</span></div>
-        </div>
-      </article>
-      <article class="proc__panel" id="prc-12" role="tabpanel" aria-labelledby="prt-12" tabindex="0">
-        <div class="proc__body">
-          <span class="proc__stepno">Step 12</span>
-          <h3>Long-term Partnership</h3>
-          <p>Regular service visits, performance audits, and upgrade consultations ensure your machinery evolves with your business. We believe in relationships built for decades.</p>
-          <ul class="proc__chips"><li>Annual Audit</li><li>Upgrades</li><li>Dedicated Manager</li></ul>
-          <a class="btn btn--light" href="#project-brief">Send Your Requirement</a>
-        </div>
-        <div class="proc__side" aria-hidden="false">
-          <span class="proc__ghost" aria-hidden="true">12</span>
-          <span class="proc__phase">Partnership Phase</span>
-          <div class="proc__prog"><span class="proc__prog-k">Overall progress</span><div class="proc__dots" aria-hidden="true"><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span></div><span class="proc__prog-v">Step 12 of 12</span></div>
-        </div>
-      </article>
-    </div>
+
     <div class="wrap">
-      <div class="section-actions">
-        <a class="btn btn--primary btn--lg" href="system">See a complete line run</a>
-        <a class="btn btn--ghost btn--lg" href="machines">Explore the flagship line</a>
+      <div class="pd-commit">
+        <span class="pd-commit__h">Our commitment</span>
+        <ol class="pd-commit__chain"><li>Understand</li><li>Engineer</li><li>Test</li><li>Customise</li><li>Manufacture</li><li>Inspect</li><li>Deliver</li><li>Commission</li><li>Support</li><li>Improve</li></ol>
+        <p class="pd-commit__note">Every project is driven by one objective: the right solution, built to perform and supported for the long term.</p>
       </div>
     </div>
   </section>
 
-  <!-- RECENT PROJECTS — the reference site's case-studies carousel
-       (category chip, photo, big title, counter, arrows), all content ours:
-       six real installation photographs with honest line names. Fail-open:
-       the track is a native horizontally-scrollable list; js/process.js only
-       adds the arrows/counter (hidden until it runs — no dead controls). -->
+  <!-- RECENT PROJECTS — the same marquee rail as Customers, all content ours:
+       six real installation photographs with honest line names. Driven by
+       [data-marquee] in js/layout.js; with no JS the track wraps into a padded
+       grid, so the photos are never stranded off-screen. -->
   <section class="section section--tint" id="recent-projects" aria-labelledby="rp-title">
     <div class="wrap rp-head">
       <div>
@@ -1024,27 +1056,27 @@
       <div class="wrap">
         <ul class="pk-marquee__track">
         <li class="pk-marquee__item rp-card">
-          <figure><img src="assets/hero/rotator/inst-04-960.webp?v=20260816t" alt="Complete ART cleaning and sorting plant with twin processing lines" width="960" height="720" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/hero/rotator/inst-04-960.webp?v=20260816u" alt="Complete ART cleaning and sorting plant with twin processing lines" width="960" height="720" loading="lazy" decoding="async"></figure>
           <div class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>Cleaning &amp; Sorting</span><h3>Complete cleaning &amp; sorting plant</h3></div>
         </li>
         <li class="pk-marquee__item rp-card">
-          <figure><img src="assets/hero/rotator/inst-03-960.webp?v=20260816t" alt="Stainless ART cleaning and drying line with destoner, cyclone and bucket elevators" width="960" height="720" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/hero/rotator/inst-03-960.webp?v=20260816u" alt="Stainless ART cleaning and drying line with destoner, cyclone and bucket elevators" width="960" height="720" loading="lazy" decoding="async"></figure>
           <div class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>Heating &amp; Drying</span><h3>Stainless cleaning &amp; drying line</h3></div>
         </li>
         <li class="pk-marquee__item rp-card">
-          <figure><img src="assets/hero/rotator/inst-02-960.webp?v=20260816t" alt="ART powder processing and conveying line installed in a multi-storey customer plant" width="960" height="720" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/hero/rotator/inst-02-960.webp?v=20260816u" alt="ART powder processing and conveying line installed in a multi-storey customer plant" width="960" height="720" loading="lazy" decoding="async"></figure>
           <div class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>Material Handling</span><h3>Powder processing &amp; conveying line</h3></div>
         </li>
         <li class="pk-marquee__item rp-card">
-          <figure><img src="assets/hero/rotator/inst-05-960.webp?v=20260816t" alt="ART processing line with cyclone separation and closed dust transfer" width="960" height="720" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/hero/rotator/inst-05-960.webp?v=20260816u" alt="ART processing line with cyclone separation and closed dust transfer" width="960" height="720" loading="lazy" decoding="async"></figure>
           <div class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>Dust Collection</span><h3>Processing line with dust collection</h3></div>
         </li>
         <li class="pk-marquee__item rp-card">
-          <figure><img src="assets/hero/rotator/inst-06-960.webp?v=20260816t" alt="Multi-line ART processing installation with four parallel lines and elevators" width="960" height="720" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/hero/rotator/inst-06-960.webp?v=20260816u" alt="Multi-line ART processing installation with four parallel lines and elevators" width="960" height="720" loading="lazy" decoding="async"></figure>
           <div class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>Turnkey Lines</span><h3>Multi-line processing installation</h3></div>
         </li>
         <li class="pk-marquee__item rp-card">
-          <figure><img src="assets/hero/rotator/inst-09-960.webp?v=20260816t" alt="ART processing and grading installation with elevators, hoppers and vibro screens" width="960" height="720" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/hero/rotator/inst-09-960.webp?v=20260816u" alt="ART processing and grading installation with elevators, hoppers and vibro screens" width="960" height="720" loading="lazy" decoding="async"></figure>
           <div class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>Cleaning &amp; Grading</span><h3>Processing &amp; grading installation</h3></div>
         </li>
         </ul>
@@ -1741,18 +1773,18 @@
 
   <div data-footer></div>
 
-  <script src="js/data.js?v=20260816t"></script>
-  <script src="js/layout.js?v=20260816t"></script>
-  <script src="js/socialrail.js?v=20260816t"></script>
-  <script src="js/home.js?v=20260816t"></script>
+  <script src="js/data.js?v=20260816u"></script>
+  <script src="js/layout.js?v=20260816u"></script>
+  <script src="js/socialrail.js?v=20260816u"></script>
+  <script src="js/home.js?v=20260816u"></script>
   <!-- Both new effects load AFTER home.js. Neither depends on it; the order is
        the house convention (data.js defines ART, layout.js extends it, page
        scripts last) and both read window.ART defensively anyway. Each is its
        own tag on purpose: a throw in one cannot abort the other, which is the
        whole reason the deleted video band's comment existed. -->
-  <script src="js/count.js?v=20260816t"></script>
-  <script src="js/rotate.js?v=20260816t"></script>
-  <script src="js/process.js?v=20260816t"></script>
-  <script src="js/tilepopup.js?v=20260816t"></script>
+  <script src="js/count.js?v=20260816u"></script>
+  <script src="js/rotate.js?v=20260816u"></script>
+  <script src="js/procdemo.js?v=20260816u"></script>
+  <script src="js/tilepopup.js?v=20260816u"></script>
 </body>
 </html>
