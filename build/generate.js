@@ -910,11 +910,23 @@ function groupCover(group) {
 }
 
 /* ---- markets band ----
-   Anurag asked for the catalogue's flag row. The catalogue heads it "Global
-   presence", but BRIEF.md only confirms staffed offices in India, UAE and
-   Thailand — the rest are places machines have shipped to. So the heading is
-   "Markets we serve" and the three real offices are marked as such. He gets his
-   flags; nothing on the page can be challenged by a buyer or an AI engine. */
+   Anurag asked for the catalogue's flag row.
+
+   CLIENT OVERRIDE, 2026-08-18 (Yash): the heading is "Global Presence" — the
+   catalogue's own wording — with his sub-line "Delivering Trusted Machinery
+   Solutions All Across the Globe". The eyebrow "Where we work" came off with it:
+   it said the same thing as the heading, and every other homepage section is a
+   heading plus one sub-line.
+
+   What that replaced, so nobody re-litigates it by accident: the heading used to
+   be "Markets we serve" and the sub-line used to say the machines are engineered
+   in India with teams on the ground in India, the UAE and Thailand. BRIEF.md
+   confirms staffed offices in those three countries only; the other 22 flags are
+   places machines have shipped to. That sentence was the only thing on this band
+   distinguishing the two, so the band no longer draws that line — the client's
+   call, and it is his own catalogue's wording. The real counts still live on the
+   network section and the contact page (5 units / 9 offices / 14 service
+   cities), so the specifics are not gone from the site. */
 /* All 25 countries from ART Catalogue '26 page 13. Ratios are read from each
    flag's own viewBox, so nothing is stretched — Nepal stays its correct
    non-rectangular 0.82, Malaysia and the UAE stay 2:1. */
@@ -967,9 +979,8 @@ function marketsBand() {
   return `
   <section class="section mk-section">
     <div class="wrap sec-head">
-      <span class="eyebrow">Where we work</span>
-      <h2>Markets we serve</h2>
-      <p class="mk-sub">A selection of the markets we supply. Machines are engineered in India, with teams on the ground in India, the UAE and Thailand.</p>
+      <h2>Global Presence</h2>
+      <p class="mk-sub">Delivering Trusted Machinery Solutions All Across the Globe</p>
     </div>
     <div class="mk-marquee">
       <ul class="mk-track">${one}</ul>
