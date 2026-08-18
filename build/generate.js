@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260817c";
+const CSSV = "?v=20260818a";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -600,6 +600,13 @@ function linkMaybe(text, linkMachine, chip) {
 /* ---- page shell ---- */
 function shell({ page, base, title, desc, canonical, schema, main, ogType, extraJS, ogImage, noindex }) {
   const extra = extraJS ? `  <script src="${base}js/catalog-search.js${CSSV}"></script>\n` : "";
+  /* Any page carrying either tile grid gets the popup script. Detected from the
+     markup rather than passed in as a flag, so a page that uses a grid cannot
+     forget it — the popup was live only on the hand-authored homepage until
+     2026-08-18, which left the Industries page and the ten category pages
+     opening the bare page instead of the popup. */
+  const tilePopupJS = /class="ig-tile|mc-tile-wrap/.test(main)
+    ? `  <script src="${base}js/tilepopup.js${CSSV}"></script>\n` : "";
   const ogImg = ogImage || (BRAND.site + "/assets/video/hero-poster.jpg");
   // noindex,follow — keep the page out of the index but let its links pass equity.
   const robots = noindex ? `\n  <meta name="robots" content="noindex,follow">` : "";
@@ -634,7 +641,7 @@ function shell({ page, base, title, desc, canonical, schema, main, ogType, extra
   <script src="${base}js/data.js${CSSV}"></script>
   <script src="${base}js/layout.js${CSSV}"></script>
   <script src="${base}js/socialrail.js${CSSV}"></script>
-${extra}</body>
+${tilePopupJS}${extra}</body>
 </html>`;
 }
 

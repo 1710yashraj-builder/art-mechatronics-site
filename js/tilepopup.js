@@ -1,10 +1,12 @@
 /* ===== Tile popup — the tile's own dropdown, shown as a dialog =====
    Client, 2026-08-16: clicking a tile should open its sub-category list in a
-   popup instead of navigating, with the full page still reachable from inside.
+   popup instead of navigating.
 
-   Rolled out to every tile in both grids on 2026-08-16 after the Mouth
-   Freshener sample was approved. `ONLY` can be set back to a drop id to
-   isolate one tile again for testing.
+   2026-08-18, client: the "View the full <name> page" button is gone. The list
+   itself is the way forward now — every row was always a real link to its own
+   page, it just did not look like one, so the rows got a chevron and a proper
+   hover/focus state in base.css. And the sub-label is his wording,
+   "Find your product below", on both grids.
 
    Fail-open, the house rule: every tile stays a real <a href> and this file
    only ever calls preventDefault AFTER the dialog has been built and shown.
@@ -17,39 +19,51 @@
    we would have to maintain and get wrong. ===== */
 (function () {
   var ONLY = null;                          // sample mode over: every tile, both grids
+  var LEAD = "Find your product below";     // client's wording, 2026-08-18
 
-  var dlg = document.getElementById("tileModal");
-  if (!dlg || typeof dlg.showModal !== "function") return;   // no dialog: links stay links
+  var tiles = [].slice.call(document.querySelectorAll(".ig-tile, .mc-tile-wrap"));
+  if (!tiles.length) return;                // no grid on this page, nothing to wire
+
+  /* The dialog is built here instead of being authored into the page. It is an
+     empty shell that only this script ever fills, so a static copy in the
+     markup bought nothing — and it had to be repeated in every page carrying a
+     grid, which is exactly why the popup was missing on the Industries page
+     and the ten category pages. One definition, every page that has tiles. */
+  var dlg = document.createElement("dialog");
+  if (typeof dlg.showModal !== "function") return;   // no dialog support: links stay links
+  dlg.className = "tile-modal";
+  dlg.id = "tileModal";
+  dlg.setAttribute("aria-labelledby", "tileModalTitle");
+  dlg.innerHTML =
+    '<div class="tile-modal__card">' +
+      '<div class="tile-modal__head">' +
+        '<h2 class="tile-modal__title" id="tileModalTitle" data-modal-title></h2>' +
+        '<button class="tile-modal__x" type="button" data-modal-close aria-label="Close">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" ' +
+          'stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+        '</button>' +
+      '</div>' +
+      '<div class="tile-modal__body" data-modal-body></div>' +
+    '</div>';
+  document.body.appendChild(dlg);
 
   var body = dlg.querySelector("[data-modal-body]");
   var titleEl = dlg.querySelector("[data-modal-title]");
-  var moreEl = dlg.querySelector("[data-modal-more]");
   var lastFocus = null;
 
-  function open(tile, drop, name, href) {
+  function open(tile, drop, name) {
     var list = drop.querySelector("ul");
     if (!list) return false;                       // nothing to show -> let the link work
 
     titleEl.textContent = name;
     body.innerHTML = "";
 
-    /* Sub-label under the heading. The industry dropdowns already carry the
-       right words ("Related categories"); the product ones repeat the
-       category name, which would just echo the title, so those get a label
-       that describes what the list actually is. */
-    var srcLabel = drop.querySelector(".ig-drop__h, .mc-drop__h");
-    var label = srcLabel ? srcLabel.textContent.trim() : "";
-    if (!label || label.toLowerCase() === name.toLowerCase()) {
-      label = drop.classList.contains("mc-drop") ? "Machine groups" : "Related categories";
-    }
     var lead = document.createElement("p");
     lead.className = "tile-modal__lead";
-    lead.textContent = label;
+    lead.textContent = LEAD;
     body.appendChild(lead);
 
     body.appendChild(list.cloneNode(true));        // the dropdown's own list, verbatim
-    moreEl.href = href;
-    moreEl.textContent = "View the full " + name + " page";
 
     var n = list.querySelectorAll("li").length;
     dlg.classList.toggle("tile-modal--wide", n > 8);   // 2 columns once it gets long
@@ -68,24 +82,23 @@
 
     var nameEl = tile.querySelector(".ig-name, .mc-tile__name");
     var name = nameEl ? nameEl.textContent.trim() : "This category";
-    var href = link.getAttribute("href");
 
     link.addEventListener("click", function (e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;  // let people open tabs
       try {
-        if (open(tile, drop, name, href)) e.preventDefault();
+        if (open(tile, drop, name)) e.preventDefault();
       } catch (err) { /* fall through to the page */ }
     });
 
     if (caret) {
       caret.addEventListener("click", function (e) {
         e.stopPropagation();
-        try { if (open(tile, drop, name, href)) e.preventDefault(); } catch (err) {}
+        try { if (open(tile, drop, name)) e.preventDefault(); } catch (err) {}
       }, true);
     }
   }
 
-  [].forEach.call(document.querySelectorAll(".ig-tile, .mc-tile-wrap"), wire);
+  tiles.forEach(wire);
 
   dlg.addEventListener("close", function () {
     if (lastFocus && lastFocus.focus) lastFocus.focus();

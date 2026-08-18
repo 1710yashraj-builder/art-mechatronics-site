@@ -666,18 +666,30 @@ p { margin: 0 0 1em; }
   transition: background .16s var(--ease), color .16s var(--ease);
 }
 .tile-modal__body li a:hover { background: var(--blue-soft); color: var(--blue); }
+.tile-modal__body li a:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: -1px; }
+/* Client, 2026-08-18: the "View the full page" button is gone, so this list IS
+   the way into a category. Every row was already a real link, but at rest it
+   read as plain text, so nobody would know to tap it. The chevron is drawn with
+   borders rather than a glyph so it needs no font and scales with the row. */
+.tile-modal__body li a::after {
+  content: ""; flex: 0 0 auto; margin-left: auto;
+  width: 7px; height: 7px;
+  border-right: 2px solid var(--steel); border-top: 2px solid var(--steel);
+  transform: rotate(45deg);
+  transition: transform .16s var(--ease), border-color .16s var(--ease);
+}
+.tile-modal__body li a:hover::after,
+.tile-modal__body li a:focus-visible::after { border-color: var(--blue); transform: rotate(45deg) translate(1px, -1px); }
 .tile-modal__body .ig-dot, .tile-modal__body .mc-dot {
   flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
 }
-.tile-modal__body li a em { margin-left: auto; font-style: normal; color: var(--steel); font-size: .86rem; }
-.tile-modal__more { margin-top: 1.2rem; align-self: flex-start; }
+.tile-modal__body li a em { margin-left: .5rem; font-style: normal; color: var(--steel); font-size: .86rem; }
 
 @media (max-width: 640px) {
   /* full-screen sheet */
   .tile-modal, .tile-modal--wide { max-width: 100vw; width: 100vw; height: 100dvh; max-height: none; }
   .tile-modal__card { height: 100dvh; max-height: none; border-radius: 0; padding: 1.1rem 1.1rem 1.4rem; }
   .tile-modal--wide .tile-modal__body ul { grid-template-columns: 1fr; }
-  .tile-modal__more { width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .tile-modal[open] { animation: tm-in .18s var(--ease); }
