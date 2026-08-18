@@ -701,118 +701,104 @@ p { margin: 0 0 1em; }
 }
 
 /* ============================================================
-   SOCIAL RAIL — one round button on the left edge that unfolds into a
-   vertical stack of circles, one per platform (client reference, 2026-08-16).
-   Collapsed: a single share circle. Open: the circles rise above it, each in
-   its own brand colour, the tab flipping to a close X.
-   Only transform/opacity animate; the rail is fixed, so nothing ever reflows.
+   CONTACT US BUTTON — a circle in the bottom-right corner that unfolds
+   upward into one brand-coloured circle per destination.
+   Founder, 2026-08-18: this replaces the share rail that used to sit on the
+   left edge. Same five destinations, same unfolding, new corner and a
+   "Contact Us" label that rides alongside the button on hover.
+   Only transform/opacity animate, and the whole thing is fixed, so nothing
+   on the page ever reflows because of it.
    ============================================================ */
-.srail {
-  /* FLUSH to the viewport edge (client, 2026-08-16): inset 18px it sat on top
-     of the copy whenever the window was too narrow to leave a gutter. At 0 it
-     lives in the page margin instead. */
-  position: fixed; left: 0; top: 50%; transform: translateY(-50%);
-  z-index: 60; display: flex; flex-direction: column; align-items: flex-start;
+.cfab {
+  position: fixed; z-index: 60;
+  right: 18px;
+  /* env() keeps it clear of the iPhone home-gesture bar; the max() means it
+     still gets its 18px on every browser that has no safe-area inset. */
+  bottom: max(18px, env(safe-area-inset-bottom, 0px));
+  display: flex; flex-direction: column; align-items: flex-end;
 }
-/* The panel is ABSOLUTE, anchored above the tab. It must not sit in the
-   rail's flow: transformed-away circles still occupy layout, which made the
-   collapsed rail 338px tall and left the visible tab 145px BELOW centre.
-   Out of flow, the rail is exactly the tab, so the tab is what gets centred —
-   and the circles fly up from it, as in the client's reference. */
-.srail__panel {
-  position: absolute; bottom: calc(100% + 10px); left: 0;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+/* The panel is ABSOLUTE, anchored above the button, and it stays out of the
+   widget's flow. Learned the hard way on the left rail: circles that are only
+   transformed away still occupy layout, which left the visible tab 145px off
+   centre. Out of flow, the widget IS the button, so the button is what the
+   corner positions — and the circles fly up out of it. */
+.cfab__panel {
+  position: absolute; right: 0; bottom: calc(100% + 10px);
+  display: flex; flex-direction: column; align-items: flex-end; gap: .5rem;
 }
-
-/* the circles */
-.srail__row, .srail__tab {
-  width: 48px; height: 48px; border-radius: 0 50% 50% 0;
+.cfab__row, .cfab__btn {
+  position: relative;
+  border: 0; cursor: pointer; text-decoration: none;
   display: grid; place-items: center;
-  border: 0; cursor: pointer; position: relative;
-  box-shadow: 0 8px 20px -8px rgba(8,27,58,.55);
   color: #fff;
+  box-shadow: 0 6px 18px rgba(8, 27, 58, .28);
 }
-.srail__ic { display: grid; place-items: center; }
-.srail__ic svg { width: 21px; height: 21px; }
-.srail__tab .srail__tabic, .srail__tab .srail__closeic { width: 22px; height: 22px; flex: 0 0 auto; }
+.cfab__ic { display: grid; place-items: center; }
+.cfab__ic svg { width: 21px; height: 21px; }
 
-/* collapsed: circles tucked behind the tab, invisible and untouchable */
-.srail__row {
+/* --- the destinations --- */
+.cfab__row {
+  width: 46px; height: 46px; border-radius: 50%;
+  /* collapsed: tucked into the button and unclickable, never merely invisible */
   transform: scale(.4) translateY(28px); opacity: 0; pointer-events: none;
-  transition: transform .3s var(--ease), opacity .22s var(--ease), filter .18s var(--ease);
+  transition: transform .28s var(--ease), opacity .22s var(--ease);
 }
-.srail:hover .srail__row,
-.srail.srail--open .srail__row { transform: none; opacity: 1; pointer-events: auto; }
-/* a short stagger so they unfold rather than appear all at once */
-.srail:hover .srail__row:nth-child(1), .srail--open .srail__row:nth-child(1) { transition-delay: .00s; }
-.srail:hover .srail__row:nth-child(2), .srail--open .srail__row:nth-child(2) { transition-delay: .04s; }
-.srail:hover .srail__row:nth-child(3), .srail--open .srail__row:nth-child(3) { transition-delay: .08s; }
-.srail:hover .srail__row:nth-child(4), .srail--open .srail__row:nth-child(4) { transition-delay: .12s; }
-.srail:hover .srail__row:nth-child(5), .srail--open .srail__row:nth-child(5) { transition-delay: .16s; }
+.cfab--open .cfab__row { transform: none; opacity: 1; pointer-events: auto; }
+/* staggered so they read as one movement rather than five (30-40ms apart) */
+.cfab--open .cfab__row:nth-child(1) { transition-delay: .00s; }
+.cfab--open .cfab__row:nth-child(2) { transition-delay: .04s; }
+.cfab--open .cfab__row:nth-child(3) { transition-delay: .08s; }
+.cfab--open .cfab__row:nth-child(4) { transition-delay: .12s; }
+.cfab--open .cfab__row:nth-child(5) { transition-delay: .16s; }
 
-/* brand colours */
-.srail__row--linkedin  { background: #0A66C2; }
-.srail__row--instagram { background: linear-gradient(45deg,#F58529,#DD2A7B 50%,#8134AF); }
-.srail__row--facebook  { background: #1877F2; }
-.srail__row--line      { background: #06C755; }
-.srail__row--whatsapp  { background: #25D366; }
-.srail__row:hover, .srail__row:focus-visible { filter: brightness(1.12); }
-.srail__row:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.cfab__row--linkedin  { background: #0A66C2; }
+.cfab__row--instagram { background: linear-gradient(45deg,#F58529,#DD2A7B 50%,#8134AF); }
+.cfab__row--facebook  { background: #1877F2; }
+.cfab__row--line      { background: #06C755; }
+.cfab__row--whatsapp  { background: #25D366; }
+.cfab__row:hover, .cfab__row:focus-visible { filter: brightness(1.12); }
+.cfab__row:focus-visible, .cfab__btn:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 3px; }
 
-/* name appears beside the circle on hover — never the only way to know */
-.srail__tip {
-  position: absolute; left: calc(100% + 10px); top: 50%;
-  transform: translate(-6px, -50%); white-space: nowrap;
-  padding: .3rem .6rem; border-radius: var(--r-sm);
-  background: var(--navy); color: #fff; font-size: .76rem; font-weight: 700;
+/* --- the name / "Contact Us" label, to the LEFT of its circle --- */
+.cfab__tip {
+  position: absolute; right: calc(100% + 10px); top: 50%;
+  transform: translate(6px, -50%);
+  background: var(--navy); color: #fff;
+  padding: .32rem .6rem; border-radius: var(--r-sm);
+  font-size: .78rem; font-weight: 700; white-space: nowrap;
   opacity: 0; pointer-events: none;
-  transition: opacity .16s var(--ease), transform .16s var(--ease);
+  transition: opacity .18s var(--ease), transform .18s var(--ease);
 }
-.srail__row:hover .srail__tip, .srail__row:focus-visible .srail__tip { opacity: 1; transform: translate(0, -50%); }
+.cfab__row:hover .cfab__tip, .cfab__row:focus-visible .cfab__tip,
+.cfab__btn:hover .cfab__tip--btn, .cfab__btn:focus-visible .cfab__tip--btn { opacity: 1; transform: translate(0, -50%); }
 
-/* the tab */
-.srail__tab {
-  /* Slim and flat against the edge while closed — 30px sits inside the page
-     padding, so nothing is covered until the visitor opens it themselves.
-     padding:0 is load-bearing: the shared circle rule's side padding left a
-     6px content column and squashed the glyph to 6px wide. */
-  width: 30px; height: 62px; border-radius: 0 var(--r-lg) var(--r-lg) 0;
-  padding: 0; background: var(--blue);
-  transition: width .22s var(--ease), background .2s var(--ease);
+/* --- the button itself --- */
+.cfab__btn {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--blue);
+  transition: background .18s var(--ease), transform .18s var(--ease);
 }
-.srail:hover .srail__tab, .srail--open .srail__tab { width: 48px; }
-/* Below ~1380px the content fills the window and there is no gutter to sit
-   in, so the closed handle shrinks to a sliver that fits inside the page
-   padding. It still grows to 48px the moment you hover or open it — covering
-   content then is the visitor's own doing, not a permanent obstruction. */
-@media (max-width: 1379px) {
-  .srail__tab { width: 18px; height: 58px; }
-  .srail__tab .srail__tabic, .srail__tab .srail__closeic { width: 17px; height: 17px; }
-  .srail:hover .srail__tab, .srail--open .srail__tab { width: 48px; }
-  .srail:hover .srail__tab .srail__tabic, .srail:hover .srail__tab .srail__closeic,
-  .srail--open .srail__tab .srail__tabic, .srail--open .srail__tab .srail__closeic { width: 22px; height: 22px; }
+.cfab__btn:hover { background: var(--blue-bright); }
+.cfab__btn:active { transform: scale(.96); }
+.cfab__chat { width: 26px; height: 26px; }
+.cfab__closeic {
+  position: absolute; width: 22px; height: 22px;
+  opacity: 0; transform: rotate(-90deg);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
 }
-.srail__tab:hover { background: var(--blue-bright); }
-.srail__tab:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-.srail__closeic { position: absolute; inset: auto; opacity: 0; transform: rotate(-90deg); transition: opacity .2s var(--ease), transform .2s var(--ease); }
-.srail__tabic { transition: opacity .2s var(--ease), transform .2s var(--ease); }
-.srail:hover .srail__tabic, .srail--open .srail__tabic { opacity: 0; transform: rotate(90deg); }
-.srail:hover .srail__closeic, .srail--open .srail__closeic { opacity: 1; transform: none; }
+.cfab__chat { transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.cfab--open .cfab__chat { opacity: 0; transform: rotate(90deg); }
+.cfab--open .cfab__closeic { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .srail__row, .srail__tip, .srail__tabic, .srail__closeic { transition: none; }
+  .cfab__row, .cfab__tip, .cfab__chat, .cfab__closeic, .cfab__btn { transition: none; }
 }
-/* Touch: hover means nothing, so only the tap toggle opens it. */
+
+/* Touch: hover means nothing, so only the tap toggle opens it, and the labels
+   are dropped — a tooltip that needs a hover is dead weight on a phone. */
 @media (max-width: 900px) {
-  .srail { left: 0; }
-  .srail__row { width: 46px; height: 46px; }
-  .srail__tab { width: 26px; height: 56px; }
-  .srail--open .srail__tab { width: 46px; }
-  .srail:hover .srail__row { transform: scale(.4) translateY(28px); opacity: 0; pointer-events: none; }
-  .srail--open .srail__row { transform: none; opacity: 1; pointer-events: auto; }
-  .srail:hover .srail__tabic { opacity: 1; transform: none; }
-  .srail:hover .srail__closeic { opacity: 0; }
-  .srail--open .srail__tabic { opacity: 0; transform: rotate(90deg); }
-  .srail--open .srail__closeic { opacity: 1; transform: none; }
-  .srail__tip { display: none; }
+  .cfab { right: 14px; bottom: max(14px, env(safe-area-inset-bottom, 0px)); }
+  .cfab__btn { width: 52px; height: 52px; }
+  .cfab__row { width: 44px; height: 44px; }
+  .cfab__tip { display: none; }
 }
