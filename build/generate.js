@@ -1186,23 +1186,23 @@ const HOME_RANGE = [
      across the whole grid, machines idle and clean, verified against the brief
      before wiring. Sources: client-assets/2026-08-07-solutions-tiles/. */
   { cat: "Conveying & Handling", display: "Material Handling Equipment & Industrial Automation",
-    tile: "assets/categories/solutions/v3/tile-1.webp",
+    tile: "assets/categories/solutions/v4/tile-1.webp",
     sisters: [["Automation & Robotics", "Automation & controls"], ["Storage & Elevation", "Storage & elevation"]] },
-  { cat: "Mixing & Blending", display: "Mixing & Blending", tile: "assets/categories/solutions/v3/tile-2.webp" },
-  { cat: "Pollution Control", display: "Dust Collection & Pollution Control Equipment", tile: "assets/categories/solutions/v3/tile-3.webp" },
-  { cat: "Heating & Drying", display: "Heating & Drying", tile: "assets/categories/solutions/v3/tile-4.webp" },
-  { cat: "Cleaning, Sorting & Grading", display: "Cleaning & Sorting", tile: "assets/categories/solutions/v3/tile-5.webp" },
-  { cat: "Size Reduction & Grinding", display: "Crushing & Grinding", tile: "assets/categories/solutions/v3/tile-6.webp" },
-  { cat: "Process Equipment", display: "Cutting", groupsOnly: ["cutting-slicing", "hulling-de-stemming"], tile: "assets/categories/solutions/v3/tile-7.webp" },
-  { cat: "Process Equipment", display: "Cooling", groupsOnly: ["cooling-freezing", "air-climate"], tile: "assets/categories/solutions/v3/tile-8.webp" },
-  { cat: "Packaging", display: "Packaging", tile: "assets/categories/solutions/v3/tile-9.webp" },
+  { cat: "Mixing & Blending", display: "Mixing & Blending", tile: "assets/categories/solutions/v4/tile-2.webp" },
+  { cat: "Pollution Control", display: "Dust Collection & Pollution Control Equipment", tile: "assets/categories/solutions/v4/tile-3.webp" },
+  { cat: "Heating & Drying", display: "Heating & Drying", tile: "assets/categories/solutions/v4/tile-4.webp" },
+  { cat: "Cleaning, Sorting & Grading", display: "Cleaning & Sorting", tile: "assets/categories/solutions/v4/tile-5.webp" },
+  { cat: "Size Reduction & Grinding", display: "Crushing & Grinding", tile: "assets/categories/solutions/v4/tile-6.webp" },
+  { cat: "Process Equipment", display: "Cutting", groupsOnly: ["cutting-slicing", "hulling-de-stemming"], tile: "assets/categories/solutions/v4/tile-7.webp" },
+  { cat: "Process Equipment", display: "Cooling", groupsOnly: ["cooling-freezing", "air-climate"], tile: "assets/categories/solutions/v4/tile-8.webp" },
+  { cat: "Packaging", display: "Packaging", tile: "assets/categories/solutions/v4/tile-9.webp" },
   /* Tenth tile, client 2026-08-16: "Much More" was taken off the Packaging
      label and given a tile of its own so the range is complete — this one
      opens onto EVERY machine family, including the automation, storage and
      process groups that had no face of their own on this grid. It is not a
      category page: it lists all ten families and its button goes to the full
      product range. */
-  { cat: "__ALL__", display: "Much More", tile: "assets/categories/solutions/v3/tile-10.webp" },
+  { cat: "__ALL__", display: "Much More", tile: "assets/categories/solutions/v4/tile-10.webp" },
 ];
 
 function categoryGrid(base = "") {
