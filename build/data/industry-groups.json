@@ -1,1536 +1,1625 @@
 {
-  "_comment": "41 buyer-facing tiles from Anurag's ART Catalogue '26. Each tile is a PARENT. 'children' = our existing 88 industry pages beneath it. 'subs' = the dropdown list, merged from those pages PLUS the sub-categories the old artmechatronics.com site showed, so the dropdowns match what Anurag is used to. A sub with a 'slug' links to that industry page; one without has no page of its own yet and links to the parent tile — it still tells a buyer we serve it. Locked 2026-07-27.",
-  "groups": [
+ "_comment": "41 buyer-facing tiles from Anurag's ART Catalogue '26. Each tile is a PARENT. 'children' = our existing 88 industry pages beneath it. 'subs' = the dropdown list, merged from those pages PLUS the sub-categories the old artmechatronics.com site showed, so the dropdowns match what Anurag is used to. A sub with a 'slug' links to that industry page; one without has no page of its own yet and links to the parent tile — it still tells a buyer we serve it. Locked 2026-07-27.",
+ "groups": [
+  {
+   "slug": "mouth-freshener",
+   "name": "Mouth Freshener",
+   "children": [
+    "mouth-freshner",
+    "pan-masala",
+    "supari",
+    "sweet-supari",
+    "silver-coated-flavoured-cardomom",
+    "silver-coated-flavoured-dated"
+   ],
+   "subs": [
     {
-      "slug": "mouth-freshener",
-      "name": "Mouth Freshener",
-      "children": [
-        "mouth-freshner",
-        "pan-masala",
-        "supari",
-        "sweet-supari",
-        "silver-coated-flavoured-cardomom",
-        "silver-coated-flavoured-dated"
-      ],
-      "subs": [
-        {
-          "label": "Mouth Freshner",
-          "slug": "mouth-freshner"
-        },
-        {
-          "label": "Supari",
-          "slug": "supari"
-        },
-        {
-          "label": "Pan Masala",
-          "slug": "pan-masala"
-        },
-        {
-          "label": "Sweet Supari",
-          "slug": "sweet-supari"
-        },
-        {
-          "label": "Dates",
-          "slug": "dates"
-        },
-        {
-          "label": "Elaichi"
-        },
-        {
-          "label": "Silver Coated Flavoured Cardomom",
-          "slug": "silver-coated-flavoured-cardomom"
-        },
-        {
-          "label": "Silver Coated Flavoured Dated",
-          "slug": "silver-coated-flavoured-dated"
-        }
-      ]
+     "label": "Mouth Freshner",
+     "slug": "mouth-freshner"
     },
     {
-      "slug": "tobacco",
-      "name": "Tobacco",
-      "children": [
-        "tobacco-leaf",
-        "tobacco-powder",
-        "cigarette",
-        "cigar",
-        "shisha-tobacco",
-        "rolling-tobacco",
-        "khaini-chewing-tobacco",
-        "zarda-chewing-tobacco",
-        "dokha",
-        "htp-hnb",
-        "oral-pouches"
-      ],
-      "subs": [
-        {
-          "label": "Tobacco Leaf",
-          "slug": "tobacco-leaf"
-        },
-        {
-          "label": "Raw Tobacco Leaf"
-        },
-        {
-          "label": "Cigarette",
-          "slug": "cigarette"
-        },
-        {
-          "label": "Cigar",
-          "slug": "cigar"
-        },
-        {
-          "label": "Shisha"
-        },
-        {
-          "label": "Shisha Tobacco",
-          "slug": "shisha-tobacco"
-        },
-        {
-          "label": "Hookah"
-        },
-        {
-          "label": "Dokha",
-          "slug": "dokha"
-        },
-        {
-          "label": "Rolling"
-        },
-        {
-          "label": "Rolling Tobacco",
-          "slug": "rolling-tobacco"
-        },
-        {
-          "label": "Oral Pouches",
-          "slug": "oral-pouches"
-        },
-        {
-          "label": "Nicotine"
-        },
-        {
-          "label": "Caffeine"
-        },
-        {
-          "label": "Snus"
-        },
-        {
-          "label": "Snuff"
-        },
-        {
-          "label": "Filter Khaini"
-        },
-        {
-          "label": "Khaini Chewing Tobacco",
-          "slug": "khaini-chewing-tobacco"
-        },
-        {
-          "label": "Zarda"
-        },
-        {
-          "label": "Zarda Chewing Tobacco",
-          "slug": "zarda-chewing-tobacco"
-        },
-        {
-          "label": "Tobacco Powder",
-          "slug": "tobacco-powder"
-        },
-        {
-          "label": "HTP / HNB",
-          "slug": "htp-hnb"
-        },
-        {
-          "label": "Peeli Kaali Khain"
-        }
-      ]
+     "label": "Supari",
+     "slug": "supari"
     },
     {
-      "slug": "spices",
-      "name": "Spices",
-      "children": [
-        "spices",
-        "seasoning"
-      ],
-      "subs": [
-        {
-          "label": "Spices",
-          "slug": "spices"
-        },
-        {
-          "label": "Herbal"
-        },
-        {
-          "label": "Turmeric"
-        },
-        {
-          "label": "Chilly"
-        },
-        {
-          "label": "Coriander"
-        },
-        {
-          "label": "Pepper"
-        },
-        {
-          "label": "Mango"
-        },
-        {
-          "label": "Cumin"
-        },
-        {
-          "label": "Cinnamon"
-        },
-        {
-          "label": "Clove"
-        },
-        {
-          "label": "Cardomom"
-        },
-        {
-          "label": "Mixed Spices"
-        },
-        {
-          "label": "Seasoning",
-          "slug": "seasoning"
-        },
-        {
-          "label": "Oregano"
-        },
-        {
-          "label": "Paprika"
-        },
-        {
-          "label": "Curry Paste"
-        }
-      ]
+     "label": "Pan Masala",
+     "slug": "pan-masala"
     },
     {
-      "slug": "flavour-enhancer",
-      "name": "Flavour Enhancer",
-      "children": [],
-      "subs": [
-        {
-          "label": "Food Flavour"
-        },
-        {
-          "label": "Salt"
-        },
-        {
-          "label": "Sugar"
-        },
-        {
-          "label": "MSG"
-        }
-      ]
+     "label": "Sweet Supari",
+     "slug": "sweet-supari"
     },
     {
-      "slug": "feed",
-      "name": "Feed",
-      "children": [
-        "feed"
-      ],
-      "subs": [
-        {
-          "label": "Feed",
-          "slug": "feed"
-        },
-        {
-          "label": "Animal"
-        },
-        {
-          "label": "Aqua"
-        },
-        {
-          "label": "Pet Food"
-        },
-        {
-          "label": "Poultry"
-        },
-        {
-          "label": "Cattle"
-        },
-        {
-          "label": "Fish"
-        },
-        {
-          "label": "Bird"
-        },
-        {
-          "label": "Insect"
-        }
-      ]
+     "label": "Dates",
+     "slug": "dates"
     },
     {
-      "slug": "snacks",
-      "name": "Snacks",
-      "children": [
-        "chips-and-crisps",
-        "savoury",
-        "puffed-snack",
-        "popcorn",
-        "flavoured-peanut",
-        "foxnut"
-      ],
-      "subs": [
-        {
-          "label": "Snacks"
-        },
-        {
-          "label": "Chips & Crisps",
-          "slug": "chips-and-crisps"
-        },
-        {
-          "label": "Savoury",
-          "slug": "savoury"
-        },
-        {
-          "label": "Namkeen"
-        },
-        {
-          "label": "Flavoured Peanut",
-          "slug": "flavoured-peanut"
-        },
-        {
-          "label": "Peanuts"
-        },
-        {
-          "label": "Puffed Snack",
-          "slug": "puffed-snack"
-        },
-        {
-          "label": "Puff"
-        },
-        {
-          "label": "Makhana (Roasted Foxnut)",
-          "slug": "foxnut"
-        },
-        {
-          "label": "Popcorn",
-          "slug": "popcorn"
-        },
-        {
-          "label": "Cereals & Flakes",
-          "slug": "cereals-and-flakes"
-        },
-        {
-          "label": "Corn Flakes"
-        },
-        {
-          "label": "Roasted Grams"
-        },
-        {
-          "label": "Flavoured Seeds"
-        },
-        {
-          "label": "Extruded Snacks"
-        },
-        {
-          "label": "Kurkure"
-        }
-      ]
+     "label": "Elaichi"
     },
     {
-      "slug": "pasta",
-      "name": "Pasta",
-      "children": [
-        "pasta",
-        "noodle",
-        "instant-noodle"
-      ],
-      "subs": [
-        {
-          "label": "Pasta",
-          "slug": "pasta"
-        },
-        {
-          "label": "Penne"
-        },
-        {
-          "label": "Rotini"
-        },
-        {
-          "label": "Fusili"
-        },
-        {
-          "label": "Gnocchi"
-        },
-        {
-          "label": "Macaroni"
-        },
-        {
-          "label": "Lasagna"
-        },
-        {
-          "label": "Ravioli"
-        },
-        {
-          "label": "Noodle",
-          "slug": "noodle"
-        },
-        {
-          "label": "Spaghetti"
-        },
-        {
-          "label": "Chowmein"
-        },
-        {
-          "label": "Hakka"
-        },
-        {
-          "label": "Vermicelli"
-        },
-        {
-          "label": "Instant Noodle",
-          "slug": "instant-noodle"
-        }
-      ]
+     "label": "Silver Coated Flavoured Cardomom",
+     "slug": "silver-coated-flavoured-cardomom"
     },
     {
-      "slug": "dry-fruit",
-      "name": "Dry Fruit",
-      "children": [
-        "dry-fruit",
-        "dates"
-      ],
-      "subs": [
-        {
-          "label": "Dry Fruit",
-          "slug": "dry-fruit"
-        },
-        {
-          "label": "Dates",
-          "slug": "dates"
-        },
-        {
-          "label": "Cashew"
-        },
-        {
-          "label": "Coconut",
-          "slug": "coco-nut"
-        },
-        {
-          "label": "Foxnut",
-          "slug": "fox-nut"
-        },
-        {
-          "label": "Almond",
-          "slug": "almond"
-        },
-        {
-          "label": "Walnut",
-          "slug": "wal-nut"
-        },
-        {
-          "label": "Pistachio",
-          "slug": "pistachio"
-        },
-        {
-          "label": "Pecan"
-        },
-        {
-          "label": "Hazelnut"
-        },
-        {
-          "label": "Macadamia"
-        },
-        {
-          "label": "Pine Nut"
-        },
-        {
-          "label": "Chest Nut"
-        },
-        {
-          "label": "Fig"
-        },
-        {
-          "label": "Apricot"
-        },
-        {
-          "label": "Raisin"
-        },
-        {
-          "label": "Cranberry"
-        },
-        {
-          "label": "Prunes"
-        }
-      ]
-    },
-    {
-      "slug": "nuts",
-      "name": "Nuts",
-      "children": [
-        "almond",
-        "cashew-nut",
-        "pistachio",
-        "wal-nut",
-        "ground-nut",
-        "fox-nut",
-        "areca-nut",
-        "betel-nut",
-        "coco-nut"
-      ],
-      "subs": [
-        {
-          "label": "Ground Nut",
-          "slug": "ground-nut"
-        },
-        {
-          "label": "Areca Nut",
-          "slug": "areca-nut"
-        },
-        {
-          "label": "Betel Nut",
-          "slug": "betel-nut"
-        },
-        {
-          "label": "Cashew Nut",
-          "slug": "cashew-nut"
-        },
-        {
-          "label": "Coco Nut",
-          "slug": "coco-nut"
-        },
-        {
-          "label": "Fox Nut",
-          "slug": "fox-nut"
-        },
-        {
-          "label": "Almond",
-          "slug": "almond"
-        },
-        {
-          "label": "Dates",
-          "slug": "dates"
-        },
-        {
-          "label": "Wal Nut",
-          "slug": "wal-nut"
-        },
-        {
-          "label": "Pistachio",
-          "slug": "pistachio"
-        }
-      ]
-    },
-    {
-      "slug": "flour",
-      "name": "Flour",
-      "children": [
-        "wheat-flour",
-        "corn-and-maize-flour",
-        "multi-grain-flour"
-      ],
-      "subs": [
-        {
-          "label": "Wheat Flour",
-          "slug": "wheat-flour"
-        },
-        {
-          "label": "Corn & Maize Flour",
-          "slug": "corn-and-maize-flour"
-        },
-        {
-          "label": "Multi Grain Flour",
-          "slug": "multi-grain-flour"
-        }
-      ]
-    },
-    {
-      "slug": "grains",
-      "name": "Grains",
-      "children": [
-        "grains",
-        "cereals-and-flakes"
-      ],
-      "subs": [
-        {
-          "label": "Grains",
-          "slug": "grains"
-        },
-        {
-          "label": "Oat"
-        },
-        {
-          "label": "Millet"
-        },
-        {
-          "label": "Quinoa"
-        },
-        {
-          "label": "Barley Malting"
-        },
-        {
-          "label": "Wheat"
-        },
-        {
-          "label": "Durum"
-        },
-        {
-          "label": "Corn"
-        },
-        {
-          "label": "Maize"
-        },
-        {
-          "label": "Sorghum"
-        },
-        {
-          "label": "Semolina"
-        }
-      ]
-    },
-    {
-      "slug": "pulses",
-      "name": "Pulses",
-      "children": [
-        "pulses"
-      ],
-      "subs": [
-        {
-          "label": "Pulses",
-          "slug": "pulses"
-        },
-        {
-          "label": "Dal Lentils"
-        },
-        {
-          "label": "Beans"
-        },
-        {
-          "label": "Peas"
-        },
-        {
-          "label": "Chickpeas"
-        },
-        {
-          "label": "Sesame"
-        },
-        {
-          "label": "Roasted Chane"
-        }
-      ]
-    },
-    {
-      "slug": "seeds",
-      "name": "Seeds",
-      "children": [
-        "seeds"
-      ],
-      "subs": [
-        {
-          "label": "Seeds",
-          "slug": "seeds"
-        },
-        {
-          "label": "Soybean"
-        },
-        {
-          "label": "Sunflower"
-        },
-        {
-          "label": "Canola"
-        },
-        {
-          "label": "Olive"
-        },
-        {
-          "label": "Rice Bran"
-        },
-        {
-          "label": "Oil Seeds"
-        },
-        {
-          "label": "Melon"
-        },
-        {
-          "label": "Watermelon"
-        }
-      ]
-    },
-    {
-      "slug": "edible-oil",
-      "name": "Oil",
-      "children": [
-        "edible-oil"
-      ],
-      "subs": [
-        {
-          "label": "Edible Oil",
-          "slug": "edible-oil"
-        },
-        {
-          "label": "Soybean"
-        },
-        {
-          "label": "Sunflower"
-        },
-        {
-          "label": "Canola"
-        },
-        {
-          "label": "Olive"
-        },
-        {
-          "label": "Rice Bran"
-        },
-        {
-          "label": "Non Edible Oil"
-        }
-      ]
-    },
-    {
-      "slug": "rice",
-      "name": "Rice",
-      "children": [
-        "rice"
-      ],
-      "subs": [
-        {
-          "label": "Rice",
-          "slug": "rice"
-        },
-        {
-          "label": "White Rice"
-        },
-        {
-          "label": "Brown Rice"
-        }
-      ]
-    },
-    {
-      "slug": "bakery",
-      "name": "Bakery",
-      "children": [
-        "bread-and-bun",
-        "rusk-and-toast",
-        "biscuit-and-cookies"
-      ],
-      "subs": [
-        {
-          "label": "Bread & Bun",
-          "slug": "bread-and-bun"
-        },
-        {
-          "label": "Rusk & Toast",
-          "slug": "rusk-and-toast"
-        },
-        {
-          "label": "Biscuit & Cookies",
-          "slug": "biscuit-and-cookies"
-        },
-        {
-          "label": "Biscuits"
-        },
-        {
-          "label": "Cookies"
-        }
-      ]
-    },
-    {
-      "slug": "confectionery",
-      "name": "Confectionery",
-      "children": [
-        "chocolate",
-        "energy-bar",
-        "wafer",
-        "cake"
-      ],
-      "subs": [
-        {
-          "label": "Wafer",
-          "slug": "wafer"
-        },
-        {
-          "label": "Chocolate",
-          "slug": "chocolate"
-        },
-        {
-          "label": "Cake",
-          "slug": "cake"
-        },
-        {
-          "label": "Energy Bar",
-          "slug": "energy-bar"
-        }
-      ]
-    },
-    {
-      "slug": "condiment",
-      "name": "Condiment",
-      "children": [
-        "ketchup-and-sauce",
-        "pickle-and-chutney",
-        "spread-dips-and-dressing",
-        "honey",
-        "syrup",
-        "peanut-butter"
-      ],
-      "subs": [
-        {
-          "label": "Peanut Butter",
-          "slug": "peanut-butter"
-        },
-        {
-          "label": "Honey",
-          "slug": "honey"
-        },
-        {
-          "label": "Syrup",
-          "slug": "syrup"
-        },
-        {
-          "label": "Ketchup & Sauce",
-          "slug": "ketchup-and-sauce"
-        },
-        {
-          "label": "Pickle & Chutney",
-          "slug": "pickle-and-chutney"
-        },
-        {
-          "label": "Spread, Dips & Dressing",
-          "slug": "spread-dips-and-dressing"
-        }
-      ]
-    },
-    {
-      "slug": "dairy",
-      "name": "Dairy",
-      "children": [
-        "dairy"
-      ],
-      "subs": [
-        {
-          "label": "Dairy",
-          "slug": "dairy"
-        },
-        {
-          "label": "Milk"
-        },
-        {
-          "label": "Curd"
-        },
-        {
-          "label": "Yogurt"
-        },
-        {
-          "label": "Butter"
-        },
-        {
-          "label": "Ghee"
-        },
-        {
-          "label": "Paneer"
-        },
-        {
-          "label": "Cheese"
-        },
-        {
-          "label": "Milk Shake"
-        },
-        {
-          "label": "Butter Milk"
-        },
-        {
-          "label": "Lassi"
-        },
-        {
-          "label": "Milk Powder",
-          "slug": "milk-powder"
-        },
-        {
-          "label": "Ice Cream Premix"
-        }
-      ]
-    },
-    {
-      "slug": "milk",
-      "name": "Milk",
-      "children": [],
-      "subs": [
-        {
-          "label": "Dairy Milk"
-        },
-        {
-          "label": "Rice Milk"
-        },
-        {
-          "label": "Coconut Milk"
-        },
-        {
-          "label": "Almond Milk"
-        },
-        {
-          "label": "Soy Milk"
-        },
-        {
-          "label": "Oat Milk"
-        }
-      ]
-    },
-    {
-      "slug": "beverage",
-      "name": "Beverage",
-      "children": [
-        "tea",
-        "green-tea-and-flavoured-tea",
-        "coffee",
-        "premix-powder",
-        "cocoa-and-hot-chocolate",
-        "milk-powder"
-      ],
-      "subs": [
-        {
-          "label": "Coffee",
-          "slug": "coffee"
-        },
-        {
-          "label": "Tea",
-          "slug": "tea"
-        },
-        {
-          "label": "Green Tea & Flavoured Tea",
-          "slug": "green-tea-and-flavoured-tea"
-        },
-        {
-          "label": "Cocoa & Hot Chocolate",
-          "slug": "cocoa-and-hot-chocolate"
-        },
-        {
-          "label": "Milk Powder",
-          "slug": "milk-powder"
-        },
-        {
-          "label": "Premix Powder",
-          "slug": "premix-powder"
-        },
-        {
-          "label": "Coconut Water"
-        },
-        {
-          "label": "Mineral Water"
-        },
-        {
-          "label": "Thai Tea"
-        },
-        {
-          "label": "Soft Drink"
-        },
-        {
-          "label": "Juice"
-        },
-        {
-          "label": "Energy Drink"
-        }
-      ]
-    },
-    {
-      "slug": "agro",
-      "name": "Agro",
-      "children": [
-        "agro-processing",
-        "food-processing"
-      ],
-      "subs": [
-        {
-          "label": "Agro"
-        },
-        {
-          "label": "Agro Processing",
-          "slug": "agro-processing"
-        },
-        {
-          "label": "Food Processing",
-          "slug": "food-processing"
-        },
-        {
-          "label": "Bulk Food Packaging"
-        },
-        {
-          "label": "White Labelling"
-        }
-      ]
-    },
-    {
-      "slug": "fruit-vegetable",
-      "name": "Fruit & Vegetable",
-      "children": [],
-      "subs": [
-        {
-          "label": "Fruits"
-        },
-        {
-          "label": "Vegetables"
-        },
-        {
-          "label": "Green Peas"
-        },
-        {
-          "label": "Herbs"
-        },
-        {
-          "label": "Dried, Fresh, Frozen, Powder, Paste & Puree"
-        }
-      ]
-    },
-    {
-      "slug": "vegetarian-food",
-      "name": "Vegetarian Food",
-      "children": [],
-      "subs": [
-        {
-          "label": "Plant Based Food"
-        },
-        {
-          "label": "Packed Food"
-        },
-        {
-          "label": "Frozen Food"
-        },
-        {
-          "label": "Instant Food"
-        },
-        {
-          "label": "Ready To Eat"
-        },
-        {
-          "label": "Canned Fruits & Veges"
-        },
-        {
-          "label": "Pickle"
-        },
-        {
-          "label": "Food Batter"
-        },
-        {
-          "label": "Food Ingredient"
-        },
-        {
-          "label": "Frozen Snacks"
-        },
-        {
-          "label": "Fries"
-        }
-      ]
-    },
-    {
-      "slug": "non-vegetarian-food",
-      "name": "Non Vegetarian Food",
-      "children": [],
-      "subs": [
-        {
-          "label": "Eggs"
-        },
-        {
-          "label": "Meat"
-        },
-        {
-          "label": "Chicken"
-        },
-        {
-          "label": "Pork"
-        },
-        {
-          "label": "Fish"
-        },
-        {
-          "label": "Shrimp"
-        },
-        {
-          "label": "Seafood"
-        },
-        {
-          "label": "Fresh, Dried & Frozen"
-        }
-      ]
-    },
-    {
-      "slug": "coconut",
-      "name": "Coconut",
-      "children": [
-        "coco-nut"
-      ],
-      "subs": [
-        {
-          "label": "Coconut Powder"
-        },
-        {
-          "label": "Desiccated"
-        },
-        {
-          "label": "Cassava"
-        },
-        {
-          "label": "Flakes"
-        },
-        {
-          "label": "Copra"
-        },
-        {
-          "label": "Coconut Water"
-        },
-        {
-          "label": "Coconut Milk"
-        },
-        {
-          "label": "Edible & Non Edible Oil"
-        },
-        {
-          "label": "Coconut Cream"
-        },
-        {
-          "label": "Activated Charcoal"
-        },
-        {
-          "label": "Coco Nut",
-          "slug": "coco-nut"
-        }
-      ]
-    },
-    {
-      "slug": "pharma",
-      "name": "Pharma",
-      "children": [
-        "pharmaceutical"
-      ],
-      "subs": [
-        {
-          "label": "Pharmaceutical",
-          "slug": "pharmaceutical"
-        },
-        {
-          "label": "Medicine"
-        },
-        {
-          "label": "Tablet"
-        },
-        {
-          "label": "Syrup",
-          "slug": "syrup"
-        },
-        {
-          "label": "Neutraceutical"
-        },
-        {
-          "label": "Supplement"
-        },
-        {
-          "label": "Protein Powder"
-        },
-        {
-          "label": "Herbs"
-        },
-        {
-          "label": "Catechu"
-        }
-      ]
-    },
-    {
-      "slug": "household-cleaning",
-      "name": "Household Cleaning",
-      "children": [
-        "soap-and-detergent"
-      ],
-      "subs": [
-        {
-          "label": "Soap"
-        },
-        {
-          "label": "Detergent"
-        },
-        {
-          "label": "Soap & Detergent",
-          "slug": "soap-and-detergent"
-        },
-        {
-          "label": "Fabric Softener"
-        },
-        {
-          "label": "Dishwash Liquid"
-        },
-        {
-          "label": "Floor Cleaner"
-        },
-        {
-          "label": "Toilet Cleaner"
-        }
-      ]
-    },
-    {
-      "slug": "perfume",
-      "name": "Perfume",
-      "children": [
-        "perfume-and-essential-oil"
-      ],
-      "subs": [
-        {
-          "label": "Perfume & Essential Oil",
-          "slug": "perfume-and-essential-oil"
-        },
-        {
-          "label": "Perfume"
-        },
-        {
-          "label": "Essential Oil"
-        },
-        {
-          "label": "Compound"
-        }
-      ]
-    },
-    {
-      "slug": "cosmetics",
-      "name": "Cosmetics",
-      "children": [
-        "cosmetic"
-      ],
-      "subs": [
-        {
-          "label": "Cosmetic",
-          "slug": "cosmetic"
-        },
-        {
-          "label": "Facewash"
-        },
-        {
-          "label": "Bodywash"
-        },
-        {
-          "label": "Shampoo"
-        },
-        {
-          "label": "Cream"
-        },
-        {
-          "label": "Lotion"
-        },
-        {
-          "label": "Soap"
-        }
-      ]
-    },
-    {
-      "slug": "chemical",
-      "name": "Chemical",
-      "children": [
-        "chemical",
-        "pigment-powder",
-        "ink"
-      ],
-      "subs": [
-        {
-          "label": "Chemical",
-          "slug": "chemical"
-        },
-        {
-          "label": "Powder Chemical"
-        },
-        {
-          "label": "Liquid Chemical"
-        },
-        {
-          "label": "Calcium Carbonate"
-        },
-        {
-          "label": "Mineral"
-        },
-        {
-          "label": "Refractory"
-        }
-      ]
-    },
-    {
-      "slug": "plastic",
-      "name": "Plastic",
-      "children": [
-        "plastic",
-        "plastic-recycling"
-      ],
-      "subs": [
-        {
-          "label": "Plastic",
-          "slug": "plastic"
-        },
-        {
-          "label": "Plastic Recycling",
-          "slug": "plastic-recycling"
-        }
-      ]
-    },
-    {
-      "slug": "pellet",
-      "name": "Pellet",
-      "children": [
-        "pellet"
-      ],
-      "subs": [
-        {
-          "label": "Pellet",
-          "slug": "pellet"
-        },
-        {
-          "label": "Wood"
-        },
-        {
-          "label": "Biomass"
-        },
-        {
-          "label": "Charcoal"
-        }
-      ]
-    },
-    {
-      "slug": "paint",
-      "name": "Paint",
-      "children": [
-        "paint"
-      ],
-      "subs": [
-        {
-          "label": "Paint",
-          "slug": "paint"
-        },
-        {
-          "label": "Ink",
-          "slug": "ink"
-        },
-        {
-          "label": "Pigment Powder",
-          "slug": "pigment-powder"
-        }
-      ]
-    },
-    {
-      "slug": "iron-steel",
-      "name": "Iron & Steel",
-      "children": [
-        "iron-and-steel"
-      ],
-      "subs": [
-        {
-          "label": "Iron & Steel",
-          "slug": "iron-and-steel"
-        },
-        {
-          "label": "Fabrication"
-        },
-        {
-          "label": "Foundries"
-        },
-        {
-          "label": "Casting"
-        },
-        {
-          "label": "Shot & Sand Blast"
-        },
-        {
-          "label": "Metal"
-        },
-        {
-          "label": "Alumunium"
-        },
-        {
-          "label": "Iron"
-        },
-        {
-          "label": "Steel"
-        }
-      ]
-    },
-    {
-      "slug": "construction",
-      "name": "Construction",
-      "children": [
-        "construction"
-      ],
-      "subs": [
-        {
-          "label": "Construction",
-          "slug": "construction"
-        },
-        {
-          "label": "Building Material"
-        },
-        {
-          "label": "Cement"
-        },
-        {
-          "label": "Rmc"
-        },
-        {
-          "label": "Mortar"
-        },
-        {
-          "label": "Sand"
-        },
-        {
-          "label": "Stone"
-        },
-        {
-          "label": "Interlock Paver"
-        },
-        {
-          "label": "Marble"
-        },
-        {
-          "label": "Granite"
-        },
-        {
-          "label": "Ceramic"
-        },
-        {
-          "label": "Tile"
-        },
-        {
-          "label": "Fly Ash"
-        },
-        {
-          "label": "Gypsum"
-        },
-        {
-          "label": "Mineral"
-        }
-      ]
-    },
-    {
-      "slug": "rubber",
-      "name": "Rubber",
-      "children": [],
-      "subs": [
-        {
-          "label": "Tyres"
-        },
-        {
-          "label": "Tubes"
-        },
-        {
-          "label": "Seals"
-        },
-        {
-          "label": "Gaskets"
-        },
-        {
-          "label": "O Rings"
-        },
-        {
-          "label": "Gloves"
-        },
-        {
-          "label": "Shoes"
-        },
-        {
-          "label": "Conveyor Belts"
-        },
-        {
-          "label": "Footwear Soles"
-        },
-        {
-          "label": "AV Mounts"
-        },
-        {
-          "label": "Mats & Flooring"
-        },
-        {
-          "label": "Rubber Bands"
-        },
-        {
-          "label": "Erasers"
-        }
-      ]
-    },
-    {
-      "slug": "paper",
-      "name": "Paper",
-      "children": [],
-      "subs": [
-        {
-          "label": "Tissue"
-        },
-        {
-          "label": "Toilet Paper"
-        },
-        {
-          "label": "Kitchen Towel"
-        },
-        {
-          "label": "Paper Towel"
-        },
-        {
-          "label": "Cardboard"
-        },
-        {
-          "label": "Mono Carton"
-        },
-        {
-          "label": "Newspaper"
-        },
-        {
-          "label": "Book"
-        },
-        {
-          "label": "Kraft Paper"
-        },
-        {
-          "label": "Corrugated Paper"
-        },
-        {
-          "label": "Copier Paper"
-        }
-      ]
-    },
-    {
-      "slug": "automotive",
-      "name": "Automotive",
-      "children": [],
-      "subs": [
-        {
-          "label": "All Vehicles & Parts"
-        }
-      ]
-    },
-    {
-      "slug": "textile",
-      "name": "Textile",
-      "children": [],
-      "subs": [
-        {
-          "label": "All Kinds of Textile"
-        }
-      ]
-    },
-    {
-      "slug": "hospitality",
-      "name": "Hospitality",
-      "children": [
-        "hospitality"
-      ],
-      "subs": [
-        {
-          "label": "Hospitality",
-          "slug": "hospitality"
-        },
-        {
-          "label": "Car Parking Lift"
-        },
-        {
-          "label": "Blower Ventilation"
-        },
-        {
-          "label": "Centralised Cooling"
-        },
-        {
-          "label": "Chiller Unit"
-        },
-        {
-          "label": "Boiler"
-        }
-      ]
+     "label": "Silver Coated Flavoured Dated",
+     "slug": "silver-coated-flavoured-dated"
     }
-  ],
-  "excludedFromIndustryGrid": {
-    "_why": "These are equipment categories, not industries. The old site wrongly showed them as industry tiles. They stay as full pages and belong in the Manufacturing Solutions grid.",
-    "slugs": [
-      "dust-collection-system-and-pollution-control-equipment",
-      "material-handling-equipments",
-      "packaging"
-    ]
+   ]
+  },
+  {
+   "slug": "tobacco",
+   "name": "Tobacco",
+   "children": [
+    "tobacco-leaf",
+    "tobacco-powder",
+    "cigarette",
+    "cigar",
+    "shisha-tobacco",
+    "rolling-tobacco",
+    "khaini-chewing-tobacco",
+    "zarda-chewing-tobacco",
+    "dokha",
+    "htp-hnb",
+    "oral-pouches"
+   ],
+   "subs": [
+    {
+     "label": "Tobacco Leaf",
+     "slug": "tobacco-leaf"
+    },
+    {
+     "label": "Raw Tobacco Leaf"
+    },
+    {
+     "label": "Cigarette",
+     "slug": "cigarette"
+    },
+    {
+     "label": "Cigar",
+     "slug": "cigar"
+    },
+    {
+     "label": "Shisha"
+    },
+    {
+     "label": "Shisha Tobacco",
+     "slug": "shisha-tobacco"
+    },
+    {
+     "label": "Hookah"
+    },
+    {
+     "label": "Dokha",
+     "slug": "dokha"
+    },
+    {
+     "label": "Rolling"
+    },
+    {
+     "label": "Rolling Tobacco",
+     "slug": "rolling-tobacco"
+    },
+    {
+     "label": "Oral Pouches",
+     "slug": "oral-pouches"
+    },
+    {
+     "label": "Nicotine"
+    },
+    {
+     "label": "Caffeine"
+    },
+    {
+     "label": "Snus"
+    },
+    {
+     "label": "Snuff"
+    },
+    {
+     "label": "Filter Khaini"
+    },
+    {
+     "label": "Khaini Chewing Tobacco",
+     "slug": "khaini-chewing-tobacco"
+    },
+    {
+     "label": "Zarda"
+    },
+    {
+     "label": "Zarda Chewing Tobacco",
+     "slug": "zarda-chewing-tobacco"
+    },
+    {
+     "label": "Tobacco Powder",
+     "slug": "tobacco-powder"
+    },
+    {
+     "label": "HTP / HNB",
+     "slug": "htp-hnb"
+    },
+    {
+     "label": "Peeli Kaali Khain"
+    }
+   ]
+  },
+  {
+   "slug": "spices",
+   "name": "Spices",
+   "children": [
+    "spices",
+    "seasoning",
+    "curry-paste"
+   ],
+   "subs": [
+    {
+     "label": "Spices",
+     "slug": "spices"
+    },
+    {
+     "label": "Herbal"
+    },
+    {
+     "label": "Turmeric"
+    },
+    {
+     "label": "Chilly"
+    },
+    {
+     "label": "Coriander"
+    },
+    {
+     "label": "Pepper"
+    },
+    {
+     "label": "Mango"
+    },
+    {
+     "label": "Cumin"
+    },
+    {
+     "label": "Cinnamon"
+    },
+    {
+     "label": "Clove"
+    },
+    {
+     "label": "Cardomom"
+    },
+    {
+     "label": "Mixed Spices"
+    },
+    {
+     "label": "Seasoning",
+     "slug": "seasoning"
+    },
+    {
+     "label": "Oregano"
+    },
+    {
+     "label": "Paprika"
+    },
+    {
+     "label": "Curry Paste",
+     "slug": "curry-paste"
+    }
+   ]
+  },
+  {
+   "slug": "flavour-enhancer",
+   "name": "Flavour Enhancer",
+   "children": [
+    "flavour-enhancer"
+   ],
+   "subs": [
+    {
+     "label": "Flavour Enhancer",
+     "slug": "flavour-enhancer"
+    },
+    {
+     "label": "Food Flavour"
+    },
+    {
+     "label": "Salt"
+    },
+    {
+     "label": "Sugar"
+    },
+    {
+     "label": "MSG"
+    }
+   ]
+  },
+  {
+   "slug": "feed",
+   "name": "Feed",
+   "children": [
+    "feed"
+   ],
+   "subs": [
+    {
+     "label": "Feed",
+     "slug": "feed"
+    },
+    {
+     "label": "Animal"
+    },
+    {
+     "label": "Aqua"
+    },
+    {
+     "label": "Pet Food"
+    },
+    {
+     "label": "Poultry"
+    },
+    {
+     "label": "Cattle"
+    },
+    {
+     "label": "Fish"
+    },
+    {
+     "label": "Bird"
+    },
+    {
+     "label": "Insect"
+    }
+   ]
+  },
+  {
+   "slug": "snacks",
+   "name": "Snacks",
+   "children": [
+    "chips-and-crisps",
+    "savoury",
+    "puffed-snack",
+    "popcorn",
+    "flavoured-peanut",
+    "foxnut",
+    "roasted-grams",
+    "flavoured-seeds"
+   ],
+   "subs": [
+    {
+     "label": "Snacks"
+    },
+    {
+     "label": "Chips & Crisps",
+     "slug": "chips-and-crisps"
+    },
+    {
+     "label": "Savoury",
+     "slug": "savoury"
+    },
+    {
+     "label": "Namkeen"
+    },
+    {
+     "label": "Flavoured Peanut",
+     "slug": "flavoured-peanut"
+    },
+    {
+     "label": "Peanuts"
+    },
+    {
+     "label": "Puffed Snack",
+     "slug": "puffed-snack"
+    },
+    {
+     "label": "Puff"
+    },
+    {
+     "label": "Makhana (Roasted Foxnut)",
+     "slug": "foxnut"
+    },
+    {
+     "label": "Popcorn",
+     "slug": "popcorn"
+    },
+    {
+     "label": "Cereals & Flakes",
+     "slug": "cereals-and-flakes"
+    },
+    {
+     "label": "Corn Flakes"
+    },
+    {
+     "label": "Roasted Grams",
+     "slug": "roasted-grams"
+    },
+    {
+     "label": "Flavoured Seeds",
+     "slug": "flavoured-seeds"
+    },
+    {
+     "label": "Extruded Snacks"
+    },
+    {
+     "label": "Kurkure"
+    }
+   ]
+  },
+  {
+   "slug": "pasta",
+   "name": "Pasta",
+   "children": [
+    "pasta",
+    "noodle",
+    "instant-noodle"
+   ],
+   "subs": [
+    {
+     "label": "Pasta",
+     "slug": "pasta"
+    },
+    {
+     "label": "Penne"
+    },
+    {
+     "label": "Rotini"
+    },
+    {
+     "label": "Fusili"
+    },
+    {
+     "label": "Gnocchi"
+    },
+    {
+     "label": "Macaroni"
+    },
+    {
+     "label": "Lasagna"
+    },
+    {
+     "label": "Ravioli"
+    },
+    {
+     "label": "Noodle",
+     "slug": "noodle"
+    },
+    {
+     "label": "Spaghetti"
+    },
+    {
+     "label": "Chowmein"
+    },
+    {
+     "label": "Hakka"
+    },
+    {
+     "label": "Vermicelli"
+    },
+    {
+     "label": "Instant Noodle",
+     "slug": "instant-noodle"
+    }
+   ]
+  },
+  {
+   "slug": "dry-fruit",
+   "name": "Dry Fruit",
+   "children": [
+    "dry-fruit",
+    "dates"
+   ],
+   "subs": [
+    {
+     "label": "Dry Fruit",
+     "slug": "dry-fruit"
+    },
+    {
+     "label": "Dates",
+     "slug": "dates"
+    },
+    {
+     "label": "Cashew"
+    },
+    {
+     "label": "Coconut",
+     "slug": "coco-nut"
+    },
+    {
+     "label": "Foxnut",
+     "slug": "fox-nut"
+    },
+    {
+     "label": "Almond",
+     "slug": "almond"
+    },
+    {
+     "label": "Walnut",
+     "slug": "wal-nut"
+    },
+    {
+     "label": "Pistachio",
+     "slug": "pistachio"
+    },
+    {
+     "label": "Pecan"
+    },
+    {
+     "label": "Hazelnut"
+    },
+    {
+     "label": "Macadamia"
+    },
+    {
+     "label": "Pine Nut"
+    },
+    {
+     "label": "Chest Nut"
+    },
+    {
+     "label": "Fig"
+    },
+    {
+     "label": "Apricot"
+    },
+    {
+     "label": "Raisin"
+    },
+    {
+     "label": "Cranberry"
+    },
+    {
+     "label": "Prunes"
+    }
+   ]
+  },
+  {
+   "slug": "nuts",
+   "name": "Nuts",
+   "children": [
+    "almond",
+    "cashew-nut",
+    "pistachio",
+    "wal-nut",
+    "ground-nut",
+    "fox-nut",
+    "areca-nut",
+    "betel-nut",
+    "coco-nut"
+   ],
+   "subs": [
+    {
+     "label": "Ground Nut",
+     "slug": "ground-nut"
+    },
+    {
+     "label": "Areca Nut",
+     "slug": "areca-nut"
+    },
+    {
+     "label": "Betel Nut",
+     "slug": "betel-nut"
+    },
+    {
+     "label": "Cashew Nut",
+     "slug": "cashew-nut"
+    },
+    {
+     "label": "Coco Nut",
+     "slug": "coco-nut"
+    },
+    {
+     "label": "Fox Nut",
+     "slug": "fox-nut"
+    },
+    {
+     "label": "Almond",
+     "slug": "almond"
+    },
+    {
+     "label": "Dates",
+     "slug": "dates"
+    },
+    {
+     "label": "Wal Nut",
+     "slug": "wal-nut"
+    },
+    {
+     "label": "Pistachio",
+     "slug": "pistachio"
+    }
+   ]
+  },
+  {
+   "slug": "flour",
+   "name": "Flour",
+   "children": [
+    "wheat-flour",
+    "corn-and-maize-flour",
+    "multi-grain-flour"
+   ],
+   "subs": [
+    {
+     "label": "Wheat Flour",
+     "slug": "wheat-flour"
+    },
+    {
+     "label": "Corn & Maize Flour",
+     "slug": "corn-and-maize-flour"
+    },
+    {
+     "label": "Multi Grain Flour",
+     "slug": "multi-grain-flour"
+    }
+   ]
+  },
+  {
+   "slug": "grains",
+   "name": "Grains",
+   "children": [
+    "grains",
+    "cereals-and-flakes"
+   ],
+   "subs": [
+    {
+     "label": "Grains",
+     "slug": "grains"
+    },
+    {
+     "label": "Oat"
+    },
+    {
+     "label": "Millet"
+    },
+    {
+     "label": "Quinoa"
+    },
+    {
+     "label": "Barley Malting"
+    },
+    {
+     "label": "Wheat"
+    },
+    {
+     "label": "Durum"
+    },
+    {
+     "label": "Corn"
+    },
+    {
+     "label": "Maize"
+    },
+    {
+     "label": "Sorghum"
+    },
+    {
+     "label": "Semolina"
+    }
+   ]
+  },
+  {
+   "slug": "pulses",
+   "name": "Pulses",
+   "children": [
+    "pulses"
+   ],
+   "subs": [
+    {
+     "label": "Pulses",
+     "slug": "pulses"
+    },
+    {
+     "label": "Dal Lentils"
+    },
+    {
+     "label": "Beans"
+    },
+    {
+     "label": "Peas"
+    },
+    {
+     "label": "Chickpeas"
+    },
+    {
+     "label": "Sesame"
+    },
+    {
+     "label": "Roasted Chane"
+    }
+   ]
+  },
+  {
+   "slug": "seeds",
+   "name": "Seeds",
+   "children": [
+    "seeds"
+   ],
+   "subs": [
+    {
+     "label": "Seeds",
+     "slug": "seeds"
+    },
+    {
+     "label": "Soybean"
+    },
+    {
+     "label": "Sunflower"
+    },
+    {
+     "label": "Canola"
+    },
+    {
+     "label": "Olive"
+    },
+    {
+     "label": "Rice Bran"
+    },
+    {
+     "label": "Oil Seeds"
+    },
+    {
+     "label": "Melon"
+    },
+    {
+     "label": "Watermelon"
+    }
+   ]
+  },
+  {
+   "slug": "edible-oil",
+   "name": "Oil",
+   "children": [
+    "edible-oil",
+    "non-edible-oil"
+   ],
+   "subs": [
+    {
+     "label": "Edible Oil",
+     "slug": "edible-oil"
+    },
+    {
+     "label": "Soybean"
+    },
+    {
+     "label": "Sunflower"
+    },
+    {
+     "label": "Canola"
+    },
+    {
+     "label": "Olive"
+    },
+    {
+     "label": "Rice Bran"
+    },
+    {
+     "label": "Non Edible Oil",
+     "slug": "non-edible-oil"
+    }
+   ]
+  },
+  {
+   "slug": "rice",
+   "name": "Rice",
+   "children": [
+    "rice"
+   ],
+   "subs": [
+    {
+     "label": "Rice",
+     "slug": "rice"
+    },
+    {
+     "label": "White Rice"
+    },
+    {
+     "label": "Brown Rice"
+    }
+   ]
+  },
+  {
+   "slug": "bakery",
+   "name": "Bakery",
+   "children": [
+    "bread-and-bun",
+    "rusk-and-toast",
+    "biscuit-and-cookies"
+   ],
+   "subs": [
+    {
+     "label": "Bread & Bun",
+     "slug": "bread-and-bun"
+    },
+    {
+     "label": "Rusk & Toast",
+     "slug": "rusk-and-toast"
+    },
+    {
+     "label": "Biscuit & Cookies",
+     "slug": "biscuit-and-cookies"
+    },
+    {
+     "label": "Biscuits"
+    },
+    {
+     "label": "Cookies"
+    }
+   ]
+  },
+  {
+   "slug": "confectionery",
+   "name": "Confectionery",
+   "children": [
+    "chocolate",
+    "energy-bar",
+    "wafer",
+    "cake"
+   ],
+   "subs": [
+    {
+     "label": "Wafer",
+     "slug": "wafer"
+    },
+    {
+     "label": "Chocolate",
+     "slug": "chocolate"
+    },
+    {
+     "label": "Cake",
+     "slug": "cake"
+    },
+    {
+     "label": "Energy Bar",
+     "slug": "energy-bar"
+    }
+   ]
+  },
+  {
+   "slug": "condiment",
+   "name": "Condiment",
+   "children": [
+    "ketchup-and-sauce",
+    "pickle-and-chutney",
+    "spread-dips-and-dressing",
+    "honey",
+    "syrup",
+    "peanut-butter"
+   ],
+   "subs": [
+    {
+     "label": "Peanut Butter",
+     "slug": "peanut-butter"
+    },
+    {
+     "label": "Honey",
+     "slug": "honey"
+    },
+    {
+     "label": "Syrup",
+     "slug": "syrup"
+    },
+    {
+     "label": "Ketchup & Sauce",
+     "slug": "ketchup-and-sauce"
+    },
+    {
+     "label": "Pickle & Chutney",
+     "slug": "pickle-and-chutney"
+    },
+    {
+     "label": "Spread, Dips & Dressing",
+     "slug": "spread-dips-and-dressing"
+    }
+   ]
+  },
+  {
+   "slug": "dairy",
+   "name": "Dairy",
+   "children": [
+    "dairy"
+   ],
+   "subs": [
+    {
+     "label": "Dairy",
+     "slug": "dairy"
+    },
+    {
+     "label": "Milk",
+     "slug": "milk"
+    },
+    {
+     "label": "Curd"
+    },
+    {
+     "label": "Yogurt"
+    },
+    {
+     "label": "Butter"
+    },
+    {
+     "label": "Ghee"
+    },
+    {
+     "label": "Paneer"
+    },
+    {
+     "label": "Cheese"
+    },
+    {
+     "label": "Milk Shake"
+    },
+    {
+     "label": "Butter Milk"
+    },
+    {
+     "label": "Lassi"
+    },
+    {
+     "label": "Milk Powder",
+     "slug": "milk-powder"
+    },
+    {
+     "label": "Ice Cream Premix"
+    }
+   ]
+  },
+  {
+   "slug": "milk",
+   "name": "Milk",
+   "children": [
+    "milk"
+   ],
+   "subs": [
+    {
+     "label": "Milk",
+     "slug": "milk"
+    },
+    {
+     "label": "Dairy Milk"
+    },
+    {
+     "label": "Rice Milk"
+    },
+    {
+     "label": "Coconut Milk"
+    },
+    {
+     "label": "Almond Milk"
+    },
+    {
+     "label": "Soy Milk"
+    },
+    {
+     "label": "Oat Milk"
+    }
+   ]
+  },
+  {
+   "slug": "beverage",
+   "name": "Beverage",
+   "children": [
+    "tea",
+    "green-tea-and-flavoured-tea",
+    "coffee",
+    "premix-powder",
+    "cocoa-and-hot-chocolate",
+    "milk-powder",
+    "coconut-water",
+    "mineral-water",
+    "thai-tea",
+    "soft-drink",
+    "juice",
+    "energy-drink"
+   ],
+   "subs": [
+    {
+     "label": "Coffee",
+     "slug": "coffee"
+    },
+    {
+     "label": "Tea",
+     "slug": "tea"
+    },
+    {
+     "label": "Green Tea & Flavoured Tea",
+     "slug": "green-tea-and-flavoured-tea"
+    },
+    {
+     "label": "Cocoa & Hot Chocolate",
+     "slug": "cocoa-and-hot-chocolate"
+    },
+    {
+     "label": "Milk Powder",
+     "slug": "milk-powder"
+    },
+    {
+     "label": "Premix Powder",
+     "slug": "premix-powder"
+    },
+    {
+     "label": "Coconut Water",
+     "slug": "coconut-water"
+    },
+    {
+     "label": "Mineral Water",
+     "slug": "mineral-water"
+    },
+    {
+     "label": "Thai Tea",
+     "slug": "thai-tea"
+    },
+    {
+     "label": "Soft Drink",
+     "slug": "soft-drink"
+    },
+    {
+     "label": "Juice",
+     "slug": "juice"
+    },
+    {
+     "label": "Energy Drink",
+     "slug": "energy-drink"
+    }
+   ]
+  },
+  {
+   "slug": "agro",
+   "name": "Agro",
+   "children": [
+    "agro-processing",
+    "vegetarian-food"
+   ],
+   "subs": [
+    {
+     "label": "Agro"
+    },
+    {
+     "label": "Agro Processing",
+     "slug": "agro-processing"
+    },
+    {
+     "label": "Vegetarian Food",
+     "slug": "vegetarian-food"
+    },
+    {
+     "label": "Bulk Food Packaging"
+    },
+    {
+     "label": "White Labelling"
+    }
+   ]
+  },
+  {
+   "slug": "fruit-vegetable",
+   "name": "Fruit & Vegetable",
+   "children": [
+    "fruit-and-vegetable"
+   ],
+   "subs": [
+    {
+     "label": "Fruit & Vegetable",
+     "slug": "fruit-and-vegetable"
+    },
+    {
+     "label": "Fruits"
+    },
+    {
+     "label": "Vegetables"
+    },
+    {
+     "label": "Green Peas"
+    },
+    {
+     "label": "Herbs"
+    },
+    {
+     "label": "Dried, Fresh, Frozen, Powder, Paste & Puree"
+    }
+   ]
+  },
+  {
+   "slug": "vegetarian-food",
+   "name": "Vegetarian Food",
+   "children": [
+    "vegetarian-food"
+   ],
+   "subs": [
+    {
+     "label": "Vegetarian Food",
+     "slug": "vegetarian-food"
+    },
+    {
+     "label": "Plant Based Food"
+    },
+    {
+     "label": "Packed Food"
+    },
+    {
+     "label": "Frozen Food"
+    },
+    {
+     "label": "Instant Food"
+    },
+    {
+     "label": "Ready To Eat"
+    },
+    {
+     "label": "Canned Fruits & Veges"
+    },
+    {
+     "label": "Pickle"
+    },
+    {
+     "label": "Food Batter"
+    },
+    {
+     "label": "Food Ingredient"
+    },
+    {
+     "label": "Frozen Snacks"
+    },
+    {
+     "label": "Fries"
+    }
+   ]
+  },
+  {
+   "slug": "non-vegetarian-food",
+   "name": "Non Vegetarian Food",
+   "children": [
+    "non-vegetarian-food"
+   ],
+   "subs": [
+    {
+     "label": "Non Vegetarian Food",
+     "slug": "non-vegetarian-food"
+    },
+    {
+     "label": "Eggs"
+    },
+    {
+     "label": "Meat"
+    },
+    {
+     "label": "Chicken"
+    },
+    {
+     "label": "Pork"
+    },
+    {
+     "label": "Fish"
+    },
+    {
+     "label": "Shrimp"
+    },
+    {
+     "label": "Seafood"
+    },
+    {
+     "label": "Fresh, Dried & Frozen"
+    }
+   ]
+  },
+  {
+   "slug": "coconut",
+   "name": "Coconut",
+   "children": [
+    "coco-nut"
+   ],
+   "subs": [
+    {
+     "label": "Coconut",
+     "slug": "coco-nut"
+    },
+    {
+     "label": "Coconut Powder"
+    },
+    {
+     "label": "Desiccated"
+    },
+    {
+     "label": "Cassava"
+    },
+    {
+     "label": "Flakes"
+    },
+    {
+     "label": "Copra"
+    },
+    {
+     "label": "Coconut Water",
+     "slug": "coconut-water"
+    },
+    {
+     "label": "Coconut Milk"
+    },
+    {
+     "label": "Edible & Non Edible Oil"
+    },
+    {
+     "label": "Coconut Cream"
+    },
+    {
+     "label": "Activated Charcoal"
+    }
+   ]
+  },
+  {
+   "slug": "pharma",
+   "name": "Pharma",
+   "children": [
+    "pharmaceutical"
+   ],
+   "subs": [
+    {
+     "label": "Pharmaceutical",
+     "slug": "pharmaceutical"
+    },
+    {
+     "label": "Medicine"
+    },
+    {
+     "label": "Tablet"
+    },
+    {
+     "label": "Syrup",
+     "slug": "syrup"
+    },
+    {
+     "label": "Neutraceutical"
+    },
+    {
+     "label": "Supplement"
+    },
+    {
+     "label": "Protein Powder"
+    },
+    {
+     "label": "Herbs"
+    },
+    {
+     "label": "Catechu"
+    }
+   ]
+  },
+  {
+   "slug": "household-cleaning",
+   "name": "Household Cleaning",
+   "children": [
+    "soap-and-detergent",
+    "fabric-softener",
+    "dishwash-liquid",
+    "floor-cleaner",
+    "toilet-cleaner"
+   ],
+   "subs": [
+    {
+     "label": "Soap",
+     "slug": "soap-and-detergent"
+    },
+    {
+     "label": "Detergent",
+     "slug": "soap-and-detergent"
+    },
+    {
+     "label": "Soap & Detergent",
+     "slug": "soap-and-detergent"
+    },
+    {
+     "label": "Fabric Softener",
+     "slug": "fabric-softener"
+    },
+    {
+     "label": "Dishwash Liquid",
+     "slug": "dishwash-liquid"
+    },
+    {
+     "label": "Floor Cleaner",
+     "slug": "floor-cleaner"
+    },
+    {
+     "label": "Toilet Cleaner",
+     "slug": "toilet-cleaner"
+    }
+   ]
+  },
+  {
+   "slug": "perfume",
+   "name": "Perfume",
+   "children": [
+    "perfume-and-essential-oil"
+   ],
+   "subs": [
+    {
+     "label": "Perfume & Essential Oil",
+     "slug": "perfume-and-essential-oil"
+    },
+    {
+     "label": "Perfume"
+    },
+    {
+     "label": "Essential Oil"
+    },
+    {
+     "label": "Compound"
+    }
+   ]
+  },
+  {
+   "slug": "cosmetics",
+   "name": "Cosmetics",
+   "children": [
+    "cosmetic"
+   ],
+   "subs": [
+    {
+     "label": "Cosmetic",
+     "slug": "cosmetic"
+    },
+    {
+     "label": "Facewash"
+    },
+    {
+     "label": "Bodywash"
+    },
+    {
+     "label": "Shampoo"
+    },
+    {
+     "label": "Cream"
+    },
+    {
+     "label": "Lotion"
+    },
+    {
+     "label": "Soap",
+     "slug": "soap-and-detergent"
+    }
+   ]
+  },
+  {
+   "slug": "chemical",
+   "name": "Chemical",
+   "children": [
+    "chemical",
+    "pigment-powder",
+    "ink"
+   ],
+   "subs": [
+    {
+     "label": "Chemical",
+     "slug": "chemical"
+    },
+    {
+     "label": "Powder Chemical"
+    },
+    {
+     "label": "Liquid Chemical"
+    },
+    {
+     "label": "Calcium Carbonate"
+    },
+    {
+     "label": "Mineral"
+    },
+    {
+     "label": "Refractory"
+    }
+   ]
+  },
+  {
+   "slug": "plastic",
+   "name": "Plastic",
+   "children": [
+    "plastic",
+    "plastic-recycling"
+   ],
+   "subs": [
+    {
+     "label": "Plastic",
+     "slug": "plastic"
+    },
+    {
+     "label": "Plastic Recycling",
+     "slug": "plastic-recycling"
+    }
+   ]
+  },
+  {
+   "slug": "pellet",
+   "name": "Pellet",
+   "children": [
+    "pellet"
+   ],
+   "subs": [
+    {
+     "label": "Pellet",
+     "slug": "pellet"
+    },
+    {
+     "label": "Wood"
+    },
+    {
+     "label": "Biomass"
+    },
+    {
+     "label": "Charcoal"
+    }
+   ]
+  },
+  {
+   "slug": "paint",
+   "name": "Paint",
+   "children": [
+    "paint"
+   ],
+   "subs": [
+    {
+     "label": "Paint",
+     "slug": "paint"
+    },
+    {
+     "label": "Ink",
+     "slug": "ink"
+    },
+    {
+     "label": "Pigment Powder",
+     "slug": "pigment-powder"
+    }
+   ]
+  },
+  {
+   "slug": "iron-steel",
+   "name": "Iron & Steel",
+   "children": [
+    "iron-and-steel"
+   ],
+   "subs": [
+    {
+     "label": "Iron & Steel",
+     "slug": "iron-and-steel"
+    },
+    {
+     "label": "Fabrication"
+    },
+    {
+     "label": "Foundries"
+    },
+    {
+     "label": "Casting"
+    },
+    {
+     "label": "Shot & Sand Blast"
+    },
+    {
+     "label": "Metal"
+    },
+    {
+     "label": "Alumunium"
+    },
+    {
+     "label": "Iron"
+    },
+    {
+     "label": "Steel"
+    }
+   ]
+  },
+  {
+   "slug": "construction",
+   "name": "Construction",
+   "children": [
+    "construction",
+    "building-material"
+   ],
+   "subs": [
+    {
+     "label": "Construction",
+     "slug": "construction"
+    },
+    {
+     "label": "Building Material",
+     "slug": "building-material"
+    },
+    {
+     "label": "Cement"
+    },
+    {
+     "label": "Rmc"
+    },
+    {
+     "label": "Mortar"
+    },
+    {
+     "label": "Sand"
+    },
+    {
+     "label": "Stone"
+    },
+    {
+     "label": "Interlock Paver"
+    },
+    {
+     "label": "Marble"
+    },
+    {
+     "label": "Granite"
+    },
+    {
+     "label": "Ceramic"
+    },
+    {
+     "label": "Tile"
+    },
+    {
+     "label": "Fly Ash"
+    },
+    {
+     "label": "Gypsum"
+    },
+    {
+     "label": "Mineral"
+    }
+   ]
+  },
+  {
+   "slug": "rubber",
+   "name": "Rubber",
+   "children": [
+    "rubber"
+   ],
+   "subs": [
+    {
+     "label": "Rubber",
+     "slug": "rubber"
+    },
+    {
+     "label": "Tyres"
+    },
+    {
+     "label": "Tubes"
+    },
+    {
+     "label": "Seals"
+    },
+    {
+     "label": "Gaskets"
+    },
+    {
+     "label": "O Rings"
+    },
+    {
+     "label": "Gloves"
+    },
+    {
+     "label": "Shoes"
+    },
+    {
+     "label": "Conveyor Belts"
+    },
+    {
+     "label": "Footwear Soles"
+    },
+    {
+     "label": "AV Mounts"
+    },
+    {
+     "label": "Mats & Flooring"
+    },
+    {
+     "label": "Rubber Bands"
+    },
+    {
+     "label": "Erasers"
+    }
+   ]
+  },
+  {
+   "slug": "paper",
+   "name": "Paper",
+   "children": [
+    "paper"
+   ],
+   "subs": [
+    {
+     "label": "Paper",
+     "slug": "paper"
+    },
+    {
+     "label": "Tissue"
+    },
+    {
+     "label": "Toilet Paper"
+    },
+    {
+     "label": "Kitchen Towel"
+    },
+    {
+     "label": "Paper Towel"
+    },
+    {
+     "label": "Cardboard"
+    },
+    {
+     "label": "Mono Carton"
+    },
+    {
+     "label": "Newspaper"
+    },
+    {
+     "label": "Book"
+    },
+    {
+     "label": "Kraft Paper"
+    },
+    {
+     "label": "Corrugated Paper"
+    },
+    {
+     "label": "Copier Paper"
+    }
+   ]
+  },
+  {
+   "slug": "automotive",
+   "name": "Automotive",
+   "children": [
+    "automotive"
+   ],
+   "subs": [
+    {
+     "label": "Automotive",
+     "slug": "automotive"
+    },
+    {
+     "label": "All Vehicles & Parts"
+    }
+   ]
+  },
+  {
+   "slug": "textile",
+   "name": "Textile",
+   "children": [
+    "textile"
+   ],
+   "subs": [
+    {
+     "label": "Textile",
+     "slug": "textile"
+    },
+    {
+     "label": "All Kinds of Textile"
+    }
+   ]
+  },
+  {
+   "slug": "hospitality",
+   "name": "Hospitality",
+   "children": [
+    "hospitality"
+   ],
+   "subs": [
+    {
+     "label": "Hospitality",
+     "slug": "hospitality"
+    },
+    {
+     "label": "Car Parking Lift"
+    },
+    {
+     "label": "Blower Ventilation"
+    },
+    {
+     "label": "Centralised Cooling"
+    },
+    {
+     "label": "Chiller Unit"
+    },
+    {
+     "label": "Boiler"
+    }
+   ]
   }
+ ],
+ "excludedFromIndustryGrid": {
+  "_why": "These are equipment categories, not industries. The old site wrongly showed them as industry tiles. They stay as full pages and belong in the Manufacturing Solutions grid.",
+  "slugs": [
+   "dust-collection-system-and-pollution-control-equipment",
+   "material-handling-equipments",
+   "packaging"
+  ]
+ }
 }

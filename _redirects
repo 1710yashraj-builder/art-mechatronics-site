@@ -137,8 +137,8 @@
 /industry/construction/  /industries/construction  301
 /industry/dairy  /industries/dairy  301
 /industry/dairy/  /industries/dairy  301
-/industry/food-processing  /industries/food-processing  301
-/industry/food-processing/  /industries/food-processing  301
+/industry/food-processing  /industries/vegetarian-food  301
+/industry/food-processing/  /industries/vegetarian-food  301
 /industry/grains  /industries/grains  301
 /industry/grains/  /industries/grains  301
 /industry/hospitality  /industries/hospitality  301
@@ -161,6 +161,10 @@
 /industry/pulses/  /industries/pulses  301
 /industry/seeds  /industries/seeds  301
 /industry/seeds/  /industries/seeds  301
+
+# --- 2026-08-21 catalog restructure: Food Processing renamed Vegetarian Food ---
+/industries/food-processing  /industries/vegetarian-food  301
+/industries/food-processing/  /industries/vegetarian-food  301
 
 # --- section wildcards (catch every remaining old URL) ---
 # Deliberately NO /products/* rule: the new site owns /products/<slug>.html and
