@@ -627,3 +627,60 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .rp-card h3 { margin: 0; font-size: 1.12rem; line-height: 1.3; }
 .rp-note { margin: 1.4rem 0 0; font-size: .8rem; color: var(--steel); text-align: center; }
 @media (max-width: 620px) { .rp-card { width: 300px; } }
+
+/* --- Recent Projects: two rails, four cards across (client, 2026-08-21) --- */
+/* 297px is not arbitrary: the wrap is 1240px with a 1.1rem gap, so four cards
+   plus three gaps land exactly on the wrap. Change the gap and this must move. */
+.rp-card { width: 297px; }
+.rp-rail--b { margin-top: 1.1rem; }
+.rp-card__hit {
+  display: flex; flex-direction: column; width: 100%; padding: 0;
+  border: 0; background: none; text-align: left; cursor: pointer; color: inherit;
+  font: inherit;
+}
+.rp-card__hit .rp-card__tx { display: grid; gap: .4rem; padding: 1.1rem 1.3rem 1.3rem; }
+.rp-card__h { margin: 0; font-size: 1.12rem; line-height: 1.3; font-weight: 700; color: var(--ink); }
+.rp-card__hit img { transition: transform .4s var(--ease); }
+.rp-card__hit:hover img { transform: scale(1.03); }
+.rp-card__hit:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 2px; }
+.rp-all { margin-top: 1.6rem; text-align: center; }
+
+@media (max-width: 1100px) { .rp-card { width: 320px; } }
+@media (max-width: 620px)  { .rp-card { width: 300px; } }
+
+/* --- the gallery --- */
+.gal { border: 0; padding: 0; background: transparent; width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; }
+.gal::backdrop { background: rgba(6, 20, 42, .93); }
+.gal__stage { position: relative; width: 100%; height: 100%; display: grid; place-items: center; }
+.gal__img {
+  max-width: min(94vw, 1400px); max-height: 78dvh; width: auto; height: auto;
+  object-fit: contain; border-radius: var(--r); background: #0b1c33;
+}
+.gal__x, .gal__nav {
+  position: absolute; width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.35); background: rgba(10,25,48,.55); color: #fff;
+  display: grid; place-items: center; cursor: pointer;
+  transition: background .18s var(--ease), border-color .18s var(--ease);
+}
+.gal__x svg, .gal__nav svg { width: 22px; height: 22px; }
+.gal__x:hover, .gal__nav:hover { background: var(--blue); border-color: #fff; }
+.gal__x:focus-visible, .gal__nav:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.gal__x { top: 18px; right: 18px; }
+.gal__nav--prev { left: 18px; top: 50%; transform: translateY(-50%); }
+.gal__nav--next { right: 18px; top: 50%; transform: translateY(-50%); }
+.gal__bar {
+  position: absolute; left: 0; right: 0; bottom: 22px;
+  display: flex; align-items: baseline; justify-content: center; gap: 1.2rem;
+  padding: 0 1.2rem; color: #fff; flex-wrap: wrap;
+}
+.gal__tx { display: grid; gap: .15rem; text-align: center; }
+.gal__t { font-size: 1.02rem; }
+.gal__c { font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: #bdd7f6; }
+.gal__n { font-family: var(--font-mono); font-size: .8rem; color: #bdd7f6; }
+
+@media (max-width: 620px) {
+  .gal__img { max-width: 96vw; max-height: 68dvh; }
+  .gal__nav { width: 44px; height: 44px; }
+  .gal__nav--prev { left: 8px; } .gal__nav--next { right: 8px; }
+  .gal__bar { bottom: 14px; gap: .5rem; }
+}
