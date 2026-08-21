@@ -205,6 +205,9 @@ function displayName(raw = "") {
   const base = raw.replace(/\s*[–(].*$/s, "").replace(/[\s-]+$/, "").trim();
   const tail = paren ? paren[1].trim() : dash ? dash[1].trim() : "";
   const acro = tail && !tail.includes(",") && tail.length <= 8 && /^[A-Za-z0-9 /]+$/.test(tail)
+      // never append an acronym the base already ends with —
+      // "Autonomous Mobile Robot - AMR" was rendering as "… - AMR (AMR)"
+      && !base.toUpperCase().endsWith(tail.toUpperCase())
     ? " (" + tail.toUpperCase() + ")" : "";
   return (base + acro).trim() || raw;
 }
