@@ -802,3 +802,47 @@ p { margin: 0 0 1em; }
   .cfab__row { width: 44px; height: 44px; }
   .cfab__tip { display: none; }
 }
+
+/* ============================================================
+   WECHAT — the QR panel opened from the Contact Us button, and the block on
+   the Contact page. WeChat has no profile URL a browser can open, so the code
+   itself is the contact detail; everything here exists to make it scannable.
+   ============================================================ */
+.cfab__row--wechat { background: #07C160; }
+
+.qrmodal { border: 0; padding: 0; background: transparent; max-width: 92vw; }
+.qrmodal::backdrop { background: rgba(8, 27, 58, .62); }
+.qrmodal__card {
+  position: relative; background: #fff; border-radius: var(--r-lg);
+  padding: 1.6rem 1.5rem 1.5rem; text-align: center; width: min(92vw, 340px);
+  box-shadow: 0 24px 60px rgba(8, 27, 58, .3);
+}
+.qrmodal__x {
+  position: absolute; top: .6rem; right: .6rem;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid var(--line); background: #fff; color: var(--steel);
+  display: grid; place-items: center; cursor: pointer;
+}
+.qrmodal__x svg { width: 18px; height: 18px; }
+.qrmodal__x:hover { background: var(--blue-soft); color: var(--navy); }
+.qrmodal__x:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 2px; }
+.qrmodal__h { margin: 0 0 .9rem; font-size: 1.15rem; color: var(--navy); }
+/* A QR has to stay crisp and square or it stops scanning — never let it be
+   stretched by a flexible parent, and keep it on a white ground. */
+.qrmodal__qr {
+  display: block; width: 260px; max-width: 100%; height: auto; aspect-ratio: 1;
+  margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: var(--r-sm);
+  image-rendering: crisp-edges;
+}
+.qrmodal__note { margin: .9rem 0 0; color: var(--steel); font-size: .88rem; line-height: 1.5; }
+.qrmodal__go { margin-top: 1rem; display: inline-block; }
+
+/* the block on the Contact page */
+.wechat-block { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+.wechat-block img {
+  width: 168px; height: 168px; flex: 0 0 auto; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--r-sm); image-rendering: crisp-edges;
+}
+.wechat-block__tx { min-width: 0; }
+.wechat-block__tx h3 { margin: 0 0 .3rem; font-size: 1rem; color: var(--navy); }
+.wechat-block__tx p { margin: 0; color: var(--steel); font-size: .9rem; line-height: 1.55; max-width: 42ch; }

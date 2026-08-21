@@ -63,6 +63,13 @@ const ART = {
       { id: "instagram", name: "Instagram", note: "@art_mechatronics_", url: "https://www.instagram.com/art_mechatronics_/" },
       { id: "facebook",  name: "Facebook",  note: "ART Mechatronics",  url: "https://www.facebook.com/p/Art-Mechatronics-61590532739976/" },
       { id: "line",      name: "LINE",      note: "Thailand",          url: "https://line.me/ti/p/W5CxmQgXQ4" },
+      /* WeChat is not like the other four. It has no web profile URL that works
+         from a browser, so it carries a QR to scan and the weixin:// hand-off
+         for a device that already has the app. `url` points at the Contact
+         page's WeChat block, which is what a visitor gets if the script never
+         runs — the entry stays a real link, so it can never be a dead control. */
+      { id: "wechat",    name: "WeChat",    note: "China",             url: "contact#wechat",
+        qr: "assets/social/wechat-anurag.png", app: "weixin://" },
     ],
   },
 
