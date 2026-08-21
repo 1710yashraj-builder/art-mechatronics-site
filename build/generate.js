@@ -1329,7 +1329,14 @@ const HOME_RANGE = [
   { cat: "__ALL__", display: "Much More", tile: "assets/categories/solutions/v4/tile-10.webp" },
 ];
 
-function categoryGrid(base = "") {
+/* machinePopups (client, 2026-08-21, HOMEPAGE ONLY): the seven specific tiles
+   list their actual MACHINES flat A–Z, each opening that machine's own page.
+   The two umbrella tiles (Material Handling, Packaging) keep their group
+   popups — Packaging holds 114 machines, which is not a popup, it is a wall —
+   and "Much More" loses its popup entirely and goes straight to the catalogue.
+   Category pages keep the old group popups everywhere: same tile, same page
+   context, different job. */
+function categoryGrid(base = "", machinePopups = false) {
   const tiles = HOME_RANGE.map((spec) => {
     // the "everything else" tile: every family in one dropdown, linking to
     // the full product range rather than to a single category page.
@@ -1337,6 +1344,18 @@ function categoryGrid(base = "") {
       const all = categoryList().filter((n) => productsInCategory(n).length);
       const total = selProd.length;
       const href = rel(base, "catalog.html");
+      if (machinePopups) {
+        // straight to the catalogue: no caret, no drop, no has-drop — with the
+        // popup script running, a tile without .mc-drop stays a plain link
+        return `<div class="mc-tile-wrap">
+      <a class="mc-tile" href="${href}" style="--mc-from:#0F3E7C;--mc-to:#1657B0">
+      <span class="mc-tile__media"><img src="${base}${spec.tile}" alt="The rest of the ART machine range" width="1600" height="1200" loading="lazy" decoding="async"></span>
+      <span class="mc-tile__body">
+        <span class="mc-tile__name">${esc(spec.display)}</span>
+        <span class="mc-tile__count">${selProd.length} machines in all</span>
+      </span></a>
+    </div>`;
+      }
       const lis = all.map((n) => {
         const [h2] = CATEGORY_COPY[n] || [n, ""];
         const cnt = productsInCategory(n).length;
@@ -1396,13 +1415,28 @@ function categoryGrid(base = "") {
       const shref = rel(base, `categories/${categorySlug(sname)}.html`);
       return `<li><a href="${shref}"><span class="mc-dot" aria-hidden="true"></span>${esc(slabel)}<em>${sprods.length}</em></a></li>`;
     }).join("");
+    /* Umbrella tiles keep group lists even in machine mode: Material Handling
+       spans 30 machines and Packaging 114 — groups are the usable unit there. */
+    const groupPopup = !machinePopups || name === "Conveying & Handling" || name === "Packaging";
+    const listItems = groupPopup
+      ? gs.map((g) => `<li><a href="${pageHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`).join("") + sisterLis
+      /* the machines themselves, flat A–Z, name only, each to its own page —
+         the client's spec: "named the machines themselves; click and he goes
+         into it". Slugs resolve through prods so a data typo cannot emit a
+         dead link — an unresolvable slug is dropped, not guessed. */
+      : (spec.groupsOnly ? gs.flatMap((g) => g.machines) : prods.map((p) => p.slug))
+          .map((slug) => prods.find((p) => p.slug === slug))
+          .filter(Boolean)
+          .sort((a, b) => a.display.localeCompare(b.display))
+          .map((p) => `<li><a href="${rel(base, `products/${p.slug}.html`)}"><span class="mc-dot" aria-hidden="true"></span>${esc(p.display)}</a></li>`)
+          .join("");
     const caret = gs.length ? `
-      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-${domSlug}" aria-label="Show groups under ${attr(heading)}">
+      <button class="mc-caret" type="button" aria-expanded="false" aria-controls="mcd-${domSlug}" aria-label="Show ${groupPopup ? "groups" : "machines"} under ${attr(heading)}">
         <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="mc-drop" id="mcd-${domSlug}" hidden>
         <p class="mc-drop__h">${esc(heading)}</p>
-        <ul>${gs.map((g) => `<li><a href="${pageHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`).join("")}${sisterLis}</ul>
+        <ul>${listItems}</ul>
         <a class="mc-drop__all" href="${tileHref}">See all ${shown} machines →</a>
       </div>` : "";
     return `<div class="mc-tile-wrap${gs.length ? " has-drop" : ""}">
@@ -1602,7 +1636,7 @@ fs.writeFileSync(path.join(ROOT, "projects.html"), renderProjects());
   if (cf < 0 || ct < 0) {
     throw new Error("index.html is missing the category-grid markers");
   }
-  next = next.slice(0, cf + CS.length) + "\n      " + categoryGrid("") + "\n      " + next.slice(ct);
+  next = next.slice(0, cf + CS.length) + "\n      " + categoryGrid("", true) + "\n      " + next.slice(ct);
 
   // testimonials — same marker contract; empty data removes the section
   const TS = "<!-- testimonials:start -->";
