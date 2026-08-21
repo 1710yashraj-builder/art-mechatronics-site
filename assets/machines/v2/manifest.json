@@ -6156,6 +6156,18 @@
    "hero": "assets/machines/v2/industries/textile/hero-16x9.webp",
    "disclosure": true,
    "alt": "Representative Textile process equipment by ART Mechatronics"
+  },
+  "palm-oil": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "heating-thermal-generator",
+    "process-liquid-homogenising",
+    "packaging-filling-dosing"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/palm-oil/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Palm Oil process equipment by ART Mechatronics"
   }
  }
 }

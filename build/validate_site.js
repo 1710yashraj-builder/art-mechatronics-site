@@ -146,7 +146,7 @@ for (const file of jsFiles) {
 const productCount = htmlFiles.filter(file => relative(file).startsWith("products/")).length;
 const industryCount = htmlFiles.filter(file => relative(file).startsWith("industries/")).length;
 if (productCount !== 315) errors.push(`Expected 315 product pages, found ${productCount}`);
-if (industryCount !== 111) errors.push(`Expected 111 industry pages, found ${industryCount}`);
+if (industryCount !== 112) errors.push(`Expected 112 industry pages, found ${industryCount}`);
 
 const required = [
   "index.html", "industries.html", "catalog.html", "machines.html",

@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260821h";
+const CSSV = "?v=20260821i";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -980,15 +980,16 @@ function projCard(ph, base) {
 
 function projectRails(base) {
   const rail = (which, speed, extra) => `
-    <div class="pk-marquee pk-marquee--fade rp-rail${extra}" data-marquee data-marquee-speed="${speed}">
+    <div class="pk-marquee pk-marquee--fade rp-rail${extra}" data-marquee data-marquee-speed="${speed}" data-marquee-group="rp">
       <div class="wrap">
         <ul class="pk-marquee__track">${PROJECT_PHOTOS.filter((p) => p.rail === which).map((p) => projCard(p, base)).join("")}
         </ul>
       </div>
     </div>`;
-  // same direction, different speeds: in exact lockstep two rows read as one
-  // block sliding sideways rather than as two rails.
-  return rail("top", 26, "") + "\n" + rail("bottom", 21, " rp-rail--b");
+  // Anurag 2026-08-21: grid lock. Equal speed + the shared pause group keeps
+  // the two rails' columns aligned; card width and gap are already identical,
+  // so equal speed is sufficient — the rails can never drift apart.
+  return rail("top", 24, "") + "\n" + rail("bottom", 24, " rp-rail--b");
 }
 
 /* ---- /projects — every project photograph, at its own shape ---- */

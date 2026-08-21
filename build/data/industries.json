@@ -36945,5 +36945,339 @@
    "Spinning & Weaving Mills",
    "Textile Processing Units"
   ]
+ },
+ {
+  "slug": "palm-oil",
+  "shortName": "Palm Oil – (Crude Palm Oil, Palm Kernel Oil, Refined Palm Oil)",
+  "h1": "Palm Oil Processing Plant & Machinery Solutions (Crude Palm Oil, Palm Kernel Oil & Packing Lines)",
+  "metaTitle": "Palm Oil Plant & Machinery | CPO, Palm Kernel Oil Solutions",
+  "metaDesc": "Complete palm oil plant solutions for fruit handling, sterilisation, pressing, clarification support, storage and packing. Turnkey machinery by ART Mechatronics.",
+  "category": "Industry",
+  "intro": "Palm oil is one of the most widely produced vegetable oils in the world, recovered as crude palm oil from the fruit of the oil palm and as palm kernel oil from the nut inside it. Processing it calls for careful fruit handling, controlled sterilisation and cooking, efficient pressing, clean clarification and storage, and reliable filling and packing to protect quality and shelf life.\nART Mechatronics provides complete turnkey solutions for palm oil processing plants, covering fruit reception and cleaning, sterilisation and cooking support, expelling, kernel recovery and drying, bulk storage, dust and pollution control, automation, and filling and packing lines for crude and refined palm oil. Refining operations are supported through integration with the plant's refining section, while ART Mechatronics supplies and engineers the handling, thermal, pressing, storage, automation and packaging systems around it.",
+  "sections": [
+   {
+    "title": "Introduction",
+    "key": "INTRODUCTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "Palm oil is one of the most widely produced vegetable oils in the world, recovered as crude palm oil from the fruit of the oil palm and as palm kernel oil from the nut inside it. Processing it calls for careful fruit handling, controlled sterilisation and cooking, efficient pressing, clean clarification and storage, and reliable filling and packing to protect quality and shelf life. ART Mechatronics provides complete turnkey solutions for palm oil processing plants, covering fruit reception and cleaning, sterilisation and cooking support, expelling, kernel recovery and drying, bulk storage, dust and pollution control, automation, and filling and packing lines for crude and refined palm oil. Refining operations are supported through integration with the plant's refining section, while ART Mechatronics supplies and engineers the handling, thermal, pressing, storage, automation and packaging systems around it."
+     }
+    ]
+   },
+   {
+    "title": "Complete Palm Oil Process Flow",
+    "key": "COMPLETE PALM OIL PROCESS FLOW",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Fruit Reception & Handling",
+      "desc": [
+       "Fresh fruit bunches and loose fruit are received, weighed and fed into the plant."
+      ],
+      "machines": [
+       "Apron Conveyor",
+       "Conveyor Belt",
+       "Vibratory Feeder",
+       "Hopper"
+      ],
+      "note": "Ensures steady and controlled feed into the process."
+     },
+     {
+      "type": "step",
+      "title": "Sterilisation & Fruit Separation (CRITICAL STAGE)",
+      "desc": [
+       "Fruit bunches are treated with steam and the fruit is then separated from the empty bunches."
+      ],
+      "machines": [
+       "Sterilization",
+       "Steam Generator",
+       "Boiler",
+       "Apron Conveyor"
+      ],
+      "note": "Supports:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Easier release of fruit from the bunch",
+       "Softened fruit for the digestion stage",
+       "Smoother downstream pressing"
+      ]
+     },
+     {
+      "type": "step",
+      "title": "Digestion & Cooking",
+      "desc": [
+       "Separated fruit is heated and mashed so the oil-bearing material is opened up before pressing."
+      ],
+      "machines": [
+       "Cooking Kettle, Boiling Tank",
+       "Jacketed Tank",
+       "Agitator",
+       "Screw Conveyor"
+      ],
+      "note": "Prepares a uniform mash for the press."
+     },
+     {
+      "type": "step",
+      "title": "Oil Extraction / Pressing (CORE PROCESS)",
+      "desc": [
+       "The digested mash is pressed to separate crude palm oil from the fibre and nut."
+      ],
+      "machines": [
+       "Expeller Machine",
+       "Screw Conveyor",
+       "Conveyor Belt"
+      ],
+      "note": "Produces:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Crude palm oil for clarification",
+       "Press cake containing fibre and nuts"
+      ]
+     },
+     {
+      "type": "step",
+      "title": "Clarification, Filtration & Bulk Storage",
+      "desc": [
+       "Pressed oil is settled, clarified and filtered, then transferred to bulk storage for dispatch or refining."
+      ],
+      "machines": [
+       "Separator",
+       "Jacketed Tank",
+       "Heat Exchanger",
+       "Agitator",
+       "Storage Tank"
+      ],
+      "note": "Prepares clean crude palm oil for the next stage."
+     },
+     {
+      "type": "note",
+      "text": "Refining operations such as neutralisation, bleaching, deodorisation and fractionation are carried out in the plant's refining section. ART Mechatronics supports these plants by supplying and integrating the surrounding handling, thermal, storage, automation and packing systems rather than the refining columns themselves."
+     },
+     {
+      "type": "step",
+      "title": "Kernel Recovery & Palm Kernel Oil",
+      "desc": [
+       "Fibre and nuts are separated from the press cake, the nuts are cracked, kernels are recovered and dried, and the kernel is pressed for palm kernel oil."
+      ],
+      "machines": [
+       "Winnower",
+       "Crusher",
+       "Shell Removal",
+       "Rotary Dryer, Drum Dryer",
+       "Bucket Elevator",
+       "Expeller Machine"
+      ],
+      "note": "Recovers additional value as:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Palm kernel oil",
+       "Palm kernel cake",
+       "Shell and fibre by-products"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "Fibre, shell and kernel handling areas are supported with dust extraction and pollution control equipment for a cleaner, safer plant environment."
+     },
+     {
+      "type": "step",
+      "title": "Filling, Packing & Dispatch",
+      "desc": [
+       "Crude and refined palm oil is filled into consumer, bulk and export packs, coded, labelled and prepared for dispatch."
+      ],
+      "machines": [
+       "Filling",
+       "Jerry Can Packing",
+       "Drum Packing",
+       "Bottle Packing (Spray, Pet, Glass)",
+       "Capping",
+       "Labelling",
+       "Checkweigher With Printer"
+      ],
+      "note": "Suitable for:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Pouch and bottle retail packs",
+       "Jerry can and tin packs",
+       "Drum and bulk dispatch"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Machinery Required for Palm Oil Plant",
+    "key": "MACHINERY REQUIRED FOR PALM OIL PLANT",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Apron Conveyor",
+       "Screw Conveyor",
+       "Sterilization",
+       "Steam Generator",
+       "Cooking Kettle, Boiling Tank",
+       "Expeller Machine",
+       "Separator",
+       "Winnower",
+       "Shell Removal",
+       "Rotary Dryer, Drum Dryer",
+       "Storage Tank",
+       "Filling",
+       "Dust Collector Machine",
+       "PLC Automation Control Panel"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Turnkey Palm Oil Plant Solutions",
+    "key": "TURNKEY PALM OIL PLANT SOLUTIONS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "ART Mechatronics offers complete turnkey solutions for palm oil processing plants, including:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Process design & plant layout",
+       "Fruit handling and sterilisation support systems",
+       "Cooking and pressing sections",
+       "Clarification, filtration and bulk storage support",
+       "Kernel recovery and drying systems",
+       "Dust collection & pollution control",
+       "Automation & control panels",
+       "Filling and packing line integration",
+       "Installation & commissioning",
+       "After-sales support"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "We customize solutions based on:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Product type (crude palm oil, palm kernel oil, refined palm oil)",
+       "Production capacity",
+       "Level of automation required",
+       "Storage and dispatch requirements",
+       "Packaging format (pouch, bottle, jerry can, drum, bulk)"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "Refining sections are handled as an integration and support scope alongside the client's refining partner."
+     }
+    ]
+   },
+   {
+    "title": "Why Choose ART Mechatronics for Palm Oil",
+    "key": "WHY CHOOSE ART MECHATRONICS FOR PALM OIL",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Experience across oil and agro processing plants",
+       "Expeller-based extraction and press-cake handling expertise",
+       "Steam, thermal and drying systems engineered for the process",
+       "Kernel recovery and by-product handling covered in the same scope",
+       "Dust collection and pollution control designed into the plant",
+       "Automation and control panels for consistent, repeatable operation",
+       "Filling and packing lines for retail, bulk and export packs",
+       "Single-point turnkey responsibility from layout to commissioning",
+       "Global export capability"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Applications",
+    "key": "APPLICATIONS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Palm Oil Mills",
+       "Crude Palm Oil (CPO) Production Units",
+       "Palm Kernel Oil Extraction Plants",
+       "Edible Oil Refineries",
+       "Bulk Oil Storage & Handling Terminals",
+       "Consumer Oil Filling & Packing Plants",
+       "Oleochemical & Soap Manufacturing",
+       "Vanaspati & Bakery Fat Units",
+       "Animal Feed & Palm Kernel Cake Units"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Call To Action",
+    "key": "CALL TO ACTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "Looking to Set Up a Palm Oil Processing Plant? Connect with our experts for:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Complete turnkey solutions",
+       "Sterilisation, pressing and kernel recovery system design",
+       "Filling and packing line planning",
+       "Plant layout & capacity planning"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "Request a Quote | Talk to Our Expert"
+     }
+    ]
+   }
+  ],
+  "machines": [
+   "Apron Conveyor",
+   "Screw Conveyor",
+   "Sterilization",
+   "Steam Generator",
+   "Cooking Kettle, Boiling Tank",
+   "Expeller Machine",
+   "Separator",
+   "Winnower",
+   "Shell Removal",
+   "Rotary Dryer, Drum Dryer",
+   "Storage Tank",
+   "Filling",
+   "Dust Collector Machine",
+   "PLC Automation Control Panel"
+  ],
+  "applications": [
+   "Palm Oil Mills",
+   "Crude Palm Oil (CPO) Production Units",
+   "Palm Kernel Oil Extraction Plants",
+   "Edible Oil Refineries",
+   "Bulk Oil Storage & Handling Terminals",
+   "Consumer Oil Filling & Packing Plants",
+   "Oleochemical & Soap Manufacturing",
+   "Vanaspati & Bakery Fat Units",
+   "Animal Feed & Palm Kernel Cake Units"
+  ],
+  "aka": [
+   "Palm Oil Mill",
+   "CPO Plant",
+   "Palm Kernel Oil Plant",
+   "Palm Fruit Processing Plant",
+   "Palm Oil Extraction Plant"
+  ]
  }
 ]

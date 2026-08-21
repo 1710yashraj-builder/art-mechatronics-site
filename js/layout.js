@@ -381,6 +381,11 @@
      rail we clone more, and only ever clone the hidden set. --live is added
      last: until then the track wraps as a normal list, which is what keeps it
      readable with no JS or a dead animation. */
+  // data-marquee-group: rails naming the same group pause and resume as one.
+  // Anurag wants the two Recent Projects rails grid-locked (2026-08-21): same
+  // speed + same card/gap keeps their columns aligned, and a shared pause is
+  // what stops a hover on one rail from drifting it against the other.
+  const marqueeGroups = {};
   document.querySelectorAll("[data-marquee]").forEach((rail) => {
     const track = rail.querySelector(".pk-marquee__track");
     if (!track) return;
@@ -431,10 +436,17 @@
       boost = Math.min(boost + dy * 2.2, speed * 4);
     }, { passive: true });
 
-    rail.addEventListener("mouseenter", () => { paused = true; });
-    rail.addEventListener("mouseleave", () => { paused = false; });
-    rail.addEventListener("focusin", () => { paused = true; });
-    rail.addEventListener("focusout", () => { paused = false; });
+    const groupName = rail.dataset.marqueeGroup;
+    const setPaused = (v) => { paused = v; };
+    if (groupName) (marqueeGroups[groupName] = marqueeGroups[groupName] || []).push(setPaused);
+    const pauseAll = (v) => {
+      if (groupName) marqueeGroups[groupName].forEach((fn) => fn(v));
+      else setPaused(v);
+    };
+    rail.addEventListener("mouseenter", () => pauseAll(true));
+    rail.addEventListener("mouseleave", () => pauseAll(false));
+    rail.addEventListener("focusin", () => pauseAll(true));
+    rail.addEventListener("focusout", () => pauseAll(false));
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) { cancelAnimationFrame(raf); raf = null; }
       else if (!raf) { last = 0; raf = requestAnimationFrame(frame); }

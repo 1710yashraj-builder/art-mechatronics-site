@@ -663,7 +663,8 @@
    "name": "Oil",
    "children": [
     "edible-oil",
-    "non-edible-oil"
+    "non-edible-oil",
+    "palm-oil"
    ],
    "subs": [
     {
@@ -684,6 +685,10 @@
     },
     {
      "label": "Rice Bran"
+    },
+    {
+     "label": "Palm Oil",
+     "slug": "palm-oil"
     },
     {
      "label": "Non Edible Oil",
