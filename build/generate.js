@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260821b";
+const CSSV = "?v=20260821d";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -909,6 +909,117 @@ function groupCover(group) {
   return null;
 }
 
+/* ---- project photographs (Anurag, 2026-08-21) ----
+   One list, owning both the homepage rails and the /projects page, so the two
+   can never drift apart. w/h are the NATIVE dimensions: the projects page keeps
+   each photo's true shape, and declaring the ratio stops the masonry columns
+   from reflowing as images arrive. */
+const PROJECT_PHOTOS = [
+  { id: "p-01", rail: "top", cat: "Heating & Drying", title: "Cyclone dryer with pulveriser", w: 675, h: 900 },
+  { id: "p-02", rail: "top", cat: "Heating & Drying", title: "Rotary drum drying line", w: 900, h: 675 },
+  { id: "p-03", rail: "top", cat: "Heating & Drying", title: "Spray drying plant", w: 675, h: 900 },
+  { id: "p-04", rail: "top", cat: "Heating & Drying", title: "Fluid bed dryer", w: 554, h: 900 },
+  { id: "p-05", rail: "top", cat: "Process Equipment", title: "Jacketed process vessel with platform", w: 900, h: 717 },
+  { id: "p-06", rail: "top", cat: "Process Equipment", title: "Steam jacketed cooking kettle", w: 900, h: 900 },
+  { id: "p-07", rail: "top", cat: "Mixing & Blending", title: "Planetary mixer with control panel", w: 795, h: 900 },
+  { id: "p-08", rail: "top", cat: "Mixing & Blending", title: "Ribbon blender installation", w: 900, h: 675 },
+  { id: "p-09", rail: "top", cat: "Heating & Drying", title: "Tray dryer with storage tanks", w: 900, h: 675 },
+  { id: "p-10", rail: "top", cat: "Material Handling", title: "Multi-hopper dosing and conveying plant", w: 900, h: 600 },
+  { id: "p-11", rail: "top", cat: "Process Equipment", title: "Coating pan line", w: 900, h: 600 },
+  { id: "p-12", rail: "top", cat: "Heating & Drying", title: "Enclosed drying chamber with hot air unit", w: 900, h: 600 },
+  { id: "p-13", rail: "top", cat: "Heating & Drying", title: "Hot air generator and drying room", w: 900, h: 600 },
+  { id: "p-14", rail: "top", cat: "Turnkey Lines", title: "Complete processing line with storage tanks", w: 900, h: 634 },
+  { id: "p-15", rail: "top", cat: "Cleaning & Sorting", title: "CCD colour sorter", w: 900, h: 675 },
+  { id: "p-16", rail: "top", cat: "Dust Collection", title: "Cyclone and ducting, workshop assembly", w: 900, h: 506 },
+  { id: "s-01", rail: "bottom", cat: "Dust Collection", title: "Bag-house dust collection plant", w: 756, h: 551 },
+  { id: "s-02", rail: "bottom", cat: "Dust Collection", title: "Bag-house unit with hopper", w: 787, h: 628 },
+  { id: "s-03", rail: "bottom", cat: "Dust Collection", title: "Gantry-mounted collector bank", w: 900, h: 577 },
+  { id: "s-04", rail: "bottom", cat: "Dust Collection", title: "Multi-stage filter bank on a plant wall", w: 579, h: 900 },
+  { id: "s-05", rail: "bottom", cat: "Dust Collection", title: "In-plant collector with ducting", w: 563, h: 525 },
+  { id: "s-06", rail: "bottom", cat: "Dust Collection", title: "Outdoor collector with ducted intake", w: 555, h: 659 },
+  { id: "s-07", rail: "bottom", cat: "Dust Collection", title: "Roof-mounted collection system", w: 600, h: 430 },
+  { id: "s-08", rail: "bottom", cat: "Dust Collection", title: "Collector installed inside a shed", w: 623, h: 900 },
+  { id: "s-09", rail: "bottom", cat: "Dust Collection", title: "Bag-house hopper and discharge", w: 411, h: 675 },
+  { id: "s-10", rail: "bottom", cat: "Dust Collection", title: "Workshop extraction system", w: 900, h: 602 },
+  { id: "s-11", rail: "bottom", cat: "Heating & Drying", title: "Twin-burner hot air unit", w: 882, h: 900 },
+  { id: "s-12", rail: "bottom", cat: "Process Equipment", title: "Stainless platform and vessel assembly", w: 900, h: 675 },
+  { id: "s-13", rail: "bottom", cat: "Heating & Drying", title: "Hot air unit with blower", w: 742, h: 900 },
+  { id: "s-14", rail: "bottom", cat: "Material Handling", title: "Conveying and elevation assembly", w: 675, h: 900 },
+];
+
+const PROJ_CATS = ["Dust Collection", "Heating & Drying", "Mixing & Blending",
+                   "Process Equipment", "Material Handling", "Cleaning & Sorting", "Turnkey Lines"];
+
+/* A rail card. On the homepage a card is a LINK to the projects page (client,
+   2026-08-21) — it used to open a popup, and one destination is easier to
+   explain than two. */
+function projCard(ph, base) {
+  const alt = `ART ${ph.title.toLowerCase()} installed at a customer plant`;
+  return `
+        <li class="pk-marquee__item rp-card">
+          <a class="rp-card__hit" href="${base}projects.html">
+            <figure><img src="${base}assets/projects/v1/card/${ph.id}.webp${CSSV}" alt="${attr(alt)}" width="640" height="480" loading="lazy" decoding="async"></figure>
+            <span class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>${esc(ph.cat)}</span><span class="rp-card__h">${esc(ph.title)}</span></span>
+          </a>
+        </li>`;
+}
+
+function projectRails(base) {
+  const rail = (which, speed, extra) => `
+    <div class="pk-marquee pk-marquee--fade rp-rail${extra}" data-marquee data-marquee-speed="${speed}">
+      <div class="wrap">
+        <ul class="pk-marquee__track">${PROJECT_PHOTOS.filter((p) => p.rail === which).map((p) => projCard(p, base)).join("")}
+        </ul>
+      </div>
+    </div>`;
+  // same direction, different speeds: in exact lockstep two rows read as one
+  // block sliding sideways rather than as two rails.
+  return rail("top", 26, "") + "\n" + rail("bottom", 21, " rp-rail--b");
+}
+
+/* ---- /projects — every project photograph, at its own shape ---- */
+function renderProjects() {
+  const tiles = PROJECT_PHOTOS.map((ph) => `
+      <li class="pj-item" data-cat="${attr(ph.cat)}">
+        <button class="pj-hit" type="button" data-shot="${ph.id}" data-title="${attr(ph.title)}" data-cat="${attr(ph.cat)}"
+                aria-label="${attr(ph.title)} — open larger">
+          <img src="assets/projects/v1/tile/${ph.id}.webp${CSSV}" alt="${attr(`ART ${ph.title.toLowerCase()} installed at a customer plant`)}"
+               width="${ph.w}" height="${ph.h}" style="aspect-ratio:${ph.w}/${ph.h}" loading="lazy" decoding="async">
+          <span class="pj-cap"><span class="pj-cap__cat">${esc(ph.cat)}</span><span class="pj-cap__t">${esc(ph.title)}</span></span>
+        </button>
+      </li>`).join("");
+
+  const filters = ["All", ...PROJ_CATS.filter((c) => PROJECT_PHOTOS.some((p) => p.cat === c))]
+    .map((c, i) => `<button class="pj-filter${i === 0 ? " is-on" : ""}" type="button" data-filter="${attr(c)}">${esc(c)}</button>`)
+    .join("");
+
+  const main = `
+  <section class="section pj-head">
+    <div class="wrap sec-head center">
+      <h1>Recent Projects</h1>
+      <p class="sec-head__sub">Machines and complete lines photographed at our customers' plants and in our works.</p>
+      <!-- hidden until the script that drives them is alive: a filter that
+           cannot filter is worse than no filter, and with no JS every photo is
+           on the page anyway. -->
+      <div class="pj-filters" hidden data-pj-filters>${filters}</div>
+    </div>
+  </section>
+  <section class="section pj-sec">
+    <div class="wrap">
+      <ul class="pj-grid">${tiles}</ul>
+      <p class="pj-empty" hidden data-pj-empty>No photographs in that category yet.</p>
+    </div>
+  </section>
+  ${quoteBand("your project")}`;
+
+  return shell({
+    page: "projects", base: "", title: "Recent Projects | ART Mechatronics",
+    desc: "Processing and packaging machines built by ART Mechatronics, photographed at customer plants after installation and in our works.",
+    canonical: abs("projects.html"), main,
+    schema: listingSchema(abs("projects.html"), "Recent Projects", "ART Mechatronics installations photographed at customer plants."),
+  }).replace("</body>", `  <script src="js/gallery.js${CSSV}"></script>\n</body>`);
+}
+
 /* ---- markets band ----
    Anurag asked for the catalogue's flag row.
 
@@ -1453,6 +1564,7 @@ for (const c of CATEGORIES) {
 
 // listing hubs (search JS appended via extraJS in shell)
 fs.writeFileSync(path.join(ROOT, "industries.html"), renderIndustriesHub(selInd));
+fs.writeFileSync(path.join(ROOT, "projects.html"), renderProjects());
 
 /* index.html is hand-maintained, but its industry grid must stay in lockstep with
    the taxonomy — so the generator owns the markup between the two markers and
@@ -1490,6 +1602,14 @@ fs.writeFileSync(path.join(ROOT, "industries.html"), renderIndustriesHub(selInd)
   next = next.slice(0, tf + TS.length) + "\n" + testimonialSection("") + "\n  " + next.slice(tt);
 
   // markets band — same marker pattern, generated from the MARKETS list
+  {
+    const PS = "<!-- project-rails:start -->";
+    const PE = "<!-- project-rails:end -->";
+    const pf = next.indexOf(PS), pt = next.indexOf(PE);
+    if (pf < 0 || pt < 0) throw new Error("index.html is missing the project-rails markers");
+    next = next.slice(0, pf + PS.length) + "\n" + projectRails("") + "\n" + next.slice(pt);
+  }
+
   const MS = "<!-- markets-band:start -->";
   const ME = "<!-- markets-band:end -->";
   const mf = next.indexOf(MS);
@@ -1506,7 +1626,7 @@ fs.writeFileSync(path.join(ROOT, "catalog.html"), renderCatalog(selProd));
 // sitemap
 const urls = [
   "", "about.html", "contact.html", "services.html", "machines.html", "system.html", "control-panel.html",
-  "industries.html", "catalog.html",
+  "industries.html", "catalog.html", "projects.html",
   ...selInd.map((i) => `industries/${i.slug}.html`),
   ...CATEGORIES.map((c) => `categories/${categorySlug(c)}.html`),
   // Only indexable product pages belong in the sitemap — submitting a noindex

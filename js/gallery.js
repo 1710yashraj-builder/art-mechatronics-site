@@ -1,91 +1,109 @@
-/* ===== Project gallery — every project photo, full screen =====
-   Client, 2026-08-21: "View all recent project photos" opens the full set, and
-   clicking any card opens the gallery at that photo.
+/* ===== /projects — filters and the full-screen viewer =====
+   Client, 2026-08-21: the homepage button opens a real page, not a popup, and
+   every photograph keeps its own shape there. Clicking one opens it full screen.
 
-   Built the same way as the tile popup: a native <dialog>, so focus trapping,
-   Esc and the backdrop come from the platform instead of from code we would
-   have to keep correct. The dialog is created here rather than authored into
-   the page — it is an empty shell only this file ever fills, and a static copy
-   would have to be repeated in the markup and kept in step.
+   Two rules this obeys:
+   - The arrows walk the FILTERED set. If a visitor has narrowed to Dust
+     Collection, "next" that jumped into a drying photo would silently undo the
+     filter they just set.
+   - The filter bar starts hidden and this script unhides it. A filter that
+     cannot filter is worse than no filter — and with no JS every photograph is
+     on the page already, so nothing is lost.
 
-   FAIL-OPEN: the button starts hidden and this script unhides it, so a visitor
-   whose script never runs is never shown a control that does nothing. They lose
-   nothing — with no JS the marquee falls back to a wrapped grid and all thirty
-   photos are on the page already. ===== */
+   Native <dialog>: focus trapping, Esc and the backdrop come from the platform
+   rather than from code we would have to keep correct. ===== */
 (function () {
-  var hits = [].slice.call(document.querySelectorAll("[data-shot]"));
-  if (!hits.length) return;
+  var items = [].slice.call(document.querySelectorAll(".pj-item"));
+  if (!items.length) return;
 
-  var BASE = document.body.dataset.base || "";
   var TOKEN = (document.querySelector('link[href*="base.css"]') || {}).href || "";
   TOKEN = TOKEN.indexOf("?") > -1 ? "?" + TOKEN.split("?")[1] : "";
 
-  /* One list, in the order the rails present them: the top rail first, then
-     the bottom. Read from the DOM so the gallery can never disagree with the
-     page — no second copy of the running order to keep in step. */
-  var shots = hits.map(function (h) {
-    var img = h.querySelector("img");
-    var cat = h.querySelector(".rp-card__cat");
-    var ttl = h.querySelector(".rp-card__h");
+  var shots = items.map(function (li) {
+    var hit = li.querySelector(".pj-hit");
+    var img = li.querySelector("img");
     return {
-      id: h.getAttribute("data-shot"),
-      full: BASE + "assets/projects/v1/full/" + h.getAttribute("data-shot") + ".webp" + TOKEN,
-      alt: img ? img.getAttribute("alt") : "",
-      cat: cat ? cat.textContent.trim() : "",
-      title: ttl ? ttl.textContent.trim() : "",
+      li: li,
+      id: hit.getAttribute("data-shot"),
+      cat: hit.getAttribute("data-cat"),
+      title: hit.getAttribute("data-title"),
+      alt: img.getAttribute("alt"),
+      full: "assets/projects/v1/full/" + hit.getAttribute("data-shot") + ".webp" + TOKEN,
     };
   });
 
+  /* ---- filters ---- */
+  var bar = document.querySelector("[data-pj-filters]");
+  var empty = document.querySelector("[data-pj-empty]");
+  var active = "All";
+  var view = shots.slice();                       // what the arrows walk
+
+  function applyFilter(cat) {
+    active = cat;
+    view = shots.filter(function (s) { return cat === "All" || s.cat === cat; });
+    shots.forEach(function (s) {
+      s.li.hidden = !(cat === "All" || s.cat === cat);
+    });
+    if (empty) empty.hidden = view.length > 0;
+    if (bar) [].forEach.call(bar.querySelectorAll(".pj-filter"), function (b) {
+      var on = b.getAttribute("data-filter") === cat;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  if (bar) {
+    bar.hidden = false;
+    [].forEach.call(bar.querySelectorAll(".pj-filter"), function (b) {
+      b.setAttribute("aria-pressed", b.classList.contains("is-on") ? "true" : "false");
+      b.addEventListener("click", function () { applyFilter(b.getAttribute("data-filter")); });
+    });
+  }
+
+  /* ---- the viewer ---- */
   var dlg = document.createElement("dialog");
-  if (typeof dlg.showModal !== "function") return;      // no dialog support: leave the page as it is
+  if (typeof dlg.showModal !== "function") return;   // no dialog: the grid still works
   dlg.className = "gal";
   dlg.innerHTML =
     '<div class="gal__stage">' +
       '<img class="gal__img" alt="">' +
-      '<button class="gal__x" type="button" data-gal-close aria-label="Close gallery">' +
+      '<button class="gal__x" type="button" data-gal-close aria-label="Close">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
       '<button class="gal__nav gal__nav--prev" type="button" data-gal-prev aria-label="Previous photo">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>' +
       '<button class="gal__nav gal__nav--next" type="button" data-gal-next aria-label="Next photo">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>' +
-      '<div class="gal__bar">' +
-        '<span class="gal__tx"><b class="gal__t"></b><span class="gal__c"></span></span>' +
-        '<span class="gal__n"></span>' +
-      '</div>' +
+      '<div class="gal__bar"><span class="gal__tx"><b class="gal__t"></b><span class="gal__c"></span></span><span class="gal__n"></span></div>' +
     '</div>';
   document.body.appendChild(dlg);
 
   var imgEl = dlg.querySelector(".gal__img");
-  var titleEl = dlg.querySelector(".gal__t");
-  var catEl = dlg.querySelector(".gal__c");
-  var numEl = dlg.querySelector(".gal__n");
+  var tEl = dlg.querySelector(".gal__t");
+  var cEl = dlg.querySelector(".gal__c");
+  var nEl = dlg.querySelector(".gal__n");
   var i = 0, lastFocus = null;
 
   function show(n) {
-    i = (n + shots.length) % shots.length;          // wraps both ways: no dead arrow
-    var s = shots[i];
+    if (!view.length) return;
+    i = (n + view.length) % view.length;            // wraps both ways
+    var s = view[i];
     imgEl.src = s.full;
     imgEl.alt = s.alt;
-    titleEl.textContent = s.title;
-    catEl.textContent = s.cat;
-    numEl.textContent = (i + 1) + " / " + shots.length;
+    tEl.textContent = s.title;
+    cEl.textContent = s.cat;
+    nEl.textContent = (i + 1) + " / " + view.length;
   }
 
-  function open(n) {
-    lastFocus = document.activeElement;
-    show(n);
-    dlg.showModal();
-  }
-
-  hits.forEach(function (h, k) {
-    h.addEventListener("click", function () { open(k); });
+  items.forEach(function (li) {
+    li.querySelector(".pj-hit").addEventListener("click", function () {
+      var id = li.querySelector(".pj-hit").getAttribute("data-shot");
+      var n = view.findIndex ? view.findIndex(function (s) { return s.id === id; }) : -1;
+      if (n < 0) return;
+      lastFocus = document.activeElement;
+      show(n);
+      dlg.showModal();
+    });
   });
-
-  var openBtn = document.querySelector("[data-gallery-open]");
-  if (openBtn) {
-    openBtn.hidden = false;                          // the script is alive; the control is real
-    openBtn.addEventListener("click", function () { open(0); });
-  }
 
   dlg.querySelector("[data-gal-prev]").addEventListener("click", function () { show(i - 1); });
   dlg.querySelector("[data-gal-next]").addEventListener("click", function () { show(i + 1); });
@@ -97,12 +115,8 @@
     if (e.key === "ArrowLeft")  { e.preventDefault(); show(i - 1); }
   });
 
-  /* Swipe, because on a phone that is how people move through photos. Only a
-     clearly horizontal drag counts, or a vertical scroll would flick the photo. */
   var x0 = null, y0 = null;
-  dlg.addEventListener("touchstart", function (e) {
-    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
-  }, { passive: true });
+  dlg.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
   dlg.addEventListener("touchend", function (e) {
     if (x0 === null) return;
     var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;

@@ -846,3 +846,85 @@ p { margin: 0 0 1em; }
 .wechat-block__tx { min-width: 0; }
 .wechat-block__tx h3 { margin: 0 0 .3rem; font-size: 1rem; color: var(--navy); }
 .wechat-block__tx p { margin: 0; color: var(--steel); font-size: .9rem; line-height: 1.55; max-width: 42ch; }
+
+/* ============================================================
+   /projects — the gallery viewer and the masonry grid.
+   These live in base.css, NOT home.css: shell() does not load home.css, so the
+   projects page had none of these styles and rendered as raw images at their
+   attribute size. Anything the projects page needs belongs here.
+   ============================================================ */
+/* --- the gallery --- */
+.gal { border: 0; padding: 0; background: transparent; width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; }
+.gal::backdrop { background: rgba(6, 20, 42, .93); }
+.gal__stage { position: relative; width: 100%; height: 100%; display: grid; place-items: center; }
+.gal__img {
+  max-width: min(94vw, 1400px); max-height: 78dvh; width: auto; height: auto;
+  object-fit: contain; border-radius: var(--r); background: #0b1c33;
+}
+.gal__x, .gal__nav {
+  position: absolute; width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.35); background: rgba(10,25,48,.55); color: #fff;
+  display: grid; place-items: center; cursor: pointer;
+  transition: background .18s var(--ease), border-color .18s var(--ease);
+}
+.gal__x svg, .gal__nav svg { width: 22px; height: 22px; }
+.gal__x:hover, .gal__nav:hover { background: var(--blue); border-color: #fff; }
+.gal__x:focus-visible, .gal__nav:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.gal__x { top: 18px; right: 18px; }
+.gal__nav--prev { left: 18px; top: 50%; transform: translateY(-50%); }
+.gal__nav--next { right: 18px; top: 50%; transform: translateY(-50%); }
+.gal__bar {
+  position: absolute; left: 0; right: 0; bottom: 22px;
+  display: flex; align-items: baseline; justify-content: center; gap: 1.2rem;
+  padding: 0 1.2rem; color: #fff; flex-wrap: wrap;
+}
+.gal__tx { display: grid; gap: .15rem; text-align: center; }
+.gal__t { font-size: 1.02rem; }
+.gal__c { font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: #bdd7f6; }
+.gal__n { font-family: var(--font-mono); font-size: .8rem; color: #bdd7f6; }
+
+@media (max-width: 620px) {
+  .gal__img { max-width: 96vw; max-height: 68dvh; }
+  .gal__nav { width: 44px; height: 44px; }
+  .gal__nav--prev { left: 8px; } .gal__nav--next { right: 8px; }
+  .gal__bar { bottom: 14px; gap: .5rem; }
+}
+
+/* --- /projects: masonry, filters (client, 2026-08-21) --- */
+.pj-head { padding-bottom: 0; }
+.pj-filters { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-top: 1.4rem; }
+.pj-filter {
+  min-height: 44px; padding: .55rem 1rem; border-radius: 99px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--white); color: var(--steel);
+  font: inherit; font-size: .86rem; font-weight: 700;
+  transition: background .16s var(--ease), color .16s var(--ease), border-color .16s var(--ease);
+}
+.pj-filter:hover { border-color: var(--blue); color: var(--blue); }
+.pj-filter.is-on { background: var(--blue); border-color: var(--blue); color: #fff; }
+.pj-filter:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 2px; }
+
+.pj-sec { padding-top: 1.8rem; }
+/* CSS columns, not grid: the photographs are portrait AND landscape, and columns
+   let each keep its own height instead of being cropped into a uniform cell —
+   which is the whole point of showing them properly. */
+.pj-grid { list-style: none; margin: 0; padding: 0; columns: 4; column-gap: 1.1rem; }
+.pj-item { break-inside: avoid; margin: 0 0 1.1rem; }
+.pj-hit {
+  display: block; width: 100%; padding: 0; border: 1px solid var(--line); cursor: pointer;
+  background: var(--white); border-radius: var(--r-lg); overflow: hidden; text-align: left;
+  font: inherit; color: inherit;
+  transition: box-shadow .18s var(--ease), border-color .18s var(--ease), transform .18s var(--ease);
+}
+.pj-hit:hover { box-shadow: var(--shadow-sm); border-color: var(--accent); transform: translateY(-2px); }
+.pj-hit:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 2px; }
+/* the ratio is declared inline per photo, so the column does not reflow as
+   images arrive — height:auto keeps the width/height attributes from fixing it */
+.pj-hit img { display: block; width: 100%; height: auto; }
+.pj-cap { display: grid; gap: .25rem; padding: .8rem .9rem 1rem; }
+.pj-cap__cat { font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+.pj-cap__t { font-size: .95rem; line-height: 1.35; font-weight: 700; color: var(--ink); }
+.pj-empty { text-align: center; color: var(--steel); padding: 2rem 0; }
+
+@media (max-width: 1100px) { .pj-grid { columns: 3; } }
+@media (max-width: 780px)  { .pj-grid { columns: 2; } }
+@media (max-width: 460px)  { .pj-grid { columns: 1; } }
