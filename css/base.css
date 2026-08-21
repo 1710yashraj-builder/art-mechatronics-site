@@ -920,9 +920,8 @@ p { margin: 0 0 1em; }
 /* the ratio is declared inline per photo, so the column does not reflow as
    images arrive — height:auto keeps the width/height attributes from fixing it */
 .pj-hit img { display: block; width: 100%; height: auto; }
-.pj-cap { display: grid; gap: .25rem; padding: .8rem .9rem 1rem; }
-.pj-cap__cat { font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
-.pj-cap__t { font-size: .95rem; line-height: 1.35; font-weight: 700; color: var(--ink); }
+/* the tile is the photograph and nothing else (client, 2026-08-21) */
+.pj-hit { line-height: 0; }
 .pj-empty { text-align: center; color: var(--steel); padding: 2rem 0; }
 
 @media (max-width: 1100px) { .pj-grid { columns: 3; } }

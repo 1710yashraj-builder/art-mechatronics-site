@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260821f";
+const CSSV = "?v=20260821g";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -984,7 +984,6 @@ function renderProjects() {
                 aria-label="${attr(ph.title)} — open larger">
           <img src="assets/projects/v1/tile/${ph.id}.webp${CSSV}" alt="${attr(`ART ${ph.title.toLowerCase()} installed at a customer plant`)}"
                width="${ph.w}" height="${ph.h}" style="aspect-ratio:${ph.w}/${ph.h}" loading="lazy" decoding="async">
-          <span class="pj-cap"><span class="pj-cap__cat">${esc(ph.cat)}</span><span class="pj-cap__t">${esc(ph.title)}</span></span>
         </button>
       </li>`).join("");
 
