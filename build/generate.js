@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260821e";
+const CSSV = "?v=20260821f";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -957,9 +957,8 @@ function projCard(ph, base) {
   const alt = `ART ${ph.title.toLowerCase()} installed at a customer plant`;
   return `
         <li class="pk-marquee__item rp-card">
-          <a class="rp-card__hit" href="${base}projects.html">
+          <a class="rp-card__hit" href="${base}projects.html" aria-label="${attr(ph.title)} — see all project photos">
             <figure><img src="${base}assets/projects/v1/card/${ph.id}.webp${CSSV}" alt="${attr(alt)}" width="640" height="480" loading="lazy" decoding="async"></figure>
-            <span class="rp-card__tx"><span class="rp-card__cat"><i aria-hidden="true"></i>${esc(ph.cat)}</span><span class="rp-card__h">${esc(ph.title)}</span></span>
           </a>
         </li>`;
 }
