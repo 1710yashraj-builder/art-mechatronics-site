@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260821g";
+const CSSV = "?v=20260821h";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -200,7 +200,9 @@ const listingSchema = (url, name, desc) => ({
 function displayName(raw = "") {
   const paren = raw.match(/\(([^)]+)\)\s*$/);
   const dash = raw.match(/\s[–-]\s*([^–-]+)$/);
-  const base = raw.replace(/\s*[–(].*$/s, "").trim();
+  // strip from an en-dash or paren tail, then any dangling ASCII hyphen the
+  // first pass leaves behind — "Pellet - (Wood…)" was rendering as "Pellet -"
+  const base = raw.replace(/\s*[–(].*$/s, "").replace(/[\s-]+$/, "").trim();
   const tail = paren ? paren[1].trim() : dash ? dash[1].trim() : "";
   const acro = tail && !tail.includes(",") && tail.length <= 8 && /^[A-Za-z0-9 /]+$/.test(tail)
     ? " (" + tail.toUpperCase() + ")" : "";
@@ -212,7 +214,12 @@ function pageTitle(metaTitle, display) {
   if (t.length <= 60) return t;
   const primary = t.split(/\s\|\s|\||\s[–-]\s/)[0].trim();
   let out = primary + " | " + BRAND.name;
-  if (out.length > 62) out = clip(display || primary, 42) + " | " + BRAND.name;
+  // a literal "…" inside <title> shows in the browser tab and SERP — cut at a
+  // word boundary instead of using clip(), which appends the ellipsis
+  if (out.length > 62) {
+    const cut = (display || primary).slice(0, 45).replace(/\s+\S*$/, "").replace(/[,&|\s-]+$/, "");
+    out = cut + " | " + BRAND.name;
+  }
   return out;
 }
 // SERP-safe meta description (~155 chars, clean word-boundary cut, never mid-bullet)
@@ -292,6 +299,11 @@ function categoryForProduct(product) {
 products.forEach((p) => (p.category = categoryForProduct(p)));
 [...industries, ...products].forEach((it) => {
   let d = displayName(it.shortName);
+  /* Sentence slots need the SHORT name. display may be swapped below for the
+     richer H1 ("Pasta" -> "Pasta Production Plant & Machinery Solutions"),
+     which is right for card titles but produced "…Machinery Solutions
+     solution" when poured into sentences. */
+  it.short = d;
   // a bare one-word name ("Filling") reads poorly as a card title — prefer the richer H1 name
   if (d.split(/\s+/).length < 2 && it.h1) {
     const dh = displayName(it.h1), w = dh.split(/\s+/).length;
@@ -792,12 +804,12 @@ function renderIndustry(ind, ctx) {
     return hit ? `<a class="tag" href="${hit.href}">${esc(m)}</a>` : `<span class="tag tag--plain">${esc(m)}</span>`;
   }).join("");
   const machSection = ind.machines.length ? `<section class="md-section"><div class="wrap">
-    <span class="eyebrow">The machines</span><h2>Machinery in a ${esc(ind.display)} plant</h2>
+    <span class="eyebrow">The machines</span><h2>Machinery in a ${esc(ind.short)} plant</h2>
     <div class="tag-row">${machineLinks}</div></div></section>` : "";
 
   const apps = ind.applications.length ? `<div class="app-chips">${ind.applications.map((a) => `<span class="chip">${esc(a)}</span>`).join("")}</div>` : "";
 
-  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Industries", href: "industries.html" }, { label: ind.display }], base, abs(`industries/${ind.slug}.html`));
+  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Industries", href: "industries.html" }, { label: ind.short }], base, abs(`industries/${ind.slug}.html`));
   const schema = {
     "@context": "https://schema.org", "@type": "Service",
     serviceType: `${ind.display} Plant & Machinery`, provider: { "@type": "Organization", name: BRAND.name },
@@ -820,13 +832,13 @@ function renderIndustry(ind, ctx) {
     </div>
     <div>${detailMedia(ind, base, "industries")}</div>
   </div></div></section>
-  ${overviewRest ? `<section class="md-section"><div class="wrap"><span class="eyebrow">Overview</span><h2>About ${esc(ind.display)} processing</h2><div class="prose">${overviewRest}</div></div></section>` : ""}
+  ${overviewRest ? `<section class="md-section"><div class="wrap"><span class="eyebrow">Overview</span><h2>About ${esc(ind.short)} processing</h2><div class="prose">${overviewRest}</div></div></section>` : ""}
   ${body}
   ${machSection}
   ${apps ? `<section class="md-section md-section--tint"><div class="wrap"><span class="eyebrow">Applications</span><h2>Where it's used</h2>${apps}</div></section>` : ""}
   <div id="quote"></div>
-  ${quoteBand(ind.display + " plant")}
-  ${lineBand(ind.display, base)}`;
+  ${quoteBand(ind.short + " plant")}
+  ${lineBand(ind.short + " plant", base)}`;
 
   return shell({
     page: "industries", base, title: ind.seoTitle, desc: ind.seoDesc,
@@ -957,7 +969,7 @@ function projCard(ph, base) {
   const alt = `ART ${ph.title.toLowerCase()} installed at a customer plant`;
   return `
         <li class="pk-marquee__item rp-card">
-          <a class="rp-card__hit" href="${base}projects.html" aria-label="${attr(ph.title)} — see all project photos">
+          <a class="rp-card__hit" href="${base}projects" aria-label="${attr(ph.title)} — see all project photos">
             <figure><img src="${base}assets/projects/v1/card/${ph.id}.webp${CSSV}" alt="${attr(alt)}" width="640" height="480" loading="lazy" decoding="async"></figure>
           </a>
         </li>`;
@@ -1008,7 +1020,7 @@ function renderProjects() {
       <p class="pj-empty" hidden data-pj-empty>No photographs in that category yet.</p>
     </div>
   </section>
-  ${quoteBand("your project")}`;
+  ${quoteBand("project")}`;
 
   return shell({
     page: "projects", base: "", title: "Recent Projects | ART Mechatronics",

@@ -192,19 +192,11 @@ p { margin: 0 0 1em; }
    (Yash, 2026-08-07). Rotating ring is transform-only (M2) and stops for
    .lite and reduced motion (M4). */
 .footer-cat__lead { color: #c9d5e7; font-size: .88rem; line-height: 1.55; margin: 0 0 1rem; max-width: 30ch; }
-.footer-cat__row { display: flex; align-items: center; gap: .9rem; }
 .footer-cat__act { display: grid; gap: .45rem; justify-items: start; }
 /* the footer's pale link colour must not bleach a solid button (AA) */
 .site-footer .footer-cat__act .btn--light { color: var(--navy); }
 .site-footer .footer-cat__act .btn--light:hover { color: var(--navy); }
 .footer-cat__act small { color: #c9d5e7; font-size: .74rem; }
-.dl-badge { position: relative; width: 72px; height: 72px; flex: 0 0 auto; color: #fff; }
-.dl-badge__ring { width: 100%; height: 100%; animation: dl-spin 22s linear infinite; transform-origin: 50% 50%; }
-.dl-badge__ring text { font-size: 10.4px; font-weight: 700; letter-spacing: .14em; fill: #cfe0f7; }
-.dl-badge__ic { position: absolute; inset: 0; margin: auto; width: 26px; height: 26px; }
-@keyframes dl-spin { to { transform: rotate(360deg); } }
-.lite .dl-badge__ring { animation: none; }
-@media (prefers-reduced-motion: reduce) { .dl-badge__ring { animation: none; } }
 .footer-flags { display: flex; gap: .5rem; margin-top: .8rem; font-size: .9rem; color: #c9d5e7; }
 .footer-bottom {
   margin-top: var(--s-7); padding-top: var(--s-4); border-top: 1px solid rgba(255,255,255,.12);
@@ -223,29 +215,6 @@ p { margin: 0 0 1em; }
   .reveal { opacity: 1; transform: none; }
 }
 
-/* ============ rotating trust stamps ============ */
-.trust-band { text-align: center; }
-.trust-stamps {
-  display: flex; flex-wrap: wrap; gap: 2.4rem; justify-content: center; align-items: center; margin-top: var(--s-6);
-}
-.trust-stamp { position: relative; width: 148px; height: 148px; flex: 0 0 auto; }
-.trust-stamp__ring { width: 100%; height: 100%; animation: stamp-spin 22s linear infinite; transform-origin: 50% 50%; }
-.trust-stamp__ring text { fill: var(--blue); font-size: 8.7px; font-weight: 800; letter-spacing: 2.1px; text-transform: uppercase; }
-.trust-stamp__emblem {
-  position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none;
-}
-.trust-stamp__emblem .disc {
-  width: 78px; height: 78px; border-radius: 50%; display: grid; place-items: center;
-  background: linear-gradient(150deg, var(--blue), var(--navy)); color: #fff; box-shadow: var(--shadow);
-  text-align: center; line-height: 1.05;
-}
-.trust-stamp__emblem .disc svg { width: 34px; height: 34px; }
-.trust-stamp__emblem .disc b { font-size: .92rem; font-weight: 900; letter-spacing: .02em; }
-.trust-stamp__emblem .disc small { font-size: .5rem; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
-.section--navy .trust-stamp__ring text { fill: #8fc0ff; }
-@keyframes stamp-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .trust-stamp__ring { animation: none; } }
-@media (max-width: 560px){ .trust-stamp { width: 120px; height: 120px; } }
 
 /* utility */
 .grid { display: grid; gap: 1.5rem; }
@@ -345,7 +314,9 @@ p { margin: 0 0 1em; }
 }
 @media (max-width: 640px) {
   .ig-grid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: .6rem; }
-  .ig-name { font-size: .68rem; padding: 1.3rem .4rem .4rem; }
+  /* .8rem = 12.8px — .68rem measured 10.9px on a phone, which is squint
+     territory for what is effectively primary navigation */
+  .ig-name { font-size: .8rem; padding: 1.3rem .4rem .4rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ig-link, .ig-caret { transition: none; }
@@ -893,6 +864,18 @@ p { margin: 0 0 1em; }
 /* --- /projects: masonry, filters (client, 2026-08-21) --- */
 .pj-head { padding-bottom: 0; }
 .pj-filters { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-top: 1.4rem; }
+@media (max-width: 640px) {
+  /* stacked, the 8 pills ran 200px tall and pushed the first photograph below
+     the fold on a page whose whole job is showing photographs. One swipeable
+     row costs nothing: the pills keep their 44px height and stay reachable. */
+  .pj-filters {
+    flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin-inline: -1.2rem; padding-inline: 1.2rem;
+  }
+  .pj-filters::-webkit-scrollbar { display: none; }
+  .pj-filter { flex: 0 0 auto; }
+}
 .pj-filter {
   min-height: 44px; padding: .55rem 1rem; border-radius: 99px; cursor: pointer;
   border: 1px solid var(--line); background: var(--white); color: var(--steel);

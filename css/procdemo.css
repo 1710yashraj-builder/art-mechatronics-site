@@ -10,10 +10,6 @@
      treatment the other anchor targets on the site already get. */
   scroll-margin-top: 90px;
 }
-.pd__head { text-align: center; padding: clamp(2.6rem,5vw,4rem) 0 1.4rem; }
-.pd__title { color: #fff; font-size: clamp(2rem,1.3rem+2.4vw,3.2rem); margin: 0 0 .6rem; }
-.pd__title span { color: #bdd7f6; }
-.pd__sub { margin: 0 auto; max-width: 52ch; color: #c8d6e9; line-height: 1.6; }
 
 /* --- the numbered rail --- */
 .pd__railwrap { border-block: 1px solid rgba(255,255,255,.16); background: rgba(8,27,58,.30); }
@@ -38,7 +34,6 @@
 .pd__meterbar i { display: block; height: 100%; background: #fff; transform-origin: left center;
   transform: scaleX(.08); transition: transform .45s var(--ease); }
 .pd__count { font-family: var(--font-mono); font-size: .8rem; color: #fff; letter-spacing: .06em; }
-.pd__phase { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: #bdd7f6; }
 
 /* --- the track --- */
 .pd__clip { overflow: hidden; }
@@ -51,8 +46,6 @@
 .pd-panel__no { color: #bdd7f6; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
 .pd-panel h3 { color: #fff; font-size: clamp(1.5rem,1.1rem+1.5vw,2.2rem); margin: .45rem 0 .7rem; }
 .pd-panel p { margin: 0 0 1rem; max-width: 54ch; color: #d5e2f3; line-height: 1.65; }
-.pd-chips { list-style: none; margin: 0; padding: 0; display: flex; gap: .5rem; flex-wrap: wrap; }
-.pd-chips li { padding: .38rem .8rem; border: 1px solid rgba(255,255,255,.42); border-radius: 99px; font-size: .78rem; color: #eaf2fd; }
 .pd-panel__side { position: relative; display: grid; gap: .7rem; justify-items: start; align-content: center; min-height: 170px; }
 .pd-ghost { position: absolute; right: 0; top: 50%; transform: translateY(-52%);
   font-family: var(--font-display); font-weight: 800; font-size: clamp(6rem,11vw,12rem);
@@ -96,10 +89,6 @@
 .pd:not(.pd--live) .pd__track { display: grid; width: auto; }
 .pd:not(.pd--live) .pd-panel { opacity: 1; }
 
-/* the demo banner (demo pages only, never the live site) */
-.pd-note { background: #0d3568; color: #eaf2fd; padding: .9rem 0; font-size: .9rem; }
-.pd-note b { color: #fff; }
-.pd-note .wrap { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
 
 /* ============================================================
    HOW WE WORK — the pieces Anurag's real content added (2026-08-16):

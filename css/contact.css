@@ -104,7 +104,7 @@
 @media (prefers-reduced-motion: reduce) {
   .ct-social__link, .ct-social__ic { transition: none; }
   .ct-social__link:hover { transform: none; }
-  .ct-loc-all[open] .ct-loc-chev { transform: rotate(180deg); }  /* state, not decoration */
+  /* state, not decoration */
 }
 
 /* ============================================================

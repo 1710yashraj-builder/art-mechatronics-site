@@ -12,8 +12,9 @@
      #heroVideo / #heroPlay  — the video band's play control, 33 lines.
    js/data.js is untouched: layout.js still builds the footer machine list from
    ART.machines, and js/system.js still reads ART.system.badges and .stages.
-   The two effects that replaced those sections live in js/count.js and
-   js/drawline.js, loaded after this file. ===== */
+   The counter effect that replaced those sections lives in js/count.js,
+   loaded after this file. (js/drawline.js was retired 2026-08-21: no page
+   carried its svg[data-drawline] markup any more.) ===== */
 (function () {
   const B = ART.brand;
 

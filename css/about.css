@@ -27,20 +27,6 @@
    was absent from document.styleSheets while its neighbours were present.
    The elements they styled no longer exist, so the blocks are removed. */
 
-/* presence + values reuse home-ish */
-.ab-pres-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.2rem; }
-@media (max-width:720px){ .ab-pres-grid { grid-template-columns:1fr; } }
-.ab-pres { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:var(--r-lg); padding:1.6rem; }
-.ab-pres .cty { font-size:1.3rem; font-weight:800; color:#fff; }
-.ab-pres .role { color:#9fc0ea; font-size:.9rem; }
-
-.val-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.2rem; }
-@media (max-width:720px){ .val-grid { grid-template-columns:1fr; } }
-.val { padding:1.6rem; }
-.val .ic { width:48px; height:48px; border-radius:12px; background:var(--blue-soft); color:var(--blue); display:grid; place-items:center; margin-bottom:.9rem; }
-.val .ic svg { width:24px; height:24px; }
-.val h3 { margin:0 0 .3rem; font-size:1.1rem; }
-.val p { margin:0; color:var(--slate); font-size:.92rem; }
 
 .ab-cta { background: linear-gradient(120deg,var(--blue),var(--blue-bright)); color:#fff; border-radius:var(--r-xl); padding: clamp(2rem,1.5rem+3vw,3.2rem); text-align:center; }
 .ab-cta h2 { color:#fff; } .ab-cta p { color:#eaf2fd; max-width:50ch; margin-inline:auto; }

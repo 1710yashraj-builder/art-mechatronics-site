@@ -266,7 +266,8 @@
         "savoury",
         "puffed-snack",
         "popcorn",
-        "flavoured-peanut"
+        "flavoured-peanut",
+        "foxnut"
       ],
       "subs": [
         {
@@ -294,7 +295,8 @@
           "label": "Kurkure"
         },
         {
-          "label": "Makhana"
+          "label": "Makhana (Roasted Foxnut)",
+          "slug": "foxnut"
         },
         {
           "label": "Namkeen"
@@ -462,7 +464,6 @@
         "wal-nut",
         "ground-nut",
         "fox-nut",
-        "foxnut",
         "areca-nut",
         "betel-nut",
         "coco-nut"
