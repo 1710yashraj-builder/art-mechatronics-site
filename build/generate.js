@@ -812,7 +812,7 @@ function renderIndustry(ind, ctx) {
   const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Industries", href: "industries.html" }, { label: ind.short }], base, abs(`industries/${ind.slug}.html`));
   const schema = {
     "@context": "https://schema.org", "@type": "Service",
-    serviceType: `${ind.display} Plant & Machinery`, provider: { "@type": "Organization", name: BRAND.name },
+    serviceType: `${ind.short} Plant & Machinery`, provider: { "@type": "Organization", name: BRAND.name },
     areaServed: BRAND.presence, description: ind.metaDesc || lead,
     image: absoluteMediaPath(industryImage.hero), url: abs(`industries/${ind.slug}.html`),
   };
@@ -832,7 +832,7 @@ function renderIndustry(ind, ctx) {
     </div>
     <div>${detailMedia(ind, base, "industries")}</div>
   </div></div></section>
-  ${overviewRest ? `<section class="md-section"><div class="wrap"><span class="eyebrow">Overview</span><h2>About ${esc(ind.short)} processing</h2><div class="prose">${overviewRest}</div></div></section>` : ""}
+  ${overviewRest ? `<section class="md-section"><div class="wrap"><span class="eyebrow">Overview</span><h2>About ${esc(ind.short)}${/processing$/i.test(ind.short) ? "" : " processing"}</h2><div class="prose">${overviewRest}</div></div></section>` : ""}
   ${body}
   ${machSection}
   ${apps ? `<section class="md-section md-section--tint"><div class="wrap"><span class="eyebrow">Applications</span><h2>Where it's used</h2>${apps}</div></section>` : ""}
