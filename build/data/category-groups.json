@@ -583,7 +583,9 @@
    "slug": "grinders",
    "machines": [
     "grinding-machine",
-    "micronizer-machine"
+    "micronizer-machine",
+    "wet-grinder",
+    "colloid-mill"
    ]
   },
   {
@@ -620,14 +622,16 @@
     "dust-extraction-system",
     "fume-extraction-system",
     "air-pollution-control-equipment",
-    "centralised-dust-collection-system-2"
+    "centralised-dust-collection-system-2",
+    "air-filter"
    ]
   },
   {
    "name": "Scrubbers",
    "slug": "scrubbers",
    "machines": [
-    "wet-scrubber"
+    "wet-scrubber",
+    "dry-scrubber"
    ]
   }
  ],

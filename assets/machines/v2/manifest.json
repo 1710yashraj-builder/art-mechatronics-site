@@ -4909,6 +4909,54 @@
    ],
    "disclosure": true,
    "alt": "Industrial Spare Parts & Consumables by ART Mechatronics"
+  },
+  "dry-scrubber": {
+   "assetId": "pollution-dry-dust",
+   "category": "Pollution Control",
+   "labelled": "assets/machines/v2/products/dry-scrubber/labelled-4x3.webp",
+   "features": [
+    "Dry operation with no scrubbing water circuit",
+    "Residue collected in dry, solid form",
+    "Suitable for acid gas, fume and odour control"
+   ],
+   "disclosure": true,
+   "alt": "Dry Scrubber by ART Mechatronics"
+  },
+  "air-filter": {
+   "assetId": "pollution-central-extraction",
+   "category": "Pollution Control",
+   "labelled": "assets/machines/v2/products/air-filter/labelled-4x3.webp",
+   "features": [
+    "Cleaner plant, process and workspace air",
+    "Sealed housing construction",
+    "Access doors for quick media changes"
+   ],
+   "disclosure": true,
+   "alt": "Air Filter by ART Mechatronics"
+  },
+  "wet-grinder": {
+   "assetId": "grinding-mill-pulverizer",
+   "category": "Size Reduction & Grinding",
+   "labelled": "assets/machines/v2/products/wet-grinder/labelled-4x3.webp",
+   "features": [
+    "Smooth, uniform paste and batter texture",
+    "Dust-free grinding because liquid is present",
+    "Keeps the material cool while grinding"
+   ],
+   "disclosure": true,
+   "alt": "Wet Grinder by ART Mechatronics"
+  },
+  "colloid-mill": {
+   "assetId": "process-liquid-homogenising",
+   "category": "Size Reduction & Grinding",
+   "labelled": "assets/machines/v2/products/colloid-mill/labelled-4x3.webp",
+   "features": [
+    "Fine, uniform dispersion of solids in liquid",
+    "Stable emulsions and suspensions",
+    "Adjustable rotor-stator gap for different products"
+   ],
+   "disclosure": true,
+   "alt": "Colloid Mill by ART Mechatronics"
   }
  },
  "industries": {

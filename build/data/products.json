@@ -79939,5 +79939,1483 @@
   "machines": [],
   "applications": [],
   "aka": []
+ },
+ {
+  "slug": "dry-scrubber",
+  "shortName": "Dry Scrubber",
+  "h1": "Dry Scrubber System (Dry Sorbent Air Pollution Control Equipment)",
+  "metaTitle": "Dry Scrubber System | Dry Sorbent Air Pollution Control",
+  "metaDesc": "Dry scrubber systems for acid gas, fume and odour control with no scrubbing water and no liquid effluent. Dry sorbent and dry bed scrubbers by ART Mechatronics.",
+  "category": "Pollution Control",
+  "intro": "A Dry Scrubber is an air pollution control system that treats acid gases, fumes and odours in an industrial exhaust stream using a dry or semi-dry reagent instead of a circulating liquid. Powdered sorbent is introduced into the gas stream, reacts with the pollutants, and the reaction products are then separated out as a dry solid by a downstream filter stage.\nBecause it needs no scrubbing water and produces no liquid effluent, a dry scrubber is chosen where wastewater handling is difficult, where the exhaust has to stay dry, or where the collected residue is easier to manage in solid form. It is the dry counterpart to the wet scrubber, and ART Mechatronics engineers both so that the right method is matched to the gas stream, the plant layout and the applicable emission norms.",
+  "sections": [
+   {
+    "title": "Introduction",
+    "key": "INTRODUCTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "A Dry Scrubber is an air pollution control system that treats acid gases, fumes and odours in an industrial exhaust stream using a dry or semi-dry reagent instead of a circulating liquid. Powdered sorbent is introduced into the gas stream, reacts with the pollutants, and the reaction products are then separated out as a dry solid by a downstream filter stage. Because it needs no scrubbing water and produces no liquid effluent, a dry scrubber is chosen where wastewater handling is difficult, where the exhaust has to stay dry, or where the collected residue is easier to manage in solid form. It is the dry counterpart to the wet scrubber, and ART Mechatronics engineers both so that the right method is matched to the gas stream, the plant layout and the applicable emission norms."
+     }
+    ]
+   },
+   {
+    "title": "Also Known As",
+    "key": "ALSO KNOWN AS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "This system is also commonly referred to as:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Dry Scrubber System",
+       "Dry Sorbent Injection System",
+       "Dry Gas Scrubber",
+       "Dry Acid Gas Scrubber",
+       "Semi-Dry Scrubber"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "(Covers the common dry scrubbing keyword variations)"
+     }
+    ]
+   },
+   {
+    "title": "Working Principle of Dry Scrubber",
+    "key": "WORKING PRINCIPLE OF DRY SCRUBBER",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Polluted Gas Entry",
+      "desc": [
+       "Process exhaust carrying acid gases, fumes or odour enters the system through:"
+      ],
+      "machines": [
+       "Inlet Duct",
+       "Gas Conditioning Section"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Sorbent Injection (CORE PROCESS)",
+      "desc": [
+       "A dry or semi-dry reagent is metered into the gas stream by:"
+      ],
+      "machines": [
+       "Sorbent Storage Hopper",
+       "Metering and Injection Unit"
+      ],
+      "note": "Reagent is selected to suit the gas being treated"
+     },
+     {
+      "type": "step",
+      "title": "Reaction and Contact",
+      "desc": [
+       "Sorbent and pollutants mix and react while travelling through:"
+      ],
+      "machines": [
+       "Reaction Chamber",
+       "Contact Duct"
+      ],
+      "note": "Gaseous pollutants are converted into dry solid reaction products"
+     },
+     {
+      "type": "step",
+      "title": "Dry Separation",
+      "desc": [
+       "Reacted sorbent and dust are separated from the gas stream by:"
+      ],
+      "machines": [
+       "Bag Filter Module",
+       "Cartridge Filter Module"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Residue Collection",
+      "desc": [
+       "Separated solids are discharged into:"
+      ],
+      "machines": [
+       "Hopper",
+       "Rotary Airlock",
+       "Collection Bin"
+      ],
+      "note": "Residue is handled dry, so no scrubbing effluent is generated"
+     },
+     {
+      "type": "step",
+      "title": "Clean Gas Discharge",
+      "desc": [
+       "Treated gas is drawn out and released to atmosphere through:"
+      ],
+      "machines": [
+       "Induced Draft Blower",
+       "Discharge Stack"
+      ],
+      "note": "Supports pollution control compliance"
+     }
+    ]
+   },
+   {
+    "title": "Types of Dry Scrubbers",
+    "key": "TYPES OF DRY SCRUBBERS",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Dry Sorbent Injection System",
+      "desc": [],
+      "machines": [
+       "Powdered reagent injected into the duct",
+       "Compact arrangement for retrofits"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Semi-Dry (Spray Absorber) Scrubber",
+      "desc": [],
+      "machines": [
+       "Reagent slurry atomised into the gas",
+       "Residue still leaves as a dry solid"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Dry Bed / Media Scrubber",
+      "desc": [],
+      "machines": [
+       "Gas passes through a packed dry media bed",
+       "Used for odour and trace gas control"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Combined Dry Scrubber and Bag Filter Unit",
+      "desc": [],
+      "machines": [
+       "Reaction and filtration in one package"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Multi-Stage Dry Scrubbing System",
+      "desc": [],
+      "machines": [
+       "For mixed or difficult gas streams"
+      ],
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "Industries Using Dry Scrubbers",
+    "key": "INDUSTRIES USING DRY SCRUBBERS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "⚗️ Chemical & Process Industry"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Acid gas streams",
+       "Process vent and fume lines"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "💊 Pharmaceutical & Nutraceutical"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Solvent and reaction fumes",
+       "Powder handling exhausts"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🏭 Steel, Metal & Foundry"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Furnace and cupola off-gas",
+       "Heat treatment fumes"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🏗️ Cement, Minerals & Construction Materials"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Kiln and dryer exhaust",
+       "Material handling vents"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "♻️ Waste, Recycling & Thermal Plants"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Incinerator and thermal oxidiser exhaust",
+       "Waste processing vents"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🍃 Food & Agro Processing"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Roasting and frying fume lines",
+       "Dryer exhaust carrying odour"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Features & Advantages",
+    "key": "FEATURES ADVANTAGES",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "✔ Dry operation with no scrubbing water circuit ✔ No liquid effluent to treat or discharge ✔ Residue collected in dry, solid form ✔ Suitable for acid gas, fume and odour control ✔ Can be combined with dust filtration in a single package ✔ Construction options selected for the gas being handled ✔ Layout customised to the existing plant"
+     }
+    ]
+   },
+   {
+    "title": "Technical Highlights",
+    "key": "TECHNICAL HIGHLIGHTS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Gas Volume: Custom engineered to the application",
+       "Sorbent Type: Selected to suit the gas being treated",
+       "Separation Stage: Bag filter or cartridge filter module",
+       "Construction: Mild steel or stainless steel construction options",
+       "Residue Handling: Dry discharge through hopper and airlock",
+       "Automation: PLC-based control (optional)"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Turnkey Dry Scrubber Solutions",
+    "key": "TURNKEY DRY SCRUBBER SOLUTIONS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "ART Mechatronics offers:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Application study and system design",
+       "Sorbent storage, metering and injection arrangement",
+       "Ducting and exhaust system integration",
+       "Equipment manufacturing",
+       "Installation & commissioning",
+       "After-sales service & AMC"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Why Choose ART Mechatronics",
+    "key": "WHY CHOOSE ART MECHATRONICS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Experience in both wet and dry emission control",
+       "Systems matched to the actual gas stream and duty",
+       "Designs that suit existing plant layouts",
+       "Robust industrial construction",
+       "Single point of responsibility from design to commissioning"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Applications",
+    "key": "APPLICATIONS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Chemical Processing Plants",
+       "Pharmaceutical Manufacturing Units",
+       "Foundry & Metal Processing Plants",
+       "Cement & Mineral Plants",
+       "Waste & Thermal Treatment Plants",
+       "Food & Agro Processing Units"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Call To Action",
+    "key": "CALL TO ACTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "Looking for a Dry Scrubber to control gas, fume or odour without a water circuit? Talk to our engineers for:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Application-matched dry scrubbing systems",
+       "Emission control system design",
+       "Turnkey installation"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "Request a Quote | Talk to Our Expert"
+     }
+    ]
+   }
+  ],
+  "machines": [],
+  "applications": [
+   "Chemical Processing Plants",
+   "Pharmaceutical Manufacturing Units",
+   "Foundry & Metal Processing Plants",
+   "Cement & Mineral Plants",
+   "Waste & Thermal Treatment Plants",
+   "Food & Agro Processing Units"
+  ],
+  "aka": [
+   "Dry Scrubber System",
+   "Dry Sorbent Injection System",
+   "Dry Gas Scrubber",
+   "Dry Acid Gas Scrubber",
+   "Semi-Dry Scrubber"
+  ]
+ },
+ {
+  "slug": "air-filter",
+  "shortName": "Air Filter",
+  "h1": "Industrial Air Filter Unit (Air Filtration System for Process & Plant Air)",
+  "metaTitle": "Air Filter | Industrial Air Filtration Unit & Filter Housing",
+  "metaDesc": "Industrial air filter units for process air, plant ventilation and extraction ducts. Pre-filter, pocket, cartridge and carbon filter housings by ART Mechatronics.",
+  "category": "Pollution Control",
+  "intro": "An Industrial Air Filter is a filtration unit that cleans the air moving through a plant, whether that is supply air, process air or extracted air, by passing it through filter media held in a sealed housing. Dust, lint, fine powder, mist and odour-carrying air are held back by the media while the cleaned air passes on to the process, the workspace or the discharge stack.\nAir filters are used both as stand-alone housings in a duct run and as filtration stages inside larger extraction, ventilation and pollution control systems. ART Mechatronics builds air filter units and filter housings to suit the duct layout, the media type chosen for the duty, and the access needed for routine media changes.",
+  "sections": [
+   {
+    "title": "Introduction",
+    "key": "INTRODUCTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "An Industrial Air Filter is a filtration unit that cleans the air moving through a plant, whether that is supply air, process air or extracted air, by passing it through filter media held in a sealed housing. Dust, lint, fine powder, mist and odour-carrying air are held back by the media while the cleaned air passes on to the process, the workspace or the discharge stack. Air filters are used both as stand-alone housings in a duct run and as filtration stages inside larger extraction, ventilation and pollution control systems. ART Mechatronics builds air filter units and filter housings to suit the duct layout, the media type chosen for the duty, and the access needed for routine media changes."
+     }
+    ]
+   },
+   {
+    "title": "Also Known As",
+    "key": "ALSO KNOWN AS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "This unit is also commonly referred to as:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Industrial Air Filter Unit",
+       "Air Filtration System",
+       "Air Filter Housing",
+       "Inline Duct Filter Unit",
+       "Process Air Filter"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "(Covers the common air filtration keyword variations)"
+     }
+    ]
+   },
+   {
+    "title": "Working Principle of Air Filter",
+    "key": "WORKING PRINCIPLE OF AIR FILTER",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Air Entry",
+      "desc": [
+       "Dust-laden or untreated air enters the unit through:"
+      ],
+      "machines": [
+       "Inlet Duct",
+       "Filter Housing Inlet"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Pre-Filtration",
+      "desc": [
+       "Coarse dust and lint are held back first by:"
+      ],
+      "machines": [
+       "Panel Pre-Filter",
+       "Washable Media Frame"
+      ],
+      "note": "Protects the finer filter stage behind it"
+     },
+     {
+      "type": "step",
+      "title": "Main Filtration (CORE PROCESS)",
+      "desc": [
+       "Finer particles are captured as air passes through:"
+      ],
+      "machines": [
+       "Pocket / Bag Filter Media",
+       "Cartridge Filter Element"
+      ],
+      "note": "Media is selected to suit the air being handled"
+     },
+     {
+      "type": "step",
+      "title": "Odour and Vapour Stage",
+      "desc": [
+       "Where the duty calls for it, a further stage is added:"
+      ],
+      "machines": [
+       "Activated Carbon Module"
+      ],
+      "note": "Optional stage for odour and vapour control"
+     },
+     {
+      "type": "step",
+      "title": "Clean Air Delivery",
+      "desc": [
+       "Filtered air is delivered onward through:"
+      ],
+      "machines": [
+       "Blower / Fan Section",
+       "Outlet Duct"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Media Servicing",
+      "desc": [
+       "Loaded media is inspected and changed through:"
+      ],
+      "machines": [
+       "Access Doors",
+       "Slide-Out Filter Frames"
+      ],
+      "note": "Housing is designed around routine media replacement"
+     }
+    ]
+   },
+   {
+    "title": "Types of Air Filters",
+    "key": "TYPES OF AIR FILTERS",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Panel / Pre-Filter Unit",
+      "desc": [],
+      "machines": [
+       "First-stage coarse filtration",
+       "Washable or replaceable media"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Pocket (Bag) Filter Unit",
+      "desc": [],
+      "machines": [
+       "Extended media area in a compact housing"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Cartridge Filter Unit",
+      "desc": [],
+      "machines": [
+       "Compact housing for fine powder duty"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Activated Carbon Filter Unit",
+      "desc": [],
+      "machines": [
+       "For odour and vapour control"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Inline Duct Filter Housing",
+      "desc": [],
+      "machines": [
+       "Fitted directly into an existing duct run"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Air Handling Filter Section",
+      "desc": [],
+      "machines": [
+       "Filtration stage built into an air handling unit"
+      ],
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "Industries Using Air Filters",
+    "key": "INDUSTRIES USING AIR FILTERS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "🍃 Food & Agro Processing"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Clean air for dryers and packing halls",
+       "Spice, flour and snack plants"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "💊 Pharmaceutical & Nutraceutical"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Clean process air",
+       "Powder handling areas"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "⚗️ Chemical & Industrial"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Process air supply",
+       "Fume and vapour extraction lines"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🏭 Metal & Engineering"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Workshop ventilation",
+       "Machining and finishing areas"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🏗️ Cement, Minerals & Construction Materials"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Dusty material handling areas"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "♻️ Plastic & Recycling"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Granule and powder handling lines"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Features & Advantages",
+    "key": "FEATURES ADVANTAGES",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "✔ Cleaner plant, process and workspace air ✔ Protects downstream equipment and product ✔ Media type chosen to suit the duty ✔ Sealed housing construction ✔ Access doors for quick media changes ✔ Fits into new or existing duct runs ✔ Sizes and layouts built to order"
+     }
+    ]
+   },
+   {
+    "title": "Technical Highlights",
+    "key": "TECHNICAL HIGHLIGHTS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Air Volume: Custom engineered to the application",
+       "Filter Stages: Single or multi-stage arrangement",
+       "Media Options: Panel, pocket, cartridge or activated carbon",
+       "Construction: Mild steel or stainless steel construction options",
+       "Mounting: Inline duct, floor-mounted or unit-integrated",
+       "Monitoring: Filter condition indication (optional)"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Turnkey Air Filtration Solutions",
+    "key": "TURNKEY AIR FILTRATION SOLUTIONS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "ART Mechatronics offers:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Air filtration study and unit selection",
+       "Housing and duct layout design",
+       "Equipment manufacturing",
+       "Installation & commissioning",
+       "Replacement media supply",
+       "After-sales service & AMC"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Why Choose ART Mechatronics",
+    "key": "WHY CHOOSE ART MECHATRONICS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Air filtration built around your duct layout",
+       "Media selection matched to the air being handled",
+       "Sealed and serviceable housing design",
+       "Integrates with ART dust extraction and ventilation systems",
+       "Support for replacement media and servicing"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Applications",
+    "key": "APPLICATIONS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Food Processing Units",
+       "Pharmaceutical Manufacturing Units",
+       "Chemical & Industrial Plants",
+       "Engineering & Metal Workshops",
+       "Plastic & Recycling Plants",
+       "Plant Ventilation & Air Handling Systems"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Call To Action",
+    "key": "CALL TO ACTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "Need cleaner process or plant air? Talk to our engineers for:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Air filter units and housings built to your duct layout",
+       "Multi-stage filtration arrangements",
+       "Turnkey installation"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "Request a Quote | Talk to Our Expert"
+     }
+    ]
+   }
+  ],
+  "machines": [],
+  "applications": [
+   "Food Processing Units",
+   "Pharmaceutical Manufacturing Units",
+   "Chemical & Industrial Plants",
+   "Engineering & Metal Workshops",
+   "Plastic & Recycling Plants",
+   "Plant Ventilation & Air Handling Systems"
+  ],
+  "aka": [
+   "Industrial Air Filter Unit",
+   "Air Filtration System",
+   "Air Filter Housing",
+   "Inline Duct Filter Unit",
+   "Process Air Filter"
+  ]
+ },
+ {
+  "slug": "wet-grinder",
+  "shortName": "Wet Grinder",
+  "h1": "Industrial Wet Grinder (Wet Grinding Machine for Pastes, Batters & Slurries)",
+  "metaTitle": "Wet Grinder | Industrial Wet Grinding Machine for Pastes",
+  "metaDesc": "Industrial wet grinder for batters, masala and chutney pastes, soaked pulses and slurries. Batch and continuous wet grinding machines by ART Mechatronics.",
+  "category": "Grinding",
+  "intro": "An Industrial Wet Grinder is a grinding machine that reduces soaked, soft or liquid-carrying material into a smooth paste, batter or slurry while water or another liquid is present in the grinding zone. Grinding wet keeps the material cool, avoids the dust that dry milling creates, and gives a flowing product instead of a powder.\nWet grinders are used wherever the finished product is a paste or a suspension: batter for idli and dosa, wet masala and chutney pastes, soaked pulses, nut and seed pastes, cocoa and sesame preparations, and slurries in chemical and mineral processing. ART Mechatronics supplies industrial wet grinding machines built for plant duty, with hygienic construction options and feed and discharge arranged to suit the line.",
+  "sections": [
+   {
+    "title": "Introduction",
+    "key": "INTRODUCTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "An Industrial Wet Grinder is a grinding machine that reduces soaked, soft or liquid-carrying material into a smooth paste, batter or slurry while water or another liquid is present in the grinding zone. Grinding wet keeps the material cool, avoids the dust that dry milling creates, and gives a flowing product instead of a powder. Wet grinders are used wherever the finished product is a paste or a suspension: batter for idli and dosa, wet masala and chutney pastes, soaked pulses, nut and seed pastes, cocoa and sesame preparations, and slurries in chemical and mineral processing. ART Mechatronics supplies industrial wet grinding machines built for plant duty, with hygienic construction options and feed and discharge arranged to suit the line."
+     }
+    ]
+   },
+   {
+    "title": "Also Known As",
+    "key": "ALSO KNOWN AS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "This machine is also commonly referred to as:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Wet Grinding Machine",
+       "Industrial Wet Grinder",
+       "Wet Masala Grinder",
+       "Batter Grinding Machine",
+       "Paste Grinding Machine"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "(Covers the common wet grinding keyword variations)"
+     }
+    ]
+   },
+   {
+    "title": "Working Principle of Wet Grinder",
+    "key": "WORKING PRINCIPLE OF WET GRINDER",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Material Preparation",
+      "desc": [
+       "Material is washed and soaked before grinding using:"
+      ],
+      "machines": [
+       "Soaking / Steeping Tank",
+       "Washing Line"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Feeding",
+      "desc": [
+       "Prepared material and liquid are fed into the grinding chamber through:"
+      ],
+      "machines": [
+       "Feed Hopper",
+       "Metered Liquid Inlet"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Wet Grinding (CORE PROCESS)",
+      "desc": [
+       "Material is ground between the grinding elements while liquid is present in the chamber."
+      ],
+      "machines": [
+       "Grinding Chamber",
+       "Rotating Grinding Assembly"
+      ],
+      "note": "Grinding wet keeps the batch cool and dust-free"
+     },
+     {
+      "type": "step",
+      "title": "Consistency Control",
+      "desc": [
+       "Grinding time and liquid addition are adjusted to reach the required texture."
+      ],
+      "machines": [
+       "Liquid Dosing",
+       "Drive Speed Control"
+      ],
+      "note": "Gives a uniform paste or batter"
+     },
+     {
+      "type": "step",
+      "title": "Discharge",
+      "desc": [
+       "Finished paste or batter leaves the machine through:"
+      ],
+      "machines": [
+       "Outlet Valve",
+       "Product Pump"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Cleaning",
+      "desc": [
+       "Contact parts are washed down between products through:"
+      ],
+      "machines": [
+       "Wash-Down Ports",
+       "Removable Grinding Assembly"
+      ],
+      "note": "Supports hygienic changeover between products"
+     }
+    ]
+   },
+   {
+    "title": "Types of Wet Grinders",
+    "key": "TYPES OF WET GRINDERS",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Batch Wet Grinder",
+      "desc": [],
+      "machines": [
+       "One batch per cycle",
+       "Simple operation for smaller lines"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Continuous Wet Grinder",
+      "desc": [],
+      "machines": [
+       "Continuous feed and discharge",
+       "For plant-scale production"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Tilting Wet Grinder",
+      "desc": [],
+      "machines": [
+       "Bowl tilts for easy discharge and cleaning"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Stone Type Wet Grinder",
+      "desc": [],
+      "machines": [
+       "Grinding between stones",
+       "Traditional choice for batter duty"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Attrition / Disc Type Wet Grinder",
+      "desc": [],
+      "machines": [
+       "Grinding between rotating discs",
+       "For finer paste duty"
+      ],
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "Industries Using Wet Grinders",
+    "key": "INDUSTRIES USING WET GRINDERS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "🍛 Food Processing"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Idli, dosa and vada batter",
+       "Wet masala, chutney and curry pastes"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🌾 Agro, Pulses & Grains"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Soaked pulses and grains",
+       "Rice and lentil batters"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🥜 Nuts, Seeds & Confectionery"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Nut and seed pastes",
+       "Cocoa and sesame preparations"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "💊 Pharmaceutical & Ayurvedic"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Herbal and ayurvedic pastes",
+       "Wet grinding of soaked material"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "⚗️ Chemical & Cosmetic"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Pigment and paste preparation",
+       "Cream and lotion bases"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🏗️ Minerals & Ceramics"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Wet slurry grinding",
+       "Ceramic and mineral pastes"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Features & Advantages",
+    "key": "FEATURES ADVANTAGES",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "✔ Smooth, uniform paste and batter texture ✔ Dust-free grinding because liquid is present ✔ Keeps the material cool while grinding ✔ Food-grade contact part options ✔ Easy wash-down between products ✔ Batch or continuous arrangements ✔ Built for continuous plant duty"
+     }
+    ]
+   },
+   {
+    "title": "Technical Highlights",
+    "key": "TECHNICAL HIGHLIGHTS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Capacity: Custom engineered to the application",
+       "Operation: Batch or continuous",
+       "Grinding Elements: Stone or disc type as specified",
+       "Contact Parts: Stainless steel construction options",
+       "Discharge: Gravity, valve or pump transfer",
+       "Automation: PLC-based control (optional)"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Turnkey Wet Grinding Solutions",
+    "key": "TURNKEY WET GRINDING SOLUTIONS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "ART Mechatronics offers:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Product trials and machine selection",
+       "Soaking, feeding and grinding line layout",
+       "Equipment manufacturing",
+       "Integration with downstream mixing, filling and packing",
+       "Installation & commissioning",
+       "After-sales service & AMC"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Why Choose ART Mechatronics",
+    "key": "WHY CHOOSE ART MECHATRONICS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Wet grinding machines built for plant-scale duty",
+       "Hygienic, wash-down friendly construction options",
+       "Line layout designed around the product",
+       "Integrates with ART mixing, conveying and packing equipment",
+       "Support from product trials through to commissioning"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Applications",
+    "key": "APPLICATIONS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Batter & Idli Dosa Plants",
+       "Spice & Masala Paste Units",
+       "Chutney & Sauce Manufacturing",
+       "Pulses & Grain Processing Units",
+       "Nut & Seed Paste Plants",
+       "Ayurvedic & Herbal Processing Units",
+       "Cosmetic & Chemical Paste Plants"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Call To Action",
+    "key": "CALL TO ACTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "Looking for an Industrial Wet Grinder for batter, masala or paste production? Talk to our engineers for:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Machine selection based on your product",
+       "Batch or continuous wet grinding lines",
+       "Turnkey installation"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "Request a Quote | Talk to Our Expert"
+     }
+    ]
+   }
+  ],
+  "machines": [],
+  "applications": [
+   "Batter & Idli Dosa Plants",
+   "Spice & Masala Paste Units",
+   "Chutney & Sauce Manufacturing",
+   "Pulses & Grain Processing Units",
+   "Nut & Seed Paste Plants",
+   "Ayurvedic & Herbal Processing Units",
+   "Cosmetic & Chemical Paste Plants"
+  ],
+  "aka": [
+   "Wet Grinding Machine",
+   "Industrial Wet Grinder",
+   "Wet Masala Grinder",
+   "Batter Grinding Machine",
+   "Paste Grinding Machine"
+  ]
+ },
+ {
+  "slug": "colloid-mill",
+  "shortName": "Colloid Mill",
+  "h1": "Colloid Mill (Industrial Wet Milling & Emulsifying Machine)",
+  "metaTitle": "Colloid Mill | Industrial Emulsifier & Wet Milling Machine",
+  "metaDesc": "Industrial colloid mill for emulsions, suspensions, sauces, ointments and pastes. Rotor-stator wet milling and emulsifying machines by ART Mechatronics.",
+  "category": "Grinding",
+  "intro": "A Colloid Mill is a wet milling machine that reduces and disperses solids inside a liquid by forcing the product through the narrow gap between a fast-turning rotor and a fixed stator. The shearing action breaks down lumps and droplets and blends the phases together, turning a coarse mixture into a smooth, stable emulsion, suspension or paste.\nColloid mills are used wherever a product has to be fine, uniform and stable in liquid form: sauces, ketchup and mayonnaise, nut butters, ointments and creams, syrups and suspensions, cosmetic emulsions, and paint, ink and chemical dispersions. ART Mechatronics supplies colloid mills with an adjustable rotor-stator setting, hygienic construction options, and inline or recirculation arrangements to suit the process line.",
+  "sections": [
+   {
+    "title": "Introduction",
+    "key": "INTRODUCTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "A Colloid Mill is a wet milling machine that reduces and disperses solids inside a liquid by forcing the product through the narrow gap between a fast-turning rotor and a fixed stator. The shearing action breaks down lumps and droplets and blends the phases together, turning a coarse mixture into a smooth, stable emulsion, suspension or paste. Colloid mills are used wherever a product has to be fine, uniform and stable in liquid form: sauces, ketchup and mayonnaise, nut butters, ointments and creams, syrups and suspensions, cosmetic emulsions, and paint, ink and chemical dispersions. ART Mechatronics supplies colloid mills with an adjustable rotor-stator setting, hygienic construction options, and inline or recirculation arrangements to suit the process line."
+     }
+    ]
+   },
+   {
+    "title": "Also Known As",
+    "key": "ALSO KNOWN AS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "This machine is also commonly referred to as:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Colloid Mill Machine",
+       "Industrial Colloid Mill",
+       "Emulsifier Mill",
+       "Rotor Stator Mill",
+       "Wet Milling Machine"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "(Covers the common colloid milling keyword variations)"
+     }
+    ]
+   },
+   {
+    "title": "Working Principle of Colloid Mill",
+    "key": "WORKING PRINCIPLE OF COLLOID MILL",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Product Feed",
+      "desc": [
+       "Pre-mixed liquid, slurry or paste enters the mill through:"
+      ],
+      "machines": [
+       "Feed Hopper",
+       "Inline Feed Connection"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Shearing in the Rotor-Stator Gap (CORE PROCESS)",
+      "desc": [
+       "Product is forced through the narrow gap between:"
+      ],
+      "machines": [
+       "Rotating Rotor",
+       "Fixed Stator"
+      ],
+      "note": "Shear breaks down particles and droplets"
+     },
+     {
+      "type": "step",
+      "title": "Gap Adjustment",
+      "desc": [
+       "The clearance between rotor and stator is set to control how fine the product becomes."
+      ],
+      "machines": [
+       "Adjustable Gap Setting"
+      ],
+      "note": "Lets the same mill handle different products"
+     },
+     {
+      "type": "step",
+      "title": "Dispersion and Emulsification",
+      "desc": [
+       "Solid and liquid phases are dispersed into a uniform mixture inside:"
+      ],
+      "machines": [
+       "Milling Chamber"
+      ],
+      "note": "Gives a smooth, stable emulsion or suspension"
+     },
+     {
+      "type": "step",
+      "title": "Discharge or Recirculation",
+      "desc": [
+       "Milled product is passed onward, or returned for a further pass, through:"
+      ],
+      "machines": [
+       "Outlet Connection",
+       "Recirculation Loop"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Cleaning",
+      "desc": [
+       "Contact parts are cleaned between products using:"
+      ],
+      "machines": [
+       "Wash-Down Arrangement",
+       "CIP Connection"
+      ],
+      "note": "Optional CIP connection for hygienic duty"
+     }
+    ]
+   },
+   {
+    "title": "Types of Colloid Mills",
+    "key": "TYPES OF COLLOID MILLS",
+    "blocks": [
+     {
+      "type": "step",
+      "title": "Vertical Colloid Mill",
+      "desc": [],
+      "machines": [
+       "Compact footprint",
+       "Common on batch and kitchen-scale lines"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Horizontal Colloid Mill",
+      "desc": [],
+      "machines": [
+       "Suits inline mounting in a process line"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Inline Colloid Mill",
+      "desc": [],
+      "machines": [
+       "Mills the product as it flows through the pipeline"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Jacketed Colloid Mill",
+      "desc": [],
+      "machines": [
+       "Jacket for temperature-controlled duty"
+      ],
+      "note": ""
+     },
+     {
+      "type": "step",
+      "title": "Sanitary / Food Grade Colloid Mill",
+      "desc": [],
+      "machines": [
+       "Hygienic construction for food and pharma duty"
+      ],
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "Industries Using Colloid Mills",
+    "key": "INDUSTRIES USING COLLOID MILLS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "🍛 Food, Sauces & Spreads"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Ketchup, sauces and mayonnaise",
+       "Nut butters and fruit pulps"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "💊 Pharmaceutical & Ayurvedic"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Ointments, creams and gels",
+       "Suspensions and syrups"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "💄 Cosmetics & Personal Care"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Lotions and emulsions",
+       "Toothpaste and shampoo bases"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "⚗️ Chemical & Industrial"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Paint, ink and pigment dispersions",
+       "Adhesives and resins"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "🌾 Agro & Spice Processing"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Wet masala and spice pastes",
+       "Chutney and curry pastes"
+      ]
+     },
+     {
+      "type": "para",
+      "text": "♻️ Bio & Waste Processing"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Slurry conditioning",
+       "Organic waste homogenising"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Features & Advantages",
+    "key": "FEATURES ADVANTAGES",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "✔ Fine, uniform dispersion of solids in liquid ✔ Stable emulsions and suspensions ✔ Adjustable rotor-stator gap for different products ✔ Inline or recirculation operation ✔ Food and pharma grade construction options ✔ Dismantles easily for cleaning ✔ Compact machine footprint"
+     }
+    ]
+   },
+   {
+    "title": "Technical Highlights",
+    "key": "TECHNICAL HIGHLIGHTS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Throughput: Custom engineered to the application",
+       "Milling Action: Adjustable rotor-stator gap",
+       "Orientation: Vertical, horizontal or inline",
+       "Contact Parts: Stainless steel construction options",
+       "Jacketing: Temperature-controlled jacket (optional)",
+       "Automation: PLC-based control (optional)"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Turnkey Colloid Mill Solutions",
+    "key": "TURNKEY COLLOID MILL SOLUTIONS",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "ART Mechatronics offers:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Product trials and mill selection",
+       "Integration with mixing and homogenising lines",
+       "Equipment manufacturing",
+       "Piping, pump and recirculation arrangement",
+       "Installation & commissioning",
+       "After-sales service & AMC"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Why Choose ART Mechatronics",
+    "key": "WHY CHOOSE ART MECHATRONICS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Wet milling and homogenising experience across food, pharma and chemical lines",
+       "Machines matched to the product rather than a standard fit",
+       "Hygienic construction options for food and pharma duty",
+       "Integrates with ART mixing, liquid processing and filling equipment",
+       "Support from product trials through to commissioning"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Applications",
+    "key": "APPLICATIONS",
+    "blocks": [
+     {
+      "type": "list",
+      "items": [
+       "Sauce & Ketchup Plants",
+       "Ointment & Cream Manufacturing",
+       "Cosmetic & Personal Care Units",
+       "Paint, Ink & Pigment Plants",
+       "Spice & Masala Paste Units",
+       "Syrup & Suspension Manufacturing",
+       "Nut Butter & Spread Plants"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Call To Action",
+    "key": "CALL TO ACTION",
+    "blocks": [
+     {
+      "type": "para",
+      "text": "Need a Colloid Mill for emulsions, suspensions or pastes? Talk to our engineers for:"
+     },
+     {
+      "type": "list",
+      "items": [
+       "Mill selection based on your product",
+       "Inline and recirculation arrangements",
+       "Turnkey installation"
+      ]
+     },
+     {
+      "type": "note",
+      "text": "Request a Quote | Talk to Our Expert"
+     }
+    ]
+   }
+  ],
+  "machines": [],
+  "applications": [
+   "Sauce & Ketchup Plants",
+   "Ointment & Cream Manufacturing",
+   "Cosmetic & Personal Care Units",
+   "Paint, Ink & Pigment Plants",
+   "Spice & Masala Paste Units",
+   "Syrup & Suspension Manufacturing",
+   "Nut Butter & Spread Plants"
+  ],
+  "aka": [
+   "Colloid Mill Machine",
+   "Industrial Colloid Mill",
+   "Emulsifier Mill",
+   "Rotor Stator Mill",
+   "Wet Milling Machine"
+  ]
  }
 ]

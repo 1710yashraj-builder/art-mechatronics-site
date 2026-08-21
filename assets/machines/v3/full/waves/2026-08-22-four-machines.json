@@ -1,0 +1,41 @@
+{
+ "note": "Founder-requested machines (Excel 2026-08-21). Masters generated via Codex from the wet-scrubber style reference; each image human-verified against requiredVisible/forbidden before promotion.",
+ "products": [
+  {
+   "slug": "dry-scrubber",
+   "status": "reconstructed",
+   "confidence": "high",
+   "visualClass": "vertical-dry-sorbent-scrubber",
+   "requiredVisible": ["vertical cylindrical dry-scrubbing reactor vessel", "conical bottom discharge with support legs", "dry-sorbent feed hopper with screw dosing feeder into inlet duct", "clean-gas outlet duct at top", "bolted access manway", "floor-standing control panel"],
+   "forbidden": ["liquid spray headers", "recirculation water pump", "water piping", "hanging filter bags"],
+   "references": ["https://en.wikipedia.org/wiki/Scrubber#Dry_scrubbing", "https://www.cecoenviro.com/products/"]
+  },
+  {
+   "slug": "air-filter",
+   "status": "reconstructed",
+   "confidence": "high",
+   "visualClass": "cabinet-industrial-air-filter-unit",
+   "requiredVisible": ["rectangular filtration cabinet with hinged latched doors", "round dirty-air inlet duct", "top-mounted centrifugal blower with clean-air discharge", "differential-pressure gauge", "formed steel legs", "floor-standing control panel"],
+   "forbidden": ["rows of hanging bag filters", "cyclone cone", "liquid piping", "spray nozzles"],
+   "references": ["https://www.donaldson.com/en/industrial-dust-fume-mist/", "https://www.camfil.com/"]
+  },
+  {
+   "slug": "wet-grinder",
+   "status": "reconstructed",
+   "confidence": "high",
+   "visualClass": "tilting-drum-industrial-wet-grinder",
+   "requiredVisible": ["stainless cylindrical grinding drum on pedestal frame", "tilting hand-wheel mechanism", "geared electric motor drive at base", "front discharge spout", "push-button control box"],
+   "forbidden": ["dry-powder cyclone", "hammer-mill chamber", "conveyor belts", "filter bags"],
+   "references": ["https://en.wikipedia.org/wiki/Wet_grinder"]
+  },
+  {
+   "slug": "colloid-mill",
+   "status": "reconstructed",
+   "confidence": "high",
+   "visualClass": "vertical-rotor-stator-colloid-mill",
+   "requiredVisible": ["conical stainless feed hopper", "rotor-stator milling head below hopper", "discharge spout with lever valve", "recirculation pipe back to hopper", "vertical motor column", "four-legged base frame"],
+   "forbidden": ["grinding stones", "rotating drum", "ribbon-mixer trough", "cyclone"],
+   "references": ["https://en.wikipedia.org/wiki/Colloid_mill"]
+  }
+ ]
+}
