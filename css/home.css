@@ -629,6 +629,10 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 @media (max-width: 620px) { .rp-card { width: 300px; } }
 
 /* --- Recent Projects rails (the cards themselves) --- */
+/* #recent-projects is a link target we hand to the client, and the header is
+   sticky — without this the heading lands underneath it. Same treatment the
+   other anchor targets on the site get. */
+#recent-projects { scroll-margin-top: 90px; }
 .rp-card { width: 297px; }
 .rp-rail--b { margin-top: 1.1rem; }
 .rp-card__hit {
