@@ -1311,7 +1311,12 @@ const HOME_RANGE = [
      before wiring. Sources: client-assets/2026-08-07-solutions-tiles/. */
   { cat: "Conveying & Handling", display: "Material Handling Equipment & Industrial Automation",
     tile: "assets/categories/solutions/v4/tile-1.webp",
-    sisters: [["Automation & Robotics", "Automation & controls"], ["Storage & Elevation", "Storage & elevation"]] },
+    /* Excel row 1 order (client, 2026-08-21): Conveyor, Robotic Handling,
+       Elevator, Storage, Lifting, Others. Robotic Handling and Storage are
+       whole categories of their own on this site, so they interleave as links
+       to those pages at the Excel's positions rather than moving machines
+       between categories (which would disturb the image-manifest mapping). */
+    interleave: { 1: ["Automation & Robotics", "Robotic handling"], 3: ["Storage & Elevation", "Storage"] } },
   { cat: "Mixing & Blending", display: "Mixing & Blending", tile: "assets/categories/solutions/v4/tile-2.webp" },
   { cat: "Pollution Control", display: "Dust Collection & Pollution Control Equipment", tile: "assets/categories/solutions/v4/tile-3.webp" },
   { cat: "Heating & Drying", display: "Heating & Drying", tile: "assets/categories/solutions/v4/tile-4.webp" },
@@ -1410,16 +1415,24 @@ function categoryGrid(base = "", machinePopups = false) {
         ? `<img src="${base}assets/categories/${cslug}/cover.webp" alt="${attr(heading)} machinery by ART Mechatronics" width="1600" height="1200" loading="lazy" decoding="async">`
         : cardMedia(categoryFace(name, prods), "products", base);
     }
-    const sisterLis = (spec.sisters || []).map(([sname, slabel]) => {
+    const catRow = ([sname, slabel]) => {
       const sprods = productsInCategory(sname);
       const shref = rel(base, `categories/${categorySlug(sname)}.html`);
       return `<li><a href="${shref}"><span class="mc-dot" aria-hidden="true"></span>${esc(slabel)}<em>${sprods.length}</em></a></li>`;
-    }).join("");
+    };
+    const sisterLis = (spec.sisters || []).map(catRow).join("");
     /* Umbrella tiles keep group lists even in machine mode: Material Handling
        spans 30 machines and Packaging 114 — groups are the usable unit there. */
     const groupPopup = !machinePopups || name === "Conveying & Handling" || name === "Packaging";
+    const groupRows = gs.map((g) => `<li><a href="${pageHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`);
+    if (spec.interleave) {
+      // insert whole-category rows at their Excel positions (index = row number)
+      Object.entries(spec.interleave)
+        .sort((a, b) => a[0] - b[0])
+        .forEach(([idx, entry]) => groupRows.splice(Number(idx), 0, catRow(entry)));
+    }
     const listItems = groupPopup
-      ? gs.map((g) => `<li><a href="${pageHref}#${g.slug}"><span class="mc-dot" aria-hidden="true"></span>${esc(g.name)}<em>${g.machines.length}</em></a></li>`).join("") + sisterLis
+      ? groupRows.join("") + sisterLis
       /* the machines themselves, flat A–Z, name only, each to its own page —
          the client's spec: "named the machines themselves; click and he goes
          into it". Slugs resolve through prods so a data typo cannot emit a
