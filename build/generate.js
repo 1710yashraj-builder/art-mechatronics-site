@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260822e";
+const CSSV = "?v=20260822g";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -1686,7 +1686,7 @@ fs.writeFileSync(path.join(ROOT, "catalog.html"), renderCatalog(selProd));
 
 // sitemap
 const urls = [
-  "", "about.html", "contact.html", "services.html", "partner.html", "machines.html", "system.html", "control-panel.html",
+  "", "about.html", "contact.html", "services.html", "partner.html", "careers.html", "machines.html", "system.html", "control-panel.html",
   "industries.html", "catalog.html", "projects.html",
   ...selInd.map((i) => `industries/${i.slug}.html`),
   ...CATEGORIES.map((c) => `categories/${categorySlug(c)}.html`),

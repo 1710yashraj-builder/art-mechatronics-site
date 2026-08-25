@@ -25,6 +25,12 @@ p { margin: 0 0 1em; }
 .section--tint { background: var(--mist); }
 .section--navy { background: linear-gradient(160deg,var(--blue),var(--navy-2)); color: #dfe8f5; }
 .section--navy h2, .section--navy h3 { color: #fff; }
+/* A plain link inside a navy section inherited the brand blue on a navy
+   ground — measured at 3.02:1, under the 4.5:1 AA floor, and in practice you
+   could barely see the email address on the careers page. Buttons keep their
+   own styling; this is for links inside prose. Added 2026-08-22. */
+.section--navy a:not(.btn) { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.section--navy a:not(.btn):hover { color: #bdd7f6; }
 .eyebrow {
   display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; color: var(--blue); margin-bottom: var(--s-3);

@@ -61,6 +61,15 @@
 .sv-locations b { color: var(--ink); font-size: .95rem; }
 .sv-locations span { color: var(--steel); font-size: .78rem; }
 
+/* The auto-fill above is right for the service register's fourteen entries,
+   but it lands on FIVE columns at desktop width — so a six-item list renders
+   5 + 1, leaving the last point orphaned on its own row. This opt-in modifier
+   is for the six-item lists (careers, partner): three columns give a clean
+   3 + 3. Added 2026-08-22 after seeing the orphan on both pages. */
+.sv-locations--trio { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 860px) { .sv-locations--trio { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .sv-locations--trio { grid-template-columns: 1fr; } }
+
 /* --- closing CTA --- */
 .sv-cta .lead { color: #c9d6ea; max-width: 54ch; margin-inline: auto; }
 .sv-cta__btns { display: flex; justify-content: center; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }

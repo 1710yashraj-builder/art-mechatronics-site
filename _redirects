@@ -19,8 +19,11 @@
 /about-us/  /about  301
 /blog  /  301
 /blog/  /  301
-/career  /contact  301
-/career/  /contact  301
+/career  /careers  301
+/career/  /careers  301
+/careers/  /careers  301
+/jobs  /careers  301
+/jobs/  /careers  301
 /channel-partner  /contact  301
 /channel-partner/  /contact  301
 /contact-us  /contact  301

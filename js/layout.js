@@ -120,6 +120,8 @@
             <li><a href="${href('system.html')}">Live System Demo</a></li>
             <li><a href="${href('services.html')}">Services &amp; support</a></li>
             <li><a href="${href('about.html')}">About ART</a></li>
+            <li><a href="${href('partner.html')}">Partner with us</a></li>
+            <li><a href="${href('careers.html')}">Careers</a></li>
             <li><a href="${href('contact.html')}">Contact</a></li>
           </ul>
         </div>
