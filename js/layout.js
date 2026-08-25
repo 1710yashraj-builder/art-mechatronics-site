@@ -58,6 +58,7 @@
     ["industries","Industries", "industries.html"],
     ["catalog",   "Products",   "catalog.html"],
     ["services",  "Services",   "services.html"],
+    ["partner",   "Partner With Us", "partner.html"],
     ["about",     "About",      "about.html"],
     ["contact",   "Contact",    "contact.html"],
   ];

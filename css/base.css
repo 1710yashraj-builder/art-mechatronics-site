@@ -137,7 +137,13 @@ p { margin: 0 0 1em; }
      sit comfortably in the 78px bar; narrower ran to four and looked cramped. */
   max-width: 22ch;
 }
-@media (max-width: 1100px) { .brand-tag { display: none; } }
+/* The tagline is decorative (aria-hidden) and it competes with the nav for the
+   same row. With seven nav items + Get a Quote (Partner With Us added
+   2026-08-22) the nav needs ~817px, which at 1101px squeezed the logo from
+   126px down to 52px and wrapped the tagline onto four lines. Drop the tagline
+   sooner: below 1280px the logo keeps its full size and the nav keeps one line.
+   Add another nav item and this number has to move again — measure, don't guess. */
+@media (max-width: 1280px) { .brand-tag { display: none; } }
 .nav { display: flex; align-items: center; gap: .4rem; }
 .nav a {
   color: var(--slate); font-weight: 600; font-size: .95rem; padding: .5rem .8rem; border-radius: 8px;
