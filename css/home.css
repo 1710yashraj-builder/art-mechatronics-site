@@ -284,7 +284,17 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   font-size: .75rem; font-weight: 700; letter-spacing: .07em;
   text-transform: uppercase; color: #CFE0F7; line-height: 1.35;
 }
-@media (max-width: 1050px) {
+/* The six-column strip switches to three at 1200px, not 1050px (fixed
+   2026-08-22). `1fr` is `minmax(auto, 1fr)`, and that auto floor is min-content
+   — a track can never shrink below the widest word plus the 50px icon, so when
+   six tracks do not fit the grid does not compress, it OVERHANGS. Measured on
+   this content: the six columns need 1099px, plus the 38px .wrap gutter = a
+   1138px viewport. The old 1050px breakpoint therefore left 1051–1137px broken,
+   which is exactly where the homepage scrolled sideways by ~17px at 1101px.
+   1200px keeps ~60px of slack for wider font rendering on Windows/Linux, where
+   the same text measures a few per cent longer than it does here. Re-measure if
+   a stat's wording gets longer. */
+@media (max-width: 1200px) {
   .stat-strip__grid { grid-template-columns: repeat(3, 1fr); }
   .stat-strip__grid li:nth-child(3n) { border-right: 0; }
   .stat-strip__grid li:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.28); }
@@ -296,6 +306,18 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
   .stat-strip__grid li:nth-child(-n+4) { border-bottom: 1px solid rgba(255,255,255,.28); }
   .stat-strip__ic { width: 42px; height: 42px; }
   .stat-strip__ic svg { width: 23px; height: 23px; }
+}
+/* Phones: the icon moves ABOVE the text instead of beside it (added
+   2026-08-22, same min-content bug as the six-column case above). Two columns
+   on a 375px screen give each cell 168px, but the widest cell needs 186px —
+   the icon (42) and its gap (11) eat the width the label "Equipment
+   installations" needs, and `1fr` cannot shrink below that, so the strip
+   overhung the viewport by 3px. Stacking returns those 53px to the text:
+   the cell then needs ~115px, which still fits a 320px iPhone SE (141px per
+   cell) with room to spare. Trimming padding instead was measured too and
+   only just fitted 375px while still failing a 360px Android. */
+@media (max-width: 430px) {
+  .stat-strip__grid li { flex-direction: column; align-items: flex-start; gap: .5rem; }
 }
 
 
