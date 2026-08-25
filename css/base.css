@@ -165,7 +165,14 @@ p { margin: 0 0 1em; }
 
 /* 1024, not 900: with seven nav items the desktop bar no longer fits
    below ~1030px and the labels start wrapping. */
-@media (max-width: 1024px) {
+/* 64em, not 1024px — and they are the SAME 1024px for anyone on the default
+   font size, so nothing changes for almost everyone. The nav's own width is in
+   rem, so a reader who raises their browser's default font size gets a wider
+   nav while a px breakpoint keeps insisting there is room: measured 176px of
+   horizontal scroll at a 150% font size on a 1100px window. An em breakpoint
+   is measured against the browser default, so the hamburger now appears when
+   the nav actually outgrows the bar. Changed 2026-08-22. */
+@media (max-width: 64em) {
   .nav-toggle { display: inline-flex; }
   .nav {
     position: fixed; inset: 78px 0 auto 0; flex-direction: column; align-items: stretch; gap: .2rem;
@@ -200,6 +207,17 @@ p { margin: 0 0 1em; }
 .footer-cat__act .btn { white-space: normal; line-height: 1.3; }
 .footer-col h2 { color: #fff; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1rem; }
 .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; font-size: .95rem; }
+/* This grid's implicit track is `auto`, i.e. min-content — and the contact
+   column holds two tokens with nowhere to break: www.artmechatronics.com and
+   info@artmechatronics.com, both ~195px. So the track refused to go below
+   195px and ALL SIX items rode out of the column together, spilling into the
+   gutter from 900px down and pushing a real scrollbar at ~821px. Worse, the
+   layout is rem-based while the 820px breakpoint is px, so a reader browsing
+   at a larger default font size got 8px of sideways scroll at 1000px and 62px
+   at the largest setting. Letting the tokens wrap fixes it at every root size,
+   which moving the breakpoint could not. Measured 2026-08-22. */
+.footer-col ul { grid-template-columns: minmax(0, 1fr); }
+.footer-col ul li, .footer-col ul a { overflow-wrap: anywhere; }
 /* Catalogue column — the portfolio block, collapsed to footer scale
    (Yash, 2026-08-07). Rotating ring is transform-only (M2) and stops for
    .lite and reduced motion (M4). */
@@ -282,6 +300,12 @@ p { margin: 0 0 1em; }
   font-size: .78rem; font-weight: 700; line-height: 1.2;
   color: var(--white); text-align: center; text-transform: uppercase;
   letter-spacing: .02em;
+  /* A single long word cannot wrap, and .ig-link clips with overflow:hidden —
+     so at 414px (iPhone XR/11/Plus) "CONFECTIONERY" was chopped to
+     "CONFECTIONER", which reads as a different, complete word rather than as
+     truncation. Hyphenate where the browser can, break the word where it
+     cannot; either way nothing is silently hidden. Measured 2026-08-22. */
+  hyphens: auto; overflow-wrap: break-word;
   /* The photo's own bottom strip is already dark, so this only needs to
      guarantee legibility, not manufacture contrast. */
   background: linear-gradient(to top, rgba(12,10,9,.82) 0%, rgba(12,10,9,.42) 60%, rgba(12,10,9,0) 100%);

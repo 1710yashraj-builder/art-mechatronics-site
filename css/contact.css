@@ -35,6 +35,13 @@
 .ct-card .ic svg { width:22px; height:22px; }
 .ct-card .k { font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; color:var(--steel); }
 .ct-card .v { font-weight:700; color:var(--navy); font-size:1.02rem; }
+/* The card is a flex row, and a flex item's default min-width is auto = its
+   min-content — so info@artmechatronics.com (unbreakable, beside a fixed 46px
+   icon) set a floor the card could not go under, and contact.html scrolled
+   sideways below 335px. Let the text column shrink and the address wrap.
+   The icon keeps flex:0 0 auto and is untouched. Measured 2026-08-22. */
+.ct-card > :not(.ic) { min-width: 0; }
+.ct-card .v { overflow-wrap: anywhere; }
 .ct-card.wa { background:#eafaf0; border-color:#c7ecd5; }
 .ct-card.wa .ic { background:#25D366; color:#073b1e; }
 

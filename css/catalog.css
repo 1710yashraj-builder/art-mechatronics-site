@@ -85,7 +85,19 @@
 .quote-form small { color: var(--steel); font-size: .76rem; text-align: center; }
 .quote-form__wide,.quote-form button,.quote-form small { grid-column:1/-1; }
 @media (max-width: 820px){ .quote-band { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.5rem; } }
-@media (max-width: 560px){ .quote-form { grid-template-columns:1fr; } .quote-form__wide,.quote-form button,.quote-form small { grid-column:1; } }
+/* minmax(0,1fr), not 1fr: `1fr` floors at min-content, and the widest thing in
+   this form is the "Send enquiry on WhatsApp" button, which .btn sets to
+   white-space:nowrap. That pinned the whole column at ~328px, so every page
+   carrying the quote band — 432 of them — scrolled sideways below 349px and
+   failed the WCAG reflow requirement at 320px. The button is allowed to wrap
+   here for the same reason the footer's catalogue button already is: its label
+   is a sentence, not a word. `normal` only wraps when the text genuinely does
+   not fit, so nothing changes on a roomier phone. Measured 2026-08-22. */
+@media (max-width: 560px){
+  .quote-form { grid-template-columns: minmax(0, 1fr); }
+  .quote-form__wide,.quote-form button,.quote-form small { grid-column:1; }
+  .quote-form button { white-space: normal; line-height: 1.25; }
+}
 
 /* ---- listing: search, filters, grid ---- */
 .cat-toolbar { margin-bottom: 1.2rem; }
