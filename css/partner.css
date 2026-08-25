@@ -1,0 +1,19 @@
+/* ===== Partner With Us — the few things that differ from the services page =====
+   The page reuses services.css wholesale (sv-hero / sv-card / sv-locations /
+   sv-cta). Only two things need changing, and both are scoped here rather than
+   in services.css so the Services page keeps its own layout untouched. ===== */
+
+/* The services page has SIX cards, so its 3-across grid fills two clean rows.
+   The partnership models are FOUR, which in a 3-across grid renders 3 + 1 — the
+   fourth model sits alone beside two empty columns and reads like an
+   afterthought, which is the opposite of the message (it is the biggest
+   commitment). Two across gives 2x2. Below 900px services.css already drops to
+   two columns and then to one, which is correct for four cards as well. */
+@media (min-width: 901px) {
+  .sv-grid--pair { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Section anchors sit under the sticky header without this — the eyebrow and
+   the top of the heading land behind it when someone lands on /partner#models.
+   Same treatment and same 96px the other anchor targets on the site use. */
+.section[id] { scroll-margin-top: 96px; }
