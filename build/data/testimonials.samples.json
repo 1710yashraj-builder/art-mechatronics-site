@@ -1,0 +1,85 @@
+{
+ "_note": "Entries with sample:true are placeholder copy for Anurag's review. deploy-cloudflare.sh REFUSES a production deploy while any remain. Replace with real quotes + permission, drop the sample flag, and production unlocks.",
+ "testimonials": [
+  {
+   "quote": "The whole line — conveying, mixing, sieving and packing — was designed as one system. We deal with one team for all of it, which after our last plant was a relief.",
+   "name": "Rajesh Agarwal",
+   "role": "Production Head",
+   "sector": "Spice processing plant · Kanpur",
+   "photo": "assets/testimonials/person-01.webp",
+   "sample": true
+  },
+  {
+   "quote": "Commissioning took four days and they stayed until we had run three full batches. The operators were trained on our own product, not a demo.",
+   "name": "Sunil Gupta",
+   "role": "Plant Manager",
+   "sector": "Mouth-freshener manufacturer · Kanpur",
+   "photo": "assets/testimonials/person-02.webp",
+   "sample": true
+  },
+  {
+   "quote": "We asked for a batch size nobody else would quote. ART engineered around it instead of telling us to change our recipe.",
+   "name": "Meera Krishnan",
+   "role": "Operations Director",
+   "sector": "Snack & namkeen plant · Uttar Pradesh",
+   "photo": "assets/testimonials/person-03.webp",
+   "sample": true
+  },
+  {
+   "quote": "Dust was our licence problem. The collection system they fitted brought the shop floor inside limits and the inspector signed off first visit.",
+   "name": "Anil Deshmukh",
+   "role": "Works Manager",
+   "sector": "Flour milling unit · Madhya Pradesh",
+   "photo": "assets/testimonials/person-04.webp",
+   "sample": true
+  },
+  {
+   "quote": "A bearing went at 11pm in season. Their engineer was on the phone that night and the spare reached us the next afternoon.",
+   "name": "Farhan Qureshi",
+   "role": "Managing Partner",
+   "sector": "Dry-fruit processing · Delhi NCR",
+   "photo": "assets/testimonials/person-05.webp",
+   "sample": true
+  },
+  {
+   "quote": "Three years on the line still holds the same fill weights. That consistency is the reason we went back to them for the second plant.",
+   "name": "Vikram Shah",
+   "role": "Technical Head",
+   "sector": "Pan masala manufacturer · Kanpur",
+   "photo": "assets/testimonials/person-06.webp",
+   "sample": true
+  },
+  {
+   "quote": "They supplied spares for two machines that were not even theirs. That is not something most manufacturers will do.",
+   "name": "Prakash Nair",
+   "role": "Maintenance Head",
+   "sector": "Tea packing unit · Assam",
+   "photo": "assets/testimonials/person-07.webp",
+   "sample": true
+  },
+  {
+   "quote": "The PLC panel means one operator runs what used to take four. Changeover between products is a screen, not a shift.",
+   "name": "Imran Sheikh",
+   "role": "General Manager",
+   "sector": "Seasoning & premix plant · Hyderabad",
+   "photo": "assets/testimonials/person-08.webp",
+   "sample": true
+  },
+  {
+   "quote": "We are in the Gulf and expected support to be the weak point. Remote diagnostics has handled everything short of a physical part.",
+   "name": "Khalid Al-Mansoori",
+   "role": "Factory Director",
+   "sector": "Food processing · Ras Al Khaimah, UAE",
+   "photo": "assets/testimonials/person-09.webp",
+   "sample": true
+  },
+  {
+   "quote": "From the first process study to the first production batch there was one point of contact. Nobody passed us between departments.",
+   "name": "Deepak Joshi",
+   "role": "Managing Director",
+   "sector": "Pulses & grain processing · Kolhapur",
+   "photo": "assets/testimonials/person-10.webp",
+   "sample": true
+  }
+ ]
+}
