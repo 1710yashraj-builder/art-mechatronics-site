@@ -87,3 +87,66 @@
 @media (max-width: 620px) {
   .sv-locations__more { font-size: 1rem; line-height: 1.55; }
 }
+
+/* ============================================================
+   PAGE PHOTOGRAPHY (added 2026-08-22) — shared by services,
+   partner and careers. Two pieces: a photographic hero, and a
+   three-up strip of labelled shots inside a section.
+   ============================================================ */
+
+/* --- photographic hero ---
+   The picture is a real <img> rather than a CSS background so it can carry a
+   srcset and be fetched at the right size; it sits behind the text on its own
+   layer. alt is empty on purpose: every word in this hero is already live text
+   in the DOM, so announcing the photo again would only be noise to a screen
+   reader. The scrim is what keeps white type legible over a photograph —
+   without it the contrast wanders with whatever is in the picture. */
+.sv-hero--photo { position: relative; isolation: isolate; overflow: hidden; }
+.sv-hero--photo .wrap { position: relative; z-index: 1; }
+.sv-hero__bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  z-index: -2;
+}
+.sv-hero--photo::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  /* Darker on the left, where the headline and lead sit, easing off to the
+     right so the photograph still reads as a photograph. */
+  background:
+    linear-gradient(100deg, rgba(8,26,54,.94) 0%, rgba(8,26,54,.88) 38%, rgba(8,26,54,.62) 72%, rgba(8,26,54,.52) 100%);
+}
+@media (max-width: 760px) {
+  /* On a phone the text spans the full width, so the scrim must be even all
+     the way across rather than fading out under the last lines. */
+  .sv-hero--photo::after {
+    background: linear-gradient(180deg, rgba(8,26,54,.90) 0%, rgba(8,26,54,.93) 100%);
+  }
+}
+
+/* --- three-up photo strip ---
+   Each shot carries a short label that names something the surrounding
+   section already talks about, so the strip reads as part of the page rather
+   than as decoration dropped in to fill space. */
+.pg-strip {
+  list-style: none; margin: 2.2rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem;
+}
+.pg-strip figure { margin: 0; }
+.pg-strip img {
+  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  /* height:auto is load-bearing, exactly as it is on .rp-card img. The markup
+     carries height="675" for layout stability, and the browser applies that
+     attribute as a REAL height — which makes the box definite and turns
+     aspect-ratio into a no-op. Without this line the strip rendered 675px tall
+     in a 415px-wide column, i.e. portrait letterboxes instead of 4:3 shots. */
+  height: auto;
+  border-radius: var(--r); border: 1px solid var(--line);
+  background: var(--mist);
+}
+.pg-strip figcaption {
+  margin-top: .6rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--steel);
+}
+.section--tint .pg-strip img { border-color: rgba(15,62,124,.14); }
+@media (max-width: 760px) { .pg-strip { grid-template-columns: 1fr; gap: 1.4rem; } }
