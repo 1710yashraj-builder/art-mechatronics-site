@@ -332,3 +332,41 @@
 .team-msg__stats b { display: block; font-family: var(--font-display); font-size: 1.7rem; line-height: 1; color: var(--navy); }
 .team-msg__stats li > span { display: block; margin-top: .3rem; font-size: .88rem; color: var(--steel); line-height: 1.45; }
 @media (max-width: 900px) { .team-msg { grid-template-columns: 1fr; gap: 1.8rem; } }
+
+/* ============================================================
+   MANUFACTURING FACILITY (added 2026-08-26) — the six capability
+   cards from Anurag's brochure page, plus his R&D paragraph.
+   Image on top, numbered body below.
+   ============================================================ */
+.fac-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem; margin-top: 2.4rem;
+}
+.fac-card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--r-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.fac-card img {
+  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  /* height:auto is load-bearing — the height attribute otherwise becomes a
+     real height and cancels the aspect ratio (same trap as .pg-strip img). */
+  height: auto;
+  background: var(--mist); border-bottom: 1px solid var(--line);
+}
+.fac-card__tx { padding: 1.15rem 1.3rem 1.3rem; }
+.fac-card__num {
+  font-family: var(--font-mono); font-size: .78rem; font-weight: 700;
+  color: var(--blue-bright); letter-spacing: .08em;
+}
+.fac-card h3 { margin: .35rem 0 .45rem; font-size: 1.08rem; }
+.fac-card p { margin: 0; font-size: .92rem; color: var(--slate); line-height: 1.6; }
+
+/* the R&D note under the grid — the client's own paragraph, quoted whole */
+.fac-rnd { margin-top: 2.6rem; padding: 1.5rem 1.6rem; background: var(--mist);
+  border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; }
+.fac-rnd h3 { margin: 0 0 .55rem; font-size: 1.05rem; }
+.fac-rnd p { margin: 0; color: var(--slate); line-height: 1.7; max-width: 90ch; }
+
+@media (max-width: 980px) { .fac-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .fac-grid { grid-template-columns: 1fr; } }
