@@ -53,7 +53,7 @@
        it to the QR panel. Everything else is an outbound profile. */
     return '<a class="cfab__row cfab__row--' + s.id + '" href="' + (s.qr ? BASE + s.url : s.url) + '"' +
            (s.qr ? '' : ' target="_blank" rel="noopener"') +
-           (s.qr ? ' data-qr="' + BASE + s.qr + '" data-app="' + (s.app || '') + '"' : '') +
+           (s.qr ? ' data-qr="' + BASE + s.qr + '" data-app="' + (s.app || '') + '" data-name="' + s.name + '"' : '') +
            ' aria-label="' + s.name + (s.note ? " — " + s.note : "") + '">' +
              '<span class="cfab__tip" aria-hidden="true">' + s.name + '</span>' +
              '<span class="cfab__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor">' + ICON[s.id] + '</svg></span>' +
@@ -94,50 +94,68 @@
     });
   }
 
-  /* ---- WeChat: a QR panel, plus the app hand-off where it can work ----
-     WeChat has no profile URL a browser can open, so the circle opens a panel
-     with the code big enough to scan. "Open in WeChat" (weixin://) is shown
-     ONLY on touch devices: on a desktop that scheme does nothing at all, and a
-     button that silently does nothing is worse than no button. Desktop gets the
-     scan instruction instead, which is the thing that actually works there.
-     If this never runs, the circle is still a link to the Contact page, where
-     the same QR is printed. */
-  var qrRow = el.querySelector("[data-qr]");
-  if (qrRow) {
+  /* ---- QR panels: WeChat and LINE ----
+     WeChat has no profile URL a browser can open; LINE has one, but leaving
+     the site mid-browse for it read as broken next to WeChat's panel (Yash,
+     2026-08-27) — so both circles open the same in-page panel with the code
+     big enough to scan. The app hand-off button is shown ONLY on touch
+     devices: weixin:// does nothing at all on a desktop, and a button that
+     silently does nothing is worse than no button; LINE's link would work on
+     desktop, but the two panels behave identically on purpose. Desktop gets
+     the scan instruction, which is the thing that actually works there. If
+     none of this runs, each circle is still a link to the Contact page block
+     where the same code is printed. */
+  var qrNotes = {
+    WeChat: { tap: "Tap below, or scan this code in WeChat.",
+              scan: "Open WeChat on your phone, tap the scanner and point it at this code." },
+    LINE:   { tap: "Tap below, or scan this code in LINE.",
+              scan: "Open LINE on your phone, go to Add friends, choose QR code and scan this." }
+  };
+  Array.prototype.forEach.call(el.querySelectorAll("[data-qr]"), function (qrRow) {
     var qrDlg = document.createElement("dialog");
-    if (typeof qrDlg.showModal === "function") {
-      var canApp = !matchMedia("(hover: hover) and (pointer: fine)").matches;
-      qrDlg.className = "qrmodal";
-      qrDlg.innerHTML =
-        '<div class="qrmodal__card">' +
-          '<button class="qrmodal__x" type="button" data-qr-close aria-label="Close">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" ' +
-            'stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
-          '</button>' +
-          '<h2 class="qrmodal__h">WeChat</h2>' +
-          '<img class="qrmodal__qr" src="' + qrRow.getAttribute("data-qr") + '" alt="WeChat QR code for ART Mechatronics" width="260" height="260">' +
-          '<p class="qrmodal__note">' +
-            (canApp ? "Tap below, or scan this code in WeChat."
-                    : "Open WeChat on your phone, tap the scanner and point it at this code.") +
-          '</p>' +
-          (canApp && qrRow.getAttribute("data-app")
-            ? '<a class="btn btn--primary qrmodal__go" href="' + qrRow.getAttribute("data-app") + '">Open in WeChat</a>'
-            : '') +
-        '</div>';
-      document.body.appendChild(qrDlg);
-      qrRow.addEventListener("click", function (e) {
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;   // let people open the page in a tab
-        e.preventDefault();
-        setOpen(false);
-        qrDlg.showModal();
-      });
-      qrDlg.querySelector("[data-qr-close]").addEventListener("click", function () { qrDlg.close(); });
-      qrDlg.addEventListener("click", function (e) { if (e.target === qrDlg) qrDlg.close(); });
-    }
-  }
+    if (typeof qrDlg.showModal !== "function") return;
+    var canApp = !matchMedia("(hover: hover) and (pointer: fine)").matches;
+    var qrName = qrRow.getAttribute("data-name") || "QR";
+    var notes = qrNotes[qrName] || { tap: "Tap below, or scan this code.", scan: "Scan this code with your phone." };
+    qrDlg.className = "qrmodal";
+    qrDlg.innerHTML =
+      '<div class="qrmodal__card">' +
+        '<button class="qrmodal__x" type="button" data-qr-close aria-label="Close">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" ' +
+          'stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+        '</button>' +
+        '<h2 class="qrmodal__h">' + qrName + '</h2>' +
+        '<img class="qrmodal__qr" src="' + qrRow.getAttribute("data-qr") + '" alt="' + qrName + ' QR code for ART Mechatronics" width="260" height="260">' +
+        '<p class="qrmodal__note">' + (canApp ? notes.tap : notes.scan) + '</p>' +
+        (canApp && qrRow.getAttribute("data-app")
+          ? '<a class="btn btn--primary qrmodal__go" href="' + qrRow.getAttribute("data-app") + '">Open in ' + qrName + '</a>'
+          : '') +
+      '</div>';
+    document.body.appendChild(qrDlg);
+    qrRow.addEventListener("click", function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;   // let people open the page in a tab
+      e.preventDefault();
+      setOpen(false);
+      qrDlg.showModal();
+    });
+    qrDlg.querySelector("[data-qr-close]").addEventListener("click", function () { qrDlg.close(); });
+    qrDlg.addEventListener("click", function (e) { if (e.target === qrDlg) qrDlg.close(); });
+  });
 
-  // Keyboard parity with hover.
-  el.addEventListener("focusin", function () { setOpen(true); });
+  /* Keyboard parity with hover — but ONLY for focus that arrives from the
+     keyboard. On browsers that focus the button on tap (Android Chrome, and
+     not iOS Safari, which is why this survived phone testing), a single tap
+     fired focusin (open) and then its own click (toggle) — the panel flashed
+     open and immediately closed, so the Contact button did nothing. A pointer
+     interaction raises a short-lived flag; focus events during it stand down
+     and let the click handler be the one in charge. Found 2026-08-27 by a
+     trusted-tap check in Android emulation while wiring the LINE panel. */
+  var pointerSession = false;
+  el.addEventListener("pointerdown", function () {
+    pointerSession = true;
+    setTimeout(function () { pointerSession = false; }, 400);
+  });
+  el.addEventListener("focusin", function () { if (!pointerSession) setOpen(true); });
   el.addEventListener("focusout", function (e) {
     if (!el.contains(e.relatedTarget)) setOpen(false);
   });

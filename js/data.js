@@ -62,7 +62,13 @@ const ART = {
       { id: "linkedin",  name: "LinkedIn",  note: "Anurag Tiwari, MD", url: "https://th.linkedin.com/in/anurag-tiwari-4a731a192" },
       { id: "instagram", name: "Instagram", note: "@art_mechatronics_", url: "https://www.instagram.com/art_mechatronics_/" },
       { id: "facebook",  name: "Facebook",  note: "ART Mechatronics",  url: "https://www.facebook.com/p/Art-Mechatronics-61590532739976/" },
-      { id: "line",      name: "LINE",      note: "Thailand",          url: "https://line.me/ti/p/W5CxmQgXQ4" },
+      /* LINE behaves like WeChat now (Yash, 2026-08-27): the circle opens an
+         in-page QR panel instead of leaving the site. `url` is the no-JS
+         fallback — the Contact page's LINE block. The QR is generated from
+         Anurag's line.me link and machine-verified to decode back to it;
+         `app` is that same link, which the LINE app intercepts on phones. */
+      { id: "line",      name: "LINE",      note: "Thailand",          url: "contact#line",
+        qr: "assets/social/line-anurag-qr.png", app: "https://line.me/ti/p/W5CxmQgXQ4" },
       /* WeChat is not like the other four. It has no web profile URL that works
          from a browser, so it carries a QR to scan and the weixin:// hand-off
          for a device that already has the app. `url` points at the Contact
