@@ -19,7 +19,11 @@
    we would have to maintain and get wrong. ===== */
 (function () {
   var ONLY = null;                          // sample mode over: every tile, both grids
-  var LEAD = "Find your product below";     // client's wording, 2026-08-18
+  var LEAD = "Find your product below";     // client's wording, 2026-08-18 (machine tiles)
+  /* Industry popups say this instead — the founder moved his line HERE
+     (2026-08-28): the top keeps just the category name, and this replaces
+     "Find your product below" exactly. */
+  var LEAD_INDUSTRY = "Explore the complete solution for your Product";
 
   var tiles = [].slice.call(document.querySelectorAll(".ig-tile, .mc-tile-wrap"));
   if (!tiles.length) return;                // no grid on this page, nothing to wire
@@ -37,7 +41,6 @@
   dlg.innerHTML =
     '<div class="tile-modal__card">' +
       '<div class="tile-modal__head">' +
-        '<p class="tile-modal__eyebrow" data-modal-eyebrow hidden>Explore the complete solution for your Product</p>' +
         '<h2 class="tile-modal__title" id="tileModalTitle" data-modal-title></h2>' +
         '<button class="tile-modal__x" type="button" data-modal-close aria-label="Close">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" ' +
@@ -57,15 +60,11 @@
     if (!list) return false;                       // nothing to show -> let the link work
 
     titleEl.textContent = name;
-    /* Founder (2026-08-27): every INDUSTRY popup carries this line above the
-       name. Machine-category popups (mc tiles) stay as they are. */
-    var eyebrowEl = dlg.querySelector("[data-modal-eyebrow]");
-    if (eyebrowEl) eyebrowEl.hidden = !tile.classList.contains("ig-tile");
     body.innerHTML = "";
 
     var lead = document.createElement("p");
     lead.className = "tile-modal__lead";
-    lead.textContent = LEAD;
+    lead.textContent = tile.classList.contains("ig-tile") ? LEAD_INDUSTRY : LEAD;
     body.appendChild(lead);
 
     body.appendChild(list.cloneNode(true));        // the dropdown's own list, verbatim
