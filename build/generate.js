@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260828f";
+const CSSV = "?v=20260828g";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -992,7 +992,7 @@ function projCard(ph, base) {
 
 function projectRails(base) {
   const rail = (which, speed, extra) => `
-    <div class="pk-marquee pk-marquee--fade rp-rail${extra}" data-marquee data-marquee-speed="${speed}" data-marquee-group="rp">
+    <div class="pk-marquee pk-marquee--fade rp-rail${extra}" data-marquee data-marquee-speed="${speed}" data-marquee-group="rp" data-marquee-nopause>
       <div class="wrap">
         <ul class="pk-marquee__track">${PROJECT_PHOTOS.filter((p) => p.rail === which).map((p) => projCard(p, base)).join("")}
         </ul>

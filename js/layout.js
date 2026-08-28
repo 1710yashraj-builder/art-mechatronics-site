@@ -447,8 +447,15 @@
       if (groupName) marqueeGroups[groupName].forEach((fn) => fn(v));
       else setPaused(v);
     };
-    rail.addEventListener("mouseenter", () => pauseAll(true));
-    rail.addEventListener("mouseleave", () => pauseAll(false));
+    /* data-marquee-nopause (Yash, 2026-08-28): the Recent Projects rails keep
+       moving under the cursor — the founder wants no hover stop there. The
+       KEYBOARD pause stays even then: a Tab user needs the rail to hold still
+       while their focus is inside it, or the focused card slides away. The
+       testimonials rail keeps its hover pause — the request was the rails. */
+    if (!("marqueeNopause" in rail.dataset)) {
+      rail.addEventListener("mouseenter", () => pauseAll(true));
+      rail.addEventListener("mouseleave", () => pauseAll(false));
+    }
     rail.addEventListener("focusin", () => pauseAll(true));
     rail.addEventListener("focusout", () => pauseAll(false));
     document.addEventListener("visibilitychange", () => {
