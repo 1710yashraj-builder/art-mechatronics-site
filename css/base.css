@@ -763,6 +763,10 @@ p { margin: 0 0 1em; }
 .cfab__row--facebook  { background: #1877F2; }
 .cfab__row--line      { background: #06C755; }
 .cfab__row--whatsapp  { background: #25D366; }
+/* Dialer green (Yash, 2026-08-28): deeper than the three chat greens
+   (WhatsApp #25D366, LINE #06C755, WeChat #07C160) so Call reads as the
+   phone button, not another messenger. Same green in the region picker. */
+.cfab__row--call      { background: #00A24C; }
 .cfab__row:hover, .cfab__row:focus-visible { filter: brightness(1.12); }
 .cfab__row:focus-visible, .cfab__btn:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 3px; }
 
