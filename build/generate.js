@@ -1001,8 +1001,9 @@ function projectRails(base) {
   // Anurag 2026-08-21: grid lock. Equal speed + the shared pause group keeps
   // the two rails' columns aligned; card width and gap are already identical,
   // so equal speed is sufficient — the rails can never drift apart.
-  // 24 -> 36 px/s: founder asked for faster rails (2026-08-27), Yash chose 1.5x.
-  return rail("top", 36, "") + "\n" + rail("bottom", 36, " rp-rail--b");
+  // 24 -> 36 (2026-08-27) -> 48 px/s (2026-08-28, Yash: faster again). Both
+  // rails always share one speed — that is what keeps the columns grid-locked.
+  return rail("top", 48, "") + "\n" + rail("bottom", 48, " rp-rail--b");
 }
 
 /* ---- /projects — every project photograph, at its own shape ---- */
