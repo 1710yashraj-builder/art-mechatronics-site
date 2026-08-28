@@ -539,3 +539,8 @@ body[data-page="home"] .site-header { background: #fff; backdrop-filter: none; }
 .rp-all { margin-top: 1.6rem; text-align: center; }
 @media (max-width: 1100px) { .rp-card { width: 320px; } }
 @media (max-width: 620px)  { .rp-card { width: 300px; } }
+
+/* Caption under each Recent Projects rail photo — founder (2026-08-27):
+   "<machine> installed in <country>" below every shot. */
+.rp-cap { padding: .55rem .8rem .7rem; text-align: center; font-size: .8rem;
+  font-weight: 600; color: var(--slate); line-height: 1.35; }

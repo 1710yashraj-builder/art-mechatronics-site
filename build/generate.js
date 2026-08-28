@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260827b";
+const CSSV = "?v=20260828a";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -929,37 +929,45 @@ function groupCover(group) {
    can never drift apart. w/h are the NATIVE dimensions: the projects page keeps
    each photo's true shape, and declaring the ratio stops the masonry columns
    from reflowing as images arrive. */
+/* cap + place (founder, 2026-08-27): every rail photo carries a caption
+   "<machine> installed in <country>". Machine names are read from the photos;
+   places are drawn ONLY from the homepage markets flag list, assigned by us
+   and pending the founder's verification — he asked for them to be filled in
+   and then checked, so if he corrects one, change it HERE (single source for
+   the rails, the /projects viewer and the alt text). s-15 is the 31st photo
+   he re-sent on 2026-08-28 ("31 pics" folder, DCS 3.png). */
 const PROJECT_PHOTOS = [
-  { id: "p-01", rail: "top", cat: "Heating & Drying", title: "Cyclone dryer with pulveriser", w: 675, h: 900 },
-  { id: "p-02", rail: "top", cat: "Heating & Drying", title: "Rotary drum drying line", w: 900, h: 675 },
-  { id: "p-03", rail: "top", cat: "Heating & Drying", title: "Spray drying plant", w: 675, h: 900 },
-  { id: "p-04", rail: "top", cat: "Heating & Drying", title: "Fluid bed dryer", w: 554, h: 900 },
-  { id: "p-05", rail: "top", cat: "Process Equipment", title: "Jacketed process vessel with platform", w: 900, h: 717 },
-  { id: "p-06", rail: "top", cat: "Process Equipment", title: "Steam jacketed cooking kettle", w: 900, h: 900 },
-  { id: "p-07", rail: "top", cat: "Mixing & Blending", title: "Planetary mixer with control panel", w: 795, h: 900 },
-  { id: "p-08", rail: "top", cat: "Mixing & Blending", title: "Ribbon blender installation", w: 900, h: 675 },
-  { id: "p-09", rail: "top", cat: "Heating & Drying", title: "Tray dryer with storage tanks", w: 900, h: 675 },
-  { id: "p-10", rail: "top", cat: "Material Handling", title: "Multi-hopper dosing and conveying plant", w: 900, h: 600 },
-  { id: "p-11", rail: "top", cat: "Process Equipment", title: "Coating pan line", w: 900, h: 600 },
-  { id: "p-12", rail: "top", cat: "Heating & Drying", title: "Enclosed drying chamber with hot air unit", w: 900, h: 600 },
-  { id: "p-13", rail: "top", cat: "Heating & Drying", title: "Hot air generator and drying room", w: 900, h: 600 },
-  { id: "p-14", rail: "top", cat: "Turnkey Lines", title: "Complete processing line with storage tanks", w: 900, h: 634 },
-  { id: "p-15", rail: "top", cat: "Cleaning & Sorting", title: "CCD colour sorter", w: 900, h: 675 },
-  { id: "p-16", rail: "top", cat: "Dust Collection", title: "Cyclone and ducting, workshop assembly", w: 900, h: 506 },
-  { id: "s-01", rail: "bottom", cat: "Dust Collection", title: "Bag-house dust collection plant", w: 756, h: 551 },
-  { id: "s-02", rail: "bottom", cat: "Dust Collection", title: "Bag-house unit with hopper", w: 787, h: 628 },
-  { id: "s-03", rail: "bottom", cat: "Dust Collection", title: "Gantry-mounted collector bank", w: 900, h: 577 },
-  { id: "s-04", rail: "bottom", cat: "Dust Collection", title: "Multi-stage filter bank on a plant wall", w: 579, h: 900 },
-  { id: "s-05", rail: "bottom", cat: "Dust Collection", title: "In-plant collector with ducting", w: 563, h: 525 },
-  { id: "s-06", rail: "bottom", cat: "Dust Collection", title: "Outdoor collector with ducted intake", w: 555, h: 659 },
-  { id: "s-07", rail: "bottom", cat: "Dust Collection", title: "Roof-mounted collection system", w: 600, h: 430 },
-  { id: "s-08", rail: "bottom", cat: "Dust Collection", title: "Collector installed inside a shed", w: 623, h: 900 },
-  { id: "s-09", rail: "bottom", cat: "Dust Collection", title: "Bag-house hopper and discharge", w: 411, h: 675 },
-  { id: "s-10", rail: "bottom", cat: "Dust Collection", title: "Workshop extraction system", w: 900, h: 602 },
-  { id: "s-11", rail: "bottom", cat: "Heating & Drying", title: "Twin-burner hot air unit", w: 882, h: 900 },
-  { id: "s-12", rail: "bottom", cat: "Process Equipment", title: "Stainless platform and vessel assembly", w: 900, h: 675 },
-  { id: "s-13", rail: "bottom", cat: "Heating & Drying", title: "Hot air unit with blower", w: 742, h: 900 },
-  { id: "s-14", rail: "bottom", cat: "Material Handling", title: "Conveying and elevation assembly", w: 675, h: 900 },
+  { id: "p-01", rail: "top", cat: "Heating & Drying", title: "Cyclone dryer with pulveriser", cap: "Cyclone dryer machine", place: "India", w: 675, h: 900 },
+  { id: "p-02", rail: "top", cat: "Heating & Drying", title: "Rotary drum drying line", cap: "Rotary drum dryer machine", place: "Bangladesh", w: 900, h: 675 },
+  { id: "p-03", rail: "top", cat: "Heating & Drying", title: "Spray drying plant", cap: "Spray dryer machine", place: "UAE", w: 675, h: 900 },
+  { id: "p-04", rail: "top", cat: "Heating & Drying", title: "Fluid bed dryer", cap: "Fluid bed dryer machine", place: "Thailand", w: 554, h: 900 },
+  { id: "p-05", rail: "top", cat: "Process Equipment", title: "Jacketed process vessel with platform", cap: "Jacketed process vessel", place: "Saudi Arabia", w: 900, h: 717 },
+  { id: "p-06", rail: "top", cat: "Process Equipment", title: "Steam jacketed cooking kettle", cap: "Steam jacketed cooking kettle", place: "Sri Lanka", w: 900, h: 900 },
+  { id: "p-07", rail: "top", cat: "Mixing & Blending", title: "Planetary mixer with control panel", cap: "Planetary mixer machine", place: "UAE", w: 795, h: 900 },
+  { id: "p-08", rail: "top", cat: "Mixing & Blending", title: "Ribbon blender installation", cap: "Ribbon blender machine", place: "India", w: 900, h: 675 },
+  { id: "p-09", rail: "top", cat: "Heating & Drying", title: "Tray dryer with storage tanks", cap: "Tray dryer machine", place: "Nepal", w: 900, h: 675 },
+  { id: "p-10", rail: "top", cat: "Material Handling", title: "Multi-hopper dosing and conveying plant", cap: "Dosing and conveying plant", place: "Indonesia", w: 900, h: 600 },
+  { id: "p-11", rail: "top", cat: "Process Equipment", title: "Coating pan line", cap: "Coating pan machine", place: "Vietnam", w: 900, h: 600 },
+  { id: "p-12", rail: "top", cat: "Heating & Drying", title: "Enclosed drying chamber with hot air unit", cap: "Drying chamber with hot air unit", place: "Kenya", w: 900, h: 600 },
+  { id: "p-13", rail: "top", cat: "Heating & Drying", title: "Hot air generator and drying room", cap: "Hot air generator", place: "Egypt", w: 900, h: 600 },
+  { id: "p-14", rail: "top", cat: "Turnkey Lines", title: "Complete processing line with storage tanks", cap: "Complete processing line", place: "Malaysia", w: 900, h: 634 },
+  { id: "p-15", rail: "top", cat: "Cleaning & Sorting", title: "CCD colour sorter", cap: "Colour sorter machine", place: "Philippines", w: 900, h: 675 },
+  { id: "p-16", rail: "top", cat: "Dust Collection", title: "Cyclone and ducting, workshop assembly", cap: "Cyclone dust collector machine", place: "India", w: 900, h: 506 },
+  { id: "s-01", rail: "bottom", cat: "Dust Collection", title: "Bag-house dust collection plant", cap: "Dust collector machine", place: "Kenya", w: 756, h: 551 },
+  { id: "s-02", rail: "bottom", cat: "Dust Collection", title: "Bag-house unit with hopper", cap: "Bag-house dust collector machine", place: "Nigeria", w: 787, h: 628 },
+  { id: "s-03", rail: "bottom", cat: "Dust Collection", title: "Gantry-mounted collector bank", cap: "Dust collector bank", place: "India", w: 900, h: 577 },
+  { id: "s-04", rail: "bottom", cat: "Dust Collection", title: "Multi-stage filter bank on a plant wall", cap: "Multi-stage dust collector machine", place: "South Africa", w: 579, h: 900 },
+  { id: "s-05", rail: "bottom", cat: "Dust Collection", title: "In-plant collector with ducting", cap: "Dust collector machine", place: "Thailand", w: 563, h: 525 },
+  { id: "s-06", rail: "bottom", cat: "Dust Collection", title: "Outdoor collector with ducted intake", cap: "Dust collector machine", place: "Morocco", w: 555, h: 659 },
+  { id: "s-07", rail: "bottom", cat: "Dust Collection", title: "Roof-mounted collection system", cap: "Roof-mounted dust collection system", place: "Bangladesh", w: 600, h: 430 },
+  { id: "s-08", rail: "bottom", cat: "Dust Collection", title: "Collector installed inside a shed", cap: "Dust collector machine", place: "India", w: 623, h: 900 },
+  { id: "s-09", rail: "bottom", cat: "Dust Collection", title: "Bag-house hopper and discharge", cap: "Bag-house dust collector machine", place: "Namibia", w: 411, h: 675 },
+  { id: "s-10", rail: "bottom", cat: "Dust Collection", title: "Workshop extraction system", cap: "Dust extraction system", place: "UAE", w: 900, h: 602 },
+  { id: "s-11", rail: "bottom", cat: "Heating & Drying", title: "Twin-burner hot air unit", cap: "Twin-burner hot air unit", place: "India", w: 882, h: 900 },
+  { id: "s-12", rail: "bottom", cat: "Process Equipment", title: "Stainless platform and vessel assembly", cap: "Platform and vessel assembly", place: "Myanmar", w: 900, h: 675 },
+  { id: "s-13", rail: "bottom", cat: "Heating & Drying", title: "Hot air unit with blower", cap: "Hot air unit with blower", place: "Nepal", w: 742, h: 900 },
+  { id: "s-14", rail: "bottom", cat: "Material Handling", title: "Conveying and elevation assembly", cap: "Conveying and elevation system", place: "Thailand", w: 675, h: 900 },
+  { id: "s-15", rail: "bottom", cat: "Dust Collection", title: "Dust collector unit on stand", cap: "Dust collector machine", place: "Indonesia", w: 362, h: 553 },
 ];
 
 const PROJ_CATS = ["Dust Collection", "Heating & Drying", "Mixing & Blending",
@@ -969,11 +977,12 @@ const PROJ_CATS = ["Dust Collection", "Heating & Drying", "Mixing & Blending",
    2026-08-21) — it used to open a popup, and one destination is easier to
    explain than two. */
 function projCard(ph, base) {
-  const alt = `ART ${ph.title.toLowerCase()} installed at a customer plant`;
+  const alt = `ART ${ph.cap.toLowerCase()} installed in ${ph.place}`;
   return `
         <li class="pk-marquee__item rp-card">
           <a class="rp-card__hit" href="${base}projects" aria-label="${attr(ph.title)} — see all project photos">
-            <figure><img src="${base}assets/projects/v1/card/${ph.id}.webp${CSSV}" alt="${attr(alt)}" width="640" height="480" loading="lazy" decoding="async"></figure>
+            <figure><img src="${base}assets/projects/v1/card/${ph.id}.webp${CSSV}" alt="${attr(alt)}" width="640" height="480" loading="lazy" decoding="async">
+            <figcaption class="rp-cap">${esc(ph.cap)} installed in ${esc(ph.place)}</figcaption></figure>
           </a>
         </li>`;
 }
@@ -989,16 +998,17 @@ function projectRails(base) {
   // Anurag 2026-08-21: grid lock. Equal speed + the shared pause group keeps
   // the two rails' columns aligned; card width and gap are already identical,
   // so equal speed is sufficient — the rails can never drift apart.
-  return rail("top", 24, "") + "\n" + rail("bottom", 24, " rp-rail--b");
+  // 24 -> 36 px/s: founder asked for faster rails (2026-08-27), Yash chose 1.5x.
+  return rail("top", 36, "") + "\n" + rail("bottom", 36, " rp-rail--b");
 }
 
 /* ---- /projects — every project photograph, at its own shape ---- */
 function renderProjects() {
   const tiles = PROJECT_PHOTOS.map((ph) => `
       <li class="pj-item" data-cat="${attr(ph.cat)}">
-        <button class="pj-hit" type="button" data-shot="${ph.id}" data-title="${attr(ph.title)}" data-cat="${attr(ph.cat)}"
+        <button class="pj-hit" type="button" data-shot="${ph.id}" data-title="${attr(`${ph.cap} installed in ${ph.place}`)}" data-cat="${attr(ph.cat)}"
                 aria-label="${attr(ph.title)} — open larger">
-          <img src="assets/projects/v1/tile/${ph.id}.webp${CSSV}" alt="${attr(`ART ${ph.title.toLowerCase()} installed at a customer plant`)}"
+          <img src="assets/projects/v1/tile/${ph.id}.webp${CSSV}" alt="${attr(`ART ${ph.cap.toLowerCase()} installed in ${ph.place}`)}"
                width="${ph.w}" height="${ph.h}" style="aspect-ratio:${ph.w}/${ph.h}" loading="lazy" decoding="async">
         </button>
       </li>`).join("");

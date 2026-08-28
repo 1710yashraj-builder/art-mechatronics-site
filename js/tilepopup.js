@@ -37,6 +37,7 @@
   dlg.innerHTML =
     '<div class="tile-modal__card">' +
       '<div class="tile-modal__head">' +
+        '<p class="tile-modal__eyebrow" data-modal-eyebrow hidden>Explore the complete solution for your Product</p>' +
         '<h2 class="tile-modal__title" id="tileModalTitle" data-modal-title></h2>' +
         '<button class="tile-modal__x" type="button" data-modal-close aria-label="Close">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" ' +
@@ -56,6 +57,10 @@
     if (!list) return false;                       // nothing to show -> let the link work
 
     titleEl.textContent = name;
+    /* Founder (2026-08-27): every INDUSTRY popup carries this line above the
+       name. Machine-category popups (mc tiles) stay as they are. */
+    var eyebrowEl = dlg.querySelector("[data-modal-eyebrow]");
+    if (eyebrowEl) eyebrowEl.hidden = !tile.classList.contains("ig-tile");
     body.innerHTML = "";
 
     var lead = document.createElement("p");

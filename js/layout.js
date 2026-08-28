@@ -115,8 +115,7 @@
           <h2>Explore</h2>
           <ul>
             <li><a href="${href('industries.html')}">Industries we serve</a></li>
-            <li><a href="${href('catalog.html')}">All products</a></li>
-            <li><a href="${href('machines.html')}">Flagship Line</a></li>
+            <li><a href="${href('catalog.html')}">Product Range</a></li>
             <li><a href="${href('system.html')}">Live System Demo</a></li>
             <li><a href="${href('services.html')}">Services &amp; support</a></li>
             <li><a href="${href('about.html')}">About ART</a></li>

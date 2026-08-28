@@ -39,11 +39,18 @@
     whatsapp:  '<path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-5.8c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.7.7-.9 1.6-.6 2.6.5 1.7 1.6 3.1 3.2 4.1 1.2.7 2.1.9 2.8.8.6-.1 1.4-.6 1.6-1.2.2-.5.2-1 .1-1.1z"/>',
   };
 
+  ICON.call = '<path d="M7.1 3.6c.4 0 .8.3.9.7l1 3.2c.1.4 0 .8-.3 1.1L7.2 10a14.6 14.6 0 0 0 6.8 6.8l1.4-1.5c.3-.3.7-.4 1.1-.3l3.2 1c.4.1.7.5.7.9v3.2c0 .5-.4 1-1 1C10.4 20.6 3.4 13.6 3 5.6c0-.6.5-1 1-1h3.1z"/>';
+
   var BASE = document.body.dataset.base || "";
   var items = ART.brand.social.map(function (s) {
     return { id: s.id, name: s.name, note: s.note, url: s.url, qr: s.qr, app: s.app };
   });
   items.push({ id: "whatsapp", name: "WhatsApp", note: "Chat with us", url: ART.helper.wa() });
+  /* Call sits closest to the button — the founder asked for a call option
+     "right at the bottom" of the list (2026-08-27). The click handler below
+     routes it through the India/UAE/Thailand picker; the tel: href is the
+     no-JS fallback and dials the India line directly. */
+  items.unshift({ id: "call", name: "Call", note: "India \u00b7 UAE \u00b7 Thailand", url: "tel:+918090315151" });
 
   /* Rows are emitted bottom-up so the first one sits closest to the button:
      the nearest thing to your thumb should be the first thing in the list. */
@@ -68,7 +75,7 @@
     '<button class="cfab__btn" type="button" aria-expanded="false" aria-controls="cfabPanel" aria-label="Contact us">' +
       '<span class="cfab__tip cfab__tip--btn" aria-hidden="true">Contact Us</span>' +
       '<svg class="cfab__chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-        '<path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>' +
+        '<path d="M4.5 13.5v-1.7a7.5 7.5 0 0 1 15 0v1.7"/><rect x="3.2" y="12.8" width="4" height="5.8" rx="1.6"/><rect x="16.8" y="12.8" width="4" height="5.8" rx="1.6"/><path d="M19.5 18.6v.9a2.6 2.6 0 0 1-2.6 2.6h-3.6"/></svg>' +
       '<svg class="cfab__closeic" viewBox="4 4 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
     '</button>';
   document.body.appendChild(el);
@@ -140,6 +147,15 @@
     });
     qrDlg.querySelector("[data-qr-close]").addEventListener("click", function () { qrDlg.close(); });
     qrDlg.addEventListener("click", function (e) { if (e.target === qrDlg) qrDlg.close(); });
+  });
+
+  var callRow = el.querySelector(".cfab__row--call");
+  if (callRow) callRow.addEventListener("click", function (e) {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    if (!window.ART || !ART.picker) return;              // fallback: plain tel: dial
+    e.preventDefault();
+    setOpen(false);
+    ART.picker.open({ mode: "call" });
   });
 
   /* Keyboard parity with hover — but ONLY for focus that arrives from the
