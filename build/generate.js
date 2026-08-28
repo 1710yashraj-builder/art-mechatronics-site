@@ -38,7 +38,7 @@ const ALL = process.argv.includes("--all");
       never reached production while passing every local check.
 
    Bump it here, then `node build/generate.js --all`, and everything follows. */
-const CSSV = "?v=20260828c";
+const CSSV = "?v=20260828d";
 
 const industries = JSON.parse(fs.readFileSync(path.join(DATA, "industries.json"), "utf8"));
 const products = JSON.parse(fs.readFileSync(path.join(DATA, "products.json"), "utf8"));
@@ -982,7 +982,10 @@ function projCard(ph, base) {
         <li class="pk-marquee__item rp-card">
           <a class="rp-card__hit" href="${base}projects" aria-label="${attr(ph.title)} — see all project photos">
             <figure><img src="${base}assets/projects/v1/card/${ph.id}.webp${CSSV}" alt="${attr(alt)}" width="640" height="480" loading="lazy" decoding="async">
-            <figcaption class="rp-cap">${esc(ph.cap)} installed in ${esc(ph.place)}</figcaption></figure>
+            <figcaption class="rp-cap">
+              <span class="rp-cap__m">${esc(ph.cap)}</span>
+              <span class="rp-cap__p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.3-5.4-6.3-10.2a6.3 6.3 0 1 1 12.6 0C18.3 15.6 12 21 12 21z"/><circle cx="12" cy="10.6" r="2.2"/></svg>Installed in ${esc(ph.place)}</span>
+            </figcaption></figure>
           </a>
         </li>`;
 }
