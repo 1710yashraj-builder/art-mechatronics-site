@@ -196,14 +196,16 @@
         ".rp-x{margin-left:auto;border:0;background:none;cursor:pointer;color:var(--steel,#5c6678);font-size:1.5rem;line-height:1;padding:.1rem .3rem;border-radius:6px}" +
         ".rp-x:hover{background:var(--mist,#f4f7fb);color:var(--ink,#10233f)}" +
         ".rp-list{padding:.7rem;display:flex;flex-direction:column;gap:.5rem}" +
-        ".rp-opt{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;padding:.72rem .9rem;border:1px solid var(--line,#dde3ec);border-radius:var(--r,9px);background:var(--white,#fff);cursor:pointer;transition:border-color .15s,background .15s,transform .08s;font-family:var(--font,sans-serif)}" +
+        ".rp-opt{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;padding:.62rem .9rem;border:1px solid var(--line,#dde3ec);border-radius:var(--r,9px);background:var(--white,#fff);cursor:pointer;transition:border-color .15s,background .15s,transform .08s;font-family:var(--font,sans-serif)}" +
         ".rp-opt:hover,.rp-opt:focus-visible{border-color:var(--blue,#1657b0);background:var(--blue-soft,#eaf2fd);outline:none}" +
         ".rp-opt:active{transform:translateY(1px)}" +
         ".rp-flag{font-size:1.5rem;flex:0 0 auto;line-height:1}" +
         ".rp-r{font:700 1rem/1.15 var(--font,sans-serif);color:var(--ink,#10233f);display:block}" +
-        ".rp-role{font-size:.76rem;color:var(--steel,#5c6678);display:block;margin-top:.08rem}" +
-        ".rp-num{margin-left:auto;font:600 .9rem/1 var(--font-mono,monospace);color:var(--blue,#1657b0);white-space:nowrap}" +
-        "@media(max-width:430px){.rp-num{display:none}}";
+        /* Founder (2026-08-28): only country and number in the chooser — the role
+           lines are gone, and the number is no longer hidden on phones: it used
+           to be dropped under 430px to make room for the roles, but "country n
+           number" means the number must show everywhere. */
+        ".rp-num{margin-left:auto;font:600 .9rem/1 var(--font-mono,monospace);color:var(--blue,#1657b0);white-space:nowrap}";
       document.head.appendChild(style);
 
       overlay = document.createElement("div");
@@ -239,7 +241,7 @@
       list.innerHTML = CONTACTS.map((c, i) =>
         '<button class="rp-opt" type="button" data-i="' + i + '">' +
         '<span class="rp-flag" aria-hidden="true">' + (FLAG[c.region] || "📞") + '</span>' +
-        '<span><span class="rp-r">' + c.region + '</span><span class="rp-role">' + (c.role || "") + '</span></span>' +
+        '<span class="rp-r">' + c.region + '</span>' +
         '<span class="rp-num">' + c.display + '</span></button>'
       ).join("");
       list.querySelectorAll(".rp-opt").forEach(btn =>
