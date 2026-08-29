@@ -370,3 +370,20 @@
 
 @media (max-width: 980px) { .fac-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 620px) { .fac-grid { grid-template-columns: 1fr; } }
+
+/* ===== MEDIA PAGE (Anurag 2026-08-28) ===== */
+/* Category cards mirror the fac-card text style; images join in Batch 3 when
+   his exhibition / print / meeting photographs arrive. */
+.media-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.media-cat {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: 1.6rem;
+}
+.media-cat__num {
+  font-family: var(--font-mono); font-size: .78rem; font-weight: 700;
+  color: var(--blue);
+}
+.media-cat h3 { margin: .45rem 0 .5rem; }
+.media-cat p { color: var(--slate); margin: 0; }
+.media-note { text-align: center; color: var(--slate); font-size: .92rem; margin: 1.8rem 0 0; }
+@media (max-width: 960px) { .media-cats { grid-template-columns: 1fr; } }

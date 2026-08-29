@@ -53,19 +53,40 @@
      because both are "who you're buying from". Catalogue is now labelled
      Products everywhere; the FILE stays catalog.html and the URL stays
      /catalog so links already shared or indexed keep resolving. */
+  /* Anurag 2026-08-28: "About" becomes "About Us" and holds a hover dropdown
+     of three pages — About ART / Infrastructure / Media. The 4th tuple slot is
+     that submenu; the top item still links to about.html so a plain click (and
+     no-hover devices) always lands somewhere real. */
   const NAV = [
     ["home",      "Home",       "index.html"],
     ["industries","Industries", "industries.html"],
     ["catalog",   "Products",   "catalog.html"],
     ["services",  "Services",   "services.html"],
     ["partner",   "Partner With Us", "partner.html"],
-    ["about",     "About",      "about.html"],
+    ["about",     "About Us",   "about.html", [
+      ["about",          "About ART",      "about.html"],
+      ["infrastructure", "Infrastructure", "infrastructure.html"],
+      ["media",          "Media",          "media.html"],
+    ]],
     ["contact",   "Contact",    "contact.html"],
   ];
 
-  const navLinks = NAV.map(([id, label, hrefPath]) =>
-    `<a href="${href(hrefPath)}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`
-  ).join("");
+  const navLinks = NAV.map(([id, label, hrefPath, sub]) => {
+    if (!sub) {
+      return `<a href="${href(hrefPath)}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`;
+    }
+    const here = sub.some(([sid]) => sid === page);
+    const subLinks = sub.map(([sid, sLabel, sHref]) =>
+      `<a href="${href(sHref)}"${sid === page ? ' aria-current="page"' : ""}>${sLabel}</a>`
+    ).join("");
+    return `<div class="nav-drop${here ? " is-here" : ""}">
+      <a href="${href(hrefPath)}"${id === page ? ' aria-current="page"' : ""} aria-haspopup="true">${label}
+        <svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+      </a>
+      <span class="nav-drop__cap" aria-hidden="true">${label}</span>
+      <div class="nav-drop__menu">${subLinks}</div>
+    </div>`;
+  }).join("");
 
   /* ---------- HEADER ---------- */
   const headerHTML = `

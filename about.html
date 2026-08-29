@@ -21,9 +21,9 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://artmechatronics.com/#organization","name":"ART Mechatronics","url":"https://artmechatronics.com/","logo":"https://artmechatronics.com/assets/logo.png","image":"https://artmechatronics.com/assets/video/hero-poster.jpg","description":"Manufacturer of industrial processing, packaging, material-handling and dust-collection machinery, from single machines to complete PLC-controlled turnkey lines.","email":"info@artmechatronics.com","areaServed":[{"@type":"Country","name":"India"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Thailand"}],"founder":{"@type":"Person","name":"Anurag Tiwari"},"parentOrganization":{"@type":"Organization","name":"Thermocare Industries Limited","url":"https://thermocaregroup.com/","foundingDate":"1997"},"contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+91-80903-15151","areaServed":"IN","availableLanguage":["en","hi"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+971-50-216-7151","areaServed":"AE","availableLanguage":["en"]},{"@type":"ContactPoint","contactType":"sales","telephone":"+66-838291089","areaServed":"TH","availableLanguage":["en","th"]}]},{"@type":"AboutPage","@id":"https://artmechatronics.com/about#page","url":"https://artmechatronics.com/about","name":"About ART Mechatronics | Industrial Automation","description":"ART Mechatronics combines next-generation industrial automation with Thermocare manufacturing experience since 1997. Discover our approach to turnkey machinery and controls.","isPartOf":{"@id":"https://artmechatronics.com/#website"},"about":{"@id":"https://artmechatronics.com/#organization"},"primaryImageOfPage":"https://artmechatronics.com/assets/video/hero-poster.jpg"},{"@type":"WebSite","@id":"https://artmechatronics.com/#website","url":"https://artmechatronics.com/","name":"ART Mechatronics"}]}</script>
   <!-- core-seo:end -->
   <link rel="icon" href="assets/logo.png" type="image/png">
-  <link rel="stylesheet" href="css/tokens.css?v=20260829a">
-  <link rel="stylesheet" href="css/base.css?v=20260829a">
-  <link rel="stylesheet" href="css/about.css?v=20260829a">
+  <link rel="stylesheet" href="css/tokens.css?v=20260829b">
+  <link rel="stylesheet" href="css/base.css?v=20260829b">
+  <link rel="stylesheet" href="css/about.css?v=20260829b">
 </head>
 <body data-page="about">
   <div data-header></div>
@@ -126,12 +126,6 @@
     </div>
   </section>
 
-  <!-- Real photographs of ART lines running at customer plants, supplied by
-       Anurag 2026-07-28. Anurag's instruction: use the pictures, name no
-       customer. Filenames are deliberately neutral (line-01…06) because image
-       URLs appear in page source and are indexed; the real mapping stays in
-       client-assets and must never enter site/assets. No captions, no alt text
-       and no metadata may identify a plant. -->
   <!-- TEAM PHOTO — the REAL group photograph, extracted at print resolution
        from page 14 of ART-CATALOGUE-2026 (Anurag: "यही लगा दो, authentic लग
        रही है", 2026-08-07). Used exactly as the catalogue prints it — no
@@ -139,7 +133,7 @@
        upscaled composite (manufacturing-team.webp) is retired but kept on
        disk for the record. -->
   <section class="team-shot" aria-labelledby="team-shot-title">
-    <img src="assets/team/team-real.webp?v=20260829a" width="1438" height="613"
+    <img src="assets/team/team-real.webp?v=20260829b" width="1438" height="613"
          alt="The ART Mechatronics manufacturing and service team at the Kanpur plant" loading="lazy" decoding="async">
     <div class="team-shot__cap">
       <h2 id="team-shot-title">Our manufacturing team, Kanpur</h2>
@@ -147,108 +141,14 @@
     </div>
   </section>
 
-  <section class="section" id="installations">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">In production</span>
-        <h2>Our lines, in customer plants</h2>
-        <p class="inst-sub">Installed, commissioned and running. We do not publish our customers&rsquo; names, so these are shown without captions.</p>
-      </div>
-      <div class="inst-grid">
-        <figure><img src="assets/installations/line-01.webp" width="1600" height="1200" alt="An ART processing line installed and running in a customer plant" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/installations/line-02.webp" width="1600" height="1200" alt="A stainless ART line installed in a customer plant" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/installations/line-03.webp" width="1600" height="1200" alt="A complete ART processing line on a customer's factory floor" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/installations/line-04.webp" width="1600" height="924" alt="An ART line with hoppers and elevators installed in a customer plant" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/installations/line-05.webp" width="1600" height="832" alt="An ART processing line in production at a customer plant" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/installations/line-06.webp" width="1600" height="1397" alt="An installed ART line running on a customer's production floor" loading="lazy" decoding="async"></figure>
-      </div>
-    </div>
-  </section>
+  <!-- "Our lines, in customer plants" (6 installation photos) removed on
+       Anurag's instruction, 2026-08-28 ("plant photos about us se hatana").
+       The images stay in assets/installations/ — the homepage Recent Projects
+       rails and /projects still cover installed lines. -->
 
-  <!-- MANUFACTURING FACILITY — Anurag's brochure page (2026-08-26). The six
-       capability descriptions are his copy lightly edited to the site's voice
-       (the flyer misspelling of press brake corrected); the R&D paragraph below the
-       grid is his text VERBATIM by Yash's explicit choice — do not rewrite it. -->
-  <section class="section section--tint" id="facility">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">The factory floor</span>
-        <h2>Our manufacturing facility is equipped with</h2>
-      </div>
-      <div class="fac-grid">
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/laser-600.webp"
-               srcset="assets/pages/v1/about-facility/laser-600.webp 600w, assets/pages/v1/about-facility/laser-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A CNC fibre laser cutting machine with its sheet-metal bed" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">01</span>
-            <h3>CNC laser cutting</h3>
-            <p>High-speed CNC laser cutting for accurate, clean-edged fabricated components — where the durability of every machine begins.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/turning-600.webp"
-               srcset="assets/pages/v1/about-facility/turning-600.webp 600w, assets/pages/v1/about-facility/turning-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="An enclosed CNC turning centre with its chuck and turret visible" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">02</span>
-            <h3>CNC turning</h3>
-            <p>Computer-controlled turning centres hold consistent dimensional accuracy and clean surface finishes on precision-engineered parts.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/pressbrake-600.webp"
-               srcset="assets/pages/v1/about-facility/pressbrake-600.webp 600w, assets/pages/v1/about-facility/pressbrake-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A CNC press brake bending a stainless steel sheet" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">03</span>
-            <h3>CNC press brake</h3>
-            <p>Automated CNC bending forms sheet-metal components repeatably and precisely, for structural strength and consistent assembly.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/vmc-600.webp"
-               srcset="assets/pages/v1/about-facility/vmc-600.webp 600w, assets/pages/v1/about-facility/vmc-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A vertical machining center with its spindle and clamped workpiece" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">04</span>
-            <h3>Vertical machining center (VMC)</h3>
-            <p>Multi-axis precision milling and drilling for complex parts with tight tolerances and excellent repeatability.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/assembly-600.webp"
-               srcset="assets/pages/v1/about-facility/assembly-600.webp 600w, assets/pages/v1/about-facility/assembly-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="An assembly bay with stainless steel machines at different stages of assembly" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">05</span>
-            <h3>Dedicated assembly section</h3>
-            <p>Streamlined assembly bays where components come together under rigorous quality checks before a machine leaves the floor.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/coating-600.webp"
-               srcset="assets/pages/v1/about-facility/coating-600.webp 600w, assets/pages/v1/about-facility/coating-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A powder coating booth with a steel panel being coated" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">06</span>
-            <h3>Powder coating</h3>
-            <p>Powder coating for uniform coverage, durability, corrosion resistance and a clean finish.</p>
-          </div>
-        </article>
-      </div>
-      <div class="fac-rnd">
-        <h3>Continuous Innovation and R&amp;D</h3>
-        <p>With over two decades of operations, we have mastered the ability to capture emerging trends and set new benchmarks in grain processing technology through continuous R&amp;D and customer-focused services. Our strong market intelligence enables us to anticipate and meet the evolving demands of the industry with advanced, high-performance solutions.</p>
-      </div>
-    </div>
-  </section>
+  <!-- MANUFACTURING FACILITY section moved to infrastructure.html on
+       Anurag's instruction, 2026-08-28 ("facility section will come into the
+       Infrastructure page and will be removed from about us"). -->
 
   <!-- WHY ART — the same fourteen catalogue points and card layout as the
        homepage (Anurag: "सेम ही डाल दो"). One source of truth for the copy:
@@ -285,10 +185,11 @@
     <div class="wrap">
       <div class="ab-cta">
         <h2>Let's build your line</h2>
-        <p>See the system run, take control of a virtual panel, or talk to us about your process.</p>
+        <p>Talk to us about your product, your capacity and your plant — we will build the line around it.</p>
+        <!-- "Watch the live system" button removed on Anurag's instruction,
+             2026-08-28 ("Live system wala b hatana h bottom me"). -->
         <div class="btns">
-          <a class="btn btn--light btn--lg" href="system">Watch the live system</a>
-          <a class="btn btn--outline-light btn--lg" href="contact">Contact us</a>
+          <a class="btn btn--light btn--lg" href="contact">Contact us</a>
         </div>
       </div>
     </div>
@@ -298,8 +199,8 @@
 
   <div data-footer></div>
 
-  <script src="js/data.js?v=20260829a"></script>
-  <script src="js/layout.js?v=20260829a"></script>
-  <script src="js/contactfab.js?v=20260829a"></script>
+  <script src="js/data.js?v=20260829b"></script>
+  <script src="js/layout.js?v=20260829b"></script>
+  <script src="js/contactfab.js?v=20260829b"></script>
 </body>
 </html>
