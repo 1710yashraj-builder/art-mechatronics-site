@@ -202,6 +202,28 @@ notes.push(`${jsFiles.length} JavaScript files`);
   }
 }
 
+/* CSS math validity (added 2026-08-29). Inside calc()/clamp()/min()/max(), the
+   + and - operators REQUIRE spaces on both sides; "1.5rem+3vw" is invalid and
+   the browser drops the ENTIRE declaration without a word in the console.
+   That is how .ab-cta shipped with zero padding for three weeks: the padding
+   rule looked fine in the file, computed to nothing in the page, and the CTA
+   button sat flush on the box edge until the client saw it. Every stylesheet
+   and every <style>/style="" block in the HTML gets scanned. */
+{
+  const badMath = /(calc|clamp|min|max)\(([^()]|\([^()]*\))*?(\d(?:rem|em|px|vw|vh|ch|%)(?:\+|-(?=[\d.]))[\d.]|\d(?:rem|em|px|vw|vh|ch|%) (?:\+|-)(?=[\d.])|(?<=[\d.])(?:\+|-) \d)/;
+  const cssFiles = walk(ROOT, f => f.endsWith(".css") && !f.includes(`${path.sep}dist${path.sep}`));
+  let scanned = 0;
+  for (const file of cssFiles) {
+    scanned++;
+    const text = fs.readFileSync(file, "utf8");
+    text.split("\n").forEach((line, i) => {
+      const m = line.match(badMath);
+      if (m) errors.push(`invalid CSS math (missing space around +/-, browser drops the whole declaration): ${relative(file)}:${i + 1} — "${m[0].slice(0, 60)}"`);
+    });
+  }
+  notes.push(`${scanned} stylesheets for calc/clamp math`);
+}
+
 console.log("ART whole-site validation");
 console.log(`  Checked: ${notes.join(", ")}`);
 if (errors.length) {

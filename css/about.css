@@ -28,7 +28,7 @@
    The elements they styled no longer exist, so the blocks are removed. */
 
 
-.ab-cta { background: linear-gradient(120deg,var(--blue),var(--blue-bright)); color:#fff; border-radius:var(--r-xl); padding: clamp(2rem,1.5rem+3vw,3.2rem); text-align:center; }
+.ab-cta { background: linear-gradient(120deg,var(--blue),var(--blue-bright)); color:#fff; border-radius:var(--r-xl); padding: clamp(2rem, 1.5rem + 3vw, 3.2rem); text-align:center; }
 .ab-cta h2 { color:#fff; } .ab-cta p { color:#eaf2fd; max-width:50ch; margin-inline:auto; }
 .ab-cta .btns { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.4rem; }
 

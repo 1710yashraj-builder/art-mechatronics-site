@@ -44,7 +44,7 @@
 .pd__track { display: grid; gap: 1.4rem; padding: 2rem 0 2.6rem; }
 .pd-panel { display: grid; grid-template-columns: 1.35fr .8fr; gap: 2.4rem; align-items: center; }
 .pd-panel__no { color: #bdd7f6; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
-.pd-panel h3 { color: #fff; font-size: clamp(1.5rem,1.1rem+1.5vw,2.2rem); margin: .45rem 0 .7rem; }
+.pd-panel h3 { color: #fff; font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.2rem); margin: .45rem 0 .7rem; }
 .pd-panel p { margin: 0 0 1rem; max-width: 54ch; color: #d5e2f3; line-height: 1.65; }
 .pd-panel__side { position: relative; display: grid; gap: .7rem; justify-items: start; align-content: center; min-height: 170px; }
 .pd-ghost { position: absolute; right: 0; top: 50%; transform: translateY(-52%);
