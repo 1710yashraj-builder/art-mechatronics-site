@@ -235,7 +235,6 @@
 @media (max-width: 900px) {
   .md-hero { grid-template-columns: 1fr; }
   .md-hero__figure { min-height: 0; max-height: 62vh; }
-  .md-hero__figure::after { background: linear-gradient(to top, #0b3060 0%, transparent 38%); }
   .md-hero__inner { padding: 2rem clamp(1.2rem,6vw,2.5rem) 3rem; max-width: none; }
 }
 
