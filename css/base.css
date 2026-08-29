@@ -703,7 +703,10 @@ p { margin: 0 0 1em; }
   @keyframes tm-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 }
 .tile-modal__lead {
-  margin: -.35rem 0 .85rem; font-size: .78rem; font-weight: 700;
+  /* No negative top margin: the body is the scroll container (overflow-y:
+     auto), so pulling the first line upward pushed the top ~5px of the
+     capitals past the clip edge — the founder saw the letters cut. */
+  margin: 0 0 .85rem; font-size: .78rem; font-weight: 700;
   letter-spacing: .13em; text-transform: uppercase; color: var(--steel);
 }
 
