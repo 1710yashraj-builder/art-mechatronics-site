@@ -379,3 +379,9 @@
 .media-cat p { color: var(--slate); margin: 0; }
 .media-note { text-align: center; color: var(--slate); font-size: .92rem; margin: 1.8rem 0 0; }
 @media (max-width: 960px) { .media-cats { grid-template-columns: 1fr; } }
+/* Infrastructure page hero centred (Yash 2026-08-31: "align all the headings
+   in the centre like the home page"). Scoped by page — the About hero stays
+   left-aligned as the founder approved it. The h1/lead carry max-widths, so
+   centring the text alone would leave their boxes pinned left. */
+body[data-page="infrastructure"] .ab-hero h1,
+body[data-page="infrastructure"] .ab-hero .lead { margin-inline: auto; }
