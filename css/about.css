@@ -372,3 +372,13 @@
    centring the text alone would leave their boxes pinned left. */
 body[data-page="infrastructure"] .ab-hero h1,
 body[data-page="infrastructure"] .ab-hero .lead { margin-inline: auto; }
+
+/* ===== TEAM PAIR (Yash 2026-08-31: both team photos side by side, equal
+   height, no captions). The fr values ARE the two images' aspect ratios
+   (1438/613 = 2.346, 1600/1200 = 1.333): with widths proportional to aspect,
+   both photos render the same height untouched — no object-fit crop, no
+   caption bar. Full-bleed like the old .team-shot, navy ground behind the
+   1px gap. Stacks on phones. -->  */
+.team-duo { display: grid; grid-template-columns: 2.346fr 1.333fr; gap: 4px; background: var(--navy); }
+.team-duo img { display: block; width: 100%; height: auto; }
+@media (max-width: 700px) { .team-duo { grid-template-columns: 1fr; } }
