@@ -21,9 +21,9 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://artmechatronics.com/#organization","name":"ART Mechatronics","url":"https://artmechatronics.com/","logo":"https://artmechatronics.com/assets/logo.png","image":"https://artmechatronics.com/assets/video/hero-poster.jpg","description":"Manufacturer of industrial processing, packaging, material-handling and dust-collection machinery, from single machines to complete PLC-controlled turnkey lines.","email":"info@artmechatronics.com","areaServed":[{"@type":"Country","name":"India"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Thailand"}],"founder":{"@type":"Person","name":"Anurag Tiwari"},"parentOrganization":{"@type":"Organization","name":"Thermocare Industries Limited","url":"https://thermocaregroup.com/","foundingDate":"1997"}},{"@type":"WebPage","@id":"https://artmechatronics.com/infrastructure#page","url":"https://artmechatronics.com/infrastructure","name":"Infrastructure | ART Mechatronics Manufacturing Facility","description":"CNC laser cutting, CNC turning, CNC press brake, vertical machining, dedicated assembly and powder coating under one roof.","isPartOf":{"@id":"https://artmechatronics.com/#website"},"about":{"@id":"https://artmechatronics.com/#organization"},"primaryImageOfPage":"https://artmechatronics.com/assets/video/hero-poster.jpg"},{"@type":"WebSite","@id":"https://artmechatronics.com/#website","url":"https://artmechatronics.com/","name":"ART Mechatronics"}]}</script>
   <!-- core-seo:end -->
   <link rel="icon" href="assets/logo.png" type="image/png">
-  <link rel="stylesheet" href="css/tokens.css?v=20260831e">
-  <link rel="stylesheet" href="css/base.css?v=20260831e">
-  <link rel="stylesheet" href="css/about.css?v=20260831e">
+  <link rel="stylesheet" href="css/tokens.css?v=20260831f">
+  <link rel="stylesheet" href="css/base.css?v=20260831f">
+  <link rel="stylesheet" href="css/about.css?v=20260831f">
 </head>
 <body data-page="infrastructure">
   <div data-header></div>
@@ -341,83 +341,381 @@
        branded, not ART. Asset stays on disk in
        assets/pages/v1/infrastructure/full/team-01.webp if ever wanted. -->
 
-  <!-- MANUFACTURING FACILITY — Anurag's brochure page (2026-08-26). The six
-       capability descriptions are his copy lightly edited to the site's voice
-       (the flyer misspelling of press brake corrected); the R&D paragraph below the
-       grid is his text VERBATIM by Yash's explicit choice — do not rewrite it. -->
+  <!-- CAPABILITIES — Anurag's own 16-department list, supplied 2026-08-31 and
+       published VERBATIM by Yash's explicit choice: it is the founder's claim
+       about his own company, so it is not paraphrased or de-duplicated.
+       Native <details>/<summary>: no JavaScript at all, so it works with JS
+       off, is keyboard- and screen-reader-operable out of the box, and Google
+       still reads every line. The six facility photographs are merged into the
+       two departments they belong to (03 production, 04 cutting & fabrication)
+       rather than living in a separate section. -->
   <section class="section section--tint" id="facility">
     <div class="wrap">
       <div class="sec-head center">
-        <span class="eyebrow">The factory floor</span>
-        <h2>Our manufacturing facility is equipped with</h2>
+        <span class="eyebrow">Inside ART</span>
+        <h2>Our Manufacturing Infrastructure &amp; Integrated Capabilities</h2>
+        <p class="sec-head__sub">Our manufacturing facility is supported by an integrated team of engineering, R&amp;D, manufacturing, automation, quality, project execution and after-sales professionals, enabling us to develop and deliver complete industrial machinery and turnkey solutions.</p>
       </div>
-      <div class="fac-grid">
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/laser-600.webp"
-               srcset="assets/pages/v1/about-facility/laser-600.webp 600w, assets/pages/v1/about-facility/laser-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A CNC fibre laser cutting machine with its sheet-metal bed" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">01</span>
-            <h3>CNC laser cutting</h3>
-            <p>High-speed CNC laser cutting for accurate, clean-edged fabricated components — where the durability of every machine begins.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/turning-600.webp"
-               srcset="assets/pages/v1/about-facility/turning-600.webp 600w, assets/pages/v1/about-facility/turning-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="An enclosed CNC turning centre with its chuck and turret visible" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">02</span>
-            <h3>CNC turning</h3>
-            <p>Computer-controlled turning centres hold consistent dimensional accuracy and clean surface finishes on precision-engineered parts.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/pressbrake-600.webp"
-               srcset="assets/pages/v1/about-facility/pressbrake-600.webp 600w, assets/pages/v1/about-facility/pressbrake-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A CNC press brake bending a stainless steel sheet" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">03</span>
-            <h3>CNC press brake</h3>
-            <p>Automated CNC bending forms sheet-metal components repeatably and precisely, for structural strength and consistent assembly.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/vmc-600.webp"
-               srcset="assets/pages/v1/about-facility/vmc-600.webp 600w, assets/pages/v1/about-facility/vmc-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A vertical machining center with its spindle and clamped workpiece" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">04</span>
-            <h3>Vertical machining center (VMC)</h3>
-            <p>Multi-axis precision milling and drilling for complex parts with tight tolerances and excellent repeatability.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/assembly-600.webp"
-               srcset="assets/pages/v1/about-facility/assembly-600.webp 600w, assets/pages/v1/about-facility/assembly-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="An assembly bay with stainless steel machines at different stages of assembly" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">05</span>
-            <h3>Dedicated assembly section</h3>
-            <p>Streamlined assembly bays where components come together under rigorous quality checks before a machine leaves the floor.</p>
-          </div>
-        </article>
-        <article class="fac-card">
-          <img src="assets/pages/v1/about-facility/coating-600.webp"
-               srcset="assets/pages/v1/about-facility/coating-600.webp 600w, assets/pages/v1/about-facility/coating-900.webp 900w"
-               sizes="(max-width: 620px) calc(100vw - 2.4rem), (max-width: 980px) 45vw, 30vw"
-               alt="A powder coating booth with a steel panel being coated" width="900" height="675" loading="lazy" decoding="async">
-          <div class="fac-card__tx">
-            <span class="fac-card__num">06</span>
-            <h3>Powder coating</h3>
-            <p>Powder coating for uniform coverage, durability, corrosion resistance and a clean finish.</p>
-          </div>
-        </article>
+      <div class="cap-grid">
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">01</span>
+          <span class="cap-title">Research &amp; Development (R&amp;D)</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Dedicated R&amp;D Department</li>
+          <li>Application &amp; Process Development</li>
+          <li>R&amp;D Laboratory for Product Trials</li>
+          <li>Mini &amp; Pilot Machine Models for Trial Runs</li>
+          <li>Prototype Development</li>
+          <li>New Machine &amp; Product Development</li>
+          <li>Process Optimization &amp; Solution Development</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">02</span>
+          <span class="cap-title">Engineering &amp; Technical Department</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Mechanical Engineering</li>
+          <li>Process Engineering</li>
+          <li>Electrical Engineering</li>
+          <li>Automation &amp; Control Engineering</li>
+          <li>Application Engineering</li>
+          <li>3D Drawing &amp; Machine Designing</li>
+          <li>Equipment &amp; System Engineering</li>
+          <li>Plant Layout &amp; Process Flow Design</li>
+          <li>Technical Documentation &amp; Engineering Support</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">03</span>
+          <span class="cap-title">Production &amp; Manufacturing</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+        <div class="cap-shots">
+          <figure>
+            <img src="assets/pages/v1/about-facility/assembly-600.webp"
+                 srcset="assets/pages/v1/about-facility/assembly-600.webp 600w, assets/pages/v1/about-facility/assembly-900.webp 900w"
+                 sizes="(max-width: 700px) calc(100vw - 3rem), 30vw"
+                 alt="An assembly bay with stainless steel machines at different stages of assembly" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>Dedicated assembly section</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/pages/v1/about-facility/turning-600.webp"
+                 srcset="assets/pages/v1/about-facility/turning-600.webp 600w, assets/pages/v1/about-facility/turning-900.webp 900w"
+                 sizes="(max-width: 700px) calc(100vw - 3rem), 30vw"
+                 alt="An enclosed CNC turning centre with its chuck and turret visible" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>CNC turning</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/pages/v1/about-facility/vmc-600.webp"
+                 srcset="assets/pages/v1/about-facility/vmc-600.webp 600w, assets/pages/v1/about-facility/vmc-900.webp 900w"
+                 sizes="(max-width: 700px) calc(100vw - 3rem), 30vw"
+                 alt="A vertical machining center with its spindle and clamped workpiece" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>Vertical machining center (VMC)</figcaption>
+          </figure>
+        </div>
+          <ul class="cap-list">
+          <li>Production &amp; Manufacturing Department</li>
+          <li>Heavy-Duty Fabrication</li>
+          <li>Structural &amp; Sheet Metal Fabrication</li>
+          <li>Machine Assembly &amp; Integration</li>
+          <li>Mechanical Assembly</li>
+          <li>Hydraulic &amp; Pneumatic Assembly</li>
+          <li>Component &amp; Sub-Assembly Manufacturing</li>
+          <li>In-House Machine Manufacturing</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">04</span>
+          <span class="cap-title">Advanced Cutting &amp; Fabrication Facilities</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+        <div class="cap-shots">
+          <figure>
+            <img src="assets/pages/v1/about-facility/laser-600.webp"
+                 srcset="assets/pages/v1/about-facility/laser-600.webp 600w, assets/pages/v1/about-facility/laser-900.webp 900w"
+                 sizes="(max-width: 700px) calc(100vw - 3rem), 30vw"
+                 alt="A CNC fibre laser cutting machine with its sheet-metal bed" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>CNC laser cutting</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/pages/v1/about-facility/pressbrake-600.webp"
+                 srcset="assets/pages/v1/about-facility/pressbrake-600.webp 600w, assets/pages/v1/about-facility/pressbrake-900.webp 900w"
+                 sizes="(max-width: 700px) calc(100vw - 3rem), 30vw"
+                 alt="A CNC press brake bending a stainless steel sheet" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>CNC press brake</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/pages/v1/about-facility/coating-600.webp"
+                 srcset="assets/pages/v1/about-facility/coating-600.webp 600w, assets/pages/v1/about-facility/coating-900.webp 900w"
+                 sizes="(max-width: 700px) calc(100vw - 3rem), 30vw"
+                 alt="A powder coating booth with a steel panel being coated" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>Powder coating</figcaption>
+          </figure>
+        </div>
+          <ul class="cap-list">
+          <li>Laser Cutting Facility</li>
+          <li>Plasma Cutting Facility</li>
+          <li>Precision Cutting &amp; Processing</li>
+          <li>Welding &amp; Fabrication</li>
+          <li>Automatic Shot Blasting Section</li>
+          <li>Surface Preparation &amp; Finishing</li>
+          <li>Powder Coating Facility</li>
+          <li>Industrial Paint Booth &amp; Painting Facility</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">05</span>
+          <span class="cap-title">Electrical &amp; Automation</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Dedicated Electrical Department</li>
+          <li>Electrical Control Panel Manufacturing</li>
+          <li>Control Panel Wiring &amp; Assembly</li>
+          <li>PLC &amp; HMI-Based Automation</li>
+          <li>Industrial Automation &amp; Control Systems</li>
+          <li>Instrumentation &amp; Sensors</li>
+          <li>Electrical Testing &amp; Functional Verification</li>
+          <li>Machine Control &amp; System Integration</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">06</span>
+          <span class="cap-title">Quality Assurance &amp; Quality Control</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Dedicated Quality Control &amp; Inspection Department</li>
+          <li>Incoming Material &amp; Component Inspection</li>
+          <li>In-Process Quality Inspection</li>
+          <li>Dimensional &amp; Visual Inspection</li>
+          <li>Fabrication &amp; Welding Quality Inspection</li>
+          <li>Electrical Quality Inspection</li>
+          <li>Final Machine Inspection</li>
+          <li>Quality Documentation &amp; Inspection Records</li>
+          <li>Quality Traceability &amp; Process Control</li>
+          <li>Continuous Quality Improvement</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">07</span>
+          <span class="cap-title">Trial, Testing &amp; Validation</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Dedicated Trial &amp; Testing Facility</li>
+          <li>Product Application Trials</li>
+          <li>Mini/Pilot Machine Testing</li>
+          <li>Complete Machine Functional Testing</li>
+          <li>Performance Testing</li>
+          <li>Load &amp; Operational Testing</li>
+          <li>Electrical &amp; Automation Testing</li>
+          <li>System Integration Testing</li>
+          <li>Pre-Dispatch Inspection &amp; Testing</li>
+          <li>Factory Acceptance Testing (FAT), where applicable</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">08</span>
+          <span class="cap-title">Procurement, Stores &amp; Supply Chain</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Procurement &amp; Purchase Department</li>
+          <li>Vendor Development &amp; Supplier Coordination</li>
+          <li>Dedicated Raw Material Store</li>
+          <li>Component &amp; Inventory Store</li>
+          <li>Dedicated Spares &amp; Consumables Store</li>
+          <li>Material Planning &amp; Inventory Management</li>
+          <li>Incoming Material Control</li>
+          <li>Spare Parts Management</li>
+          <li>Packaging Material Management</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">09</span>
+          <span class="cap-title">Project Management &amp; Turnkey Execution</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Dedicated Project Management Team</li>
+          <li>Project Planning &amp; Production Coordination</li>
+          <li>Complete System Integration</li>
+          <li>Site Engineering &amp; Project Coordination</li>
+          <li>Installation &amp; Erection Team</li>
+          <li>Commissioning Team</li>
+          <li>Start-Up &amp; Production Support</li>
+          <li>Turnkey Project Execution</li>
+          <li>Customer Handover &amp; Project Documentation</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">10</span>
+          <span class="cap-title">Installation, Service &amp; Maintenance</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Installation &amp; Commissioning Team</li>
+          <li>Service &amp; Maintenance Department</li>
+          <li>Preventive Maintenance Support</li>
+          <li>Breakdown &amp; Troubleshooting Support</li>
+          <li>On-Site Technical Service</li>
+          <li>Remote Technical Support</li>
+          <li>Machine Modification &amp; Upgradation</li>
+          <li>Performance Optimization</li>
+          <li>Long-Term Technical Support</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">11</span>
+          <span class="cap-title">After-Sales &amp; Spare Parts Support</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Dedicated After-Sales Department</li>
+          <li>Dedicated Spare Parts &amp; Consumables Support</li>
+          <li>Genuine Spare Parts Management</li>
+          <li>Spare Parts Identification &amp; Supply</li>
+          <li>Service Planning &amp; Follow-Up</li>
+          <li>Preventive Maintenance Programs</li>
+          <li>Customer Complaint &amp; Technical Support System</li>
+          <li>Lifecycle Support for Installed Machinery</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">12</span>
+          <span class="cap-title">Packaging, Logistics &amp; Dispatch</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Professional Packaging &amp; Dispatch Team</li>
+          <li>Export-Grade Packaging</li>
+          <li>Customized Machine &amp; Component Packing</li>
+          <li>Dispatch Inspection</li>
+          <li>Loading &amp; Transportation Coordination</li>
+          <li>Export Documentation Support</li>
+          <li>Project-Wise Packing &amp; Dispatch Management</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">13</span>
+          <span class="cap-title">Training &amp; Development</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Dedicated Training &amp; Development Team</li>
+          <li>Customer Operator Training</li>
+          <li>Machine Operation Training</li>
+          <li>Maintenance Training</li>
+          <li>Electrical &amp; Automation Training</li>
+          <li>Safety &amp; Operating Procedure Training</li>
+          <li>Internal Technical Skill Development</li>
+          <li>Continuous Employee Training &amp; Knowledge Development</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">14</span>
+          <span class="cap-title">Sales, Marketing &amp; Business Development</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Sales &amp; Marketing Department</li>
+          <li>Technical Sales Team</li>
+          <li>Business Development</li>
+          <li>Application-Based Solution Development</li>
+          <li>Domestic &amp; International Sales</li>
+          <li>Customer Requirement Analysis</li>
+          <li>Pre-Sales Technical Support</li>
+          <li>Customer Relationship Management</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">15</span>
+          <span class="cap-title">Accounts, Administration &amp; Corporate Support</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Accounts &amp; Finance Department</li>
+          <li>Administration Department</li>
+          <li>Human Resources &amp; Team Development</li>
+          <li>IT &amp; Digital Systems</li>
+          <li>Commercial &amp; Contract Coordination</li>
+          <li>Documentation &amp; Records Management</li>
+          </ul>
+        </div>
+      </details>
+      <details class="cap-item">
+        <summary>
+          <span class="cap-num">16</span>
+          <span class="cap-title">Safety, Compliance &amp; Continuous Improvement</span>
+          <svg class="cap-chev" viewBox="0 0 12 12" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+        </summary>
+        <div class="cap-body">
+          <ul class="cap-list">
+          <li>Workplace Health &amp; Safety</li>
+          <li>Environmental &amp; Safety Practices</li>
+          <li>Machine Safety Assessment</li>
+          <li>Process &amp; Manufacturing Safety</li>
+          <li>Quality &amp; Process Improvement</li>
+          <li>Standard Operating Procedures (SOPs)</li>
+          <li>Preventive &amp; Corrective Action Systems</li>
+          <li>Continuous Improvement Culture</li>
+          </ul>
+        </div>
+      </details>
+      </div>
+      <div class="fac-rnd">
+        <h3>End-to-End Manufacturing Capability</h3>
+        <p>Our integrated infrastructure enables us to manage the complete machinery lifecycle — from customer requirement analysis, process development, R&amp;D and engineering design through manufacturing, fabrication, electrical &amp; automation integration, quality inspection, trial &amp; testing, packaging, dispatch, installation, commissioning, training and after-sales service.</p>
+        <p>This integrated approach allows us to provide complete, customized and turnkey industrial machinery solutions with a single-point responsibility from concept to commissioning and beyond.</p>
       </div>
       <div class="fac-rnd">
         <h3>Continuous Innovation and R&amp;D</h3>
@@ -443,9 +741,9 @@
 
   <div data-footer></div>
 
-  <script src="js/data.js?v=20260831e"></script>
-  <script src="js/layout.js?v=20260831e"></script>
-  <script src="js/contactfab.js?v=20260831e"></script>
-  <script src="js/gallery.js?v=20260831e"></script>
+  <script src="js/data.js?v=20260831f"></script>
+  <script src="js/layout.js?v=20260831f"></script>
+  <script src="js/contactfab.js?v=20260831f"></script>
+  <script src="js/gallery.js?v=20260831f"></script>
 </body>
 </html>

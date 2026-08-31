@@ -382,3 +382,42 @@ body[data-page="infrastructure"] .ab-hero .lead { margin-inline: auto; }
 .team-duo { display: grid; grid-template-columns: 2.346fr 1.333fr; gap: 4px; background: var(--navy); }
 .team-duo img { display: block; width: 100%; height: auto; }
 @media (max-width: 700px) { .team-duo { grid-template-columns: 1fr; } }
+
+
+/* ============================================================
+   CAPABILITIES ACCORDION (Anurag's 16 departments, 2026-08-31)
+   Native <details>/<summary> — zero JavaScript, so it survives JS being off,
+   and the keyboard/screen-reader behaviour is the platform's, not ours.
+   Two columns on desktop so 16 rows do not become a 16-screen scroll; one
+   column on phones. Open rows span both columns so a long list never squeezes
+   into half the width beside a closed neighbour.
+   ============================================================ */
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; align-items: start; }
+.cap-item {
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg);
+  overflow: hidden; transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
+}
+.cap-item[open] { grid-column: 1 / -1; border-color: var(--accent); box-shadow: var(--shadow-sm); }
+.cap-item summary {
+  display: flex; align-items: center; gap: .85rem; cursor: pointer;
+  padding: 1rem 1.15rem; list-style: none; font-weight: 700; color: var(--navy);
+}
+.cap-item summary::-webkit-details-marker { display: none; }   /* Safari's arrow */
+.cap-item summary:hover { color: var(--blue); }
+.cap-item summary:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: -3px; }
+.cap-num { font-family: var(--font-mono); font-size: .76rem; font-weight: 700; color: var(--blue); }
+.cap-title { flex: 1; font-size: 1rem; line-height: 1.35; }
+.cap-chev { flex: 0 0 auto; color: var(--steel); transition: transform .18s var(--ease); }
+.cap-item[open] .cap-chev { transform: rotate(180deg); }
+.cap-body { padding: 0 1.15rem 1.15rem; }
+.cap-list { columns: 2; column-gap: 1.6rem; margin: 0; padding-left: 1.1rem; }
+.cap-list li { break-inside: avoid; color: var(--slate); font-size: .93rem; margin-bottom: .3rem; }
+.cap-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 0 0 1.1rem; }
+.cap-shots figure { margin: 0; }
+.cap-shots img { display: block; width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--line); }
+.cap-shots figcaption { margin-top: .35rem; font-size: .78rem; font-weight: 600; color: var(--navy); }
+@media (max-width: 900px) {
+  .cap-grid { grid-template-columns: 1fr; }
+  .cap-list { columns: 1; }
+  .cap-shots { grid-template-columns: 1fr; }
+}
