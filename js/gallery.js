@@ -28,7 +28,10 @@
       cat: hit.getAttribute("data-cat"),
       title: hit.getAttribute("data-title"),
       alt: img.getAttribute("alt"),
-      full: "assets/projects/v1/full/" + hit.getAttribute("data-shot") + ".webp" + TOKEN,
+      /* data-full lets other pages (the /infrastructure galleries, 2026-08-31)
+         reuse this viewer with their own asset paths; /projects tiles carry no
+         data-full and keep the original derived path. */
+      full: (hit.getAttribute("data-full") || "assets/projects/v1/full/" + hit.getAttribute("data-shot") + ".webp") + TOKEN,
     };
   });
 
