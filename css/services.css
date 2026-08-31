@@ -150,3 +150,90 @@
 }
 .section--tint .pg-strip img { border-color: rgba(15,62,124,.14); }
 @media (max-width: 760px) { .pg-strip { grid-template-columns: 1fr; gap: 1.4rem; } }
+
+
+/* ===== STAT BAND ON /partner (Anurag point 14, 2026-08-31) =====
+   The homepage six-icon credentials band, copied verbatim from home.css
+   (lines 252-321 there) because this page does not load home.css and loading
+   all of it here risks restyling the sv-* layout. If the homepage band
+   changes, change BOTH copies. count.js drives the four numbers. */
+.stat-band { padding: 0 0 1.4rem; }
+.stat-strip {
+  background: linear-gradient(180deg, #1657b0 0%, #0f3e7c 100%);
+  border-block: 1px solid #12468c;
+}
+.stat-strip__grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(6, 1fr);
+}
+.stat-strip__grid li {
+  display: flex; align-items: center; gap: .7rem;
+  padding: 1.05rem .85rem;
+  border-right: 1px solid rgba(255,255,255,.28);
+}
+.stat-strip__grid li:last-child { border-right: 0; }
+.stat-strip__ic {
+  flex: 0 0 auto; width: 50px; height: 50px; border-radius: 50%;
+  background: #fff; color: #0f3e7c;
+  display: grid; place-items: center;
+}
+.stat-strip__ic svg { width: 27px; height: 27px; }
+.stat-strip__tx { display: grid; gap: .18rem; min-width: 0; }
+.stat-strip__tx b {
+  font-size: clamp(1.25rem, 1.7vw, 1.7rem);
+  line-height: 1; font-weight: 700; color: #fff;
+  letter-spacing: -.01em; white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.stat-strip__tx b span { color: #fff; }
+.stat-strip__tx b.stat-strip__word { font-size: clamp(.98rem, 1.25vw, 1.22rem); text-transform: uppercase; letter-spacing: .02em; }
+.stat-strip__tx > span {
+  /* .75rem = 12px — .66rem measured 10.6px, under the readable floor */
+  font-size: .75rem; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; color: #CFE0F7; line-height: 1.35;
+}
+/* The six-column strip switches to three at 1200px, not 1050px (fixed
+   2026-08-22). `1fr` is `minmax(auto, 1fr)`, and that auto floor is min-content
+   — a track can never shrink below the widest word plus the 50px icon, so when
+   six tracks do not fit the grid does not compress, it OVERHANGS. Measured on
+   this content: the six columns need 1099px, plus the 38px .wrap gutter = a
+   1138px viewport. The old 1050px breakpoint therefore left 1051–1137px broken,
+   which is exactly where the homepage scrolled sideways by ~17px at 1101px.
+   1200px keeps ~60px of slack for wider font rendering on Windows/Linux, where
+   the same text measures a few per cent longer than it does here. Re-measure if
+   a stat's wording gets longer. */
+@media (max-width: 1200px) {
+  .stat-strip__grid { grid-template-columns: repeat(3, 1fr); }
+  .stat-strip__grid li:nth-child(3n) { border-right: 0; }
+  .stat-strip__grid li:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.28); }
+}
+@media (max-width: 640px) {
+  .stat-strip__grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-strip__grid li { border-right: 0; padding: .95rem .6rem; }
+  .stat-strip__grid li:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.28); }
+  .stat-strip__grid li:nth-child(-n+4) { border-bottom: 1px solid rgba(255,255,255,.28); }
+  .stat-strip__ic { width: 42px; height: 42px; }
+  .stat-strip__ic svg { width: 23px; height: 23px; }
+}
+/* Phones: the icon moves ABOVE the text instead of beside it (added
+   2026-08-22, same min-content bug as the six-column case above). Two columns
+   on a 375px screen give each cell 168px, but the widest cell needs 186px —
+   the icon (42) and its gap (11) eat the width the label "Equipment
+   installations" needs, and `1fr` cannot shrink below that, so the strip
+   overhung the viewport by 3px. Stacking returns those 53px to the text:
+   the cell then needs ~115px, which still fits a 320px iPhone SE (141px per
+   cell) with room to spare. Trimming padding instead was measured too and
+   only just fitted 375px while still failing a 360px Android. */
+@media (max-width: 430px) {
+  .stat-strip__grid li { flex-direction: column; align-items: flex-start; gap: .5rem; }
+}
+
+
+/* photo-on-top variant of sv-card for the four partnership models */
+.sv-card--photo { padding-top: 0; overflow: hidden; }
+.sv-card--photo > img {
+  display: block; width: calc(100% + 3.2rem); max-width: none;
+  margin: 0 -1.6rem 1.1rem; height: auto;
+}
+/* centred section heads on this page keep their sub-line centred too */
+.sec-head.center .sv-sub { margin-inline: auto; }

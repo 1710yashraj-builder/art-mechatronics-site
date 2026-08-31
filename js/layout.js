@@ -306,6 +306,16 @@
     picker.open({ mode: "wa", text });
   });
 
+  /* Same idea for phone calls: any element carrying data-call-picker opens the
+     three-region chooser in call mode (partner-page CTA, 2026-08-31). The
+     baked href="tel:+91..." stays the no-JS fallback. */
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest("[data-call-picker]");
+    if (!a) return;
+    e.preventDefault();
+    picker.open({ mode: "call" });
+  });
+
   /* ---------- mobile nav ---------- */
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("primary-nav");
