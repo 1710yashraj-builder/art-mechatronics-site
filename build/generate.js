@@ -1025,7 +1025,7 @@ function renderProjects() {
   <section class="section pj-head">
     <div class="wrap sec-head center">
       <h1>Recent Projects</h1>
-      <p class="sec-head__sub">Machines and complete lines photographed at our customers' plants and in our works.</p>
+      <p class="sec-head__sub">Explore our recently installed machines and equipment across the globe.</p>
       <!-- hidden until the script that drives them is alive: a filter that
            cannot filter is worse than no filter, and with no JS every photo is
            on the page anyway. -->
