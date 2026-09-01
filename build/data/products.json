@@ -71222,7 +71222,7 @@
  {
   "slug": "agv-amr",
   "shortName": "AGV / AMR",
-  "h1": "Machine (Automated Guided Vehicle & Autonomous Mobile Robot System)",
+  "h1": "AGV / AMR Machine (Automated Guided Vehicle & Autonomous Mobile Robot System)",
   "metaTitle": "AGV / AMR Machine | Automated Guided Vehicle & Autonomous Mobile Robot",
   "metaDesc": "High-performance AGV and AMR machine for automated material handling, warehouse automation and industrial logistics operations. Smart autonomous transport systems for factories and warehouses.",
   "category": "Robotic Carton Packer",
@@ -78848,7 +78848,7 @@
  {
   "slug": "hvac-system",
   "shortName": "Hvac System",
-  "h1": "Machine (Industrial Heating, Ventilation & Air Conditioning System)",
+  "h1": "HVAC Machine (Industrial Heating, Ventilation & Air Conditioning System)",
   "metaTitle": "HVAC Machine | Industrial Heating Ventilation & Air Conditioning System",
   "metaDesc": "High-performance HVAC machine for industrial heating, ventilation, cooling, air filtration and humidity control. Advanced HVAC system for commercial and industrial environments.",
   "category": "Cooling",

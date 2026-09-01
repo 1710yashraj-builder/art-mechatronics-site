@@ -220,7 +220,14 @@ function pageTitle(metaTitle, display) {
   // a literal "…" inside <title> shows in the browser tab and SERP — cut at a
   // word boundary instead of using clip(), which appends the ellipsis
   if (out.length > 62) {
-    const cut = (display || primary).slice(0, 45).replace(/\s+\S*$/, "").replace(/[,&|\s-]+$/, "");
+    // The trailing-word strip must only run when slice() ACTUALLY cut something.
+    // It used to run unconditionally, so any name already under 45 characters
+    // lost its last word: "Mouth Freshner" shipped as "Mouth", "Tobacco Leaf"
+    // as "Tobacco", "Ground Nut" as "Ground". 50 pages were affected — this is
+    // the text Google and the browser tab show. (Found 2026-09-01.)
+    const src = display || primary;
+    const cut = (src.length > 45 ? src.slice(0, 45).replace(/\s+\S*$/, "") : src)
+      .replace(/[,&|\s-]+$/, "");
     out = cut + " | " + BRAND.name;
   }
   return out;
