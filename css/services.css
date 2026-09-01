@@ -35,6 +35,16 @@
 .sv-card:hover {
   border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm);
 }
+/* The grid already makes every card the same height; without this the closing
+   line (an "Apply →" link, a "Low investment · High returns" tagline) sat
+   wherever the copy happened to end, so two cards side by side finished at
+   different heights and read as ragged. Pushing the last paragraph down aligns
+   those closing lines across the row. Yash, 2026-09-01. */
+.sv-card { display: flex; flex-direction: column; }
+/* :not(:first-of-type) matters — on a card whose only paragraph IS the body
+   copy (supplier, services), pushing it down would leave a hole under the
+   heading. This applies only where a separate closing line exists. */
+.sv-card > p:last-child:not(:first-of-type) { margin-top: auto; padding-top: .35rem; }
 .sv-num {
   display: block; font-family: var(--font-mono);
   font-size: .72rem; font-weight: 700; letter-spacing: .12em;
