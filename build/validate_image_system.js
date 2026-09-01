@@ -20,7 +20,7 @@ const MANIFEST_FILE = path.join(ROOT, "assets", "machines", "v2", "manifest.json
 const V3_MANIFEST_FILE = path.join(ROOT, "assets", "machines", "v3", "pilot", "manifest.json");
 const REQUIRE_COMPLETE = process.argv.includes("--require-complete");
 
-const EXPECTED = Object.freeze({ assets: 48, products: 319, industries: 112, v3Pilot: 12 });
+const EXPECTED = Object.freeze({ assets: 48, products: 319, industries: 284, v3Pilot: 12 });
 const LIMITS = Object.freeze({
   card: 120 * 1024,
   detail: 400 * 1024,

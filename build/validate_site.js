@@ -146,7 +146,10 @@ for (const file of jsFiles) {
 const productCount = htmlFiles.filter(file => relative(file).startsWith("products/")).length;
 const industryCount = htmlFiles.filter(file => relative(file).startsWith("industries/")).length;
 if (productCount !== 319) errors.push(`Expected 319 product pages, found ${productCount}`);
-if (industryCount !== 112) errors.push(`Expected 112 industry pages, found ${industryCount}`);
+// 112 -> 250 on 2026-09-01. The founder's industries Excel is the source of
+// truth: 141 items from his sheet gained pages, and palm-oil plus the two
+// silver-coated entries were removed because they are not in his sheet.
+if (industryCount !== 284) errors.push(`Expected 284 industry pages, found ${industryCount}`);
 
 const required = [
   "index.html", "industries.html", "catalog.html", "machines.html",

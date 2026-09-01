@@ -8,9 +8,7 @@
     "mouth-freshner",
     "pan-masala",
     "supari",
-    "sweet-supari",
-    "silver-coated-flavoured-cardomom",
-    "silver-coated-flavoured-dated"
+    "sweet-supari"
    ],
    "subs": [
     {
@@ -35,14 +33,6 @@
     },
     {
      "label": "Elaichi"
-    },
-    {
-     "label": "Silver Coated Flavoured Cardomom",
-     "slug": "silver-coated-flavoured-cardomom"
-    },
-    {
-     "label": "Silver Coated Flavoured Dated",
-     "slug": "silver-coated-flavoured-dated"
     }
    ]
   },
@@ -663,8 +653,7 @@
    "name": "Oil",
    "children": [
     "edible-oil",
-    "non-edible-oil",
-    "palm-oil"
+    "non-edible-oil"
    ],
    "subs": [
     {
@@ -685,10 +674,6 @@
     },
     {
      "label": "Rice Bran"
-    },
-    {
-     "label": "Palm Oil",
-     "slug": "palm-oil"
     },
     {
      "label": "Non Edible Oil",
