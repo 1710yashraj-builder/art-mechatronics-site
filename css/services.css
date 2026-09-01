@@ -25,6 +25,14 @@
   grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 900px) { .sv-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Two-up variant: used where a section has exactly two cards (careers entry
+   paths) or four that read better 2x2 (partner models). Above 900px it
+   overrides the 3-column default; below that the rules under this one take
+   over and it collapses to two, then one, like every other card grid. */
+@media (min-width: 901px) {
+  .sv-grid--pair { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 620px) { .sv-grid { grid-template-columns: 1fr; } }
 .sv-card {
   position: relative; background: var(--white);

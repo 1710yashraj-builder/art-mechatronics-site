@@ -9,9 +9,10 @@
    afterthought, which is the opposite of the message (it is the biggest
    commitment). Two across gives 2x2. Below 900px services.css already drops to
    two columns and then to one, which is correct for four cards as well. */
-@media (min-width: 901px) {
-  .sv-grid--pair { grid-template-columns: repeat(2, 1fr); }
-}
+/* .sv-grid--pair moved to services.css on 2026-09-01 — it lived here, and
+   partner.css is loaded by /partner alone, so /careers used the class and
+   silently fell back to the 3-column .sv-grid: two cards and one empty
+   432px column. A shared class belongs in the shared file. */
 
 /* Section anchors sit under the sticky header without this — the eyebrow and
    the top of the heading land behind it when someone lands on /partner#models.
