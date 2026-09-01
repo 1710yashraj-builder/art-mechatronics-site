@@ -373,15 +373,25 @@
 body[data-page="infrastructure"] .ab-hero h1,
 body[data-page="infrastructure"] .ab-hero .lead { margin-inline: auto; }
 
-/* ===== TEAM PAIR (Yash 2026-08-31: both team photos side by side, equal
-   height, no captions). The fr values ARE the two images' aspect ratios
-   (1438/613 = 2.346, 1600/1200 = 1.333): with widths proportional to aspect,
-   both photos render the same height untouched — no object-fit crop, no
-   caption bar. Full-bleed like the old .team-shot, navy ground behind the
-   1px gap. Stacks on phones. -->  */
-.team-duo { display: grid; grid-template-columns: 2.346fr 1.333fr; gap: 4px; background: var(--navy); }
-.team-duo img { display: block; width: 100%; height: auto; }
-@media (max-width: 700px) { .team-duo { grid-template-columns: 1fr; } }
+/* ===== TEAM PHOTOGRAPHS (Yash 2026-09-01, after reviewing rendered options)
+   The two photographs are different shapes — the staff photo is a 2.35:1
+   panorama, the ceremony photo is 4:3 — so side by side they could only match
+   on height, which left the widths visibly unequal. Stacked at one width they
+   align properly instead.
+   The panorama is shown COMPLETE and uncropped: people stand right to both
+   edges of that frame, so any side crop drops staff out of the picture.
+   Only the ceremony photo is cropped, to 16:9 — tested against 2:1 and 2.35:1,
+   which both cut the havan and the offerings out of the bottom of the frame.
+   Centre position keeps the people and the ceremony together.
+   Inside the page margins, matching every other section on this page. */
+.team-duo {
+  display: grid; gap: 1rem;
+  /* identical to .wrap so the photographs line up exactly with the text
+     column above them — not merely close to it. */
+  width: min(100% - 2.4rem, var(--wrap)); margin-inline: auto;
+}
+.team-duo img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
+.team-duo img:last-child { aspect-ratio: 16 / 9; object-fit: cover; object-position: center; }
 
 
 /* ============================================================
