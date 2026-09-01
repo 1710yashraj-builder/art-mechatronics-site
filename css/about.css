@@ -412,12 +412,19 @@ body[data-page="infrastructure"] .ab-hero .lead { margin-inline: auto; }
 .cap-body { padding: 0 1.15rem 1.15rem; }
 .cap-list { columns: 2; column-gap: 1.6rem; margin: 0; padding-left: 1.1rem; }
 .cap-list li { break-inside: avoid; color: var(--slate); font-size: .93rem; margin-bottom: .3rem; }
-.cap-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 0 0 1.1rem; }
-.cap-shots figure { margin: 0; }
-.cap-shots img { display: block; width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--line); }
-.cap-shots figcaption { margin-top: .35rem; font-size: .78rem; font-weight: 600; color: var(--navy); }
+/* One photo per department (Yash 2026-08-31). It floats beside the list on
+   desktop so an open row stays compact; above the list on phones. */
+.cap-shot { margin: 0 0 1rem 1.4rem; float: right; width: 30%; }
+/* Height is capped and the crop is centred: a 4:3 photo floated beside a short
+   list would otherwise be taller than the text and leave a hole under it.
+   Measured at 1440 with the shortest list (six lines) and the longest (ten). */
+.cap-shot img {
+  display: block; width: 100%; height: auto; max-height: 210px; object-fit: cover;
+  border-radius: var(--r); border: 1px solid var(--line);
+}
+.cap-body::after { content: ""; display: block; clear: both; }
 @media (max-width: 900px) {
   .cap-grid { grid-template-columns: 1fr; }
   .cap-list { columns: 1; }
-  .cap-shots { grid-template-columns: 1fr; }
+  .cap-shot { float: none; width: 100%; margin-left: 0; }
 }
