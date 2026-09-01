@@ -189,7 +189,13 @@
   padding: 1.05rem .85rem;
   border-right: 1px solid rgba(255,255,255,.28);
 }
-.stat-strip__grid li:last-child { border-right: 0; }
+/* Written when this strip was six cells on one row; it is twelve on two rows
+   now (2026-09-01). :last-child cleared only the very last cell, so cell 6 —
+   the end of row 1 — kept drawing a divider into empty space. nth-child(6n)
+   clears the end of EVERY row, and the :not(:nth-last-child(-n+6)) rule gives
+   every row but the last a bottom divider. Both work for any cell count. */
+.stat-strip__grid li:nth-child(6n) { border-right: 0; }
+.stat-strip__grid li:not(:nth-last-child(-n+6)) { border-bottom: 1px solid rgba(255,255,255,.28); }
 .stat-strip__ic {
   flex: 0 0 auto; width: 50px; height: 50px; border-radius: 50%;
   background: #fff; color: #0f3e7c;
@@ -223,13 +229,13 @@
 @media (max-width: 1200px) {
   .stat-strip__grid { grid-template-columns: repeat(3, 1fr); }
   .stat-strip__grid li:nth-child(3n) { border-right: 0; }
-  .stat-strip__grid li:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.28); }
+  .stat-strip__grid li:not(:nth-last-child(-n+3)) { border-bottom: 1px solid rgba(255,255,255,.28); }
 }
 @media (max-width: 640px) {
   .stat-strip__grid { grid-template-columns: repeat(2, 1fr); }
   .stat-strip__grid li { border-right: 0; padding: .95rem .6rem; }
   .stat-strip__grid li:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.28); }
-  .stat-strip__grid li:nth-child(-n+4) { border-bottom: 1px solid rgba(255,255,255,.28); }
+  .stat-strip__grid li:not(:nth-last-child(-n+2)) { border-bottom: 1px solid rgba(255,255,255,.28); }
   .stat-strip__ic { width: 42px; height: 42px; }
   .stat-strip__ic svg { width: 23px; height: 23px; }
 }
