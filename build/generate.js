@@ -1144,7 +1144,12 @@ function industryGrid(base = "") {
 
     // Childless tiles still render — the grid must match the catalogue Anurag
     // hands to buyers — but they route to a tagged enquiry instead of a thin page.
-    const href = kids.length
+    // Yash 2026-09-01: a big tile opens ITS OWN overview page (group.page),
+    // never the first item under it — clicking "Snacks" must land on Snacks.
+    const overview = group.page && industries.find((i) => i.slug === group.page);
+    const href = overview
+      ? rel(base, `industries/${overview.slug}.html`)
+      : kids.length
       ? rel(base, `industries/${kids[0].slug}.html`)
       : wa(`Hi ART Mechatronics, do you supply machinery for ${group.name}? [Industry: ${group.name}]`);
     const external = kids.length ? "" : ' target="_blank" rel="noopener"';

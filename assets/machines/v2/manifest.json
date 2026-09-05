@@ -4993,17 +4993,6 @@
    "disclosure": true,
    "alt": "Representative Sweet Supari process equipment by ART Mechatronics"
   },
-  "mouth-freshner": {
-   "assetIds": [
-    "process-cutting-slicing",
-    "cleaning-air-aspiration",
-    "mixing-ribbon-paddle"
-   ],
-   "category": "Process Equipment",
-   "hero": "assets/machines/v2/industries/mouth-freshner/hero-16x9.webp",
-   "disclosure": true,
-   "alt": "Representative Mouth Freshner process equipment by ART Mechatronics"
-  },
   "tobacco-leaf": {
    "assetIds": [
     "conveying-belt-roller",
@@ -5013,7 +5002,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/tobacco-leaf/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Tobacco Leaf process equipment by ART Mechatronics"
+   "alt": "Representative Tobacco Leaf (Raw Tobacco Leaves) Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
   },
   "cigarette": {
    "assetIds": [
@@ -5079,7 +5068,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/oral-pouches/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Oral Pouches process equipment by ART Mechatronics"
+   "alt": "Representative Oral Pouches Manufacturing Plant & Machinery (Nicotine, Caffeine, Snus, Snuff & Filter Khaini) process equipment by ART Mechatronics"
   },
   "khaini-chewing-tobacco": {
    "assetIds": [
@@ -5123,7 +5112,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/htp-hnb/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Htp / Hnb process equipment by ART Mechatronics"
+   "alt": "Representative HTP / HNB (Heated Tobacco Product, Heat-Not-Burn) Manufacturing Plant & Machinery Solutions process equipment by ART Mechatronics"
   },
   "spices": {
    "assetIds": [
@@ -5189,7 +5178,7 @@
    "category": "Cleaning, Sorting & Grading",
    "hero": "assets/machines/v2/industries/flavoured-peanut/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Flavoured Peanut process equipment by ART Mechatronics"
+   "alt": "Representative Flavoured Peanut Processing Plant & Machinery (Salted, Roasted & Coated Peanuts) process equipment by ART Mechatronics"
   },
   "puffed-snack": {
    "assetIds": [
@@ -5486,7 +5475,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/bread-and-bun/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Bread & Bun process equipment by ART Mechatronics"
+   "alt": "Representative Bread & Bun Manufacturing Plant & Machinery Solutions (White & Brown Bread Production Lines) process equipment by ART Mechatronics"
   },
   "rusk-and-toast": {
    "assetIds": [
@@ -5662,7 +5651,7 @@
    "category": "Process Equipment",
    "hero": "assets/machines/v2/industries/green-tea-and-flavoured-tea/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Green Tea & Flavoured Tea process equipment by ART Mechatronics"
+   "alt": "Representative Green Tea & Flavoured Tea Processing Plant & Machinery Solutions (Herbal & Wellness Tea Production) process equipment by ART Mechatronics"
   },
   "cocoa-and-hot-chocolate": {
    "assetIds": [
@@ -5871,7 +5860,7 @@
    "category": "Size Reduction & Grinding",
    "hero": "assets/machines/v2/industries/dust-collection-system-and-pollution-control-equipment/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Dust Collection System & Pollution Control Equipment process equipment by ART Mechatronics"
+   "alt": "Representative Industrial Dust Collection System & Pollution Control Equipment (Dust Collector, Wet Scrubber & De-Dusting Solutions) process equipment by ART Mechatronics"
   },
   "material-handling-equipments": {
    "assetIds": [
@@ -7327,7 +7316,7 @@
    "category": "Process Equipment",
    "hero": "assets/machines/v2/industries/iron-and-steel/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Foundries Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+   "alt": "Representative Foundries (Foundry) Plant & Machinery Solutions process equipment by ART Mechatronics"
   },
   "casting": {
    "assetIds": [
@@ -7515,7 +7504,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/rubber/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Tire Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+   "alt": "Representative Tyre (Tire) Manufacturing Plant & Machinery Solutions process equipment by ART Mechatronics"
   },
   "tube": {
    "assetIds": [
@@ -7587,7 +7576,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/rubber/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Shoes Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+   "alt": "Representative Shoes & Rubber Footwear Manufacturing Plant & Machinery Solutions process equipment by ART Mechatronics"
   },
   "conveyor-belt": {
    "assetIds": [
@@ -7873,7 +7862,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/pasta/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Flat Pasta Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+   "alt": "Representative Flat Noodle Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
   },
   "hakka-pasta": {
    "assetIds": [
@@ -7884,7 +7873,7 @@
    "category": "Conveying & Handling",
    "hero": "assets/machines/v2/industries/pasta/hero-16x9.webp",
    "disclosure": true,
-   "alt": "Representative Hakka Pasta Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+   "alt": "Representative Hakka Noodle Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
   },
   "white-rice": {
    "assetIds": [
@@ -8169,6 +8158,341 @@
    "hero": "assets/machines/v2/industries/paper/hero-16x9.webp",
    "disclosure": true,
    "alt": "Representative Copier Paper Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "mouth-freshener": {
+   "assetIds": [
+    "process-cutting-slicing",
+    "cleaning-air-aspiration",
+    "mixing-ribbon-paddle"
+   ],
+   "category": "Process Equipment",
+   "hero": "assets/machines/v2/industries/mouth-freshner/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Mouth Freshener process equipment by ART Mechatronics"
+  },
+  "tobacco": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "cleaning-air-aspiration",
+    "grinding-mill-pulverizer"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/tobacco-leaf/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Tobacco Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "snacks": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "cleaning-washing-peeling",
+    "process-cutting-slicing"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/chips-and-crisps/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Snacks Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "nuts": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "cleaning-air-aspiration",
+    "cleaning-separation-destoning"
+   ],
+   "category": "Cleaning, Sorting & Grading",
+   "hero": "assets/machines/v2/industries/ground-nut/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Nuts Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "flour": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "buffer-tank",
+    "cleaning-air-aspiration"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/wheat-flour/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Flour Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "rice-bran": {
+   "assetIds": [
+    "storage-silos",
+    "conveying-belt-roller",
+    "cleaning-air-aspiration"
+   ],
+   "category": "Storage & Elevation",
+   "hero": "assets/machines/v2/industries/seeds/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Rice Bran Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "bakery": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "packaging-sealing-shrink-wrap",
+    "mixing-planetary-spiral"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/bread-and-bun/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Bakery Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "confectionery": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "packaging-sealing-shrink-wrap",
+    "ribbon-mixer"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/wafer/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Confectionery Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "condiment": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "cleaning-air-aspiration",
+    "cleaning-separation-destoning"
+   ],
+   "category": "Cleaning, Sorting & Grading",
+   "hero": "assets/machines/v2/industries/peanut-butter/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Condiment Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "milk-shake": {
+   "assetIds": [
+    "heating-thermal-generator",
+    "mixing-tank-agitator",
+    "process-refrigeration-hvac"
+   ],
+   "category": "Heating & Drying",
+   "hero": "assets/machines/v2/industries/dairy/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Milk Shake Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "butter-milk": {
+   "assetIds": [
+    "heating-thermal-generator",
+    "mixing-tank-agitator",
+    "process-refrigeration-hvac"
+   ],
+   "category": "Heating & Drying",
+   "hero": "assets/machines/v2/industries/dairy/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Butter Milk Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "beverage": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "cleaning-air-aspiration",
+    "cleaning-separation-destoning"
+   ],
+   "category": "Cleaning, Sorting & Grading",
+   "hero": "assets/machines/v2/industries/coffee/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Beverage Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "fruits-and-vegetable": {
+   "assetIds": [
+    "storage-silos",
+    "conveying-belt-roller",
+    "cleaning-air-aspiration"
+   ],
+   "category": "Storage & Elevation",
+   "hero": "assets/machines/v2/industries/agro-processing/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Fruits & Vegetable Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "vegetables": {
+   "assetIds": [
+    "cleaning-washing-peeling",
+    "cleaning-sorting-grading",
+    "process-cooking-blanching",
+    "heating-cooling-freezing"
+   ],
+   "category": "Cleaning, Sorting & Grading",
+   "hero": "assets/machines/v2/industries/fruit-and-vegetable/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Vegetables Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "powder-coconut": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "process-general-plant",
+    "process-cutting-slicing"
+   ],
+   "category": "Process Equipment",
+   "hero": "assets/machines/v2/industries/coco-nut/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Powder Coconut Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "household-cleaning": {
+   "assetIds": [
+    "buffer-tank",
+    "packaging-sealing-shrink-wrap",
+    "process-cutting-slicing"
+   ],
+   "category": "Storage & Elevation",
+   "hero": "assets/machines/v2/industries/soap-and-detergent/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Household Cleaning Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "plastic-products": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "mixing-ribbon-paddle",
+    "process-extrusion-forming"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/plastic/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Plastic Products Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "rubber-band": {
+   "assetIds": [
+    "conveying-pneumatic-vacuum",
+    "mixing-ribbon-paddle",
+    "pollution-central-extraction",
+    "control-panel"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/rubber/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Rubber Band Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "paper-towel": {
+   "assetIds": [
+    "pollution-central-extraction",
+    "conveying-pneumatic-vacuum",
+    "packaging-cartoning-case",
+    "packaging-robotic-palletising"
+   ],
+   "category": "Pollution Control",
+   "hero": "assets/machines/v2/industries/paper/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Paper Towel Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "butter": {
+   "assetIds": [
+    "heating-thermal-generator",
+    "mixing-tank-agitator",
+    "process-refrigeration-hvac"
+   ],
+   "category": "Heating & Drying",
+   "hero": "assets/machines/v2/industries/dairy/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Butter Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "mineral": {
+   "assetIds": [
+    "grinding-crusher-shredder",
+    "grinding-mill-pulverizer",
+    "storage-silos",
+    "pollution-central-extraction"
+   ],
+   "category": "Size Reduction & Grinding",
+   "hero": "assets/machines/v2/industries/building-material/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Mineral Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "coconut-flakes": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "process-general-plant",
+    "process-cutting-slicing"
+   ],
+   "category": "Process Equipment",
+   "hero": "assets/machines/v2/industries/coco-nut/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Coconut Flakes Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "coconut-oil": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "process-general-plant",
+    "process-cutting-slicing"
+   ],
+   "category": "Process Equipment",
+   "hero": "assets/machines/v2/industries/coco-nut/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Coconut Oil Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "grams": {
+   "assetIds": [
+    "conveying-belt-roller",
+    "storage-silos",
+    "cleaning-air-aspiration"
+   ],
+   "category": "Conveying & Handling",
+   "hero": "assets/machines/v2/industries/pulses/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Grams Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "maize": {
+   "assetIds": [
+    "storage-silos",
+    "conveying-belt-roller",
+    "cleaning-air-aspiration"
+   ],
+   "category": "Storage & Elevation",
+   "hero": "assets/machines/v2/industries/grains/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Maize Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "wheat": {
+   "assetIds": [
+    "storage-silos",
+    "conveying-belt-roller",
+    "cleaning-air-aspiration"
+   ],
+   "category": "Storage & Elevation",
+   "hero": "assets/machines/v2/industries/grains/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Wheat Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "corn": {
+   "assetIds": [
+    "storage-silos",
+    "conveying-belt-roller",
+    "cleaning-air-aspiration"
+   ],
+   "category": "Storage & Elevation",
+   "hero": "assets/machines/v2/industries/grains/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Corn Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "fruits": {
+   "assetIds": [
+    "cleaning-washing-peeling",
+    "cleaning-sorting-grading",
+    "process-cooking-blanching",
+    "heating-cooling-freezing"
+   ],
+   "category": "Cleaning, Sorting & Grading",
+   "hero": "assets/machines/v2/industries/fruit-and-vegetable/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Fruits Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "cosmetic-cream": {
+   "assetIds": [
+    "buffer-tank",
+    "packaging-sealing-shrink-wrap",
+    "process-general-plant"
+   ],
+   "category": "Storage & Elevation",
+   "hero": "assets/machines/v2/industries/cosmetic/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Cosmetic Cream Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "pharmaceutical-syrup": {
+   "assetIds": [
+    "process-cutting-slicing",
+    "mixing-ribbon-paddle",
+    "mixing-high-shear-granulation"
+   ],
+   "category": "Mixing & Blending",
+   "hero": "assets/machines/v2/industries/pharmaceutical/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Pharmaceutical Syrup Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
   }
  }
 }

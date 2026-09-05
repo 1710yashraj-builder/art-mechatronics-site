@@ -752,8 +752,8 @@
  {
   "slug": "centralised-dust-collection-system",
   "shortName": "Centralised Dust Collection System",
-  "h1": "Centralized Dust Collection System (Multi-Point Industrial Dust Extraction & Pollution Control Solution)",
-  "metaTitle": "Centralized Dust Collection System | Central Dust Extraction System & Industrial Pollution Control Solution",
+  "h1": "Centralised Dust Collection System (Multi-Point Industrial Dust Extraction & Pollution Control Solution)",
+  "metaTitle": "Centralised Dust Collection System | Central Dust Extraction System & Industrial Pollution Control Solution",
   "metaDesc": "High-efficiency centralized dust collection system for multi-point industrial dust extraction. Complete turnkey central dust control solutions for large plants.",
   "category": "Pollution Control",
   "intro": "A Centralized Dust Collection System is an advanced industrial air pollution control solution designed to capture, extract, and filter dust from multiple points across an entire plant using a single integrated system.\nUnlike standalone dust collectors, a centralized system connects various dust-generating machines and processes through a network of ducting, suction points, and high-capacity filtration units, making it ideal for large-scale manufacturing facilities.\nThese systems are widely used in industries such as food processing, pharmaceuticals, chemicals, cement, steel, packaging, plastics, and powder handling plants, where maintaining clean air, hygiene, and regulatory compliance is critical.\nART Mechatronics offers complete turnkey centralized dust collection solutions, engineered for high efficiency, energy optimization, and reliable continuous operation.",
@@ -17425,7 +17425,7 @@
  {
   "slug": "heat-recovery-unit-hru",
   "shortName": "Heat Recovery Unit - HRU",
-  "h1": "Heat Recovery Unit (Waste Heat Recovery System for Energy Efficient Industrial Processes)",
+  "h1": "Heat Recovery Unit (HRU) (Waste Heat Recovery System for Energy Efficient Industrial Processes)",
   "metaTitle": "Heat Recovery Unit | Waste Heat Recovery System & Energy Saving Heat Recovery Equipment",
   "metaDesc": "High-efficiency heat recovery unit for capturing waste heat and improving energy efficiency. Ideal for boilers, dryers, furnaces and industrial processes.",
   "category": "Heating",
@@ -37372,8 +37372,8 @@
  {
   "slug": "centralised-dust-collection-system-2",
   "shortName": "Centralised Dust Collection System",
-  "h1": "Centralized Dust Collection System (Industrial Dust Extraction & Air Pollution Control System)",
-  "metaTitle": "Centralized Dust Collection System | Industrial Dust Collector System",
+  "h1": "Centralised Dust Collection System (Industrial Dust Extraction & Air Pollution Control System)",
+  "metaTitle": "Centralised Dust Collection System | Industrial Dust Collector System",
   "metaDesc": "High-performance centralized dust collection system for industrial dust extraction, air filtration and pollution control. Industrial dust collector system for food, pharma, chemical and manufacturing industries.",
   "category": "Cleaning & Sorting",
   "intro": "A Centralized Dust Collection System, also known as an Industrial Dust Collector System or Central Dust Extraction System, is a highly advanced industrial air handling and pollution control solution designed for collecting, filtering, extracting, and controlling dust, powder particles, fumes, airborne contaminants, and process-generated pollution from multiple machines or production areas through a centralized filtration network.\nThe system improves: ✔ Workplace air quality ✔ Worker safety ✔ Product cleanliness ✔ Machine efficiency ✔ Environmental compliance ✔ Factory hygiene\nCentralized dust collection systems are widely used in industries such as:\nFood processing industries\nPharmaceutical industries\nChemical plants\nFlour mills\nSpice processing plants\nWoodworking industries\nCement industries\nMetal fabrication industries\nRecycling plants\nwhere continuous dust extraction and pollution control are essential for safe and efficient industrial operation.\nThe system works using: ✔ Dust extraction hoods ✔ Suction ducting network ✔ High-pressure blower systems ✔ Cyclone separators ✔ Bag filters ✔ Pulse jet filtration systems\nto capture dust directly from the source and maintain a clean industrial environment.\nCentralized dust collection systems are suitable for: ✔ Powder dust extraction ✔ Air pollution control ✔ Industrial ventilation ✔ Machine dust collection ✔ Pneumatic conveying exhaust filtration ✔ Fine particle filtration\nART Mechatronics offers high-performance centralized dust collection systems, engineered for high suction efficiency, low maintenance, energy-saving operation, and reliable industrial air pollution control.",
@@ -58219,7 +58219,7 @@
  },
  {
   "slug": "standup-pouch",
-  "shortName": "Standup Pouch",
+  "shortName": "Stand Up Pouch",
   "h1": "Stand Up Pouch Packaging Machine (Automatic Stand-Up Pouch Filling & Sealing System)",
   "metaTitle": "Stand Up Pouch Packaging Machine | Automatic Stand-Up Pouch Filling & Sealing Machine",
   "metaDesc": "High-performance stand up pouch packaging machine for automatic filling and sealing of stand-up pouches. Industrial stand-up pouch packaging machine for snacks, dry fruits, spices, powders, liquids, pan masala, FMCG and food industries.",
@@ -65846,8 +65846,8 @@
  },
  {
   "slug": "map-tray-sealing",
-  "shortName": "Map Tray Sealing",
-  "h1": "Tray Sealing Machine (Modified Atmosphere Packaging System)",
+  "shortName": "MAP Tray Sealing",
+  "h1": "MAP Tray Sealing Machine (Modified Atmosphere Packaging System)",
   "metaTitle": "MAP Tray Sealing Machine | Automatic Modified Atmosphere Packaging Machine",
   "metaDesc": "High-performance MAP tray sealing machine for automatic modified atmosphere food packaging applications. Industrial MAP tray sealer for meat, seafood, ready meals, fruits, vegetables and food processing industries.",
   "category": "Robotic Carton Packer",
@@ -66193,7 +66193,7 @@
  {
   "slug": "cup-packing",
   "shortName": "Cup Packing",
-  "h1": "Cup Packaging Machine (Automatic Cup Filling & Sealing System)",
+  "h1": "Cup Packing Machine (Automatic Cup Filling & Sealing System)",
   "metaTitle": "Cup Packaging Machine | Automatic Cup Filling & Sealing Machine",
   "metaDesc": "High-performance cup packaging machine for automatic cup filling and sealing applications. Industrial cup packaging machine for yogurt, instant noodles, beverages, desserts, dairy and food processing industries.",
   "category": "Robotic Carton Packer",
@@ -66366,7 +66366,7 @@
  {
   "slug": "tray-packing",
   "shortName": "Tray Packing",
-  "h1": "Tray Packaging Machine (Automatic Food Tray Sealing & Packaging System)",
+  "h1": "Tray Packing Machine (Automatic Food Tray Sealing & Packaging System)",
   "metaTitle": "Tray Packaging Machine | Automatic Food Tray Sealing & Packaging Machine",
   "metaDesc": "High-performance tray packaging machine for automatic food tray sealing and packaging applications. Industrial tray packaging machine for meat, seafood, ready meals, fruits, vegetables and food processing industries.",
   "category": "Robotic Carton Packer",
@@ -69313,7 +69313,7 @@
  {
   "slug": "bottle-packing",
   "shortName": "Bottle Packing (Spray, Pet, Glass)",
-  "h1": "Bottle Packaging Machine (Automatic PET, Glass & Spray Bottle Packaging System)",
+  "h1": "Bottle Packing Machine (Automatic PET, Glass & Spray Bottle Packaging System)",
   "metaTitle": "Bottle Packaging Machine | Automatic PET, Glass & Spray Bottle Packaging Machine",
   "metaDesc": "High-performance bottle packaging machine for automatic PET, glass and spray bottle filling and packaging applications. Industrial bottle packaging machine for water, perfume, juice, soft drinks, beverages and FMCG industries.",
   "category": "Robotic Carton Packer",
@@ -69486,7 +69486,7 @@
  {
   "slug": "jerry-can-packing",
   "shortName": "Jerry Can Packing",
-  "h1": "Jerry Can Packaging Machine (Automatic Jerry Can Filling & Sealing System)",
+  "h1": "Jerry Can Packing Machine (Automatic Jerry Can Filling & Sealing System)",
   "metaTitle": "Jerry Can Packaging Machine | Automatic Jerry Can Filling & Packaging Machine",
   "metaDesc": "High-performance jerry can packaging machine for automatic jerry can filling and packaging applications. Industrial jerry can filling machine for oils, chemicals, lubricants, liquids, agro products and industrial packaging industries.",
   "category": "Robotic Carton Packer",
@@ -69659,7 +69659,7 @@
  {
   "slug": "cannister-packing",
   "shortName": "Cannister Packing",
-  "h1": "Cannister Packaging Machine (Automatic Canister Filling & Sealing System)",
+  "h1": "Cannister Packing Machine (Automatic Canister Filling & Sealing System)",
   "metaTitle": "Cannister Packaging Machine | Automatic Canister Filling & Packaging Machine",
   "metaDesc": "High-performance canister packaging machine for automatic canister filling and sealing applications. Industrial canister packaging machine for powders, coffee, tea, protein powder, snacks and FMCG industries.",
   "category": "Robotic Carton Packer",
@@ -69832,7 +69832,7 @@
  {
   "slug": "bucket-packing",
   "shortName": "Bucket Packing",
-  "h1": "Bucket Packaging Machine (Automatic Bucket Filling & Sealing System)",
+  "h1": "Bucket Packing Machine (Automatic Bucket Filling & Sealing System)",
   "metaTitle": "Bucket Packaging Machine | Automatic Bucket Filling & Packaging Machine",
   "metaDesc": "High-performance bucket packaging machine for automatic bucket filling and sealing applications. Industrial bucket filling machine for paint, chemicals, lubricants, food products and bulk packaging industries.",
   "category": "Robotic Carton Packer",
@@ -70005,7 +70005,7 @@
  {
   "slug": "jar-jug-packing",
   "shortName": "Jar/ Jug Packing",
-  "h1": "Jar & Jug Packaging Machine (Automatic Jar & Jug Filling & Sealing System)",
+  "h1": "Jar & Jug Packing Machine (Automatic Jar & Jug Filling & Sealing System)",
   "metaTitle": "Jar & Jug Packaging Machine | Automatic Jar & Jug Filling Machine",
   "metaDesc": "High-performance jar and jug packaging machine for automatic filling and sealing applications. Industrial jar and jug packaging machine for beverages, oils, chemicals, food products and FMCG industries.",
   "category": "Robotic Carton Packer",
@@ -70178,7 +70178,7 @@
  {
   "slug": "drum-packing",
   "shortName": "Drum Packing",
-  "h1": "Drum Packaging Machine (Automatic Drum Filling & Sealing System)",
+  "h1": "Drum Packing Machine (Automatic Drum Filling & Sealing System)",
   "metaTitle": "Drum Packaging Machine | Automatic Drum Filling & Packaging Machine",
   "metaDesc": "High-performance drum packaging machine for automatic drum filling and sealing applications. Industrial drum filling machine for chemicals, oils, lubricants, paints, agro products and bulk liquid packaging industries.",
   "category": "Robotic Carton Packer",
@@ -70351,7 +70351,7 @@
  {
   "slug": "gallon-packing",
   "shortName": "Gallon Packing",
-  "h1": "Gallon Packaging Machine (Automatic Gallon Filling & Sealing System)",
+  "h1": "Gallon Packing Machine (Automatic Gallon Filling & Sealing System)",
   "metaTitle": "Gallon Packaging Machine | Automatic Gallon Filling & Packaging Machine",
   "metaDesc": "High-performance gallon packaging machine for automatic gallon filling and sealing applications. Industrial gallon filling machine for water, chemicals, oils, beverages and bulk liquid packaging industries.",
   "category": "Robotic Carton Packer",
@@ -71395,7 +71395,7 @@
  {
   "slug": "complete-packaging-automation",
   "shortName": "Complete Packaging Automation",
-  "h1": "Unit Packaging Automation System (Automatic Primary Packaging Line)",
+  "h1": "Complete Packaging Automation System (Automatic Primary Packaging Line)",
   "metaTitle": "Unit Packaging Automation System | Automatic Primary Packaging Line",
   "metaDesc": "High-performance unit packaging automation system for automatic filling, sealing, labeling, cartoning and packaging operations. Industrial packaging automation solutions for food, beverage, chemical and FMCG industries.",
   "category": "Robotic Carton Packer",
@@ -78156,7 +78156,7 @@
  {
   "slug": "iqf-freezer",
   "shortName": "IQF Freezer",
-  "h1": "Freezer Machine (Industrial Individual Quick Freezing System)",
+  "h1": "IQF Freezer Machine (Industrial Individual Quick Freezing System)",
   "metaTitle": "IQF Freezer Machine | Industrial Individual Quick Freezing System",
   "metaDesc": "High-performance IQF freezer machine for fruits, vegetables, snacks, dairy and food products. Industrial individual quick freezing system for advanced frozen food processing applications.",
   "category": "Cooling",
@@ -79024,7 +79024,7 @@
  },
  {
   "slug": "hydraulic-press-bailing-press",
-  "shortName": "Hydraulic Press/ Bailing Press",
+  "shortName": "Hydraulic Press / Baling Press",
   "h1": "Hydraulic Press / Baling Press Machine (Industrial Compression & Baling System)",
   "metaTitle": "Hydraulic Press Machine | Industrial Baling & Compression Press System",
   "metaDesc": "High-performance hydraulic press and baling press machine for metal, plastic, paper, cotton, biomass and industrial waste compression applications. Industrial hydraulic compression system.",
