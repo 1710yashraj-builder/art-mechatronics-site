@@ -473,6 +473,23 @@ function responsivePicture({ src, srcset, sizes, altText, width, height, loading
   </picture>`;
 }
 
+/* A product's image alt must carry the product's own name. Several products share
+   a representative photo whose manifest alt names the PHOTO ("Sterilization by
+   ART Mechatronics" on the Retort / Autoclave page) — the audit of 2026-09-11
+   flagged three of them. The photo label stays in the manifest; the alt the
+   visitor's screen reader hears is the product. */
+function productAlt(item, mapping) {
+  // The visitor sees the page name (H1 head); the catalogue chip name may differ
+  // ("Sterilization" is the chip, "Retort / Autoclave Machine" the page) — carry
+  // the page name and keep the chip name in brackets when it is a different word.
+  const pageName = String(item.h1 || "").split(" (")[0].trim();
+  const chip = String(item.shortName || "").split(" (")[0].trim();
+  const name = pageName || chip;
+  if (!name) return String(mapping.alt || "");
+  const label = chip && !name.toLowerCase().includes(chip.toLowerCase()) ? `${name} (${chip})` : name;
+  return `${label} by ART Mechatronics`;
+}
+
 function detailMedia(item, base, kind) {
   const { mapping } = mediaEntry(item, kind);
   const isProduct = kind === "products";
@@ -483,7 +500,7 @@ function detailMedia(item, base, kind) {
     src,
     srcset: `${src} ${isProduct ? 1280 : 1600}w`,
     sizes: "(max-width: 900px) calc(100vw - 2rem), min(48vw, 680px)",
-    altText: mapping.alt,
+    altText: isProduct ? productAlt(item, mapping) : mapping.alt,
     width: isProduct ? 1280 : 1600,
     height: isProduct ? 960 : 900,
     loading: "eager",
@@ -508,7 +525,7 @@ function cardMedia(item, kind, base = "") {
       src: card,
       srcset: `${card} 640w, ${detail} 1280w`,
       sizes: "(max-width: 620px) calc(100vw - 2rem), (max-width: 980px) 45vw, 320px",
-      altText: mapping.alt,
+      altText: productAlt(item, mapping),
       width: 640,
       height: 480,
       loading: "lazy",
@@ -1225,13 +1242,13 @@ function card(item, kind, base = "") {
 const CATEGORY_COPY = {
   "Packaging": ["Packaging machinery", "Filling, weighing, sealing and wrapping — from single pouch machines to complete automatic packing lines."],
   "Process Equipment": ["Process equipment", "The core process machines a line is built around, engineered to suit the product and the plant."],
-  "Conveying & Handling": ["Conveying & material handling", "Moving product between stages — conveyors, elevators, feeders and handling equipment."],
+  "Conveying & Handling": ["Material handling equipment & industrial automation", "Moving product between stages — conveyors, elevators, feeders and handling equipment."],
   "Cleaning, Sorting & Grading": ["Cleaning, sorting & grading", "Removing what should not be there and separating what should — cleaners, destoners, sifters, graders and sorters."],
   "Heating & Drying": ["Heating & drying", "Controlled heat across the process — dryers, roasters, ovens and thermal equipment."],
   "Mixing & Blending": ["Mixing & blending", "Uniform blends at batch scale — ribbon blenders, mixers, agitators and granulators."],
-  "Size Reduction & Grinding": ["Size reduction & grinding", "Bringing material to the particle size the process needs — pulverisers, mills, grinders and crushers."],
+  "Size Reduction & Grinding": ["Crushing & grinding", "Bringing material to the particle size the process needs — pulverisers, mills, grinders and crushers."],
   "Automation & Robotics": ["Automation & controls", "The layer that makes a line run as one system — PLC and HMI control panels, automation and robotics."],
-  "Pollution Control": ["Dust collection & pollution control", "Keeping dust in the system and out of the plant air — dust collectors, bag filters, cyclones and scrubbers."],
+  "Pollution Control": ["Dust collection & pollution control equipment", "Keeping dust in the system and out of the plant air — dust collectors, bag filters, cyclones and scrubbers."],
   "Storage & Elevation": ["Storage & elevation", "Holding and lifting material between stages — silos, hoppers, day bins and storage systems."],
 };
 /* Generated category covers — the real ART machine composited into a navy scene
@@ -1349,8 +1366,8 @@ const HOME_RANGE = [
   { cat: "Heating & Drying", display: "Heating & Drying", tile: "assets/categories/solutions/v4/tile-4.webp" },
   { cat: "Cleaning, Sorting & Grading", display: "Cleaning & Sorting", tile: "assets/categories/solutions/v4/tile-5.webp" },
   { cat: "Size Reduction & Grinding", display: "Crushing & Grinding", tile: "assets/categories/solutions/v4/tile-6.webp" },
-  { cat: "Process Equipment", display: "Cutting", groupsOnly: ["cutting-slicing", "hulling-de-stemming"], tile: "assets/categories/solutions/v4/tile-7.webp" },
-  { cat: "Process Equipment", display: "Cooling", groupsOnly: ["cooling-freezing", "air-climate"], tile: "assets/categories/solutions/v4/tile-8.webp" },
+  { cat: "Process Equipment", display: "Cutting", groupsOnly: ["cutting-slicing"], tile: "assets/categories/solutions/v4/tile-7.webp" },
+  { cat: "Process Equipment", display: "Cooling", groupsOnly: ["cooling-freezing"], tile: "assets/categories/solutions/v4/tile-8.webp" },
   { cat: "Packaging", display: "Packaging", tile: "assets/categories/solutions/v4/tile-9.webp" },
   /* Tenth tile, client 2026-08-16: "Much More" was taken off the Packaging
      label and given a tile of its own so the range is complete — this one
@@ -1536,7 +1553,7 @@ ${leftovers.length ? `    <section class="cg-group" id="more">
   return shell({
     page: "catalog", base: "../",
     title: `${heading} | ART Mechatronics`,
-    desc: clip(blurb, 155),
+    desc: clip(`${heading} by ART Mechatronics — ${gs.slice(0, 4).map((x) => x.name.toLowerCase()).join(", ")}${gs.length > 4 ? " and more" : ""}; ${prods.length} machines for turnkey processing and packaging lines.`, 158),
     canonical: abs(`categories/${slug}.html`),
     main,
     schema: { "@context": "https://schema.org", "@graph": [...listingSchema(abs(`categories/${slug}.html`), heading, blurb)["@graph"], cr.schema] },

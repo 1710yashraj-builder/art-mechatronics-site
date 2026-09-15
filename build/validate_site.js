@@ -352,6 +352,41 @@ notes.push(`${jsFiles.length} JavaScript files`);
       errors.push(`placeholder prose: ${hits.length} industry page(s) still carry generated filler text — ${hits.slice(0, 6).join(", ")}${hits.length > 6 ? ", …" : ""}`);
     notes.push(`${pages.length} industry pages checked for placeholder prose`);
 
+    /* NO PARENT-COPIED SECTIONS (added 2026-09-13 after the founder-side audit).
+       Child pages had whole sections byte-identical to their parent's — the
+       Nutraceutical page carried Pharma's "Tablet Manufacturing Process". A
+       section may be shared only if it is generic, the child's own main flow, or
+       named after something that makes the child distinct from its parent. */
+    {
+      const groupsFile = path.join(ROOT, "build/data/industry-groups.json");
+      if (fs.existsSync(groupsFile)) {
+        const G = JSON.parse(fs.readFileSync(groupsFile, "utf8"));
+        const bySlug = new Map(pages.map((p) => [p.slug, p]));
+        const GENERIC = new Set(["INTRODUCTION","APPLICATIONS","CALL TO ACTION","WHY CHOOSE ART MECHATRONICS"]);
+        const STOP = new Set(["plant","processing","machinery","food","industry","product","products","complete","process"]);
+        const base = (n) => String(n||"").split(" – ")[0].split(" - ")[0].trim();
+        const words = (n) => new Set(base(n).toLowerCase().replace(/[^a-z0-9 ]/g," ").split(" ").filter((w)=>w.length>3&&!STOP.has(w)));
+        const sig = (s) => JSON.stringify(s.blocks || []);
+        const dup = [];
+        for (const g of G.groups || []) {
+          const par = bySlug.get(g.page); if (!par) continue;
+          const psigs = new Set((par.sections||[]).map(sig)); const pw = words(par.shortName);
+          for (const sub of g.subs || []) {
+            const c = bySlug.get(sub.slug); if (!c || c === par) continue;
+            const own = new Set([...words(c.shortName)].filter((w)=>!pw.has(w)));
+            for (const s of c.sections || []) {
+              const k = String(s.key||""); if (GENERIC.has(k) || k.includes("PROCESS FLOW") || !psigs.has(sig(s))) continue;
+              const kw = new Set(k.toLowerCase().replace(/[^a-z0-9 ]/g," ").split(" "));
+              if ([...own].some((w)=>kw.has(w))) continue;
+              dup.push(`${c.slug}: "${k}"`);
+            }
+          }
+        }
+        if (dup.length) errors.push(`parent-copied section: ${dup.length} child section(s) are byte-identical to the parent's — ${dup.slice(0,4).join(" | ")}${dup.length>4?" …":""}`);
+        notes.push(`0 parent-copied sections on child pages`);
+      }
+    }
+
     /* A machine list must contain MACHINES. The /industries/packaging page shipped an
        entire internal website brief inside its blocks — "[list patent numbers]",
        "logo strip of 8-12 client logos", "IMAGES SENT TO HARSH" — and several pages

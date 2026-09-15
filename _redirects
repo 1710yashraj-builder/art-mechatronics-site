@@ -178,3 +178,6 @@
 /blog/*  /  301
 /news-media/*  /  301
 
+
+# 2026-09-14: the plain spice Elaichi page was retired — Spices has Cardamom; the Mouth Freshener item is the silver-coated product
+/industries/elaichi /industries/silver-coated-elaichi 301

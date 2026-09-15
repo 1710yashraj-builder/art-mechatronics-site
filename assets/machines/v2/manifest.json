@@ -6172,17 +6172,6 @@
    "disclosure": true,
    "alt": "Representative Textile process equipment by ART Mechatronics"
   },
-  "elaichi": {
-   "assetIds": [
-    "process-cutting-slicing",
-    "cleaning-air-aspiration",
-    "mixing-ribbon-paddle"
-   ],
-   "category": "Process Equipment",
-   "hero": "assets/machines/v2/industries/mouth-freshner/hero-16x9.webp",
-   "disclosure": true,
-   "alt": "Representative Elaichi Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
-  },
   "hookah": {
    "assetIds": [
     "conveying-belt-roller",
@@ -8166,7 +8155,7 @@
     "mixing-ribbon-paddle"
    ],
    "category": "Process Equipment",
-   "hero": "assets/machines/v2/industries/mouth-freshner/hero-16x9.webp",
+   "hero": "assets/machines/v2/industries/mouth-freshener/hero-16x9.webp",
    "disclosure": true,
    "alt": "Representative Mouth Freshener process equipment by ART Mechatronics"
   },
@@ -8493,6 +8482,28 @@
    "hero": "assets/machines/v2/industries/pharmaceutical/hero-16x9.webp",
    "disclosure": true,
    "alt": "Representative Pharmaceutical Syrup Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "silver-coated-elaichi": {
+   "assetIds": [
+    "process-cutting-slicing",
+    "cleaning-air-aspiration",
+    "mixing-ribbon-paddle"
+   ],
+   "category": "Process Equipment",
+   "hero": "assets/machines/v2/industries/mouth-freshener/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Silver Coated Elaichi (Scented Cardamom) Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
+  },
+  "silver-coated-khajoor": {
+   "assetIds": [
+    "process-cutting-slicing",
+    "cleaning-air-aspiration",
+    "mixing-ribbon-paddle"
+   ],
+   "category": "Process Equipment",
+   "hero": "assets/machines/v2/industries/mouth-freshener/hero-16x9.webp",
+   "disclosure": true,
+   "alt": "Representative Silver Coated Khajoor (Scented Dates) Processing Plant & Machinery Solutions process equipment by ART Mechatronics"
   }
  }
 }

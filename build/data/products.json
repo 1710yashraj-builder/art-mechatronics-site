@@ -751,7 +751,7 @@
  },
  {
   "slug": "centralised-dust-collection-system",
-  "shortName": "Centralised Dust Collection System",
+  "shortName": "Centralised Dust Collection System (Multi-Point)",
   "h1": "Centralised Dust Collection System (Multi-Point Industrial Dust Extraction & Pollution Control Solution)",
   "metaTitle": "Centralised Dust Collection System | Central Dust Extraction System & Industrial Pollution Control Solution",
   "metaDesc": "High-efficiency centralized dust collection system for multi-point industrial dust extraction. Complete turnkey central dust control solutions for large plants.",
@@ -10727,7 +10727,7 @@
  },
  {
   "slug": "shredder-machine",
-  "shortName": "Shredder Machine",
+  "shortName": "Industrial Waste Shredder",
   "h1": "Shredder Machine (Industrial Waste Shredder & Material Size Reduction System)",
   "metaTitle": "Shredder Machine | Industrial Shredder, Waste Shredder & Material Size Reduction System",
   "metaDesc": "Heavy-duty shredder machine for plastic, metal, paper, wood and industrial waste. Industrial shredders for recycling and size reduction applications.",
@@ -37371,7 +37371,7 @@
  },
  {
   "slug": "centralised-dust-collection-system-2",
-  "shortName": "Centralised Dust Collection System",
+  "shortName": "Centralised Dust Collection System (Industrial)",
   "h1": "Centralised Dust Collection System (Industrial Dust Extraction & Air Pollution Control System)",
   "metaTitle": "Centralised Dust Collection System | Industrial Dust Collector System",
   "metaDesc": "High-performance centralized dust collection system for industrial dust extraction, air filtration and pollution control. Industrial dust collector system for food, pharma, chemical and manufacturing industries.",
@@ -60639,7 +60639,7 @@
  {
   "slug": "count-and-stack",
   "shortName": "Count & Stack",
-  "h1": "Counting & Stacking Machine (Automatic Product Counting & Stacking System)",
+  "h1": "Count & Stack Machine (Automatic Product Counting & Stacking System)",
   "metaTitle": "Counting & Stacking Machine | Automatic Product Counting and Stacking System",
   "metaDesc": "High-performance counting and stacking machine for automatic product counting, grouping and stacking applications. Industrial counting & stacking machine for sachets, pouches, packets, tobacco packs, FMCG, food and pharma industries.",
   "category": "Cleaning & Sorting",
@@ -62028,7 +62028,7 @@
  },
  {
   "slug": "filling",
-  "shortName": "Filling",
+  "shortName": "Sack & Bag Filling",
   "h1": "Sack & Bag Filling Machine (Automatic Sack and Bag Filling System)",
   "metaTitle": "Sack & Bag Filling Machine | Automatic Sack and Bag Filling System",
   "metaDesc": "High-performance sack and bag filling machine for automatic bulk material filling applications. Industrial sack and bag filling machine for grains, flour, chemicals, cement, fertilizer, feed and bulk packaging industries.",
@@ -63418,7 +63418,7 @@
  },
  {
   "slug": "rinsing",
-  "shortName": "Rinsing",
+  "shortName": "Can, Jar & Box Rinsing",
   "h1": "Can, Jar & Box Rinsing Machine (Automatic Container Cleaning & Rinsing System)",
   "metaTitle": "Can, Jar & Box Rinsing Machine | Automatic Container Cleaning & Rinsing Machine",
   "metaDesc": "High-performance rinsing machine for cans, jars and boxes for automatic container cleaning applications. Industrial rinsing machine for food, beverage, pharma, cosmetic, FMCG and packaging industries.",
@@ -63591,7 +63591,7 @@
  },
  {
   "slug": "filling-2",
-  "shortName": "Filling",
+  "shortName": "Can, Jar & Box Filling",
   "h1": "Can, Jar & Box Filling Machine (Automatic Container Filling System)",
   "metaTitle": "Can, Jar & Box Filling Machine | Automatic Container Filling Machine",
   "metaDesc": "High-performance can, jar and box filling machine for automatic container filling applications. Industrial filling machine for food, beverages, powders, spices, sauces, tobacco, cosmetics and FMCG packaging industries.",
@@ -63937,7 +63937,7 @@
  },
  {
   "slug": "sealing",
-  "shortName": "Sealing",
+  "shortName": "Can, Jar & Box Sealing",
   "h1": "Can, Jar & Box Sealing Machine (Automatic Container Sealing System)",
   "metaTitle": "Can, Jar & Box Sealing Machine | Automatic Container Sealing Machine",
   "metaDesc": "High-performance can, jar and box sealing machine for automatic container sealing applications. Industrial sealing machine for tin cans, jars, food containers, cosmetics, pharmaceuticals, FMCG and retail packaging industries.",
@@ -65500,7 +65500,7 @@
  },
  {
   "slug": "filling-3",
-  "shortName": "Filling",
+  "shortName": "Cup & Tray Filling",
   "h1": "Cup & Tray Filling Machine (Automatic Food Filling System)",
   "metaTitle": "Cup & Tray Filling Machine | Automatic Food Cup & Tray Filling Machine",
   "metaDesc": "High-performance cup and tray filling machine for automatic food filling applications. Industrial filling machine for yogurt cups, food trays, beverages, sauces, desserts, dairy and ready meal industries.",
@@ -65673,7 +65673,7 @@
  },
  {
   "slug": "sealing-2",
-  "shortName": "Sealing",
+  "shortName": "Cup & Tray Sealing",
   "h1": "Cup & Tray Sealing Machine (Automatic Food Container Sealing System)",
   "metaTitle": "Cup & Tray Sealing Machine | Automatic Food Container Sealing Machine",
   "metaDesc": "High-performance cup and tray sealing machine for automatic food container sealing applications. Industrial sealing machine for yogurt cups, food trays, beverages, ready meals, dairy and food processing industries.",
@@ -66544,7 +66544,7 @@
  },
  {
   "slug": "rinsing-2",
-  "shortName": "Rinsing",
+  "shortName": "Container Rinsing",
   "h1": "Container Rinsing Machine (Automatic Bottle, Jar & Drum Washing System)",
   "metaTitle": "Container Rinsing Machine | Automatic Bottle, Jar & Drum Washing Machine",
   "metaDesc": "High-performance container rinsing machine for bottles, jars, drums, gallons and industrial containers. Automatic rinsing and washing machine for beverage, food, chemical and FMCG industries.",
@@ -66890,7 +66890,7 @@
  },
  {
   "slug": "filling-4",
-  "shortName": "Filling",
+  "shortName": "Container Filling",
   "h1": "Container Filling Machine (Automatic Bottle, Jar, Drum & Gallon Filling System)",
   "metaTitle": "Container Filling Machine | Automatic Bottle, Jar, Drum & Gallon Filling Machine",
   "metaDesc": "High-performance container filling machine for bottles, jars, drums, gallons and industrial containers. Automatic liquid filling machine for beverages, oils, chemicals, cosmetics and FMCG industries.",
@@ -67236,7 +67236,7 @@
  },
  {
   "slug": "sealing-3",
-  "shortName": "Sealing",
+  "shortName": "Container Sealing",
   "h1": "Container Sealing Machine (Automatic Bottle, Jar & Drum Sealing System)",
   "metaTitle": "Container Sealing Machine | Automatic Bottle, Jar & Drum Sealing Machine",
   "metaDesc": "High-performance container sealing machine for bottles, jars, jerry cans, drums and industrial containers. Automatic sealing machine for beverage, chemical, cosmetic and FMCG industries.",
@@ -72611,8 +72611,8 @@
  },
  {
   "slug": "x-ray-inspection-2",
-  "shortName": "X Ray Inspection",
-  "h1": "Ray Inspection Machine (Industrial X-Ray Inspection System)",
+  "shortName": "X-Ray Inspection System",
+  "h1": "X-Ray Inspection Machine (Industrial X-Ray Inspection System)",
   "metaTitle": "X Ray Inspection Machine | Industrial X-Ray Inspection System for Packaging & Processing",
   "metaDesc": "High-performance X ray inspection machine for food, pharmaceutical and packaging industries. Advanced product inspection system for contamination detection, quality control and packaging verification.",
   "category": "Robotic Carton Packer",
