@@ -545,3 +545,47 @@
     }, 1600);
   }
 })();
+
+/* ===== Enquiry counting (2026-09-17) =====
+   Anurag asked "how do I know where the ₹30k goes?" — the honest answer is a
+   count of what the site actually produces. First-party and cookieless: one
+   beacon per page view and one per enquiry click (WhatsApp / call / email /
+   form), tagged with the market button the visitor chose. Nothing identifies
+   the visitor; the server adds only their country. Fail-open: any error here
+   must never stop the click it is counting. */
+(function () {
+  if (!("sendBeacon" in navigator)) return;
+  if (/^\/report/.test(location.pathname)) return;          // our own dashboard is not traffic
+  var send = function (type, market) {
+    try {
+      var body = JSON.stringify({ t: type, m: market || "", p: location.pathname, r: document.referrer || "" });
+      navigator.sendBeacon("/api/enq", new Blob([body], { type: "application/json" }));
+    } catch (e) { /* counting must never break the site */ }
+  };
+  var marketOf = function (s) {
+    s = String(s || "").toLowerCase();
+    if (/india|^\+?91|^91/.test(s)) return "india";
+    if (/uae|dubai|^\+?971|^971/.test(s)) return "uae";
+    if (/thai|bangkok|^\+?66|^66/.test(s)) return "thailand";
+    return "";
+  };
+  send("view", "");
+  document.addEventListener("click", function (e) {
+    var t = e.target && e.target.closest ? e.target.closest(".rpk-opt, a[href^='tel:'], a[href^='mailto:']") : null;
+    if (!t) return;
+    if (t.classList.contains("rpk-opt")) {
+      var head = document.querySelector(".rpk-head");
+      var mode = head && head.classList.contains("rpk-call") ? "call" : "whatsapp";
+      var region = t.querySelector(".rpk-r");
+      send(mode, marketOf(region ? region.textContent : t.textContent));
+      return;
+    }
+    if (t.hasAttribute("data-call-picker")) return;           // the picker counts this one
+    var href = t.getAttribute("href") || "";
+    if (href.indexOf("tel:") === 0) send("call", marketOf(href.replace(/^tel:\+?/, "")));
+    else if (href.indexOf("mailto:") === 0) send("email", "");
+  }, true);
+  document.addEventListener("submit", function (e) {
+    if (e.target && e.target.tagName === "FORM") send("form", "");
+  }, true);
+})();

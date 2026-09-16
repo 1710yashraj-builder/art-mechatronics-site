@@ -5,6 +5,8 @@
 
 User-agent: *
 Allow: /
+Disallow: /report
+Disallow: /api/
 
 # --- AI crawlers: explicitly welcomed ---
 User-agent: GPTBot

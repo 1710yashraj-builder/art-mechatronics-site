@@ -1,0 +1,22 @@
+# Cloudflare Pages config. The only reason this file exists is the enquiry
+# counter (functions/api/*): Pages Functions need the D1 binding declared here
+# for BOTH environments, or /api/enq answers 500 on preview while production
+# works — and nobody notices until the report page is empty.
+name = "art-mechatronics"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "dist/client"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "art-enquiries"
+database_id = "8e5ab625-39b1-44f2-ae4e-2fc18c8a2402"
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "art-enquiries"
+database_id = "8e5ab625-39b1-44f2-ae4e-2fc18c8a2402"
+
+# Preview gets the same report key as a plain var (Pages secrets are per
+# environment and `wrangler pages secret put` only reaches production).
+[env.preview.vars]
+REPORT_KEY = "23846aa63e7866bfdd7db5128c4ca415"

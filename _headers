@@ -17,3 +17,11 @@
 
 /js/*
   Cache-Control: public, max-age=604800
+
+# Enquiry counter + private report: never cached, never indexed.
+/api/*
+  Cache-Control: no-store
+
+/report
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
