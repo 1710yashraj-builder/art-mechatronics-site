@@ -1,24 +1,56 @@
 {
-  "updated": "2026-09-17",
-  "plan": {
-    "fee": "₹30,000 per month",
-    "month1": "September 2026",
-    "setup": "Absorbed — the August–September site build, go-live and audit fixes were the setup",
-    "items": [
-      "One new buyer-intent page, or a major upgrade of an existing one — written to be quoted by Google and AI assistants (UAE first, then Thailand)",
-      "One listing or marketplace submission with proof (directories, IndiaMART export, Alibaba)",
-      "Google Business Profile: one post per office, plus the review-request ritual",
-      "Monitoring — Search Console (Dubai and Bangkok views), monthly AI-answer checks, enquiry counts — and the one-page report + 15-minute call"
-    ]
+ "updated": "2026-09-17",
+ "plan": {
+  "fee": "₹30,000 per month",
+  "month1": "September 2026",
+  "setup": "Absorbed — the August–September site build, go-live and audit fixes were the setup",
+  "items": [
+   "One new buyer-intent page, or a major upgrade of an existing one — written to be quoted by Google and AI assistants (UAE first, then Thailand)",
+   "One listing or marketplace submission with proof (directories, IndiaMART export, Alibaba)",
+   "Google Business Profile: one post per office, plus the review-request ritual",
+   "Monitoring — Search Console (Dubai and Bangkok views), monthly AI-answer checks, enquiry counts — and the one-page report + 15-minute call"
+  ]
+ },
+ "delivered": [
+  {
+   "date": "2026-09-05",
+   "item": "artmechatronics.com moved to the new site — valid certificate, worldwide edge, email untouched",
+   "link": "https://artmechatronics.com/"
   },
-  "delivered": [
-    { "date": "2026-09-05", "item": "artmechatronics.com moved to the new site — valid certificate, worldwide edge, email untouched", "link": "https://artmechatronics.com/" },
-    { "date": "2026-09-05", "item": "Industries rebuilt to the founder's Excel: 41 industries, 314 product pages, every chip opens its own page", "link": "https://artmechatronics.com/industries" },
-    { "date": "2026-09-05", "item": "222 industry pages rewritten with product-specific process content", "link": "https://artmechatronics.com/industries/turmeric" },
-    { "date": "2026-09-16", "item": "Founder audit: all 75 findings fixed (copied sections, Chilli, Beverage, Dairy, product names, homepage counts)", "link": "https://artmechatronics.com/industries/pharmaceutical-syrup" },
-    { "date": "2026-09-16", "item": "Silver Coated Elaichi and Silver Coated Khajoor pages restored under Mouth Freshener", "link": "https://artmechatronics.com/industries/silver-coated-elaichi" },
-    { "date": "2026-09-17", "item": "Enquiry counting switched on — every WhatsApp, call, email and form click is now counted by market and page", "link": "https://artmechatronics.com/report" }
-  ],
-  "searchConsole": { "status": "pending", "note": "Needs one DNS record (Yash) and a Google account to own the property — Anurag's info@ address is added as owner" },
-  "aiChecks": []
+  {
+   "date": "2026-09-05",
+   "item": "Industries rebuilt to the founder's Excel: 41 industries, 314 product pages, every chip opens its own page",
+   "link": "https://artmechatronics.com/industries"
+  },
+  {
+   "date": "2026-09-05",
+   "item": "222 industry pages rewritten with product-specific process content",
+   "link": "https://artmechatronics.com/industries/turmeric"
+  },
+  {
+   "date": "2026-09-16",
+   "item": "Founder audit: all 75 findings fixed (copied sections, Chilli, Beverage, Dairy, product names, homepage counts)",
+   "link": "https://artmechatronics.com/industries/pharmaceutical-syrup"
+  },
+  {
+   "date": "2026-09-16",
+   "item": "Silver Coated Elaichi and Silver Coated Khajoor pages restored under Mouth Freshener",
+   "link": "https://artmechatronics.com/industries/silver-coated-elaichi"
+  },
+  {
+   "date": "2026-09-17",
+   "item": "Enquiry counting switched on — every WhatsApp, call, email and form click is now counted by market and page",
+   "link": "https://artmechatronics.com/report"
+  },
+  {
+   "date": "2026-09-17",
+   "item": "Google Search Console connected and the sitemap submitted — Google now reads the site directly",
+   "link": "https://artmechatronics.com/sitemap.xml"
+  }
+ ],
+ "searchConsole": {
+  "status": "connected",
+  "note": "Verified 17 Sep 2026; sitemap submitted (383 URLs). First Google data appears within a few days. Anurag's Google account still to be added as owner."
+ },
+ "aiChecks": []
 }
