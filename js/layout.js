@@ -63,7 +63,6 @@
     ["catalog",   "Products",   "catalog.html"],
     ["services",  "Services",   "services.html"],
     ["partner",   "Partner With Us", "partner.html"],
-    ["thailand",  "Thailand",   "th/index.html"],
     ["about",     "About Us",   "about.html", [
       ["about",          "About ART",      "about.html"],
       ["infrastructure", "Infrastructure", "infrastructure.html"],
@@ -123,7 +122,7 @@
         <div class="footer-col">
           <img src="${BASE}assets/logo-white.png" alt="${B.name}" width="460" height="204">
           <p class="footer-blurb">Backed by Thermocare Group experience since 1997.</p>
-          <div class="footer-flags">${B.presence.map(c => `<span>${c}</span>`).join('<span aria-hidden="true">·</span>')}</div>
+          <div class="footer-flags">${B.presence.map(c => c === "Thailand" ? `<a href="${href("th/index.html")}">Thailand</a>` : `<span>${c}</span>`).join('<span aria-hidden="true">·</span>')}</div>
         </div>
         <div class="footer-col">
           <h2>Explore our complete company portfolio</h2>
@@ -261,14 +260,24 @@
       head.querySelector(".rpk-ic").innerHTML = mode === "call" ? CALL_IC : WA_IC;
       overlay.querySelector("#rpk-title").textContent = mode === "call" ? "Call ART Mechatronics" : "Chat on WhatsApp";
       const list = overlay.querySelector(".rpk-list");
-      list.innerHTML = CONTACTS.map((c, i) =>
+      /* Nearest office first (2026-09-17): the visitor's country, as Cloudflare
+         reports it via /api/geo, moves that office to the top. Every office stays
+         listed; a visitor in Bangkok simply sees Thailand before India. */
+      const GEO_REGION = { TH: "Thailand", AE: "UAE", IN: "India" };
+      let geo = "";
+      try { geo = sessionStorage.getItem("art-geo") || ""; } catch (_) { geo = ""; }
+      const preferred = GEO_REGION[geo];
+      const ordered = preferred
+        ? CONTACTS.filter(c => c.region === preferred).concat(CONTACTS.filter(c => c.region !== preferred))
+        : CONTACTS.slice();
+      list.innerHTML = ordered.map((c, i) =>
         '<button class="rpk-opt" type="button" data-i="' + i + '">' +
         '<span class="rpk-flag" aria-hidden="true">' + (FLAG[c.region] || "📞") + '</span>' +
         '<span class="rpk-r">' + c.region + '</span>' +
         '<span class="rpk-num">' + c.display + '</span></button>'
       ).join("");
       list.querySelectorAll(".rpk-opt").forEach(btn =>
-        btn.addEventListener("click", () => choose(CONTACTS[+btn.dataset.i]))
+        btn.addEventListener("click", () => choose(ordered[+btn.dataset.i]))
       );
       lastFocus = document.activeElement;
       overlay.classList.add("rpk-open");
@@ -296,6 +305,13 @@
     return { open };
   })();
   ART.picker = picker;
+
+  try {
+    if (!sessionStorage.getItem("art-geo") && window.fetch) {
+      fetch("/api/geo", { cache: "no-store" }).then(r => r.ok ? r.json() : null)
+        .then(j => { if (j && j.c) sessionStorage.setItem("art-geo", j.c); }).catch(() => {});
+    }
+  } catch (_) { /* storage blocked: default order */ }
 
   // Intercept every WhatsApp link so it opens the region picker (href stays the fallback).
   document.addEventListener("click", e => {

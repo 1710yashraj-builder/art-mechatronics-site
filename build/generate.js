@@ -1238,7 +1238,7 @@ const MARKETS = [
   { file: "myanmar", name: "Myanmar", ratio: 1.5 },
   { file: "bhutan", name: "Bhutan", ratio: 1.5 },
   { file: "indonesia", name: "Indonesia", ratio: 1.5 },
-  { file: "thailand", name: "Thailand", ratio: 1.5 },
+  { file: "thailand", name: "Thailand", ratio: 1.5, href: "th/" },   // the only market with its own section so far
   { file: "vietnam", name: "Vietnam", ratio: 1.5 },
   { file: "uk", name: "UK", ratio: 1.667 },
   { file: "malaysia", name: "Malaysia", ratio: 2.0 },
@@ -1266,11 +1266,11 @@ function marketsBand() {
     const h = Math.round(Math.max(80, Math.min(112, Math.sqrt(TARGET / m.ratio))));
     const w = Math.round(h * m.ratio);
     return `
-        <li class="mk-item">
+        <li class="mk-item">${m.href ? `<a href="${m.href}" aria-label="${attr(m.name)} office">` : ""}
           <img class="mk-flag" src="assets/flags/${m.file}.svg" alt="${attr(m.name)}"
                style="--fw:${w}px;--fh:${h}px" width="${w}" height="${h}"
                loading="lazy" decoding="async">
-          <span class="mk-name">${esc(m.name)}</span>
+          <span class="mk-name">${esc(m.name)}</span>${m.href ? "</a>" : ""}
         </li>`;
   }).join("");
   return `
