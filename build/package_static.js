@@ -30,7 +30,7 @@ for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
 }
 // "data" holds the report log the private /report page fetches at runtime —
 // nothing references it from HTML, so the reference scanner cannot find it.
-for (const directory of ["css", "js", "products", "industries", "categories", "data"]) {
+for (const directory of ["css", "js", "products", "industries", "categories", "data", "th"]) {
   copyTree(path.join(ROOT, directory), path.join(CLIENT, directory));
 }
 

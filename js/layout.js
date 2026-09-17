@@ -63,6 +63,7 @@
     ["catalog",   "Products",   "catalog.html"],
     ["services",  "Services",   "services.html"],
     ["partner",   "Partner With Us", "partner.html"],
+    ["thailand",  "Thailand",   "th/index.html"],
     ["about",     "About Us",   "about.html", [
       ["about",          "About ART",      "about.html"],
       ["infrastructure", "Infrastructure", "infrastructure.html"],
@@ -300,6 +301,9 @@
   document.addEventListener("click", e => {
     const a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
     if (!a) return;
+    // A link that already knows its region (the Thailand pages' +66 button)
+    // skips the picker; the beacon below counts it with its market.
+    if (a.hasAttribute("data-wa-direct")) return;
     e.preventDefault();
     let text = "";
     const m = /[?&]text=([^&]*)/.exec(a.getAttribute("href") || "");
@@ -571,8 +575,9 @@
   };
   send("view", "");
   document.addEventListener("click", function (e) {
-    var t = e.target && e.target.closest ? e.target.closest(".rpk-opt, a[href^='tel:'], a[href^='mailto:']") : null;
+    var t = e.target && e.target.closest ? e.target.closest(".rpk-opt, a[href^='tel:'], a[href^='mailto:'], a[href*='wa.me/'][data-wa-direct]") : null;
     if (!t) return;
+    if (t.hasAttribute("data-wa-direct")) { send("whatsapp", marketOf((t.getAttribute("href") || "").replace(/^.*wa\.me\//, ""))); return; }
     if (t.classList.contains("rpk-opt")) {
       var head = document.querySelector(".rpk-head");
       var mode = head && head.classList.contains("rpk-call") ? "call" : "whatsapp";

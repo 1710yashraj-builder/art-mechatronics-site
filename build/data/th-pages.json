@@ -1,0 +1,4 @@
+{
+ "_note": "Thailand machine pages. Each entry becomes /th/<slug> — a Thailand-framed page for a product that exists in products.json (same slug). Order = the founder's priority list (top first). Fill from Anurag's 47-machine list; an empty list renders only the /th/ landing page.",
+ "pages": []
+}

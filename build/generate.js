@@ -637,7 +637,8 @@ function linkMaybe(text, linkMachine, chip) {
 }
 
 /* ---- page shell ---- */
-function shell({ page, base, title, desc, canonical, schema, main, ogType, extraJS, ogImage, noindex }) {
+function shell({ page, base, title, desc, canonical, schema, main, ogType, extraJS, ogImage, noindex, alternates }) {
+  const altLinks = (alternates || []).map((a) => `\n  <link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">`).join("");
   const extra = extraJS ? `  <script src="${base}js/catalog-search.js${CSSV}"></script>\n` : "";
   /* Any page carrying either tile grid gets the popup script. Detected from the
      markup rather than passed in as a flag, so a page that uses a grid cannot
@@ -656,7 +657,7 @@ function shell({ page, base, title, desc, canonical, schema, main, ogType, extra
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(title)}</title>
   <meta name="description" content="${attr(desc)}">
-  <link rel="canonical" href="${canonical}">${robots}
+  <link rel="canonical" href="${canonical}">${altLinks}${robots}
   <meta property="og:type" content="${ogType || "website"}">
   <meta property="og:title" content="${attr(title)}">
   <meta property="og:description" content="${attr(desc)}">
@@ -800,7 +801,7 @@ function renderProduct(p, ctx) {
   return shell({
     page: "catalog", base, title: p.seoTitle, desc: p.seoDesc,
     ogImage: absoluteMediaPath(productSocialImage),
-    canonical: abs(`products/${p.slug}.html`),
+    canonical: abs(`products/${p.slug}.html`), alternates: thAlternates(p.slug),
     schema: { "@context": "https://schema.org", "@graph": [schema, cr.schema] },
     main, ogType: "product",
     noindex: !productIndexable(p.slug),
@@ -1031,6 +1032,137 @@ function projectRails(base) {
 }
 
 /* ---- /projects — every project photograph, at its own shape ---- */
+
+/* ============================================================
+   THAILAND section — /th/  (2026-09-17, Month 1 of the retainer)
+   One landing page for the Pattaya office plus one Thailand-framed page per
+   machine listed in build/data/th-pages.json (the founder's priority list).
+   Every /th/<slug> page pairs with /products/<slug> through reciprocal
+   hreflang (en-th ↔ x-default) — Google ignores hreflang that is declared on
+   one side only, which is why renderProduct asks thAlternates() as well.
+   Facts here mirror build/data/locations.json and js/data.js; change them
+   there first, then here. No claims beyond what the site already states.
+   ============================================================ */
+const TH = {
+  office: { name: "Thailand Marketing Office", street: "Level G, Laguna Beach Resort", city: "Pattaya City", country: "Thailand", iso: "TH" },
+  role: "Marketing office for South-East Asia", serviceCity: "Chonburi",
+  phoneDisplay: "+66 838291089", phoneDial: "66838291089",
+  line: "https://line.me/ti/p/W5CxmQgXQ4", lineQr: "assets/social/line-anranag-qr.png".replace("anranag", "anurag"),
+};
+const thQuoteBand = (name) => quoteBand(name).replace(`tel:+${BRAND.phoneDial}">${BRAND.phoneDisplay}`, `tel:+${TH.phoneDial}">${TH.phoneDisplay}`);
+const thWa = (name) => wa(`Hi ART Mechatronics Thailand, I'd like details for ${name}. [Thailand] Please share.`).replace(BRAND.phoneDial, TH.phoneDial);
+const thOfficeSchema = () => ({
+  "@type": "LocalBusiness", "@id": `${BRAND.site}/th/#office`,
+  name: `${BRAND.name} — ${TH.office.name}`, url: abs("th/index.html"), telephone: "+" + TH.phoneDial,
+  parentOrganization: { "@id": `${BRAND.site}/#organization` },
+  address: { "@type": "PostalAddress", streetAddress: TH.office.street, addressLocality: TH.office.city, addressCountry: TH.office.iso },
+  areaServed: { "@type": "Country", name: "Thailand" },
+});
+const thContactRow = (name) => `<div class="quote-band__links">
+        <a class="btn btn--wa btn--lg" href="${thWa(name)}" data-wa-direct target="_blank" rel="noopener">WhatsApp Thailand</a>
+        <a class="btn btn--outline-light btn--lg" href="tel:+${TH.phoneDial}">${TH.phoneDisplay}</a>
+        <a class="btn btn--outline-light btn--lg" href="${TH.line}" target="_blank" rel="noopener">Add us on LINE</a>
+        <a class="btn btn--outline-light btn--lg" href="mailto:${BRAND.email}">${BRAND.email}</a>
+      </div>`;
+const thOfficeBlock = (base) => `<section class="md-section"><div class="wrap">
+    <span class="eyebrow">Thailand office</span>
+    <h2>${esc(TH.office.name)}, ${esc(TH.office.city)}</h2>
+    <div class="sv-grid sv-grid--pair" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;align-items:start">
+      <div>
+        <p><address style="font-style:normal">${esc(TH.office.street)}<br>${esc(TH.office.city)}, ${esc(TH.office.country)}</address></p>
+        <p>${esc(TH.role)} · service team in ${esc(TH.serviceCity)}. Design and manufacturing in Kanpur, India.</p>
+        <p><a href="tel:+${TH.phoneDial}">${TH.phoneDisplay}</a> · <a href="mailto:${BRAND.email}">${BRAND.email}</a> · <a href="${rel(base, "contact.html")}#line">LINE</a></p>
+      </div>
+      <figure style="margin:0;text-align:center">
+        <img src="${base}${TH.lineQr}" alt="LINE QR code to add ART Mechatronics" width="168" height="168" loading="lazy" decoding="async">
+        <figcaption style="font-size:.85rem;color:var(--steel)">Scan in LINE → Add friends → QR code</figcaption>
+      </figure>
+    </div>
+  </div></section>`;
+function thAlternates(slug) {
+  return TH_PAGES.some((e) => e.slug === slug)
+    ? [{ hreflang: "en-th", href: abs(`th/${slug}.html`) }, { hreflang: "x-default", href: abs(`products/${slug}.html`) }]
+    : [];
+}
+function renderThIndex(thPages, ctx) {
+  const base = "../";
+  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Thailand" }], base, abs("th/index.html"));
+  const photos = PROJECT_PHOTOS.filter((ph) => ph.place === "Thailand");
+  const machines = thPages.map((e) => ctx.selectedProducts.find((p) => p.slug === e.slug)).filter(Boolean);
+  const lines = [["coco-nut", "Coconut"], ["rice", "Rice"], ["snacks", "Snacks"], ["non-vegetarian-food", "Seafood & meat"], ["fruit-and-vegetable", "Fruit & vegetable"], ["beverage", "Beverage"], ["spices", "Spices"], ["dairy", "Dairy"]]
+    .filter(([slug]) => ctx.selectedIndustries.some((i) => i.slug === slug));
+  const photoCards = photos.map((ph) => `<figure class="cat-card" style="margin:0">
+        <img src="${base}assets/projects/v1/card/${ph.id}.webp${CSSV}" alt="${attr(`ART ${ph.cap.toLowerCase()} installed in Thailand`)}" width="640" height="480" loading="lazy" decoding="async" style="width:100%;height:auto;display:block">
+        <figcaption style="padding:.6rem .8rem"><b>${esc(ph.title)}</b><br><span style="color:var(--steel);font-size:.85rem">${esc(ph.cat)} · installed in Thailand</span></figcaption>
+      </figure>`).join("\n");
+  const machineCards = machines.map((p) => `<a class="cat-card" href="${rel(base, `th/${p.slug}.html`)}">${cardMedia(p, "products", base)}<div class="cat-card__body"><h3>${esc(p.h1.split(" (")[0])}</h3><p>${esc(String(p.intro || "").slice(0, 110))}…</p></div></a>`).join("\n");
+  const main = `
+  ${cr.html}
+  <section class="mi-hero"><div class="wrap">
+    <span class="eyebrow">ART Mechatronics · Thailand</span>
+    <h1>Processing &amp; packaging machinery for Thailand</h1>
+    <p class="lead">ART Mechatronics designs and builds processing and packaging plants in Kanpur, India, and supports Thai food, beverage and industrial manufacturers from a marketing office in Pattaya City with a service team in Chonburi. ART machines already run at customer plants in Thailand.</p>
+    ${thContactRow("machinery for a plant in Thailand")}
+  </div></section>
+  ${photos.length ? `<section class="md-section"><div class="wrap">
+    <span class="eyebrow">Installed in Thailand</span>
+    <h2>ART machines at Thai plants</h2>
+    <div class="cat-grid">${photoCards}</div>
+    <p><a href="${rel(base, "projects.html")}">See all recent projects →</a></p>
+  </div></section>` : ""}
+  ${machines.length ? `<section class="md-section"><div class="wrap">
+    <span class="eyebrow">Machines for Thai processors</span>
+    <h2>Machines we supply to Thailand</h2>
+    <div class="cat-grid">${machineCards}</div>
+  </div></section>` : `<section class="md-section"><div class="wrap">
+    <span class="eyebrow">Lines we build</span>
+    <h2>Processing lines for Thai manufacturers</h2>
+    <p class="lead">Complete lines — cleaning, processing, drying, packing and dust control — for the products Thai plants make most.</p>
+    <ul class="ig-list" style="columns:2;gap:2rem">${lines.map(([slug, label]) => `<li><a href="${rel(base, `industries/${slug}.html`)}">${esc(label)} processing plant &amp; machinery</a></li>`).join("")}</ul>
+    <p><a href="${rel(base, "catalog.html")}">Browse all ${ctx.selectedProducts.length} machines →</a></p>
+  </div></section>`}
+  ${thOfficeBlock(base)}
+  ${thQuoteBand("right machine for your plant in Thailand")}`;
+  const schema = { "@context": "https://schema.org", "@graph": [ORG_NODE, thOfficeSchema(), { "@type": "WebPage", "@id": `${abs("th/index.html")}#page`, url: abs("th/index.html"), name: "ART Mechatronics Thailand", about: { "@id": `${BRAND.site}/th/#office` } }, cr.schema] };
+  return shell({
+    page: "thailand", base,
+    title: "Processing & Packaging Machinery in Thailand | ART Mechatronics, Pattaya",
+    desc: "ART Mechatronics supplies processing and packaging machinery to Thai food, beverage and industrial plants — marketing office in Pattaya City, service team in Chonburi, installations across Thailand.",
+    canonical: abs("th/index.html"), schema, main,
+    alternates: [{ hreflang: "en-th", href: abs("th/index.html") }, { hreflang: "x-default", href: abs("index.html") }],
+  });
+}
+function renderThMachine(entry, p, ctx) {
+  const base = "../";
+  const name = p.h1.split(" (")[0].trim();
+  const cr = crumbs([{ label: "Home", href: "index.html" }, { label: "Thailand", href: "th/index.html" }, { label: name }], base, abs(`th/${p.slug}.html`));
+  const apps = (p.sections || []).find((s) => (s.key || "") === "APPLICATIONS");
+  const intro = entry.intro || p.intro || "";
+  const why = Array.isArray(entry.why) && entry.why.length ? `<section class="md-section"><div class="wrap"><span class="eyebrow">For Thai plants</span><h2>Why Thai processors choose the ${esc(name)}</h2><ul>${entry.why.map((w) => `<li>${esc(w)}</li>`).join("")}</ul></div></section>` : "";
+  const main = `
+  ${cr.html}
+  <section class="mi-hero"><div class="wrap">
+    <span class="eyebrow">Thailand · ${esc(p.category || "Machinery")}</span>
+    <h1>${esc(name)} for Thailand</h1>
+    <p class="lead">${esc(intro)}</p>
+    <p>Supplied to plants in Thailand from ART's ${esc(TH.office.name)} in ${esc(TH.office.city)}, with a service team in ${esc(TH.serviceCity)}; designed and built in Kanpur, India.</p>
+    ${thContactRow(`the ${name}`)}
+  </div></section>
+  <section class="md-section"><div class="wrap">${detailMedia(p, base, "products")}</div></section>
+  ${why}
+  ${apps ? `<section class="md-section"><div class="wrap"><span class="eyebrow">Applications</span><h2>Where the ${esc(name)} is used</h2><div class="prose">${renderBlocks(apps.blocks, ctx.linkMachine)}</div></div></section>` : ""}
+  <section class="md-section"><div class="wrap"><p>Full process description, machine list and specifications: <a href="${rel(base, `products/${p.slug}.html`)}">${esc(name)} — complete page</a>.</p></div></section>
+  ${thOfficeBlock(base)}
+  ${thQuoteBand(name)}`;
+  const schema = { "@context": "https://schema.org", "@graph": [ORG_NODE, thOfficeSchema(), { "@type": "WebPage", "@id": `${abs(`th/${p.slug}.html`)}#page`, url: abs(`th/${p.slug}.html`), name: `${name} for Thailand`, about: { "@id": `${abs(`products/${p.slug}.html`)}#product` } }, cr.schema] };
+  return shell({
+    page: "thailand", base,
+    title: `${name} for Thailand | ART Mechatronics, Pattaya`,
+    desc: entry.desc || `${name} for plants in Thailand — supplied and supported from ART Mechatronics' Pattaya office with a Chonburi service team. ${String(p.metaDesc || "").slice(0, 90)}`.trim(),
+    canonical: abs(`th/${p.slug}.html`), schema, main, alternates: thAlternates(p.slug),
+  });
+}
+
 function renderProjects() {
   const tiles = PROJECT_PHOTOS.map((ph) => `
       <li class="pj-item" data-cat="${attr(ph.cat)}">
@@ -1648,6 +1780,8 @@ function industriesUsing(product) {
   }));
 }
 const ctx = { linkMachine, industriesUsing, selectedProducts: selProd, selectedIndustries: selInd };
+const TH_PAGES = JSON.parse(fs.readFileSync(path.join(ROOT, "build/data/th-pages.json"), "utf8")).pages || [];
+for (const e of TH_PAGES) if (!selProd.some((x) => x.slug === e.slug)) throw new Error(`th-pages.json: no product with slug "${e.slug}"`);
 
 // clean output dirs
 for (const d of ["industries", "products", "categories"]) {
@@ -1669,6 +1803,12 @@ for (const c of CATEGORIES) {
 // listing hubs (search JS appended via extraJS in shell)
 fs.writeFileSync(path.join(ROOT, "industries.html"), renderIndustriesHub(selInd));
 fs.writeFileSync(path.join(ROOT, "projects.html"), renderProjects());
+{
+  const thDir = path.join(ROOT, "th"); fs.mkdirSync(thDir, { recursive: true });
+  for (const f of fs.readdirSync(thDir)) if (f.endsWith(".html")) fs.unlinkSync(path.join(thDir, f));
+  fs.writeFileSync(path.join(thDir, "index.html"), renderThIndex(TH_PAGES, ctx));
+  for (const e of TH_PAGES) fs.writeFileSync(path.join(thDir, e.slug + ".html"), renderThMachine(e, selProd.find((x) => x.slug === e.slug), ctx));
+}
 
 /* index.html is hand-maintained, but its industry grid must stay in lockstep with
    the taxonomy — so the generator owns the markup between the two markers and
@@ -1731,6 +1871,7 @@ fs.writeFileSync(path.join(ROOT, "catalog.html"), renderCatalog(selProd));
 const urls = [
   "", "about.html", "infrastructure.html", "media.html", "contact.html", "services.html", "partner.html", "careers.html", "supplier.html", "machines.html", "system.html", "control-panel.html",
   "industries.html", "catalog.html", "projects.html",
+  "th/index.html", ...TH_PAGES.map((e) => `th/${e.slug}.html`),
   ...selInd.map((i) => `industries/${i.slug}.html`),
   ...CATEGORIES.map((c) => `categories/${categorySlug(c)}.html`),
   // Only indexable product pages belong in the sitemap — submitting a noindex
