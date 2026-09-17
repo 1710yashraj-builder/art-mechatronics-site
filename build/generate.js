@@ -1060,9 +1060,9 @@ const thOfficeSchema = () => ({
 });
 const thContactRow = (name) => `<div class="quote-band__links">
         <a class="btn btn--wa btn--lg" href="${thWa(name)}" data-wa-direct target="_blank" rel="noopener">WhatsApp Thailand</a>
-        <a class="btn btn--outline-light btn--lg" href="tel:+${TH.phoneDial}">${TH.phoneDisplay}</a>
-        <a class="btn btn--outline-light btn--lg" href="${TH.line}" target="_blank" rel="noopener">Add us on LINE</a>
-        <a class="btn btn--outline-light btn--lg" href="mailto:${BRAND.email}">${BRAND.email}</a>
+        <a class="btn btn--outline-light btn--lg" style="color:#fff;border:1px solid rgba(255,255,255,.75)" href="tel:+${TH.phoneDial}">${TH.phoneDisplay}</a>
+        <a class="btn btn--outline-light btn--lg" style="color:#fff;border:1px solid rgba(255,255,255,.75)" href="${TH.line}" target="_blank" rel="noopener">Add us on LINE</a>
+        <a class="btn btn--outline-light btn--lg" style="color:#fff;border:1px solid rgba(255,255,255,.75)" href="mailto:${BRAND.email}">${BRAND.email}</a>
       </div>`;
 const thOfficeBlock = (base) => `<section class="md-section"><div class="wrap">
     <span class="eyebrow">Thailand office</span>
