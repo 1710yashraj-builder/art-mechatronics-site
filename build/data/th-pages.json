@@ -4,207 +4,535 @@
   {
    "slug": "dust-collector-machine",
    "priority": 2,
-   "founderLabel": "DUST COLLECTOR W ALL FILTERS"
+   "founderLabel": "DUST COLLECTOR W ALL FILTERS",
+   "intro": "A Dust Collector Machine captures dust at grinders, mixers, dryers and bag-tipping points and returns filtered air to the plant. Thai rice mills, sugar refineries, tapioca starch works, spice and seasoning plants and animal feed mills use dust collection at such points. ART Mechatronics has an in-plant dust collector with ducting installed at a Thai customer site and supports plants from its Pattaya office.",
+   "why": [
+    "Humid Thai air makes flour, starch and sugar dust cling and cake; extraction at source keeps it off floors and motors.",
+    "ART offers Bag House Dust Collector Machine and Cyclone Dust Collector Machine variants for rice bran, cassava flour, chilli and feed dust.",
+    "A single Centralised Dust Collection System (Multi-Point) can serve ART's Hammer Mill Machine, Bag Dump Station and Fluidized Bed Dryer – FBD.",
+    "ART's service team in Chonburi handles filter changes, ducting extensions and commissioning for Thai plants."
+   ],
+   "desc": "Dust Collector Machine for rice, sugar, tapioca, spice and feed plants in Thailand. ART Mechatronics builds in Kanpur; Pattaya office, Chonburi service."
   },
   {
    "slug": "paddle-mixer",
    "priority": 4,
-   "founderLabel": "PADDLE/ DOUBLE RIBBON MIXER"
+   "founderLabel": "PADDLE/ DOUBLE RIBBON MIXER",
+   "intro": "A Paddle Mixer blends powders, granules, flakes and semi-moist material with paddles on a horizontal shaft, lifting and folding the batch rather than shearing it. Thai seasoning and MSG blenders, animal and aqua feed mills, tapioca and rice flour plants and desiccated coconut lines use this type of mixer. ART Mechatronics builds it in Kanpur and supports Thai plants from its Pattaya marketing office.",
+   "why": [
+    "Fish meal, rice bran and coconut residue pick up moisture in Thai humidity; paddle action keeps damp batches moving without balling.",
+    "Thai feed premixes and seasoning blends often take oil or molasses mid-cycle; a paddle mixer handles wetted powder.",
+    "It sits between ART's Hammer Mill Machine and the Auger Filler or Multi Head Weigher on a packed-powder line.",
+    "ART's Chonburi service team supplies replacement paddles and seals and attends commissioning in Thailand."
+   ],
+   "desc": "Paddle Mixer for seasoning, feed, tapioca flour and coconut powder lines in Thailand. Built by ART Mechatronics in Kanpur; serviced from Chonburi."
   },
   {
    "slug": "agitator",
    "priority": 5,
-   "founderLabel": "AGITATOR - LIQUID MIXER/ HOMOGENISER"
+   "founderLabel": "AGITATOR - LIQUID MIXER/ HOMOGENISER",
+   "intro": "An Agitator is a motor-driven shaft with impellers set in a tank to mix, dissolve, emulsify and circulate liquids and slurries. Thai fish sauce, chilli sauce, syrup and dressing plants, coconut milk lines, dairy and beverage works and cosmetics makers run agitated tanks, plain or jacketed for steam or chilled water. ART Mechatronics supports Thai liquid-processing plants from its Pattaya office.",
+   "why": [
+    "Sugar, salt and MSG stored in Thai humidity arrive lumpy; an agitated Jacketed Tank dissolves them before the sauce or syrup stage.",
+    "Fish sauce, sriracha, sweet chilli, oyster sauce and coconut milk are Thai export lines that run on agitated, often jacketed, tanks.",
+    "Pairs with ART's Cooking Kettle, Boiling Tank, Homogenizer, Pasteurizer and Piston Filling on a sauce or beverage line.",
+    "Steam, thermal oil, hot water and chilled water jacket options are specified and serviced by ART's team in Chonburi."
+   ],
+   "desc": "Agitator and jacketed tank for sauce, syrup, coconut milk, dairy and beverage plants in Thailand. ART Mechatronics, Pattaya marketing office."
   },
   {
    "slug": "planetary-mixer",
    "priority": 6,
-   "founderLabel": "PLANETARY MIXER"
+   "founderLabel": "PLANETARY MIXER",
+   "intro": "A Planetary Mixer kneads and blends thick material: the tool turns on its own axis while orbiting the bowl, so dough, batter, paste and cream are worked across the whole bowl. Thai bakeries, curry paste and dip makers, confectioners and cosmetic cream producers use planetary mixing. Made by ART Mechatronics in Kanpur, it is supported in Thailand from the company's Pattaya office.",
+   "why": [
+    "Flour and sugar draw moisture from Thai humid air; planetary kneading brings a batch together without dry pockets or lumps.",
+    "Thai curry pastes, chilli dips, coconut custard, sticky-rice sweets and cake batter are thick, sticky mixes suited to planetary action.",
+    "Feeds ART's Rotary Rack Oven or Cup & Tray Filling; the Sigma Mixer and Spiral Mixer in ART's range cover stiffer dough.",
+    "Mixing tool, bowl and gearbox service comes from ART's Chonburi team rather than from India."
+   ],
+   "desc": "Planetary Mixer for bakery dough, curry paste, confectionery and cosmetic cream plants in Thailand. ART Mechatronics, with a service team in Chonburi."
   },
   {
    "slug": "coating-pan-mixer",
    "priority": 7,
-   "founderLabel": "COATING PAN/ DRUM MIXER WITH HEATER"
+   "founderLabel": "COATING PAN/ DRUM MIXER WITH HEATER",
+   "intro": "A Coating Pan Mixer tumbles product in a rotating pan while seasoning, syrup, oil or a coating solution is sprayed on, with hot air or burner heating to dry or roast in the same pass. Thai snack, cashew and peanut, dried fruit, tablet and confectionery lines coat and glaze this way. ART Mechatronics supports Thai plants from its office in Pattaya.",
+   "why": [
+    "Coated nuts and snacks go soft in Thai humidity; heated pan drying sets the coating before packing.",
+    "Cashew, peanut, tamarind, dried mango and seaweed snacks take sugar, chilli and salt coatings in a rotating pan.",
+    "Follows ART's Fryer or Roaster and feeds the Multi Head Weigher and Vertical Form Fill Seal (Vffs) on a snack line.",
+    "Burner, hot air and pan drive parts are supported by ART's service team in Chonburi, close to the Eastern Seaboard food plants."
+   ],
+   "desc": "Coating Pan Mixer with hot air or burner heating for snack, nut, dried fruit and tablet lines in Thailand. ART Mechatronics; Pattaya office, Chonburi team."
   },
   {
    "slug": "batch-type-hot-air-dryer",
    "priority": 8,
-   "founderLabel": "BATCH DRYER"
+   "founderLabel": "BATCH DRYER",
+   "intro": "The Batch Type - Hot Air Dryer dries and roasts rice, pulses, seeds, nuts, spices and coconut pieces one load at a time, holding the material in a chamber while heated air passes through it. Thai rice mills, cashew and peanut processors, spice and coconut units use batch drying when lot sizes change often. ART Mechatronics supports Thai plants from its Pattaya marketing office.",
+   "why": [
+    "Sun drying of rice, pulses and nuts stalls in Thailand's humid rainy season; a closed hot air chamber runs in any weather.",
+    "Batch loading suits Thai cashew, peanut, spice and dried fruit processors whose lots and products change through the year.",
+    "Loads from ART's Bucket Elevator or Screw Conveyor; dried lots pass to a Cooling Conveyor, Grader and Sack Packing.",
+    "ART's service team sits in Chonburi; the Pattaya office takes enquiries by phone and LINE."
+   ],
+   "desc": "Batch Type - Hot Air Dryer for rice, pulses, nuts, spices and coconut lines in Thailand. Built by ART Mechatronics; supported from Pattaya and Chonburi."
   },
   {
    "slug": "fluidized-bed-dryer-fbd",
    "priority": 9,
-   "founderLabel": "FBD"
+   "founderLabel": "FBD",
+   "intro": "The Fluidized Bed Dryer – FBD dries powders and granules by blowing heated air up through a perforated plate so the material bed floats. Thai sugar, salt, seasoning and MSG producers and desiccated coconut lines use fluid bed drying. One is installed at a customer plant in Thailand, and ART Mechatronics supports Thai plants from its marketing office in Pattaya.",
+   "why": [
+    "Sugar, salt and seasoning granules absorb moisture in Thailand's humidity; fluid bed drying brings moisture down before packing.",
+    "Handles free flowing crystals and granules found in Thai sugar mills, salt works, MSG plants and desiccated coconut lines.",
+    "Pairs with ART's Hot Air Generator upstream and Cyclone Dust Collector Machine, Sifter and Vertical Form Fill Seal (Vffs) packing downstream.",
+    "Service in Thailand comes from ART's Chonburi team, with enquiries taken at the Pattaya office by phone and LINE."
+   ],
+   "desc": "Fluidized Bed Dryer – FBD for sugar, salt, seasoning, MSG and desiccated coconut lines in Thailand, from ART Mechatronics, Pattaya marketing office."
   },
   {
    "slug": "rotary-dryer-drum-dryer",
    "priority": 10,
-   "founderLabel": "ROTARY DRYER"
+   "founderLabel": "ROTARY DRYER",
+   "intro": "The Rotary Dryer, Drum Dryer dries bulk material continuously: wet feed enters one end of a turning cylinder, flights lift and cascade it through hot air, and dried product leaves at the far end. Thai cassava chip yards, biomass pellet plants, fish meal plants and feed mills use rotary drying. ART Mechatronics looks after Thai plants from its Pattaya City marketing office.",
+   "why": [
+    "Cassava chips, bagasse, palm kernel shell and coconut husk are wet, fibrous and bulky; a turning drum carries them where trays cannot.",
+    "Cassava pulp and outdoor-stored biomass arrive wet in Thailand's rainy season; drum drying continues regardless of the weather.",
+    "Runs continuously with ART's Chipper, Crusher, Hammer Mill Machine and Bucket Elevator in cassava, biomass pellet and feed lines.",
+    "Drum exhaust dust is captured by ART's Cyclone Dust Collector Machine; service in Thailand comes from the Chonburi team."
+   ],
+   "desc": "Rotary Dryer, Drum Dryer for cassava, biomass pellet, fish meal and feed lines in Thailand. ART Mechatronics, built in Kanpur, supported from Pattaya."
   },
   {
    "slug": "tray-dryer-tray-oven",
    "priority": 11,
-   "founderLabel": "TRAY OVEN"
+   "founderLabel": "TRAY OVEN",
+   "intro": "The Tray Dryer, Tray Oven dries product laid on stacked trays inside a closed cabinet while heated air circulates across every tray. Thai producers of dried mango, longan and banana, dried chilli, herbs such as lemongrass and galangal, dried shrimp and squid, and herbal tea use tray drying for small and mixed lots. ART Mechatronics supports Thai plants through its Pattaya office.",
+   "why": [
+    "Rain and humidity interrupt open air drying of mango, chilli, herbs and shrimp and expose them to insects; a cabinet does not.",
+    "Trays hold sliced or whole pieces such as mango, banana, galangal and shrimp that a fluid bed or drum would break.",
+    "Follows ART's Washer, Slicer, Dicer or Blancher; dried product goes on to Pouch Sealing or Stand Up Pouch packing.",
+    "One cabinet dries several products in turn, which suits Thai SME food units; ART's Chonburi team handles service visits."
+   ],
+   "desc": "Tray Dryer, Tray Oven for dried fruit, chilli, herbs, seafood and herbal tea in Thailand. ART Mechatronics supports Thai plants from Pattaya."
   },
   {
    "slug": "continuous-conveyor-tunnel-dryer",
    "priority": 12,
-   "founderLabel": "CONTINUOUS TUNNEL DRYER"
+   "founderLabel": "CONTINUOUS TUNNEL DRYER",
+   "intro": "The Continuous Conveyor, Tunnel Dryer carries product on a moving belt through a heated enclosure, so drying runs without stopping to load and unload. Thai desiccated coconut plants, rice noodle and vermicelli makers, extruded snack and pet food lines and fruit processors use conveyor drying where output is steady across a shift. From its Pattaya marketing office, ART Mechatronics supports plants across Thailand.",
+   "why": [
+    "Continuous drying matches the steady flow of a coconut grating line, noodle line or snack extrusion line, with no batch changeover.",
+    "Belt drying keeps rice noodles, seaweed sheets and fruit pieces flat and whole, which a rotating drum would not.",
+    "Sits between ART's Extruder Machine or Blancher upstream and Cooling Conveyor, Multi Head Weigher and Flow Wrap downstream.",
+    "Thailand's humid air lets dried snacks and noodles regain moisture, so drying and packing run as one line; service from Chonburi."
+   ],
+   "desc": "Continuous Conveyor, Tunnel Dryer for desiccated coconut, noodle, snack and pet food lines in Thailand. ART Mechatronics, Pattaya marketing office."
   },
   {
    "slug": "hot-air-generator",
    "priority": 13,
-   "founderLabel": "HOT AIR GENERATOR W BURNER"
+   "founderLabel": "HOT AIR GENERATOR W BURNER",
+   "intro": "A Hot Air Generator heats ambient air with a burner and supplies that hot air to a dryer or roaster. In Thailand it is used on drying lines for paddy and rice, tapioca and cassava starch, copra and desiccated coconut, spices, dried seafood and animal feed. ART Mechatronics supports Thai plants from its Pattaya marketing office, with a service team based in Chonburi.",
+   "why": [
+    "Rain in Thailand's wet season interrupts sun-drying of paddy, copra and cassava chips; heated air dries them indoors regardless of weather.",
+    "Feeds ART's own dryers on the same line: Fluidized Bed Dryer – FBD; Tray Dryer, Tray Oven; Continuous Conveyor, Tunnel Dryer.",
+    "ART has a fluid bed dryer installed at a customer plant in Thailand; a Hot Air Generator can supply such a dryer.",
+    "ART's service team is based in Chonburi, on the Eastern Seaboard, so a burner fault is handled from within Thailand."
+   ],
+   "desc": "Hot Air Generator for drying lines in Thailand: rice, tapioca, coconut, spices, seafood and feed. ART Mechatronics, marketing office in Pattaya."
   },
   {
    "slug": "cooking-kettle-boiling-tank",
    "priority": 14,
-   "founderLabel": "COOKING KETTLE"
+   "founderLabel": "COOKING KETTLE",
+   "intro": "The Cooking Kettle, Boiling Tank is a jacketed vessel heated by steam or thermal oil that cooks, boils and mixes liquid or semi-solid product and tilts to discharge. Thai lines use it for curry paste, chilli sauce, coconut milk, sugar syrup, fruit puree and confectionery. ART Mechatronics supports Thai plants from its marketing office in Pattaya, with a service team in Chonburi.",
+   "why": [
+    "Thai curry pastes, chilli sauces and coconut-based products are cooked in batches; a tilting jacketed vessel empties each batch without manual scooping.",
+    "Jacket heating keeps direct flame away from sugar syrup and coconut milk, both of which scorch on a bare pan.",
+    "Fits between ART's Colloid Mill or Wet Grinder upstream and Pasteurizer, Piston Filling or Retort Pouch packing downstream.",
+    "Steam from an ART Boiler or Steam Generator can feed the jacket; ART's Chonburi service team covers both units."
+   ],
+   "desc": "Cooking Kettle, Boiling Tank for curry paste, sauce, coconut milk and syrup lines in Thailand. ART Mechatronics; Pattaya office, service from Chonburi."
   },
   {
    "slug": "fryer",
    "priority": 15,
-   "founderLabel": "FRYER"
+   "founderLabel": "FRYER",
+   "intro": "A Fryer cooks sliced, formed or extruded product in heated oil, either continuously on a belt or in batches. Thai snack lines use it for cassava and banana chips, potato chips, fried seaweed, fish and shrimp snacks and instant noodle blocks. ART Mechatronics supports Thai plants from its marketing office in Pattaya and a service team in Chonburi.",
+   "why": [
+    "Fried snacks pick up moisture quickly in Thailand's humid air; frying, cooling and packing on one line shortens exposure before sealing.",
+    "Cassava, banana, sweet potato and taro grown in Thailand are cut on a Slicer and can pass through a Blancher before frying.",
+    "Downstream, ART's Cooling Conveyor, Multi Head Weigher, Nitrogen Packing and Vertical Form Fill Seal (Vffs) complete the packing line.",
+    "Service comes from ART's team in Chonburi on the Eastern Seaboard, not from the Kanpur factory in India."
+   ],
+   "desc": "Fryer for Thai snack lines: cassava and banana chips, seaweed, fish snacks, instant noodles. ART Mechatronics Thailand office in Pattaya; Chonburi service."
   },
   {
    "slug": "blancher",
    "priority": 16,
-   "founderLabel": "BLANCHER"
+   "founderLabel": "BLANCHER",
+   "intro": "A Blancher passes cut vegetables, nuts or root crops through hot water or steam before they are frozen, dried or fried. In Thailand it is used on sweet corn, baby corn, okra, edamame, green beans, cassava chips and peanuts. ART Mechatronics reaches Thai processors through its marketing office in Pattaya, and its service team works out of Chonburi.",
+   "why": [
+    "Produce harvested in Thailand's heat deteriorates quickly; blanching soon after harvest halts enzyme activity before freezing or drying.",
+    "Thai frozen vegetable exporters run sweet corn, edamame and mixed vegetables through a Blancher, a cooling stage and then an IQF Freezer.",
+    "Upstream, ART's Washer, Peeler and Dicer prepare the crop; downstream a Cooling Conveyor, Fluidized Bed Dryer – FBD or Fryer follows.",
+    "Both the Blancher and its Steam Generator can come from one supplier, with servicing handled by ART's team in Chonburi."
+   ],
+   "desc": "Blancher for Thai frozen vegetable, cassava and peanut lines, ahead of cooling and IQF freezing. ART Mechatronics, with a service team in Chonburi."
   },
   {
    "slug": "de-stoner",
    "priority": 17,
-   "founderLabel": "DESTONER W CYCLONE SEPARATOR"
+   "founderLabel": "DESTONER W CYCLONE SEPARATOR",
+   "intro": "A De-Stoner separates stones, sand, mud balls and other heavy matter from grain by density, using vibration and air. Thai rice mills use it on paddy and milled rice, and it also serves maize, mung bean, soybean, sesame, raw cashew, coffee bean, spice and feed grain lines. ART Mechatronics supports Thai plants from its Pattaya marketing office and a service team in Chonburi.",
+   "why": [
+    "Paddy dried on open ground after a wet-season harvest carries mud balls and stones that must come out before the Dehusking stage.",
+    "Stones reaching a Hammer Mill Machine or Roller Mill Machine damage the grinding parts; a De-Stoner ahead of them prevents that.",
+    "It sits after ART's Pre-Cleaner and Magnetic Separator, with a Cyclone Separator collecting the dust pulled off by the air stream.",
+    "ART has an in-plant dust collector with ducting installed at a customer plant in Thailand; De-Stoner aspiration air can feed it."
+   ],
+   "desc": "De-Stoner for Thai rice mills, maize, pulses, cashew, coffee and feed lines; removes stones and mud balls. ART Mechatronics, Pattaya office."
   },
   {
    "slug": "color-sorter",
    "priority": 18,
-   "founderLabel": "COLOR SORTER"
+   "founderLabel": "COLOR SORTER",
+   "intro": "The Color Sorter from ART Mechatronics uses cameras and air ejectors to remove discoloured, chalky and foreign kernels from a moving product stream. In Thailand, sorters of this type are used in rice mills, cashew and nut processing, sesame and mung bean cleaning, coffee bean grading and plastic flake recycling. ART Mechatronics handles Thai enquiries from its Pattaya marketing office.",
+   "why": [
+    "Humid storage in Thailand can leave rice with discoloured or mould-affected kernels; the sorter removes them before milled rice is bagged.",
+    "Thai jasmine rice, cashew kernels, coffee beans and sesame are sold on appearance; sorting by colour separates saleable grades from rejects.",
+    "Fits after the De-Stoner and Grader in a cleaning line, with a Bucket Elevator lifting product into the sorter.",
+    "Camera calibration and ejector servicing are handled by ART's service team in Chonburi, contactable by phone or LINE."
+   ],
+   "desc": "Color Sorter for Thailand rice mills, cashew, coffee and seed lines. Built by ART Mechatronics in India, supported from its Pattaya office."
   },
   {
    "slug": "pre-cleaner",
    "priority": 19,
-   "founderLabel": "PRE CLEANER/ GRADER/ SIFTER W BLOWER"
+   "founderLabel": "PRE CLEANER/ GRADER/ SIFTER W BLOWER",
+   "intro": "The Pre-Cleaner is the first machine on an intake line: a vibrating screen with air aspiration that pulls straw, husk, stones, dust and oversize lumps out of paddy, maize, soybean, mung bean, sesame and feed grain before drying or storage. Thai rice mills, feed mills and seed plants use machines of this type at reception. ART Mechatronics' Pattaya office handles enquiries from Thailand.",
+   "why": [
+    "Thai wet-season paddy and maize can arrive with mud, straw and green trash; screening at intake keeps it out of the dryer.",
+    "Feed mills in Thailand receive maize, soybean, broken rice and cassava chips from many farms and traders; each lot needs cleaning first.",
+    "Runs ahead of the De-Stoner, Magnetic Separator and Grader, with a Bucket Elevator or Screw Conveyor moving product between them.",
+    "ART has a conveying and elevation assembly installed at a customer plant in Thailand; service comes from the Chonburi team."
+   ],
+   "desc": "Pre-Cleaner for paddy, maize, soybean and feed grain intake in Thailand. Made by ART Mechatronics, India; service team in Chonburi, office in Pattaya."
   },
   {
    "slug": "vibro",
    "priority": 20,
-   "founderLabel": "VIBRO SIFTER"
+   "founderLabel": "VIBRO SIFTER",
+   "intro": "The Vibro machine is a vibrating sieve that grades powders and granules by particle size, removes lumps and strains liquids through mesh screens. Thai lines use sieves of this type for tapioca starch, desiccated coconut, sugar, rice flour, seasoning blends, MSG and fish meal, and for straining coconut milk and sauces. Enquiries from Thailand go to the ART Mechatronics office in Pattaya.",
+   "why": [
+    "In Thai humidity, starch, sugar and coconut powder can cake in storage; sieving before packing removes lumps and foreign matter.",
+    "Strains coconut milk and sauces for fibre and shell fragments; screens oversize out of dry seasoning, salt and MSG.",
+    "Sits under the Impact Pulverizer Machine or Ribbon Mixer outlet and ahead of the Auger Filler or Multi Head Weigher.",
+    "Mesh changes and motor servicing are done by ART's Chonburi team; the Pattaya office takes enquiries by phone or LINE."
+   ],
+   "desc": "Vibro sieving machine for tapioca starch, coconut powder, sugar and seasoning plants in Thailand. ART Mechatronics, India, with an office in Pattaya."
   },
   {
    "slug": "washer",
    "priority": 21,
-   "founderLabel": "WASHER W PEELER"
+   "founderLabel": "WASHER W PEELER",
+   "intro": "The Washer cleans field soil, sand and surface residue off fruit, vegetables, herbs and root crops with water before peeling, cutting, blanching or drying. In Thailand, washers of this type are used on cassava roots, chillies, ginger, galangal and lemongrass for curry paste, and on mango, pineapple and vegetables for frozen and snack lines. ART Mechatronics' Pattaya office takes Thai enquiries.",
+   "why": [
+    "Cassava roots and rain-season vegetables reach Thai plants with field mud attached; washing removes it before the Peeler and Slicer.",
+    "Chillies, galangal, ginger and lemongrass for curry paste are washed whole before the Chopper and Colloid Mill.",
+    "Frozen fruit and vegetable lines wash produce before the Peeler, Dicer and IQF Freezer; snack lines wash before the Slicer and Fryer.",
+    "Water spray nozzles, brushes and drive parts are serviced by ART's team in Chonburi; the Pattaya office handles enquiries."
+   ],
+   "desc": "Washer for cassava roots, chillies, herbs, fruit and vegetables in Thailand's curry paste, frozen and snack plants. ART Mechatronics, Pattaya office."
   },
   {
    "slug": "pulverizer-with-dust-collector",
    "priority": 22,
-   "founderLabel": "PULVERIZER - IMPACT & MICRO W DCS"
+   "founderLabel": "PULVERIZER - IMPACT & MICRO W DCS",
+   "intro": "The Pulverizer With Dust Collector grinds dry material to powder and draws the airborne fines into a cyclone and dust collector unit supplied with it. In Thai lines, mills of this type grind chilli, white pepper, turmeric, galangal and lemongrass, along with icing sugar, rice flour, dried fish and dried shrimp. ART Mechatronics' Pattaya office handles Thai enquiries; its service team is in Chonburi.",
+   "why": [
+    "In humid Thai plants, fine chilli and pepper dust clings to walls and floors; capturing it at the mill limits that spread.",
+    "Chilli and pepper dust irritate eyes and airways; drawing it off at the grinding point reduces operator exposure in the mill room.",
+    "Feeds ground powder to the Vibro or Sifter for grading and on to a Ribbon Mixer for seasoning blends.",
+    "An ART in-plant dust collector with ducting is installed at a Thai customer site; filter and fan servicing comes from Chonburi."
+   ],
+   "desc": "Pulverizer With Dust Collector for chilli, pepper, spice, sugar and rice flour grinding in Thailand. ART Mechatronics, India; office in Pattaya."
   },
   {
    "slug": "wet-grinder",
    "priority": 23,
-   "founderLabel": "WET GRINDER - COLLOID MILL"
+   "founderLabel": "WET GRINDER - COLLOID MILL",
+   "intro": "A Wet Grinder reduces soaked or liquid-carrying material to a paste, batter or slurry, grinding with water or oil present so the output flows instead of forming dust. Thai curry paste, chilli and garlic paste, grated coconut for coconut milk, rice-flour batter and sesame and peanut paste lines use it. ART Mechatronics supports Thai plants from its Pattaya marketing office, with service from Chonburi.",
+   "why": [
+    "Wet grinding suits humid Thai plants: there is no airborne powder to take up moisture, cake or need a Dust Collector Machine.",
+    "Thai curry paste, nam prik, coconut and rice-batter products are pastes by definition; they are ground wet, not milled dry.",
+    "Feeds a Cooking Kettle, Boiling Tank or Jacketed Tank for paste cooking, then Piston Filling or Pouch Filling for retail packs.",
+    "A Colloid Mill from the same range refines the paste further; both are serviced by ART's Chonburi team."
+   ],
+   "desc": "Wet Grinder for Thai curry paste, chilli paste, coconut and rice batter lines. ART Mechatronics supports Thailand from Pattaya, service from Chonburi."
   },
   {
    "slug": "hammer-mill-machine",
    "priority": 24,
-   "founderLabel": "HAMMER MILL"
+   "founderLabel": "HAMMER MILL",
+   "intro": "A Hammer Mill Machine breaks dry material against swinging hammers and a screen, giving a coarse to medium grind. In Thailand it is used for cassava chips and tapioca residue, maize and broken rice for animal and aqua feed, copra cake and biomass. ART Mechatronics takes Thai enquiries at its Pattaya marketing office, with service from Chonburi.",
+   "why": [
+    "Thai feed mills grind maize, broken rice, cassava and soybean meal; one Hammer Mill Machine covers them with a screen change.",
+    "Humid Thai air makes fine dust sticky; pair the mill with a Pulse Jet Dust Collector Machine from the same range.",
+    "Cassava chips, copra cake and rice husk reach the mill by Bucket Elevator or Screw Conveyor, with a Magnetic Separator ahead.",
+    "Hammers and screens are wear parts; ART's service team in Chonburi attends site for replacement and adjustment."
+   ],
+   "desc": "Hammer Mill Machine for cassava, maize, broken rice, feed and biomass grinding in Thailand, supported by ART Mechatronics' Pattaya office."
   },
   {
    "slug": "stone-mill-machine",
    "priority": 25,
-   "founderLabel": "STONE MILL"
+   "founderLabel": "STONE MILL",
+   "intro": "A Stone Mill Machine grinds grain between a pair of stone wheels turning at low speed, so the flour warms less than in a high-speed mill. Thai rice flour, glutinous rice flour, whole-grain wheat flour, toasted rice powder (khao khua) and dry spice lines use it. ART Mechatronics' Pattaya office, its marketing base for South-East Asia, handles Thai enquiries, with service from Chonburi.",
+   "why": [
+    "Rice flour and glutinous rice flour for Thai desserts and noodles are traditionally stone-ground; the machine keeps that method at plant scale.",
+    "Toasted rice powder (khao khua) and dry spices are ground on the same stones, so one machine serves several Thai products.",
+    "Sits after a Pre-Cleaner, De-Stoner and Magnetic Separator, with a Sifter and Sack & Bag Filling downstream.",
+    "Stone dressing and drive maintenance are handled by ART's Chonburi service team; the Pattaya office is the first contact."
+   ],
+   "desc": "Stone Mill Machine for rice flour, glutinous rice flour, wheat flour and spices in Thailand. ART Mechatronics, marketing office in Pattaya."
   },
   {
    "slug": "extruder-machine",
    "priority": 26,
-   "founderLabel": "EXTRUDER"
+   "founderLabel": "EXTRUDER",
+   "intro": "An Extruder Machine cooks and shapes a moist dough or meal by forcing it through a die with a screw. Thai lines use it for puffed corn and rice snacks, fish and shrimp crackers, fish and shrimp feed pellets, pet food, and pasta, macaroni and vermicelli dough. For Thai plants, ART Mechatronics provides support from its marketing office in Pattaya.",
+   "why": [
+    "Thailand grows the rice, maize and cassava that extruded snacks start from; tapioca starch also binds fish crackers and feed.",
+    "Extruded puffs and feed pellets soften in humid Thai air; a Continuous Conveyor, Tunnel Dryer and Cooling Conveyor follow the die.",
+    "Fits between a Ribbon Mixer or Paddle Mixer for pre-mixing and a Fryer or Coating Pan Mixer for finishing and seasoning.",
+    "Screws and dies wear with abrasive feed meals; ART's Chonburi service team handles inspection and changeover on site."
+   ],
+   "desc": "Extruder Machine for puffed snacks, fish crackers, aqua feed pellets and pasta dough in Thailand. ART Mechatronics, service team in Chonburi."
   },
   {
    "slug": "expeller-machine",
    "priority": 27,
-   "founderLabel": "EXPELLER"
+   "founderLabel": "EXPELLER",
+   "intro": "An Expeller Machine presses oil out of seeds, nuts and kernels with a screw, without solvent, leaving a cake for feed. Thai lines use it for coconut oil from copra, palm kernel oil, rice bran oil, sesame and peanut oil, and for cold-pressed oils sold under Thai brands. ART Mechatronics answers Thai enquiries from its Pattaya office, with its service team based in Chonburi.",
+   "why": [
+    "Thailand produces the copra, palm kernel, rice bran and sesame that expellers press; the cake goes to cattle and fish feed.",
+    "Copra and rice bran take up moisture in humid Thai storage; a Roaster from the same range conditions them before pressing.",
+    "Pairs with a Dehusking or Shell Removal unit before, and a Storage Tank and Bottle Packing (Spray, Pet, Glass) line after.",
+    "The Chonburi service team attends for screw, cage bar and cake-thickness adjustment; the Pattaya office takes enquiries on LINE."
+   ],
+   "desc": "Expeller Machine pressing coconut, palm kernel, rice bran and sesame oil in Thailand. ART Mechatronics, Pattaya office and Chonburi service."
   },
   {
    "slug": "slicer",
    "priority": 28,
-   "founderLabel": "SLICER, DICER"
+   "founderLabel": "SLICER, DICER",
+   "intro": "A Slicer cuts vegetables, fruit, roots and bakery products into slices of set thickness as they pass on a conveyor. In Thailand it is used in banana, taro, potato and cassava chip lines, coconut piece preparation, fruit for drying, and frozen and ready-to-eat kitchens. ART Mechatronics' Pattaya marketing office looks after Thai users of the Slicer.",
+   "why": [
+    "Banana, taro, cassava and sweet potato chip lines in Thailand need slices of even thickness so they fry evenly in the Fryer.",
+    "Fruit and coconut slices for drying pass from the Slicer to a Tray Dryer, Tray Oven or Continuous Conveyor, Tunnel Dryer.",
+    "Fits between a Washer, Peeler and Blancher upstream and a Fryer, IQF Freezer or Vertical Form Fill Seal (Vffs) downstream.",
+    "Blades are stainless steel; replacement blades and Spares for Thai plants come through ART's service team in Chonburi."
+   ],
+   "desc": "Slicer for Thai chip, coconut, fruit and frozen food lines. Thai plants are looked after by ART Mechatronics' Pattaya marketing office."
   },
   {
    "slug": "chopper",
    "priority": 29,
-   "founderLabel": "SINGLE BIG KNIFE CHOPPER ON CONVEYOR"
+   "founderLabel": "SINGLE BIG KNIFE CHOPPER ON CONVEYOR",
+   "intro": "A Chopper is a single large knife working over a conveyor that chops vegetables, herbs, roots and fibrous agro material into coarse pieces. Thai curry paste, seasoning, frozen vegetable, pet food and biomass pellet lines use it as the first size-reduction step. Thai users of the Chopper are served by ART Mechatronics' marketing office in Pattaya.",
+   "why": [
+    "Lemongrass, galangal, chilli and kaffir lime leaf for Thai curry paste are chopped before the Colloid Mill or Wet Grinder.",
+    "Sugarcane trash, corn stalk and palm waste for Thai biomass pellet plants pass through the Chopper before a Hammer Mill Machine.",
+    "Vegetable and fish material for Thai pet, aqua and poultry feed is cut to a size the Extruder Machine accepts.",
+    "Knife changes and Spares for Thai plants are arranged by ART's service team in Chonburi; the Pattaya office takes enquiries."
+   ],
+   "desc": "Chopper for Thai curry paste, herb, feed and biomass lines. ART Mechatronics serves Thailand plants from its Pattaya office."
   },
   {
    "slug": "blade-cutter",
    "priority": 30,
-   "founderLabel": "BLADE CUTTER W SEPARATOR"
+   "founderLabel": "BLADE CUTTER W SEPARATOR",
+   "intro": "A Blade Cutter cuts sheet, strip and roll material to size, and has a Separator fitted in line. Thai rubber product, plastic recycling, paper product and packaging converting lines use it for trimming and size reduction. ART Mechatronics backs Thai users of the Blade Cutter from its marketing office in Pattaya.",
+   "why": [
+    "Thailand's rubber product plants cut sheet and strip stock to size on the Blade Cutter before further processing or packing.",
+    "Plastic recycling lines in Thailand cut film and sheet scrap to size ahead of a Shredder or Granulator.",
+    "Paper product and packaging converters pair the Blade Cutter with a Rewinder, Conveyor Belt and Count & Stack unit on one line.",
+    "Blade changes and Spares for Thai plants come from ART's Chonburi service team, with enquiries handled by the Pattaya marketing office."
+   ],
+   "desc": "Blade Cutter with in-line Separator for Thai rubber, plastic recycling, paper and packaging lines. ART Mechatronics' Pattaya office supports Thailand."
   },
   {
    "slug": "knife-cutter",
    "priority": 31,
-   "founderLabel": "LEAF KNIVES CUTTER"
+   "founderLabel": "LEAF KNIVES CUTTER",
+   "intro": "A Knife Cutter uses a set of rotary knives to cut leaf, strip and web material to length. Thai tea, tobacco, dried herb and seasoning lines, and packaging converters slitting film and paper, use it. Thai plants running the Knife Cutter get support from ART Mechatronics' Pattaya marketing office and the Chonburi service team.",
+   "why": [
+    "Thai tea, tobacco and pandan leaf lines cut leaf to size on the Knife Cutter and grade the pieces on a Sifter.",
+    "Dried herb and spice leaf for Thai seasoning blends is cut before a Grinder or Pulverizer With Dust Collector.",
+    "Packaging converters slit film, paper and foam webs on the Knife Cutter, feeding a Rewinder downstream.",
+    "Replacement knife sets and Spares reach Thai plants through ART's service team in Chonburi."
+   ],
+   "desc": "Knife Cutter for Thai tea, tobacco, herb and packaging lines. ART Mechatronics serves Thailand from its Pattaya marketing office."
   },
   {
    "slug": "seed-removal",
    "priority": 32,
-   "founderLabel": "ROLLER SPLITTER/ SEED REMOVAL"
+   "founderLabel": "ROLLER SPLITTER/ SEED REMOVAL",
+   "intro": "A Seed Removal machine, built as a roller splitter, opens fruit and pods between rollers and separates seed from pulp or flesh. Thai chilli, tamarind, tomato and tropical fruit lines use it ahead of curry paste, sauce, puree, dried fruit and frozen fruit production. ART Mechatronics serves Thai users of the machine from its office in Pattaya.",
+   "why": [
+    "Dried chilli for Thai curry paste and chilli powder is deseeded before grinding in a Grinder or Hammer Mill Machine.",
+    "Tamarind pods and tomato for Thai sauces and dips are split and deseeded ahead of a Cooking Kettle, Boiling Tank and Pasteurizer.",
+    "Sits after a Washer and Stem Removal, before a Tray Dryer, Tray Oven or IQF Freezer on dried and frozen fruit lines.",
+    "Spares for the rollers and separation parts reach Thai plants through ART's Chonburi service team, with the Pattaya office as first contact."
+   ],
+   "desc": "Seed Removal machine for Thai chilli, tamarind, tomato and fruit lines. ART Mechatronics' Pattaya office supports plants across Thailand."
   },
   {
    "slug": "shredder-machine",
    "priority": 33,
-   "founderLabel": "SHREDDER W CYCLONE SEPARATOR"
+   "founderLabel": "SHREDDER W CYCLONE SEPARATOR",
+   "intro": "A Shredder cuts bulky material into small pieces so it can be conveyed, dried, pressed or milled. Thai plastic and paper recycling, rubber scrap and biomass pellet lines use it on packaging waste, coconut husk, oil palm waste and rubber wood offcuts. ART Mechatronics supports Thai plants from its marketing office in Pattaya.",
+   "why": [
+    "Thailand's plastic recycling and rubber product plants produce bulky scrap; shredding makes it easier to store, convey and reprocess.",
+    "Coconut husk, oil palm waste and rubber wood offcuts arrive damp in the wet season; shredding loosens them before drying and pelleting.",
+    "Fits with ART's Cyclone Separator, Conveyor Belt, Hammer Mill Machine and Hydraulic Press / Baling Press in one size-reduction line.",
+    "Service team based in Chonburi, close to the recycling and plastics plants of the Eastern Seaboard."
+   ],
+   "desc": "Shredder from ART Mechatronics for plastic recycling, rubber scrap and biomass pellet lines in Thailand; support from Pattaya and Chonburi."
   },
   {
    "slug": "traditional-cutter",
    "priority": 34,
-   "founderLabel": "TRADITIONAL CUTTER"
+   "founderLabel": "TRADITIONAL CUTTER",
+   "intro": "The Traditional Cutter is a mechanical cutter that chops, slices and breaks dried or fresh material into pieces of a set size. Thai spice, herb, dried fruit, coconut, cassava chip and tobacco leaf lines use this type of cutter ahead of drying and grinding. ART Mechatronics supports Thai plants through its Pattaya marketing office.",
+   "why": [
+    "Galangal, lemongrass, kaffir lime leaf and dried chilli are cut to a set piece size so drying and grinding run evenly.",
+    "Placed after ART's Washer and Peeler and ahead of the Tray Dryer, Tray Oven and Hammer Mill Machine in one line.",
+    "Cut herbs and fruit start to spoil in humid Thai air, so the cutter sits directly before the dryer.",
+    "ART's service team in Chonburi handles commissioning and after-sales visits for Thai plants."
+   ],
+   "desc": "Traditional Cutter from ART Mechatronics for spice, herb, cassava and coconut lines in Thailand; cut to size before drying, support from Pattaya."
   },
   {
    "slug": "freeze-dryer",
    "priority": 35,
-   "founderLabel": "FREEZE DRYER"
+   "founderLabel": "FREEZE DRYER",
+   "intro": "A Freeze Dryer freezes product and then draws the ice off under vacuum, leaving a dry piece that keeps its shape, colour and flavour. Thai durian, mango, jackfruit, herb, coffee, seafood and pet-treat lines use freeze drying for export products. ART Mechatronics supports Thai plants from its office in Pattaya City.",
+   "why": [
+    "Freeze-dried durian, mango and jackfruit are Thai export products, alongside pet treats and instant meals.",
+    "Freeze-dried pieces draw moisture from humid Thai air; a Dehumidifier in the packing room and Nitrogen Packing limit pick-up before sealing.",
+    "Works with ART's Slicer, Dicer and Blast Freezer upstream and Stand Up Pouch or Zip Lock/ Zipper Pouch packing downstream.",
+    "After-sales support for Thai fruit, coffee and pet-food plants comes from ART's service team in Chonburi."
+   ],
+   "desc": "Freeze Dryer from ART Mechatronics for durian, mango, herb, coffee and pet-treat lines in Thailand; Pattaya office, Chonburi service team."
   },
   {
    "slug": "chiller",
    "priority": 36,
-   "founderLabel": "CHILLER W COOLING TOWER"
+   "founderLabel": "CHILLER W COOLING TOWER",
+   "intro": "A Chiller cools process water or glycol, which then removes heat from tanks, moulds, kettles and cooling tunnels; ART supplies it with a Cooling Tower. Thai beverage, dairy, seafood, curry paste, chocolate, plastic moulding and rubber lines use chilled water because mains and well water are warm all year. Thai plants are supported by ART Mechatronics from its Pattaya office.",
+   "why": [
+    "Thailand's ambient heat means cooked curry paste, sauces and syrups need chilled water in Jacketed Tank and Cooling Tunnel stages.",
+    "Seafood, dairy and beverage plants use chilled water for washing, holding and the cooling side of ART's Pasteurizer and Heat Exchanger.",
+    "Humid air limits how much a Cooling Tower alone can cool water, so the Chiller takes the final step in Thai conditions.",
+    "Service from Chonburi, within reach of the food, beverage and plastics plants around Bangkok and the Eastern Seaboard."
+   ],
+   "desc": "Chiller with Cooling Tower from ART Mechatronics for beverage, dairy, seafood, curry paste and plastics plants in Thailand; service from Chonburi."
   },
   {
    "slug": "dehumidifier",
    "priority": 37,
-   "founderLabel": "DEHUMIDIFER"
+   "founderLabel": "DEHUMIDIFER",
+   "intro": "A Dehumidifier pulls water vapour out of room or process air so powders, dried goods and packaging stay dry. In Thailand it is used in snack, rice cracker, seasoning, sugar, tapioca starch, desiccated coconut and pharmaceutical plants where humid air makes powders cake, snacks soften and cold-room stock sweat. ART Mechatronics supports Thai plants from its South-East Asia marketing office in Pattaya.",
+   "why": [
+    "Seasoning powders, sugar, MSG and tapioca starch cake in Thailand's humid months; dry air in the packing area keeps them free-flowing.",
+    "Seaweed snacks, rice crackers and desiccated coconut soften in humid air between the dryer and the Vertical Form Fill Seal (Vffs).",
+    "Stock leaving ART's Cold Storage/ Cold Room sweats in monsoon air; a Dehumidifier and Air Handling Unit keep the ante-room dry.",
+    "ART's service team in Chonburi, on the Eastern Seaboard industrial belt, handles after-sales support for Thai plants."
+   ],
+   "desc": "Dehumidifier from ART Mechatronics for snack, seasoning, sugar, starch and pharma plants in Thailand where humid air affects product; support from Pattaya."
   },
   {
    "slug": "plc-automation-control-panel",
    "priority": 38,
-   "founderLabel": "PLC CONTROL PANEL"
+   "founderLabel": "PLC CONTROL PANEL",
+   "intro": "The PLC Automation Control Panel is the control cabinet that runs a processing line: it starts, stops, sequences and monitors motors, dryers, mixers, conveyors and packing machines from one screen. Thai rice, seafood, snack, coconut and feed plants use it to tie separate machines into one line. For Thai plants, ART Mechatronics takes enquiries at its Pattaya marketing office and sends service staff from Chonburi.",
+   "why": [
+    "Links ART's Fluidized Bed Dryer – FBD, Ribbon Mixer, Bucket Elevator and Vertical Form Fill Seal (Vffs) into one line.",
+    "Batch settings for dryers and mixers can be held on the panel, so operators repeat a run when humid air alters product.",
+    "Suits multi-product Thai plants: one panel can hold settings for rice snacks, seasoning blends and coconut powder runs.",
+    "Programme changes and fault checks can be attended by ART's service team based in Chonburi."
+   ],
+   "desc": "PLC Automation Control Panel for Thai food and feed lines: run dryers, mixers and packing from one screen. ART Mechatronics, Pattaya office, Thailand."
   },
   {
    "slug": "silo",
    "priority": 39,
-   "founderLabel": "SILO"
+   "founderLabel": "SILO",
+   "intro": "A Silo stores bulk material in a closed vessel and discharges it into the line on demand, so a plant can buy, dry and process in separate steps. In Thailand it is used for paddy and milled rice, tapioca starch, sugar, flour and animal feed. Enquiries from Thai plants are handled by ART Mechatronics' marketing office in Pattaya.",
+   "why": [
+    "Keeps rice, tapioca starch and feed ingredients off the floor and away from monsoon rain, pests and forklift damage.",
+    "Lets a plant buy paddy, cassava chips or sugar in season and draw them down steadily through the year.",
+    "Fills from a Bucket Elevator or Pneumatic Conveyor and discharges to a Screw Conveyor, Day Bin or Weighing & Dosing unit.",
+    "Site visits and after-sales inspection are handled by ART's service team in Chonburi."
+   ],
+   "desc": "Silo for bulk storage of rice, tapioca starch, sugar and feed in Thailand. ART Mechatronics builds in India and supports Thai plants from Pattaya."
   },
   {
    "slug": "conveyor-belt",
    "priority": 40,
-   "founderLabel": "BELT CONVEYOR"
+   "founderLabel": "BELT CONVEYOR",
+   "intro": "The Conveyor Belt carries product on a moving belt between processing stages, whether loose grain, wet seafood, washed vegetables or packed cartons. Thai rice mills, seafood processors, fruit and vegetable packers and snack plants use it to link washing, cutting, drying and packing stations. ART Mechatronics answers Thai enquiries from its Pattaya marketing office and keeps a service team in Chonburi.",
+   "why": [
+    "Open belts suit wet product from Thai seafood and fruit lines, with a hygienic build for washdown areas.",
+    "Feeds ART's Washer, Slicer, Fryer and Continuous Conveyor, Tunnel Dryer, then carries packs to the Checkweigher With Printer.",
+    "A conveying and elevation assembly by ART has been photographed installed at a customer plant in Thailand.",
+    "Belt replacement and drive faults can be attended by ART's service team in Chonburi."
+   ],
+   "desc": "Conveyor Belt for Thai rice, seafood, vegetable and snack lines, moving product between stages. ART Mechatronics supports Thailand from Pattaya."
   },
   {
    "slug": "inclined-screw-conveyor",
    "priority": 41,
-   "founderLabel": "INCLINED SCREW CONVEYOR"
+   "founderLabel": "INCLINED SCREW CONVEYOR",
+   "intro": "An Inclined Screw Conveyor moves powder or granular material upward inside a closed tube or trough, turned by a helical screw, from a floor-level hopper to a mixer, dryer or packing machine above. In Thailand it carries tapioca starch, rice flour, sugar, seasoning powders, feed meal and coconut powder. For Thai plants, ART Mechatronics handles enquiries and support from its office in Pattaya.",
+   "why": [
+    "The closed body keeps tapioca starch, sugar and seasoning powder out of humid plant air and off the floor.",
+    "Lifts material from a Bag Dump Station or Hopper into a Ribbon Mixer, Paddle Mixer or Fluidized Bed Dryer – FBD.",
+    "Climbs steeper than a Conveyor Belt, so the lift fits a smaller footprint on a crowded plant floor.",
+    "Screw flight wear and gearbox checks can be done by ART's Chonburi service team."
+   ],
+   "desc": "Inclined Screw Conveyor for lifting tapioca starch, rice flour, sugar and feed powders in Thai plants. Built by ART Mechatronics, supported from Pattaya."
   },
   {
    "slug": "z-type-elevator",
    "priority": 42,
-   "founderLabel": "Z TYPE/ BUCKET ELEVATOR"
+   "founderLabel": "Z TYPE/ BUCKET ELEVATOR",
+   "intro": "The Z Type Elevator lifts product vertically in buckets that follow a Z-shaped path, so fragile pieces are carried rather than dragged. Thai snack, rice cracker, dried fruit, cashew and pet food lines use it to feed weighers and packing machines mounted above floor level. ART Mechatronics' Pattaya office is the contact point for Thai plants, backed by service staff in Chonburi.",
+   "why": [
+    "Fried snacks and rice crackers soften in humid air; a short lift from Cooling Conveyor to Multi Head Weigher limits exposure.",
+    "Buckets carry whole cashews, dried mango pieces and coated peanuts without pushing them along a surface.",
+    "Sits between ART's Cooling Conveyor or Vibratory Feeder and the Vertical Form Fill Seal (Vffs) packing head.",
+    "ART has a conveying and elevation assembly installed at a Thai customer plant, and its service team sits in Chonburi."
+   ],
+   "desc": "Z Type Elevator for lifting snacks, dried fruit, cashews and pet food to packing in Thai plants. ART Mechatronics, Pattaya office and Chonburi service."
   },
   {
    "slug": "vacuum-conveyor",
    "priority": 43,
-   "founderLabel": "VACUUM CONVEYOR"
+   "founderLabel": "VACUUM CONVEYOR",
+   "intro": "A Vacuum Conveyor moves powders, granules and small pieces through a sealed pipeline under suction, so material travels from bag or silo to mixer or filler without open handling. In Thailand it is used in tapioca starch, rice flour, desiccated coconut, seasoning, sugar and feed premix lines. ART Mechatronics' Pattaya office is the marketing contact for Thailand.",
+   "why": [
+    "Enclosed suction transfer limits exposure of moisture-sensitive powders such as tapioca starch, sugar and seasoning to Thailand's humid air between process steps.",
+    "Links a Bag Dump Station or Sifter to a Ribbon Mixer or Auger Filler on rice flour and coconut powder lines.",
+    "Sealed pipework contains dust from ground chilli, MSG, salt or feed premix; ART also supplies the Dust Collector Machine.",
+    "Service team based in Chonburi; the Pattaya office is ART's marketing contact for South-East Asia, with LINE available."
+   ],
+   "desc": "Vacuum Conveyor for Thailand: sealed suction transfer of starch, flour, coconut and seasoning powders. ART Mechatronics, Pattaya office, Chonburi service."
   }
  ],
  "hotProducts": [
