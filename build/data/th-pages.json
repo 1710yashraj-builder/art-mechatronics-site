@@ -1,4 +1,818 @@
 {
- "_note": "Thailand machine pages. Each entry becomes /th/<slug> — a Thailand-framed page for a product that exists in products.json (same slug). Order = the founder's priority list (top first). Fill from Anurag's 47-machine list; an empty list renders only the /th/ landing page.",
- "pages": []
+ "_note": "Thailand section data. pages = /th/<slug> machine pages generated from products.json (founder's HOT PRODUCTS order). hotProducts/hotIndustries = the founder's two priority lists (2026-09-17) rendered on /th/ in his order, each pointing at the right page.",
+ "pages": [
+  {
+   "slug": "dust-collector-machine",
+   "priority": 2,
+   "founderLabel": "DUST COLLECTOR W ALL FILTERS"
+  },
+  {
+   "slug": "paddle-mixer",
+   "priority": 4,
+   "founderLabel": "PADDLE/ DOUBLE RIBBON MIXER"
+  },
+  {
+   "slug": "agitator",
+   "priority": 5,
+   "founderLabel": "AGITATOR - LIQUID MIXER/ HOMOGENISER"
+  },
+  {
+   "slug": "planetary-mixer",
+   "priority": 6,
+   "founderLabel": "PLANETARY MIXER"
+  },
+  {
+   "slug": "coating-pan-mixer",
+   "priority": 7,
+   "founderLabel": "COATING PAN/ DRUM MIXER WITH HEATER"
+  },
+  {
+   "slug": "batch-type-hot-air-dryer",
+   "priority": 8,
+   "founderLabel": "BATCH DRYER"
+  },
+  {
+   "slug": "fluidized-bed-dryer-fbd",
+   "priority": 9,
+   "founderLabel": "FBD"
+  },
+  {
+   "slug": "rotary-dryer-drum-dryer",
+   "priority": 10,
+   "founderLabel": "ROTARY DRYER"
+  },
+  {
+   "slug": "tray-dryer-tray-oven",
+   "priority": 11,
+   "founderLabel": "TRAY OVEN"
+  },
+  {
+   "slug": "continuous-conveyor-tunnel-dryer",
+   "priority": 12,
+   "founderLabel": "CONTINUOUS TUNNEL DRYER"
+  },
+  {
+   "slug": "hot-air-generator",
+   "priority": 13,
+   "founderLabel": "HOT AIR GENERATOR W BURNER"
+  },
+  {
+   "slug": "cooking-kettle-boiling-tank",
+   "priority": 14,
+   "founderLabel": "COOKING KETTLE"
+  },
+  {
+   "slug": "fryer",
+   "priority": 15,
+   "founderLabel": "FRYER"
+  },
+  {
+   "slug": "blancher",
+   "priority": 16,
+   "founderLabel": "BLANCHER"
+  },
+  {
+   "slug": "de-stoner",
+   "priority": 17,
+   "founderLabel": "DESTONER W CYCLONE SEPARATOR"
+  },
+  {
+   "slug": "color-sorter",
+   "priority": 18,
+   "founderLabel": "COLOR SORTER"
+  },
+  {
+   "slug": "pre-cleaner",
+   "priority": 19,
+   "founderLabel": "PRE CLEANER/ GRADER/ SIFTER W BLOWER"
+  },
+  {
+   "slug": "vibro",
+   "priority": 20,
+   "founderLabel": "VIBRO SIFTER"
+  },
+  {
+   "slug": "washer",
+   "priority": 21,
+   "founderLabel": "WASHER W PEELER"
+  },
+  {
+   "slug": "pulverizer-with-dust-collector",
+   "priority": 22,
+   "founderLabel": "PULVERIZER - IMPACT & MICRO W DCS"
+  },
+  {
+   "slug": "wet-grinder",
+   "priority": 23,
+   "founderLabel": "WET GRINDER - COLLOID MILL"
+  },
+  {
+   "slug": "hammer-mill-machine",
+   "priority": 24,
+   "founderLabel": "HAMMER MILL"
+  },
+  {
+   "slug": "stone-mill-machine",
+   "priority": 25,
+   "founderLabel": "STONE MILL"
+  },
+  {
+   "slug": "extruder-machine",
+   "priority": 26,
+   "founderLabel": "EXTRUDER"
+  },
+  {
+   "slug": "expeller-machine",
+   "priority": 27,
+   "founderLabel": "EXPELLER"
+  },
+  {
+   "slug": "slicer",
+   "priority": 28,
+   "founderLabel": "SLICER, DICER"
+  },
+  {
+   "slug": "chopper",
+   "priority": 29,
+   "founderLabel": "SINGLE BIG KNIFE CHOPPER ON CONVEYOR"
+  },
+  {
+   "slug": "blade-cutter",
+   "priority": 30,
+   "founderLabel": "BLADE CUTTER W SEPARATOR"
+  },
+  {
+   "slug": "knife-cutter",
+   "priority": 31,
+   "founderLabel": "LEAF KNIVES CUTTER"
+  },
+  {
+   "slug": "seed-removal",
+   "priority": 32,
+   "founderLabel": "ROLLER SPLITTER/ SEED REMOVAL"
+  },
+  {
+   "slug": "shredder-machine",
+   "priority": 33,
+   "founderLabel": "SHREDDER W CYCLONE SEPARATOR"
+  },
+  {
+   "slug": "traditional-cutter",
+   "priority": 34,
+   "founderLabel": "TRADITIONAL CUTTER"
+  },
+  {
+   "slug": "freeze-dryer",
+   "priority": 35,
+   "founderLabel": "FREEZE DRYER"
+  },
+  {
+   "slug": "chiller",
+   "priority": 36,
+   "founderLabel": "CHILLER W COOLING TOWER"
+  },
+  {
+   "slug": "dehumidifier",
+   "priority": 37,
+   "founderLabel": "DEHUMIDIFER"
+  },
+  {
+   "slug": "plc-automation-control-panel",
+   "priority": 38,
+   "founderLabel": "PLC CONTROL PANEL"
+  },
+  {
+   "slug": "silo",
+   "priority": 39,
+   "founderLabel": "SILO"
+  },
+  {
+   "slug": "conveyor-belt",
+   "priority": 40,
+   "founderLabel": "BELT CONVEYOR"
+  },
+  {
+   "slug": "inclined-screw-conveyor",
+   "priority": 41,
+   "founderLabel": "INCLINED SCREW CONVEYOR"
+  },
+  {
+   "slug": "z-type-elevator",
+   "priority": 42,
+   "founderLabel": "Z TYPE/ BUCKET ELEVATOR"
+  },
+  {
+   "slug": "vacuum-conveyor",
+   "priority": 43,
+   "founderLabel": "VACUUM CONVEYOR"
+  }
+ ],
+ "hotProducts": [
+  {
+   "n": 1,
+   "label": "Complete Line",
+   "founderLabel": "COMPLETE LINE",
+   "href": "industries.html",
+   "target": "page"
+  },
+  {
+   "n": 2,
+   "label": "Dust Collector with All Filters",
+   "founderLabel": "DUST COLLECTOR W ALL FILTERS",
+   "href": "th/dust-collector-machine.html",
+   "slug": "dust-collector-machine",
+   "target": "th"
+  },
+  {
+   "n": 3,
+   "label": "Automated Mixing System",
+   "founderLabel": "AUTOMATED MIXING SYSTEM",
+   "href": "categories/mixing-blending.html",
+   "target": "category"
+  },
+  {
+   "n": 4,
+   "label": "Paddle/ Double Ribbon Mixer",
+   "founderLabel": "PADDLE/ DOUBLE RIBBON MIXER",
+   "href": "th/paddle-mixer.html",
+   "slug": "paddle-mixer",
+   "target": "th"
+  },
+  {
+   "n": 5,
+   "label": "Agitator - Liquid Mixer/ Homogeniser",
+   "founderLabel": "AGITATOR - LIQUID MIXER/ HOMOGENISER",
+   "href": "th/agitator.html",
+   "slug": "agitator",
+   "target": "th"
+  },
+  {
+   "n": 6,
+   "label": "Planetary Mixer",
+   "founderLabel": "PLANETARY MIXER",
+   "href": "th/planetary-mixer.html",
+   "slug": "planetary-mixer",
+   "target": "th"
+  },
+  {
+   "n": 7,
+   "label": "Coating Pan/ Drum Mixer With Heater",
+   "founderLabel": "COATING PAN/ DRUM MIXER WITH HEATER",
+   "href": "th/coating-pan-mixer.html",
+   "slug": "coating-pan-mixer",
+   "target": "th"
+  },
+  {
+   "n": 8,
+   "label": "Batch Dryer",
+   "founderLabel": "BATCH DRYER",
+   "href": "th/batch-type-hot-air-dryer.html",
+   "slug": "batch-type-hot-air-dryer",
+   "target": "th"
+  },
+  {
+   "n": 9,
+   "label": "FBD",
+   "founderLabel": "FBD",
+   "href": "th/fluidized-bed-dryer-fbd.html",
+   "slug": "fluidized-bed-dryer-fbd",
+   "target": "th"
+  },
+  {
+   "n": 10,
+   "label": "Rotary Dryer",
+   "founderLabel": "ROTARY DRYER",
+   "href": "th/rotary-dryer-drum-dryer.html",
+   "slug": "rotary-dryer-drum-dryer",
+   "target": "th"
+  },
+  {
+   "n": 11,
+   "label": "Tray Oven",
+   "founderLabel": "TRAY OVEN",
+   "href": "th/tray-dryer-tray-oven.html",
+   "slug": "tray-dryer-tray-oven",
+   "target": "th"
+  },
+  {
+   "n": 12,
+   "label": "Continuous Tunnel Dryer",
+   "founderLabel": "CONTINUOUS TUNNEL DRYER",
+   "href": "th/continuous-conveyor-tunnel-dryer.html",
+   "slug": "continuous-conveyor-tunnel-dryer",
+   "target": "th"
+  },
+  {
+   "n": 13,
+   "label": "Hot Air Generator with Burner",
+   "founderLabel": "HOT AIR GENERATOR W BURNER",
+   "href": "th/hot-air-generator.html",
+   "slug": "hot-air-generator",
+   "target": "th"
+  },
+  {
+   "n": 14,
+   "label": "Cooking Kettle",
+   "founderLabel": "COOKING KETTLE",
+   "href": "th/cooking-kettle-boiling-tank.html",
+   "slug": "cooking-kettle-boiling-tank",
+   "target": "th"
+  },
+  {
+   "n": 15,
+   "label": "Fryer",
+   "founderLabel": "FRYER",
+   "href": "th/fryer.html",
+   "slug": "fryer",
+   "target": "th"
+  },
+  {
+   "n": 16,
+   "label": "Blancher",
+   "founderLabel": "BLANCHER",
+   "href": "th/blancher.html",
+   "slug": "blancher",
+   "target": "th"
+  },
+  {
+   "n": 17,
+   "label": "Destoner with Cyclone Separator",
+   "founderLabel": "DESTONER W CYCLONE SEPARATOR",
+   "href": "th/de-stoner.html",
+   "slug": "de-stoner",
+   "target": "th"
+  },
+  {
+   "n": 18,
+   "label": "Colour Sorter",
+   "founderLabel": "COLOR SORTER",
+   "href": "th/color-sorter.html",
+   "slug": "color-sorter",
+   "target": "th"
+  },
+  {
+   "n": 19,
+   "label": "Pre Cleaner/ Grader/ Sifter with Blower",
+   "founderLabel": "PRE CLEANER/ GRADER/ SIFTER W BLOWER",
+   "href": "th/pre-cleaner.html",
+   "slug": "pre-cleaner",
+   "target": "th"
+  },
+  {
+   "n": 20,
+   "label": "Vibro Sifter",
+   "founderLabel": "VIBRO SIFTER",
+   "href": "th/vibro.html",
+   "slug": "vibro",
+   "target": "th"
+  },
+  {
+   "n": 21,
+   "label": "Washer with Peeler",
+   "founderLabel": "WASHER W PEELER",
+   "href": "th/washer.html",
+   "slug": "washer",
+   "target": "th"
+  },
+  {
+   "n": 22,
+   "label": "Pulveriser - Impact & Micro with DCS",
+   "founderLabel": "PULVERIZER - IMPACT & MICRO W DCS",
+   "href": "th/pulverizer-with-dust-collector.html",
+   "slug": "pulverizer-with-dust-collector",
+   "target": "th"
+  },
+  {
+   "n": 23,
+   "label": "Wet Grinder - Colloid Mill",
+   "founderLabel": "WET GRINDER - COLLOID MILL",
+   "href": "th/wet-grinder.html",
+   "slug": "wet-grinder",
+   "target": "th"
+  },
+  {
+   "n": 24,
+   "label": "Hammer Mill",
+   "founderLabel": "HAMMER MILL",
+   "href": "th/hammer-mill-machine.html",
+   "slug": "hammer-mill-machine",
+   "target": "th"
+  },
+  {
+   "n": 25,
+   "label": "Stone Mill",
+   "founderLabel": "STONE MILL",
+   "href": "th/stone-mill-machine.html",
+   "slug": "stone-mill-machine",
+   "target": "th"
+  },
+  {
+   "n": 26,
+   "label": "Extruder",
+   "founderLabel": "EXTRUDER",
+   "href": "th/extruder-machine.html",
+   "slug": "extruder-machine",
+   "target": "th"
+  },
+  {
+   "n": 27,
+   "label": "Expeller",
+   "founderLabel": "EXPELLER",
+   "href": "th/expeller-machine.html",
+   "slug": "expeller-machine",
+   "target": "th"
+  },
+  {
+   "n": 28,
+   "label": "Slicer, Dicer",
+   "founderLabel": "SLICER, DICER",
+   "href": "th/slicer.html",
+   "slug": "slicer",
+   "target": "th"
+  },
+  {
+   "n": 29,
+   "label": "Single Big Knife Chopper On Conveyor",
+   "founderLabel": "SINGLE BIG KNIFE CHOPPER ON CONVEYOR",
+   "href": "th/chopper.html",
+   "slug": "chopper",
+   "target": "th"
+  },
+  {
+   "n": 30,
+   "label": "Blade Cutter with Separator",
+   "founderLabel": "BLADE CUTTER W SEPARATOR",
+   "href": "th/blade-cutter.html",
+   "slug": "blade-cutter",
+   "target": "th"
+  },
+  {
+   "n": 31,
+   "label": "Leaf Knives Cutter",
+   "founderLabel": "LEAF KNIVES CUTTER",
+   "href": "th/knife-cutter.html",
+   "slug": "knife-cutter",
+   "target": "th"
+  },
+  {
+   "n": 32,
+   "label": "Roller Splitter/ Seed Removal",
+   "founderLabel": "ROLLER SPLITTER/ SEED REMOVAL",
+   "href": "th/seed-removal.html",
+   "slug": "seed-removal",
+   "target": "th"
+  },
+  {
+   "n": 33,
+   "label": "Shredder with Cyclone Separator",
+   "founderLabel": "SHREDDER W CYCLONE SEPARATOR",
+   "href": "th/shredder-machine.html",
+   "slug": "shredder-machine",
+   "target": "th"
+  },
+  {
+   "n": 34,
+   "label": "Traditional Cutter",
+   "founderLabel": "TRADITIONAL CUTTER",
+   "href": "th/traditional-cutter.html",
+   "slug": "traditional-cutter",
+   "target": "th"
+  },
+  {
+   "n": 35,
+   "label": "Freeze Dryer",
+   "founderLabel": "FREEZE DRYER",
+   "href": "th/freeze-dryer.html",
+   "slug": "freeze-dryer",
+   "target": "th"
+  },
+  {
+   "n": 36,
+   "label": "Chiller with Cooling Tower",
+   "founderLabel": "CHILLER W COOLING TOWER",
+   "href": "th/chiller.html",
+   "slug": "chiller",
+   "target": "th"
+  },
+  {
+   "n": 37,
+   "label": "Dehumidifier",
+   "founderLabel": "DEHUMIDIFER",
+   "href": "th/dehumidifier.html",
+   "slug": "dehumidifier",
+   "target": "th"
+  },
+  {
+   "n": 38,
+   "label": "PLC Control Panel",
+   "founderLabel": "PLC CONTROL PANEL",
+   "href": "th/plc-automation-control-panel.html",
+   "slug": "plc-automation-control-panel",
+   "target": "th"
+  },
+  {
+   "n": 39,
+   "label": "Silo",
+   "founderLabel": "SILO",
+   "href": "th/silo.html",
+   "slug": "silo",
+   "target": "th"
+  },
+  {
+   "n": 40,
+   "label": "Belt Conveyor",
+   "founderLabel": "BELT CONVEYOR",
+   "href": "th/conveyor-belt.html",
+   "slug": "conveyor-belt",
+   "target": "th"
+  },
+  {
+   "n": 41,
+   "label": "Inclined Screw Conveyor",
+   "founderLabel": "INCLINED SCREW CONVEYOR",
+   "href": "th/inclined-screw-conveyor.html",
+   "slug": "inclined-screw-conveyor",
+   "target": "th"
+  },
+  {
+   "n": 42,
+   "label": "Z Type/ Bucket Elevator",
+   "founderLabel": "Z TYPE/ BUCKET ELEVATOR",
+   "href": "th/z-type-elevator.html",
+   "slug": "z-type-elevator",
+   "target": "th"
+  },
+  {
+   "n": 43,
+   "label": "Vacuum Conveyor",
+   "founderLabel": "VACUUM CONVEYOR",
+   "href": "th/vacuum-conveyor.html",
+   "slug": "vacuum-conveyor",
+   "target": "th"
+  },
+  {
+   "n": 44,
+   "label": "Pouch & Sachet Packaging",
+   "founderLabel": "POUCH & SACHET PACKAGING",
+   "href": "categories/packaging.html#pouch-sachet-stick",
+   "target": "category"
+  },
+  {
+   "n": 45,
+   "label": "Unit & Mono Carton Packaging",
+   "founderLabel": "UNIT & MONO CARTON PACKAGING",
+   "href": "categories/packaging.html#mono-unit-carton",
+   "target": "category"
+  },
+  {
+   "n": 46,
+   "label": "Bottle, Jar, Can, Cup, Tray Packaging",
+   "founderLabel": "BOTTLE, JAR, CAN, CUP, TRAY PACKAGING",
+   "href": "categories/packaging.html#can-tin-jar",
+   "target": "category"
+  },
+  {
+   "n": 47,
+   "label": "Auxiliary Packaging Items",
+   "founderLabel": "AUXILIARY PACKAGING ITEMS",
+   "href": "categories/packaging.html#auxiliary",
+   "target": "category"
+  }
+ ],
+ "hotIndustries": [
+  {
+   "n": 1,
+   "label": "Fruits, Veges, Herbs, Dry Fruits",
+   "founderLabel": "FRUITS, VEGES, HERBS, DRY FRUITS",
+   "href": "industries/fruit-and-vegetable.html"
+  },
+  {
+   "n": 2,
+   "label": "Rice",
+   "founderLabel": "RICE",
+   "href": "industries/rice.html"
+  },
+  {
+   "n": 3,
+   "label": "Sugar",
+   "founderLabel": "SUGAR",
+   "href": "industries/sugar.html"
+  },
+  {
+   "n": 4,
+   "label": "Spices, Seasoning, MSG, Salt, Sugar, Food Flavors",
+   "founderLabel": "SPICES, SEASONING, MSG, SALT, SUGAR, FOOD FLAVORS",
+   "href": "industries/spices.html"
+  },
+  {
+   "n": 5,
+   "label": "Meat Or Seafood Drying, Grinding, Processing",
+   "founderLabel": "MEAT OR SEAFOOD DRYING, GRINDING, PROCESSING",
+   "href": "industries/non-vegetarian-food.html"
+  },
+  {
+   "n": 6,
+   "label": "Agro - Tapioca, Corn Maize, Seeds, Pulses, Grains, Nuts",
+   "founderLabel": "AGRO - TAPIOCA, CORN MAIZE, SEEDS, PULSES, GRAINS, NUTS",
+   "href": "industries/agro-processing.html"
+  },
+  {
+   "n": 7,
+   "label": "Animal, Aqua, Pet, Poultry, Cattle, Fish Feed",
+   "founderLabel": "ANIMAL, AQUA, PET, POULTRY, CATTLE, FISH FEED",
+   "href": "industries/feed.html"
+  },
+  {
+   "n": 8,
+   "label": "Curry Paste, Puree",
+   "founderLabel": "CURRY PASTE, PUREE",
+   "href": "industries/curry-paste.html"
+  },
+  {
+   "n": 9,
+   "label": "Condiments - Sauces, Dips, Spreads, Syrup, Dressings",
+   "founderLabel": "CONDIMENTS - SAUCES, DIPS, SPREADS, SYRUP, DRESSINGS,",
+   "href": "industries/condiment.html"
+  },
+  {
+   "n": 10,
+   "label": "Tea, Coffee, Cocoa Powder",
+   "founderLabel": "TEA, COFFEE, COCOA POWDER",
+   "href": "industries/beverage.html"
+  },
+  {
+   "n": 11,
+   "label": "All Packed Snacks",
+   "founderLabel": "ALL PACKED SNACKS",
+   "href": "industries/snacks.html"
+  },
+  {
+   "n": 12,
+   "label": "Coconut - Powder, Copra, Pieces, Desiccated, Milk, Oil, Dried, Coal",
+   "founderLabel": "COCONUT - POWDER, COPRA, PIECES, DESICCATED, MILK, OIL, DRIED, COAL",
+   "href": "industries/coco-nut.html"
+  },
+  {
+   "n": 13,
+   "label": "Cashew Raw To Finished",
+   "founderLabel": "CASHEW RAW TO FINISHED",
+   "href": "industries/cashew-nut.html"
+  },
+  {
+   "n": 14,
+   "label": "Tobacco",
+   "founderLabel": "TOBACCO",
+   "href": "industries/tobacco.html"
+  },
+  {
+   "n": 15,
+   "label": "Bakery",
+   "founderLabel": "BAKERY",
+   "href": "industries/bakery.html"
+  },
+  {
+   "n": 16,
+   "label": "Pasta, Noodles, Vermicelli, Macaroni, Instant",
+   "founderLabel": "PASTA, NOODLES, VERMICELLI, MACARONI, INSTANT",
+   "href": "industries/pasta.html"
+  },
+  {
+   "n": 17,
+   "label": "Beverages",
+   "founderLabel": "BEVERAGES",
+   "href": "industries/beverage.html"
+  },
+  {
+   "n": 18,
+   "label": "Dairy & Milk",
+   "founderLabel": "DAIRY & MILK",
+   "href": "industries/dairy.html"
+  },
+  {
+   "n": 19,
+   "label": "Flour",
+   "founderLabel": "FLOUR",
+   "href": "industries/flour.html"
+  },
+  {
+   "n": 20,
+   "label": "Pharma & Neutra",
+   "founderLabel": "PHARMA & NEUTRA",
+   "href": "industries/pharmaceutical.html"
+  },
+  {
+   "n": 21,
+   "label": "Frozen Food",
+   "founderLabel": "FROZEN FOOD",
+   "href": "industries/frozen-food.html"
+  },
+  {
+   "n": 22,
+   "label": "Ready To Eat Packed Food (fresh, Frozen, To Fry, Instant)",
+   "founderLabel": "READY TO EAT PACKED FOOD (FRESH, FROZEN, TO FRY, INSTANT)",
+   "href": "industries/ready-to-eat.html"
+  },
+  {
+   "n": 23,
+   "label": "Meat Processing",
+   "founderLabel": "MEAT PROCESSING",
+   "href": "industries/meat.html"
+  },
+  {
+   "n": 24,
+   "label": "Chocolate, Sweets & Confectionary",
+   "founderLabel": "CHOCOLATE, SWEETS & CONFECTIONARY",
+   "href": "industries/confectionery.html"
+  },
+  {
+   "n": 25,
+   "label": "Edible Oil - Palm, Soy, Rice, Coco, Sunflower, Canola",
+   "founderLabel": "EDIBLE OIL - PALM, SOY, RICE, COCO, SUNFLOWER, CANOLA",
+   "href": "industries/edible-oil.html"
+  },
+  {
+   "n": 26,
+   "label": "Cosmetic Items",
+   "founderLabel": "COSMETIC ITEMS",
+   "href": "industries/cosmetic.html"
+  },
+  {
+   "n": 27,
+   "label": "Chemical - Powder & Liquid",
+   "founderLabel": "CHEMICAL - POWDER & LIQUID",
+   "href": "industries/chemical.html"
+  },
+  {
+   "n": 28,
+   "label": "Household Cleaning Products",
+   "founderLabel": "HOUSEHOLD CLEANING PRODUCTS",
+   "href": "industries/household-cleaning.html"
+  },
+  {
+   "n": 29,
+   "label": "Rubber Products",
+   "founderLabel": "RUBBER PRODUCTS",
+   "href": "industries/rubber.html"
+  },
+  {
+   "n": 30,
+   "label": "Perfume & Essential Oil",
+   "founderLabel": "PERFUME & ESSENTIAL OIL",
+   "href": "industries/perfume-and-essential-oil.html"
+  },
+  {
+   "n": 31,
+   "label": "Pellet - Wood, Biomass, Coal",
+   "founderLabel": "PELLET - WOOD, BIOMASS, COAL",
+   "href": "industries/pellet.html"
+  },
+  {
+   "n": 32,
+   "label": "Plastic Products & Plastic Recycling",
+   "founderLabel": "PLASTIC PRODUCTS & PLASTIC RECYCLING",
+   "href": "industries/plastic.html"
+  },
+  {
+   "n": 33,
+   "label": "Paint & Ink",
+   "founderLabel": "PAINT & INK",
+   "href": "industries/paint.html"
+  },
+  {
+   "n": 34,
+   "label": "Paper Products",
+   "founderLabel": "PAPER PRODUCTS",
+   "href": "industries/paper.html"
+  },
+  {
+   "n": 35,
+   "label": "Textile Products",
+   "founderLabel": "TEXTILE PRODUCTS",
+   "href": "industries/textile.html"
+  },
+  {
+   "n": 36,
+   "label": "Iron & Steel",
+   "founderLabel": "IRON & STEEL",
+   "href": "industries/iron-and-steel.html"
+  },
+  {
+   "n": 37,
+   "label": "Construction",
+   "founderLabel": "CONSTRUCTION",
+   "href": "industries/construction.html"
+  },
+  {
+   "n": 38,
+   "label": "Machinery Consultant/ Importer/ Dealer/ Trader/ Agent",
+   "founderLabel": "MACHINERY CONSULTANT/ IMPORTER/ DEALER/ TRADER/ AGENT",
+   "href": "partner.html"
+  },
+  {
+   "n": 39,
+   "label": "Food Processing",
+   "founderLabel": "FOOD PROCESSING",
+   "href": "industries.html"
+  }
+ ]
 }

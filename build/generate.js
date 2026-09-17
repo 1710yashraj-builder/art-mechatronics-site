@@ -1110,17 +1110,19 @@ function renderThIndex(thPages, ctx) {
     <div class="cat-grid">${photoCards}</div>
     <p><a href="${rel(base, "projects.html")}">See all recent projects →</a></p>
   </div></section>` : ""}
-  ${machines.length ? `<section class="md-section"><div class="wrap">
+  <section class="md-section"><div class="wrap">
     <span class="eyebrow">Machines for Thai processors</span>
     <h2>Machines we supply to Thailand</h2>
-    <div class="cat-grid">${machineCards}</div>
-  </div></section>` : `<section class="md-section"><div class="wrap">
+    <p class="lead">In the order Thai buyers ask for them most. Each opens the machine's Thailand page or its category.</p>
+    <ol class="th-list" style="columns:2;column-gap:2.5rem;padding-left:1.4rem;font-size:.95rem;line-height:1.5">${(TH_DATA.hotProducts || []).map((r) => `<li style="break-inside:avoid;margin:.2rem 0"><a href="${rel(base, r.href.replace(/#.*$/, ""))}${(r.href.match(/#.*$/) || [""])[0]}">${esc(r.label)}</a></li>`).join("")}</ol>
+  </div></section>
+  <section class="md-section"><div class="wrap">
     <span class="eyebrow">Lines we build</span>
     <h2>Processing lines for Thai manufacturers</h2>
-    <p class="lead">Complete lines — cleaning, processing, drying, packing and dust control — for the products Thai plants make most.</p>
-    <ul class="ig-list" style="columns:2;gap:2rem">${lines.map(([slug, label]) => `<li><a href="${rel(base, `industries/${slug}.html`)}">${esc(label)} processing plant &amp; machinery</a></li>`).join("")}</ul>
+    <p class="lead">Complete lines — cleaning, processing, drying, packing and dust control — by industry.</p>
+    <ol class="th-list" style="columns:2;column-gap:2.5rem;padding-left:1.4rem;font-size:.95rem;line-height:1.5">${(TH_DATA.hotIndustries || []).map((r) => `<li style="break-inside:avoid;margin:.2rem 0"><a href="${rel(base, r.href)}">${esc(r.label)}</a></li>`).join("")}</ol>
     <p><a href="${rel(base, "catalog.html")}">Browse all ${ctx.selectedProducts.length} machines →</a></p>
-  </div></section>`}
+  </div></section>
   ${thOfficeBlock(base)}
   ${thQuoteBand("right machine for your plant in Thailand")}`;
   const schema = { "@context": "https://schema.org", "@graph": [ORG_NODE, thOfficeSchema(), { "@type": "WebPage", "@id": `${abs("th/index.html")}#page`, url: abs("th/index.html"), name: "ART Mechatronics Thailand", about: { "@id": `${BRAND.site}/th/#office` } }, cr.schema] };
@@ -1142,7 +1144,7 @@ function renderThMachine(entry, p, ctx) {
   const main = `
   ${cr.html}
   <section class="mi-hero"><div class="wrap">
-    <span class="eyebrow">Thailand · ${esc(p.category || "Machinery")}</span>
+    <span class="eyebrow">Thailand · ${esc(p.category || "Machinery")}${entry.priority ? ` · Hot product #${entry.priority}` : ""}</span>
     <h1>${esc(name)} for Thailand</h1>
     <p class="lead">${esc(intro)}</p>
     <p>Supplied to plants in Thailand from ART's ${esc(TH.office.name)} in ${esc(TH.office.city)}, with a service team in ${esc(TH.serviceCity)}; designed and built in Kanpur, India.</p>
@@ -1780,7 +1782,8 @@ function industriesUsing(product) {
   }));
 }
 const ctx = { linkMachine, industriesUsing, selectedProducts: selProd, selectedIndustries: selInd };
-const TH_PAGES = JSON.parse(fs.readFileSync(path.join(ROOT, "build/data/th-pages.json"), "utf8")).pages || [];
+const TH_DATA = JSON.parse(fs.readFileSync(path.join(ROOT, "build/data/th-pages.json"), "utf8"));
+const TH_PAGES = TH_DATA.pages || [];
 for (const e of TH_PAGES) if (!selProd.some((x) => x.slug === e.slug)) throw new Error(`th-pages.json: no product with slug "${e.slug}"`);
 
 // clean output dirs
